@@ -1,0 +1,42 @@
+.main{
+	margin-top:100px;
+	
+}
+
+.boxed{
+	border: 2px solid #bcbcbc;
+	border-radius:10px;
+	padding-top:10px;
+	padding-left:20px;
+	padding-bottom:30px;
+	padding-right:10px;
+
+}
+ #b, #bu, h5{
+ 	display:inline-block;
+ }
+ 
+ #b{
+ 	float:right;
+ 	padding-right:10px;
+ }
+ 
+ .project {
+	border-style: solid;
+	border-color: #bcbcbc;
+	border-width: 1px;
+	border-radius: 10px;
+	padding-left:10px;
+	padding-right:1px;
+	padding-bottom:20px;
+}
+
+#yoyak {
+	font-size: 10pt;
+	color: gray;
+	font-weight: lighter;
+}
+
+#x, #y{
+	display:inline-block;
+}

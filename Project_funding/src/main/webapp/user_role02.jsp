@@ -4,78 +4,33 @@
 <html lang="en">
 
 <head>
+  <%@ include file="WEB-INF/inc/topbar.jsp" %>
   <meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-   	계정유형변경02
+   	프로젝트 지원내역02
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="./assets/css/material-kit.css?v=2.0.5" rel="stylesheet" />
+  <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="./assets/demo/demo.css" rel="stylesheet" />
+  <link href="resources/assets/demo/demo.css" rel="stylesheet" />
   <!-- index.css 참조 -->
-  <link href="./assets/css/index.css" rel="stylesheet" />
+  <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="./assets/css/apply_list.css" rel="stylesheet">
-  <link href="./assets/css/user_role02.css" rel="stylesheet">
+<link href="resources/assets/css/user_role02.css" rel="stylesheet">
   
   
 </head>
 
 <body class="index-page sidebar-collapse">
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-      <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">
-          PUDDING </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a href="#pablo" class="nav-link">프로젝트 등록</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#pablo" class="nav-link">프로젝트 찾기</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#pablo" class="nav-link">파트너스 목록</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#pablo" class="nav-link">이용 방법</a>
-                  </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                	<li class="nav-item" style="float: right;">
-                    	<a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
-                     	 	<i class="material-icons">email</i>
-                    	</a>
-                    </li>
-                    <li class="nav-item">
-                    <a href="#pablo" class="nav-link">Login</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#pablo" class="nav-link">Join</a>
-                  </li>
-               </ul>
-              </div>
-    </div>
-  </nav>
-
-	<div class="main main-raised" class="main">
-
+	<div class="main main-raised">
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
@@ -83,7 +38,7 @@
 					<a href="#">기본정보 수정하기</a>
 					<hr>
 					<div class="user_info">
-						<img src="assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
+						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
 						<div class="user_info">
 							<p>teemo</p>
 							<p>teemo@naver.com</p>

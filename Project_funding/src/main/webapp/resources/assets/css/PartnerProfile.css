@@ -1,0 +1,30 @@
+
+.intro{
+	display:inline-block;
+	
+}
+.button_position{
+	display:inline-block;
+}
+.partnerTitle{
+	min-height : 32px;
+}
+
+.p_font a {
+	color: black;
+}
+
+.p_list:hover{
+	background-color:#D8D8D8;
+}
+.p_list {
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.p_font a:active {
+	color: red;
+}
+
+
+	

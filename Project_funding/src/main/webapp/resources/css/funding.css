@@ -1,0 +1,28 @@
+.main{
+	margin-top:100px;
+	
+}
+
+#bou{
+	 border-style: solid;
+	 border-radius:10px;
+	 border-width:1px;
+	 padding:5px 5px 5px 5px;
+	 border-color: silver;
+}
+
+th{
+	background:silver;
+	
+}
+
+#ta{
+	border-right:none;
+
+	border-left:none;
+	
+	border-top:none;
+	
+	border-bottom:none;
+
+}
