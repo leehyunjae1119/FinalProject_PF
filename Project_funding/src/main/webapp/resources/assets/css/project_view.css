@@ -1,0 +1,127 @@
+.project_view_container {
+	margin-top: 150px;
+	width: 80%;
+	margin-left: 10%;
+}
+
+.view_title {
+	margin-left: 10%;
+	text-align: center;
+}
+
+.view_title2 p, .view_title2 span, #suppert {
+	display: inline-block;
+}
+
+#row {
+	display: inline-block;
+	width: 100%;
+}
+
+.view_title2 span, #support {
+	float: right;
+}
+
+#support {
+	margin-left: 20px;
+}
+
+#col2, #col10 {
+	display: inline-block;
+}
+
+#col2 {
+	float: right;
+	width: 20%;
+	border: dotted 1px #ccc;
+	margin-left: 30px;
+	height: 550px;
+}
+
+#col10 {
+	float: left;
+}
+
+.client_container {
+	margin-top: 10px;
+}
+
+.client_container p {
+	font-size: 15px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.client_img img {
+	width: 180px;
+	height: 180px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.client_img {
+	border-bottom: 1px solid #ccc;
+}
+
+.star {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.project_area p {
+	display: inline-block;
+}
+
+#p {
+	float: right;
+}
+
+#p2 {
+	float: right;
+} 
+
+.project_area {
+	border-bottom: 1px solid #ccc;
+}
+
+.total_money {
+	margin-top: 10px;
+}
+
+.money {
+	float: right;
+}
+
+.project_money img, .project_money p {
+	display: inline-block;
+}
+
+.project_time img, .project_time p {
+	display: inline-block;
+}
+
+.project_support img, .project_support p {
+	display: inline-block;
+}
+
+.project_money, .project_time, .project_support {
+	display: inline-block;
+}
+
+.project_money img, .project_time img, .project_support img {
+	width: 20px;
+}
+
+.project_time {
+	text-align: center;
+}
+
+.project_support {
+	float: right;
+}
+
+
+
+
+

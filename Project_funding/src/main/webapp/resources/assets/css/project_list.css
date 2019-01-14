@@ -1,0 +1,139 @@
+#col10 {
+	display: inline-block;
+}
+
+.container_title {
+	width: 80%;
+	border-bottom: solid 1px #ccc;
+	margin-left: 10%;
+	margin-bottom: 5%;
+}
+
+.list_container {
+	margin-top: 150px;
+}
+
+.list_container2 {
+	margin-left: 10%;
+	display: inline-block;
+}
+
+.project_list {
+	display: inline-block;
+	float: right;
+	padding-top: 10px;
+}
+
+h3 {
+	display: inline-block;
+}
+
+.project_category {
+	margin-top: 60px;
+}
+
+.project_cate {
+	margin-bottom: 30px;
+}
+
+
+.search_button {
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+
+.btn {
+	width: 100px;
+	height: 35px;
+}
+
+.project_cate2 {
+	padding-left: 15px;
+}
+
+.project_content_form {
+	border: dotted 1px #ccc;
+	margin-bottom: 30px;
+	padding-left: 10px;
+	height: 220px;
+}
+
+#list_col {
+	display: inline-block;
+}
+
+#col8 {
+	display: inline-block;
+}
+
+.project_content_detail {
+	text-overflow: hidden;
+	height: 122px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 700px;
+	display: inline-block;
+}
+
+#list_col {
+	margin-left: 8%;
+}
+
+.project_money img, .project_time img, .project_support img {
+	width: 20px;
+	display: inline-block;
+}
+
+.project_money, .project_time, .project_support {
+	display: inline-block;
+}
+
+.project_money p, .project_time p, .project_support p {
+	display: inline-block;
+}
+
+#detail {
+	width: 80%px;
+	display: inline-block;
+	height: 120px;
+	font-size: 12px;
+}
+
+.project_time {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.end_date {
+	display: inline-block;
+	width: 19%;
+	padding-left: 20px;
+	vertical-align: top;
+}
+
+.end_date img {
+	width: 20px;
+	display: inline-block;
+}
+
+.end_date p {
+	display: inline-block;
+	font-size: 12px;
+}
+
+.c_detail {
+	height: 120px;
+}
+
+.project_content_form a {
+	color: black;
+}
+
+.project_array_2 a {
+	color: black;
+}
+
+#pagination {
+	margin-top: 100px;
+	margin-left: 23%;
+}
