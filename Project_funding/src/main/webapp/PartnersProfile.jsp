@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <%@ include file="WEB-INF/inc/topbar.jsp" %>
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %>
 <link href="resources/assets/css/project_insert.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -28,11 +28,10 @@
  	 <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
   	<!-- CSS Just for demo purpose, don't include it in your project -->
   	<link href="resources/assets/demo/demo.css" rel="stylesheet" /> 
-  	 	<link href="resources/assets/css/PartnerProfile.css" rel="stylesheet" />
   	
-<!-- fontawesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-</head>
+	<!-- fontawesome -->
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	</head>
 
 <body class="index-page sidebar-collapse">
 

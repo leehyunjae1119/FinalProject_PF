@@ -22,6 +22,7 @@
                 <ul class="navbar-nav">
                   <li class="nav-item" id="item1">
                   </li>
+                  
                   <li class="nav-item">
                     <a href="#pablo" class="nav-link">프로젝트 등록</a>
                   </li>
