@@ -8778,7 +8778,8 @@ a.text-dark:focus {
 }
 
 body {
-  background-color: #FFFFFF;
+/*   background-color: #FFFFFF; */
+  background-color: currentColor;
 }
 
 a:focus {
@@ -16148,6 +16149,7 @@ footer {
   /* Safari */
   /* Safari 6.1+ */
   display: flex;
+  color: white;
 }
 
 footer ul {
