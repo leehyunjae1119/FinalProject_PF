@@ -47,7 +47,44 @@
        					<p class="text-muted">모집 마감&nbsp;&nbsp;&nbsp;2019년 1월 1일</p>
        				</div>
        			</div>
+       			<div class="project_title3">
+       				<div class="insert_date">
+       					<p class="text-muted">등록일&nbsp;&nbsp;&nbsp;2019년 1월 1일</p>
+       				</div>
+       				<div class="start_date">
+       					<p class="text-muted">예상 시작일&nbsp;&nbsp;&nbsp;2019년 2월 1일</p>
+       				</div>
+       				<div class="interest_project">
+       					<img src="resources/css/img/heart.PNG" id="heart" />
+       					<p class="text-muted">관심 프로젝트 추가하기</p>
+       				</div>
+       			</div>
+       			<hr />
+       			
 			</div>
+			<div class="project_content">
+				<p class="text-muted" id="detail">
+       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
+						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
+						- 프로젝트 대금 지급 : 월 단위 지급
+
+						모집 인원 : 1명
+						- 3년 차 이상 : 1명 (월 500만 원)
+						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
+
+
+						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
+						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
+						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
+						출근 예정일 : 협의 후 결정할 예정입니다.
+						4) 식사 지원 : 중식 제공합니다.
+						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
+						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
+
+						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
+       						</p>
+			</div>
+			
 		</div>
 		<div class="col-md-3" id="col2">
 			<div class="client_container">
@@ -75,6 +112,8 @@
 				<p class="text-muted">100,000원</p>
 			</div>
 		</div>
+		
+		
 	</div>
 </div>
 

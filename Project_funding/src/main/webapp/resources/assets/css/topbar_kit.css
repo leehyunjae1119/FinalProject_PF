@@ -4376,6 +4376,7 @@ tbody.collapse.show {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
     flex-basis: auto;
+    padding-left: 20px;
   }
   .navbar-expand-lg .navbar-toggler {
     display: none;
@@ -14216,9 +14217,9 @@ textarea {
 
 .navbar.navbar-transparent {
   box-shadow: none;
-  padding-top: 25px;
   color: #fff;
   background-color: black;
+  height: 70px;
 }
 
 

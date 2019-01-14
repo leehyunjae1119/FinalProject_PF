@@ -114,14 +114,42 @@
 }
 
 .project_time {
-	text-align: center;
+	margin-left: 20%;
 }
 
 .project_support {
 	float: right;
 }
 
+.project_title3 img {
+	width: 25px;
+}
 
+.project_title3 p, .project_title3 img {
+	display: inline-block;
+}
 
+.start_date {
+	display: inline-block;
+}
 
+.project_title2 {
+	height: 25px;
+}
+
+.project_title3 {
+	height: 25px;
+}
+
+.insert_date, .start_date, .interest_project {
+	display: inline-block;
+}
+
+.start_date {
+	margin-left: 15%;
+}
+
+.interest_project {
+	margin-left: 15%;
+}
 
