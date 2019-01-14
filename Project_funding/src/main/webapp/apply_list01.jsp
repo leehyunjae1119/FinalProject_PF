@@ -112,19 +112,7 @@
 			</div>
 		</div>
 	</div>
-	 <footer class="footer" data-background-color="gray">
-    <div class="container">
-      <nav class="float-left">
-        <div class="col-md-8 ml-auto mr-auto">
-            <h2>Completed with examples</h2>
-            <h4>The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go. More importantly, looking at them will give you a picture of what you can built with this powerful kit.
-            <br />
-            &copy;김이박
-            </h4>
-        </div>
-      </nav>
-    </div>
-  </footer>
+	 <%@ include file="WEB-INF/inc/footer.jsp" %>
 		
 		
   </body>
