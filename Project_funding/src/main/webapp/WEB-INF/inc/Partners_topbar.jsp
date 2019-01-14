@@ -63,10 +63,7 @@
       </div>
    </nav>
 
-   <nav
-      class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
-      id="sectionsNav"
-      style="background-color: #D5D5D5; margin-top: 85px; height: 60px;">
+   <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" id="sectionsNav"  style="background-color: #D5D5D5; margin-top: 85px; height: 60px;">
       <div class="container">
          <div class="navbar-translate" style="width: 100px;">
             <button class="navbar-toggler" type="button" data-toggle="collapse"
