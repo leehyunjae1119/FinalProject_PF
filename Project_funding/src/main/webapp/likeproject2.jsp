@@ -101,22 +101,22 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="./css/img/heart.PNG" alt="HEART"
+									src="resources/css/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
 								&nbsp&nbsp
 								<img
-									src="./css/img/mo.PNG" alt="mo"
+									src="resources/css/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="./css/img/da.PNG" alt="da"
+									src="resources/css/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="./css/img/fi.PNG" alt="fi"
+									src="resources/css/img/date.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
@@ -136,22 +136,22 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="./css/img/heart.PNG" alt="HEART"
+									src="resources/css/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
 								&nbsp&nbsp
 								<img
-									src="./css/img/mo.PNG" alt="mo"
+									src="resources/css/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="./css/img/da.PNG" alt="da"
+									src="resources/css/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="./css/img/fi.PNG" alt="fi"
+									src="resources/css/img/date.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
@@ -163,7 +163,7 @@
 							</div>
 						</div>
 						<br>
-						<div class="project">
+												<div class="project">
 							<div>
 								<h5>
 									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
@@ -171,22 +171,22 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="./css/img/heart.PNG" alt="HEART"
+									src="resources/css/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
 								&nbsp&nbsp
 								<img
-									src="./css/img/mo.PNG" alt="mo"
+									src="resources/css/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="./css/img/da.PNG" alt="da"
+									src="resources/css/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="./css/img/fi.PNG" alt="fi"
+									src="resources/css/img/date.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
@@ -198,7 +198,7 @@
 							</div>
 						</div>
 						<br>
-						<div class="project">
+												<div class="project">
 							<div>
 								<h5>
 									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
@@ -206,22 +206,22 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="./css/img/heart.PNG" alt="HEART"
+									src="resources/css/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
 								&nbsp&nbsp
 								<img
-									src="./css/img/mo.PNG" alt="mo"
+									src="resources/css/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="./css/img/da.PNG" alt="da"
+									src="resources/css/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="./css/img/fi.PNG" alt="fi"
+									src="resources/css/img/date.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
@@ -232,6 +232,42 @@
 									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
 							</div>
 						</div>
+						<br>
+												<div class="project">
+							<div>
+								<h5>
+									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
+											프레임워크 웹 어플리케이션 개발자 양성과정</strong></a>
+								</h5>
+								<span class="badge badge-pill badge-success">모집중</span>
+							    <img
+									src="resources/css/img/heart.PNG" alt="HEART"
+									style="height: 30px; wedth: 30px;" id="img2">
+
+							</div>
+							<div>
+								&nbsp&nbsp
+								<img
+									src="resources/css/img/money.png" alt="mo"
+									style="height: 20px; wedth: 35px;" id="img3">
+									<b>500000원</b>
+								<img
+									src="resources/css/img/time.png" alt="da"
+									style="height: 23px; wedth: 37px;" id="img4">
+									<b>150일</b>
+								<img
+									src="resources/css/img/date.png" alt="fi"
+									style="height: 23px; wedth: 37px;" id="img5">
+									<b>2019.05.25</b>
+							</div>
+
+							<div class="a">
+								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
+										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
+									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
+							</div>
+						</div>
+						
 						<br>
 						<ul class="pagination pagination-info" style="padding-left:230px;">
                 <li class="page-item">

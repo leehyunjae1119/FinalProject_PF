@@ -94,7 +94,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="./css/img/fuck.PNG"
+									<img src="resources/css/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -132,7 +132,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="./css/img/fuck.PNG"
+									<img src="resources/css/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -170,7 +170,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="./css/img/fuck.PNG"
+									<img src="resources/css/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -208,7 +208,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="./css/img/fuck.PNG"
+									<img src="resources/css/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -246,7 +246,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="./css/img/fuck.PNG"
+									<img src="resources/css/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>

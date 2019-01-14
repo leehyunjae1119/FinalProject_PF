@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+<%@ include file="WEB-INF/inc/investorTopbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -89,9 +89,9 @@
 						<hr>
 
 						<div id="bou" style="text-align:center">
-							<img alt="money" src="./css/img/money.png"><b>예상금액</b> <b>500,000
-								원 &nbsp&nbsp</b> <img alt="time" src="./css/img/time.png" ><b>예상기간</b>
-							<b>120 일 &nbsp&nbsp</b> <img alt="date" src="./css/img/date.png"><b>모집마감</b>
+							<img alt="money" src="resources/css/img/money.png"><b>예상금액</b> <b>500,000
+								원 &nbsp&nbsp</b> <img alt="time" src="resources/css/img/time.png" ><b>예상기간</b>
+							<b>120 일 &nbsp&nbsp</b> <img alt="date" src="resources/css/img/date.png"><b>모집마감</b>
 							<b>2019.2.8 &nbsp&nbsp</b>
 						</div>
 
