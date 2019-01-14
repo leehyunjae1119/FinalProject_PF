@@ -1,0 +1,33 @@
+.main{
+	margin-top:100px;
+	
+}
+
+#img2, h5{
+	
+	display:inline-block;
+	
+}
+
+#img2{
+
+	float:right;
+	padding-right: 5px;
+	padding-top:5px;
+}
+
+#yoyak {
+	font-size: 10pt;
+	color: gray;
+	font-weight: lighter;
+}
+
+#img3, #img4, #img5{
+	display:inline-block;	
+}
+.a{
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
