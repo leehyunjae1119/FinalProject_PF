@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="WEB-INF/inc/topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
-	href="./assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="./assets/img/favicon.png">
+	href="resources/assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Project Funding</title>
 <meta
@@ -18,12 +19,12 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
-<link href="./assets/css/material-kit.css?v=2.0.5" rel="stylesheet" />
+<link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="./assets/demo/demo.css" rel="stylesheet" />
+<link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="./assets/css/index.css" rel="stylesheet" />
-<link href="./src/main/webapp/resources/css/coinmanage.css" rel="stylesheet" />
+<link href="resources/assets/css/index.css" rel="stylesheet" />
+<link href="resources/css/coinmanage.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -47,45 +48,6 @@
 <body>
 <body class="index-page sidebar-collapse">
 
-	<!-- 메뉴바 고정 -->
-	<nav class="navbar fixed-top navbar-expand-lg" id="sectionsNav">
-		<div class="container">
-			<div class="navbar-translate">
-				<a class="navbar-brand"
-					href="https://demos.creative-tim.com/material-kit/index.html">
-					Puding </a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="#pablo" class="nav-link">프로젝트
-							등록</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">프로젝트
-							찾기</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">파트너스
-							목록</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">이용
-							방법</a></li>
-				</ul>
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item" style="float: right;"><a href="#pablo"
-						class="btn btn-rose btn-raised btn-fab btn-round"
-						data-toggle="dropdown"> <i class="material-icons">email</i>
-					</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Login</a>
-					</li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Join</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
 	<!-- 바탕 바꾸는곳 -->
 	<div class="main main-raised">
 		<!-- 나의푸딩 프로필부분 -->
@@ -105,7 +67,7 @@
 									</button>
 								</h6>
 								<div style="position: relative; left: 30px;">
-									<img src="./assets/img/faces/avatar.jpg" alt="Circle Image"
+									<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
 										class="rounded-circle img-fluid"
 										style="height: 80px; wedth: 80px;"> <br> <b
 										style="position: relative; left: 20px;">wooju</b> <br> <b
@@ -281,21 +243,21 @@
 		</div>
 	</footer>
 	<!--   Core JS Files   -->
-	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="./assets/js/core/bootstrap-material-design.min.js"
+	<script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="resources/assets/js/core/bootstrap-material-design.min.js"
 		type="text/javascript"></script>
-	<script src="./assets/js/plugins/moment.min.js"></script>
+	<script src="resources/assets/js/plugins/moment.min.js"></script>
 	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-	<script src="./assets/js/plugins/bootstrap-datetimepicker.js"
+	<script src="resources/assets/js/plugins/bootstrap-datetimepicker.js"
 		type="text/javascript"></script>
 	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="./assets/js/plugins/nouislider.min.js"
+	<script src="resources/assets/js/plugins/nouislider.min.js"
 		type="text/javascript"></script>
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-	<script src="./assets/js/material-kit.js?v=2.0.5"
+	<script src="resources/assets/js/material-kit.js?v=2.0.5"
 		type="text/javascript"></script>
 	<script>
 				$(document).ready(function() {
