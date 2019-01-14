@@ -66,7 +66,7 @@
 	<nav
 		class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
 		id="sectionsNav"
-		style="background-color: #D5D5D5; margin-top: 85px; height: 60px;">
+		style="background-color: #D5D5D5; margin-top: 70px; height: 55px;">
 		<div class="container">
 			<div class="navbar-translate" style="width: 100px;">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -82,11 +82,11 @@
 				<ul class="navbar-nav" style="color:black;">
 					<li class="nav-item" id="item1"></li>
 					<li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
-						style="padding-top: 5px;">코인 관리</a></li>
+						style="padding-top: 17px;">코인 관리</a></li>
 					<li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
-						style="padding-top: 5px;">계정 유형 변경 신청</a></li>
+						style="padding-top: 17px;">계정 유형 변경 신청</a></li>
 					<li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
-						style="padding-top: 5px;">투자한 프로젝트</a></li>
+						style="padding-top: 17px;">투자한 프로젝트</a></li>
 				</ul>
 			</div>
 	</nav>
