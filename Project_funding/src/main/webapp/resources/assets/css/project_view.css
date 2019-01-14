@@ -1,5 +1,5 @@
 .project_view_container {
-	margin-top: 150px;
+	margin-top: 100px;
 	width: 80%;
 	margin-left: 10%;
 }
@@ -9,7 +9,7 @@
 	text-align: center;
 }
 
-.view_title2 p, .view_title2 span, #suppert {
+.view_title2 p, .view_title2 span, #support {
 	display: inline-block;
 }
 
@@ -114,14 +114,62 @@
 }
 
 .project_time {
-	text-align: center;
+	margin-left: 20%;
 }
 
 .project_support {
 	float: right;
 }
 
+.project_title3 img {
+	width: 25px;
+}
 
+.project_title3 p, .project_title3 img {
+	display: inline-block;
+}
 
+.project_title2 {
+	height: 25px;
+}
 
+.project_title3 {
+	height: 25px;
+}
 
+.insert_date, .start_date, .interest_project {
+	display: inline-block;
+}
+
+.insert_date {
+	margin-right: 10%;
+}
+
+/* .start_date { */
+/* 	margin-left: 15%; */
+/* } */
+
+.interest_project {
+	float: right;
+}
+
+.project_content {
+	height: 500px;
+}
+
+.free_img img {
+	width: 100px;
+	height: 100px;
+}
+
+.comment_container > h5 {
+	margin-bottom: 20px;
+}
+
+textarea, .free_img {
+	display: inline-block;
+}
+
+.comment_container {
+	margin-bottom: 100px;
+}
