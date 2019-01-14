@@ -36,7 +36,7 @@
 <body class="index-page sidebar-collapse">
 
 	<!-- 바탕 바꾸는곳 -->
-	<div class="main main-raised" style="margin-top:80px;">
+	<div class="main main-raised">
 		<!-- 나의푸딩 프로필부분 -->
 		<div class="section section-basic">
 			<div class="container">
