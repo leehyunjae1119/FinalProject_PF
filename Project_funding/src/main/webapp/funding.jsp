@@ -23,7 +23,7 @@
 <link href="./assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
 <link href="./assets/css/index.css" rel="stylesheet" />
-<link href="./css/funding.css" rel="stylesheet" />
+<link href="./src/main/webapp/resources/css/funding.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
