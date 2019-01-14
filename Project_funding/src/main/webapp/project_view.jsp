@@ -82,7 +82,7 @@
 						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
 
 						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
+       			</p>
 			</div>
 			
 		</div>
@@ -112,9 +112,18 @@
 				<p class="text-muted">100,000원</p>
 			</div>
 		</div>
-		
-		
+
 	</div>
+	<hr />
+	<div class="comment_container">
+		<h5><b>프로젝트 문의</b></h5>
+		<div class="free_img">
+			<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
+		</div>
+		<textarea rows="4" cols="100" name="content" style="margin-left: 30px; vertical-align: middle;"></textarea>
+		<button class="btn">등록하기</button>
+	</div>
+	
 </div>
 
 </body>
