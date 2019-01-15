@@ -44,12 +44,15 @@
 						</div>
 					</div>
 					<hr>
-					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="#">지원자 모집 중</a> 
-						 <a class="btn btn-info btn-link" href="#">진행중인 프로젝트</a> 
-						 <a class="btn btn-info btn-link" href="#">완료한 프로젝트</a> 
-						 <a class="btn btn-info btn-link" href="#">계정유형 변경 신청</a>
-					</div>
+			       <div class="col-md-6">
+                   <a class="btn btn-info btn-link" href="#">내 프로필</a> 
+                   <a class="btn btn-info btn-link" href="#">계정 유형 변경 신청</a> 
+                   <a class="btn btn-info btn-link" href="#">미팅 관리</a> 
+                   <a class="btn btn-info btn-link" href="#">지원 내역</a>
+                   <a class="btn btn-info btn-link" href="#">진행중인 프로젝트</a>
+                   <a class="btn btn-info btn-link" href="#">완료한 프로젝트</a>
+               </div>
+
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
