@@ -28,21 +28,18 @@
  	 <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
   	<!-- CSS Just for demo purpose, don't include it in your project -->
   	<link href="resources/assets/demo/demo.css" rel="stylesheet" /> 
-  	<link href="resources/assets/css/infoupdate.css" rel="stylesheet" /> 
-  	
   	
 	<!-- fontawesome -->
 	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	</head>
 
 <body class="index-page sidebar-collapse">
-	<div class="main main-raised">
+
+	<div class="main main-raised" style="margin-top: 100px;">
 		<div class="section section-basic">
 			<div class="container">
-<<<<<<< HEAD
 				<div class="row">
-				<div class="col-md-3">
-					<div class="partnerTitle">
+					<div class="partnerTitle" style="width: 200px; height: 1700px; text-align: center;">
 						<div style="height:200px;">
 						<img src="resources/assets/img/project4.png" style="width: 100px;" />
 						<h4>이름 및 아이디</h4>
@@ -60,47 +57,27 @@
 							<div class="p_list"><a href=#>진행한 프로젝트</a></div>
 						
 						
-=======
-			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 						</div>
-					</div>
-<<<<<<< HEAD
-=======
-					<hr>
-					<div class="col-md-3">
-						 <a class="btn btn-info btn-link active" href="#">기본정보수정</a> 
-						 <a class="btn btn-info btn-link" href="#">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="#">계좌관리</a> 
-						 <a class="btn btn-info btn-link" href="#">회원탈퇴</a>
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 					</div>
 
-				</div>
-					<div class="col" style="margin-top: -30px; border:1px solid red;">
-					<div class="col-md-10" id="apply">
-							<h3><b>자기소개</b></h3>
-							<div class="button_position" style="float: right; border:1px solid red;">
-								<button class="btn btn-warning">업데이트 하기</button>
+					<div class="col-md-9" style="width: 1100px; height: 1500px; left:100px;">
+						<div class="ddd"
+							style="width: 820px; height: 200px; ">
+							<div class="intro"><h3><b>자기소개</b></h3></div>
+							<div class="button_position" style="float: right;">
+								<button class="btn btn-primary">업데이트 하기</button>
 							</div>
-							<p>
-							자기소개 
-							</p>
+							<br> <br>밥을 위해서는 옷을 위경해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을
+							위해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을 위해서는 미인을 구하기 위해서는 그랬는가? 밥을 위해서는
+							옷을 위해서는 미인을 구하기 위해서는 그랬는가? <br> <br>
+							<hr>
 						</div>
-						<br>
-						
-						<div>
+
+						<div class="ddd"
+							style="width: 820px; height: 550px; ">
 							<div class="intro"><b>보유기술</b></div>
 							<div class="button_position" style="float: right;">
-								<button class="btn btn-warning">업데이트 하기</button>
+								<button class="btn btn-primary">업데이트 하기</button>
 							</div>
 							<br> <br>
 							<table class="table table-striped">
@@ -292,12 +269,23 @@
 							 <br> <br>
 						</div>
 					</div>
-					</div>
 				</div>
 			</div>
 		</div>
-	
-	
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<!-- footer 부분 -->
 	<%@ include file="WEB-INF/inc/footer.jsp" %>
 	<!--   Core JS Files   -->

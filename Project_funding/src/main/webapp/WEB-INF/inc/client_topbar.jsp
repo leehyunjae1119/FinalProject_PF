@@ -27,8 +27,7 @@
       id="sectionsNav">
       <div class="container">
          <div class="navbar-translate">
-            <img src="resources/assets/img/main_Icon_white.png" id="main_logo"
-               style="width: 100px;" />
+            <a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                aria-expanded="false" aria-label="Toggle navigation">
                <span class="sr-only">Toggle navigation</span> <span
@@ -86,11 +85,11 @@
                   style="padding-top: 17px;">검수 중</a></li>
                <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_ing.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">진행중인 프로젝트</a></li>
-                  <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+                  <li class="nav-item"><a href="project_end.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">완료한 프로젝트</a></li>
-                  <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+                  <li class="nav-item"><a href="user_typeUpdate.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">계정 유형 변경 신청</a></li>
             </ul>
          </div>
