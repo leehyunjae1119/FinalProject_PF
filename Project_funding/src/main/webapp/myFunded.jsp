@@ -6,8 +6,8 @@
 <%@ include file="WEB-INF/inc/topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
-	href="resources/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
+	href="./assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="./assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Project Funding</title>
 <meta
@@ -21,10 +21,9 @@
 <!-- CSS Files -->
  <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="resources/assets/demo/demo.css" rel="stylesheet" />
+<link href="./assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="./src/main/webapp/resources/css/likeproject.css" rel="stylesheet" />
-<link href="resources/css/coinmanage.css" rel="stylesheet" />
+<link href="resources/css/myFunded.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -43,46 +42,46 @@
 <body class="index-page sidebar-collapse">
 
 	<!-- 바탕 바꾸는곳 -->
-	<div class="main main-raised" style="margin-top:80px;">
+	<div class="main main-raised">
 		<!-- 나의푸딩 프로필부분 -->
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-				<div class="col-sm-4">
-				
-					<div class="center-block">
-						<div class="title">
-							<h6>
-								파트너스
-								<button class="btn btn-primary btn-link" style="color: skyblue;">
-									개인정보수정
+				<div class="col-sm-3" style="padding-right: 90px;">
+
+						<div class="center-block">
+							<div class="sidebar">
+								<b> 투자자 </b> <a href="#"
+									style="font-size: 13px; color: skyblue; float: right;">기본정보
+									수정하기</a>
+								<br>
+								<hr>
+								<div align="center">
+									<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
+										class="rounded-circle img-fluid"
+										style="height: 120px; wedth: 120px;">
+									<br><br>
+									<b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
+								</div>
+								<hr>
+								<div align="center">
+								<button class="btn btn-primary btn-link" id="bu"
+									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
+									코인 조회/결제
 									<div class="ripple-container"></div>
 								</button>
-							</h6>
-							<div style="position: relative; left: 30px;">
-								<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid"
-									style="height: 80px; wedth: 80px;"> <br> <b
-									style="position: relative; left: 20px;">wooju</b> <br> <b
-									style="position: relative; left: -20px;"><small>wwzzzzzzz@naver.com</small></b>
+								</div>
 							</div>
-							<div></div>
 						</div>
 					</div>
-				</div>
 				<div class="col-sm-8">
-					<h3><strong>관심 프로젝트</strong></h3>
-					<h5>회원님이 관심 등록한 프로젝트를 확인할 수 있습니다.</h5>
-					<div class="boxed">
+					<h3>
+							<strong>투자한 프로젝트</strong>
+						</h3>
+						<h5>회원님이 투자한 프로젝트 목록입니다.</h5>
 						<br>
-						<ol>
-							<li>관심 프로젝트로 추가한 프로젝트 목록입니다.</li>
-							<li>지원 완료한 프로젝트의 경우, 목록에서 지원 내역으로 이동됩니다.</li>
-							<li>프로젝트 마감이 완료된 경우, 목록에서 자동으로 삭제됩니다.</li>
-							<li>[프로젝트 지원하기]버튼을 클릭하여 해당 프로젝트에 지원할 수 있습니다.</li>	
-						</ol>
-					</div>
-					<br>
+						<hr>
+						
 					<b>관심 프로젝트가 없습니다.</b>
 				</div>
 				</div>
@@ -124,21 +123,21 @@
 	<!--  End Modal -->
 	<%@ include file="WEB-INF/inc/footer.jsp" %>
 	<!--   Core JS Files   -->
-	<script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="resources/assets/js/core/bootstrap-material-design.min.js"
+	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/bootstrap-material-design.min.js"
 		type="text/javascript"></script>
-	<script src="resources/assets/js/plugins/moment.min.js"></script>
+	<script src="./assets/js/plugins/moment.min.js"></script>
 	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-	<script src="resources/assets/js/plugins/bootstrap-datetimepicker.js"
+	<script src="./assets/js/plugins/bootstrap-datetimepicker.js"
 		type="text/javascript"></script>
 	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="resources/assets/js/plugins/nouislider.min.js"
+	<script src="./assets/js/plugins/nouislider.min.js"
 		type="text/javascript"></script>
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-	<script src="resources/assets/js/material-kit.js?v=2.0.5"
+	<script src="./assets/js/material-kit.js?v=2.0.5"
 		type="text/javascript"></script>
 	<script>
 		$(document).ready(function() {

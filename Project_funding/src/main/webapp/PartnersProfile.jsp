@@ -16,7 +16,7 @@
  	 <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
   	<!-- CSS Just for demo purpose, don't include it in your project -->
   	<link href="resources/assets/demo/demo.css" rel="stylesheet" />
-  
+  	<link href="resources/assets/css/PartnerProfile.css" rel="stylesheet">
   <title>
     Puding
   </title>

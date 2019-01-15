@@ -48,7 +48,7 @@
 <body class="index-page sidebar-collapse">
 
 	<!-- 바탕 바꾸는곳 -->
-	<div class="main main-raised" style="margin-top:80px;">
+	<div class="main main-raised">
 		<!-- 나의푸딩 프로필부분 -->
 		<div class="section section-basic">
 			<div class="container">
@@ -56,28 +56,27 @@
 					<div class="col-sm-3" style="padding-right: 90px;">
 
 						<div class="center-block">
-							<div class="title">
-								<h6>
-									투자자
-									<button class="btn btn-primary btn-link"
-										style="color: skyblue;">
-										개인정보수정
-										<div class="ripple-container"></div>
-									</button>
-								</h6>
-								<div style="position: relative; left: 30px;">
+							<div class="sidebar">
+								<b> 투자자 </b> <a href="#"
+									style="font-size: 13px; color: skyblue; float: right;">기본정보
+									수정하기</a>
+								<br>
+								<hr>
+								<div align="center">
 									<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
 										class="rounded-circle img-fluid"
-										style="height: 80px; wedth: 80px;"> <br> <b
-										style="position: relative; left: 20px;">wooju</b> <br> <b
-										style="position: relative; left: -20px;"><small>wwzzzzzzz@naver.com</small></b>
+										style="height: 120px; wedth: 120px;">
+									<br><br>
+									<b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
 								</div>
 								<hr>
+								<div align="center">
 								<button class="btn btn-primary btn-link" id="bu"
 									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
 									코인 조회/결제
 									<div class="ripple-container"></div>
 								</button>
+								</div>
 							</div>
 						</div>
 					</div>
