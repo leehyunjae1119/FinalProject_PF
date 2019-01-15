@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/apply_list02.css" rel="stylesheet">
+  <link href="resources/assets/css/Project_SupportWait.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">

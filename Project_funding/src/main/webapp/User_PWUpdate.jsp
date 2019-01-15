@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/pw_change.css" rel="stylesheet">
+  <link href="resources/assets/css/User_PWUpdate.css" rel="stylesheet">
   
   
 </head>
@@ -35,7 +35,7 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
+					<a href="#"><b>기본정보 수정하기</b></a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>

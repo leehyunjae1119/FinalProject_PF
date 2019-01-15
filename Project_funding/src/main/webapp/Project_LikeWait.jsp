@@ -15,7 +15,7 @@
 	name='viewport' />
 <!--     Fonts and icons     -->
 <link rel="stylesheet" type="text/css"
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
@@ -23,21 +23,13 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="./src/main/webapp/resources/css/likeproject.css" rel="stylesheet" />
-<link href="resources/css/coinmanage.css" rel="stylesheet" />
+<link href="resources/assets/css/Project_LikeWait.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
 
-<style type="text/css">
-.boxed{
-	border: 2px dashed #bcbcbc;
-	border-radius:10px;
-}
-
-</style>
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -49,7 +41,6 @@
 			<div class="container">
 				<div class="row">
 				<div class="col-sm-3" style="padding-right: 90px;">
-
 						<div class="center-block">
 							<div class="sidebar">
 								<b> 파트너스 </b> <a href="#"

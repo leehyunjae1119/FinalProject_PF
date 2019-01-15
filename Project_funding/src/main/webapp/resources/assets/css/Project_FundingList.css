@@ -9,8 +9,10 @@
 	
 }
 
-#img2{
+.heart{
 
+	height: 30px;
+	wedth: 30px;
 	float:right;
 	padding-right: 5px;
 	padding-top:5px;
@@ -22,7 +24,7 @@
 	font-weight: lighter;
 }
 
-#img3, #img4, #img5{
+.img{
 	display:inline-block;	
 }
 .a{
@@ -30,4 +32,16 @@
 	padding-right:15px;
 	padding-top:10px;
 	padding-bottom:10px;
+}
+
+.boxed {
+	border: 2px dashed #bcbcbc;
+	border-radius: 10px;
+}
+
+.project {
+	border-style: solid;
+	border-color: #bcbcbc;
+	border-width: 1px;
+	border-radius: 10px;
 }
