@@ -81,17 +81,15 @@
          <div class="collapse navbar-collapse">
             <ul class="navbar-nav" style="color:black;">
                <li class="nav-item" id="item1"></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+               <li class="nav-item"><a href="partners_profile.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">내 프로필</a></li>
-                  <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+                  <li class="nav-item"><a href="user_typeUpdate.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">계정 유형 변경 신청</a></li>
-                  <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
-                  style="padding-top: 17px;">미팅 관리</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_supportList.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원 내역</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_ing.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">진행중인 프로젝트</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_end.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">완료한 프로젝트</a></li>
             </ul>
          </div>

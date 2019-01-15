@@ -50,5 +50,50 @@ public class HomeController {
 	public String view() {
 		return "project_view";
 	}
-	
+
+	//로그인
+	@RequestMapping(value="/login.do")
+	public String login() {
+		return "User_Login";
+	}
+	//회원가입
+	@RequestMapping(value="/join.do")
+	public String join() {
+		return "User_Join";
+	}
+	//파트너 프로필
+	@RequestMapping(value="partners_profile.do")
+	public String partners_profile() {
+		return "PartnersProfile";
+	}
+	//유저 계정 유형
+	@RequestMapping(value="user_typeUpdate.do")
+	public String user_typeUpdate() {
+		return "User_TypeUpdate";
+	}
+	//지원내역
+	@RequestMapping(value="project_supportList.do")
+	public String project_supportList() {
+		return "Project_SupportList";
+	}
+	//진행중인 프로젝트
+	@RequestMapping(value="project_ing.do")
+	public String fundingProject_ing() {
+		return "Project_IngList";
+	}
+	//완료한 프로젝트
+	@RequestMapping(value="project_end.do")
+	public String fundingProject_end() {
+		return "Project_EndList";
+	}
+	//기본정보 수정
+	@RequestMapping(value="user_infoUpdate.do")
+	public String user_infoUpdate() {
+		return"User_InfoUpdate";
+	}
+	//관심프로젝트
+	@RequestMapping(value="project_likeList.do")
+	public String project_likeList() {
+		return"Project_LikeList";
+	}
 }

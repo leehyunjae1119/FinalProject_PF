@@ -57,10 +57,18 @@
                     	</a>
                     </li>
                     <li class="nav-item">
+<<<<<<< HEAD
                     <a href="#pablo" class="nav-link" style="color:white">Login</a>
+=======
+                    <a href="login.do" class="nav-link" >Login</a>
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
                   </li>
                   <li class="nav-item">
+<<<<<<< HEAD
                     <a href="#pablo" class="nav-link" style="color:white">Join</a>
+=======
+                    <a href="join.do" class="nav-link" >Join</a>
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
                   </li>
                </ul>
        </div>
