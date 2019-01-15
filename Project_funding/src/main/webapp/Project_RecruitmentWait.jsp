@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-   	프로젝트 지원내역01
+   	프로젝트 지원내역02
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -24,13 +24,11 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/user_role01.css" rel="stylesheet">
-  
-  
+  <link href="resources/assets/css/apply_list02.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
-	<div class="main main-raised">
+	<div class="main main-raised" class="main">
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
@@ -44,36 +42,43 @@
 							<p>teemo@naver.com</p>
 						</div>
 					</div>
-					
+					<hr>
+					<div class="col-md-6">
+						 <a class="btn btn-info btn-link" href="#">기본정보수정</a> 
+						 <a class="btn btn-info btn-link" href="#">비밀번호변경</a> 
+						 <a class="btn btn-info btn-link" href="#">계좌관리</a> 
+						 <a class="btn btn-info btn-link" href="#">회원탈퇴</a>
+					</div>
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col" style="margin-top: -30px;">
+				<div class="col">
 				<div class="col col-md-15">
-					<h3><b>계정 유형 변경 신청</b></h3>
-					<p>계정의 유형을 변경할 수 있습니다.</p>
+					<h3><b>지원 모집 중</b></h3>
+					<p>등록한 프로젝트를 확인할 수 있습니다.</p>
 				</div>
 				<br>
 						<div class="col col-md-15">
-							<form action="#">
-								<b>유형변경</b>
-								<select title="user_type" class="form-control">
-									<option>=== 유형을 선택해 주세요 ===</option>
-									<option>개인</option>
-									<option>클라이언트</option>
-									<option>투자자</option>
-								</select>
-							</form>
+							<img src="resources/assets/img/support.png"/><br>
+							<p>
+							<b>
+							1. 현재 지원 중인 프로젝트 목록입니다.<br/>
+							2. 클라이언트는 프로젝트의 지원자 모집 마감 이후, 최대 10일간 검토 기간을 가집니다.<br/>
+							3. 프로젝트 지원 결과는 클라이언트의 지원자 검토가 완료되면 안내해드립니다.<br/>
+							4. 클라이언트가 미팅을 원하는 경우, puding에서 개별적으로 연락을 드립니다.<br/>
+							</b>
+							</p>
 						</div>
-							<div class="user_bt">
-								<input type="submit" class="btn btn-primary" value="변경하기">
-							</div>
+						<br><br>
+						<div class="user_project">
+							<b>===지원한 프로젝트가 없습니다.===</b>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<%@ include file="WEB-INF/inc/footer.jsp" %>
+	 <%@ include file="WEB-INF/inc/footer.jsp" %>
 		
 		
   </body>

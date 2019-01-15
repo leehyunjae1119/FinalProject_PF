@@ -43,6 +43,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_insert.do")
 	public String insert() {
+
 		return "Project_Insert";
 	}
 	
@@ -53,7 +54,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_view.do")
 	public String view() {
-		return "project_view";
+		return "Project_view";
 	}
 
 	@RequestMapping(value="/partner_list.do")

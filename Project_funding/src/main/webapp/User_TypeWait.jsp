@@ -48,14 +48,18 @@
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col">
+				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>계정 유형 변경 신청</b></h3>
-					<p>계정의 유형을 변경할 수 있습니다.</p>
+					<p class="text-muted" style="font-size: 13px;">계정의 유형을 변경할 수 있습니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15">
-							<h1><b>계정 유형이 변경되었습니다.</b></h1>	
+						<div class="col col-md-15" id="col15">
+							<img src="resources/assets/img/check.png" />
+							<div class="h_4">
+								<h4 id="h"><b>계정 유형 변경 신청이 완료되었습니다.</b></h4>
+								<h4 id="h2"><b>승인 후 변경 처리됩니다.</b></h4>
+							</div>
 						</div>
 					</div>
 				</div>
