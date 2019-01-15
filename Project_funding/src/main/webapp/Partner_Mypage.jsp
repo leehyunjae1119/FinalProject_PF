@@ -48,15 +48,15 @@
 						 <h5><b>푸딩 히스토리</b></h5>
 						 <hr />
 						 <div class="apply_project">
-						 	<p class="text-muted">지원한 프로젝트</p>
+						 	<p class="text-muted"><b>지원한 프로젝트</b></p>
 						 	<p class="text-muted" id="apply">12건</p>
 						 </div>
 						 <div class="ing_project">
-						 	<p class="text-muted">진행한 프로젝트</p>
+						 	<p class="text-muted"><b>진행한 프로젝트</b></p>
 						 	<p class="text-muted" id="ing">12건</p>
 						 </div>
 						 <div class="project">
-						 	<p class="text-muted">완료한 프로젝트</p>
+						 	<p class="text-muted"><b>완료한 프로젝트</b></p>
 						 	<p class="text-muted" id="ok">12건</p>
 						 </div>
 					</div>
@@ -64,9 +64,9 @@
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col">
+				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
-					<h3 style="margin-top: -10px;"><b>나의 푸딩</b></h3>
+					<h3><b>나의 푸딩</b></h3>
 				</div>
 				<br>
 				<div class="col col-md-15">

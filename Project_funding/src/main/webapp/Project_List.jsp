@@ -24,7 +24,7 @@
 <div class="main main-raised">
 <div class="list_container">
 	<div class="row">
-	<div class="col-md-12" id="col10">
+	<div class="col-md-12">
 		<div class="container_title">
 		<h3><span class="tim-note"><b>프로젝트 찾기</b></span></h3>
  		<div class="project_list">
