@@ -32,7 +32,7 @@
 
 <style type="text/css">
 .boxed {
-	border: 2px dashed #bcbcbc;
+	border: 2px dashed #8C8C8C;
 	border-radius: 10px;
 }
 </style>
@@ -78,7 +78,7 @@
 							<b>자주 묻는 질문</b>
 						</h3>
 						<h5>회원님들이 자주 찾는 질문들입니다.</h5>
-						<hr />
+						<br>
 						<div class="tab-content">
 							<div class="tab-pane active" id="클라이언트" role="tabpanel">
 								<section class="p5-faq-section-last">
@@ -106,6 +106,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -129,6 +130,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -154,6 +156,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -177,6 +180,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -196,6 +200,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -217,6 +222,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -236,6 +242,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -255,6 +262,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
@@ -276,6 +284,7 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">

@@ -150,4 +150,17 @@ public class HomeController {
 	public String partnerReg_career() {
 		return"PartnerReg_career";
 	}
+	
+	
+	//파트너스 나의푸딩
+	@RequestMapping(value="partner_mypage.do")
+	public String partnermypage() {
+		return "Partner_Mypage";
+	}
+	
+	//클라이언트 나의푸딩
+		@RequestMapping(value="client_mypage.do")
+		public String clientrmypage() {
+			return "Client_Mypage";
+		}
 }
