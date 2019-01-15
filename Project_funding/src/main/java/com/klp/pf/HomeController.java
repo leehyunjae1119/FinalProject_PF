@@ -125,4 +125,29 @@ public class HomeController {
 	public String project_likeList() {
 		return"Project_LikeList";
 	}
+	//파트너스 정보
+	@RequestMapping(value="partnerReg_info.do")
+	public String partnerReg_info() {
+		return"PartnerReg_Info";
+	}
+	//자기소개
+	@RequestMapping(value="partnerReg_about.do")
+	public String partnerReg_about() {
+		return"PartnerReg_About";
+	}
+	//포트폴리오
+	@RequestMapping(value="partnerReg_portfolio.do")
+	public String partnerReg_portfolio() {
+		return"PartnerReg_Portfolio";
+	}
+	//보유 기술
+	@RequestMapping(value="partnerReg_technology.do")
+	public String partnerReg_technology() {
+		return"PartnerReg_Technology";
+	}
+	//경력/학력/자격증
+	@RequestMapping(value="partnerReg_career.do")
+	public String partnerReg_career() {
+		return"PartnerReg_career";
+	}
 }

@@ -31,11 +31,11 @@
 				<div class="row row-offcanvas row-offcanvas-right">
 					<div class="col-6 col-md-2 sidebar-offcanvas" id="sidebar">
 						<div class="list-group">
-							<a class="btn btn-info btn-link" href="PartnerReg_Info.jsp">파트너스 정보</a>
-							<a class="btn btn-info btn-link active" href="PartnerReg_About.jsp">자기 소개</a>
-							<a class="btn btn-info btn-link" href="PartnerReg_Portfolio.jsp">포트폴리오</a>
-							<a class="btn btn-info btn-link" href="PartnerReg_Technology.jsp">보유 기술</a>
-							<a class="btn btn-info btn-link" href="PartnerReg_career.jsp">경력/학력/자격증</a>
+							<a class="btn btn-info btn-link" href="partnerReg_info.do">파트너스 정보</a>
+							<a class="btn btn-info btn-link active" href="partnerReg_about.do">자기 소개</a>
+							<a class="btn btn-info btn-link" href="partnerReg_portfolio.do">포트폴리오</a>
+							<a class="btn btn-info btn-link" href="partnerReg_technology.do">보유 기술</a>
+							<a class="btn btn-info btn-link" href="partnerReg_career.do">경력/학력/자격증</a>
 						</div>
 					</div>
 					<div class="col-12 col-md-9">
