@@ -23,7 +23,7 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/question.css" rel="stylesheet" />
+<link href="resources/assets/css/Question.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -32,7 +32,7 @@
 
 <style type="text/css">
 .boxed {
-	border: 2px dashed #bcbcbc;
+	border: 2px dashed #8C8C8C;
 	border-radius: 10px;
 }
 </style>
@@ -78,7 +78,7 @@
 							<b>자주 묻는 질문</b>
 						</h3>
 						<h5>회원님들이 자주 찾는 질문들입니다.</h5>
-						<hr />
+						<br>
 						<div class="tab-content">
 							<div class="tab-pane active" id="클라이언트" role="tabpanel">
 								<section class="p5-faq-section-last">
@@ -91,7 +91,6 @@
 													<a class="accordion-toggle faq-title-opener"
 														data-toggle="collapse" href="#qna_165">프로젝트를 의뢰하려면
 														클라이언트/파트너 중 어떤 유형으로 가입해야 하나요? <i class="fa fa-angle-down"
-														style="float: right;"></i><i class="fa fa-angle-up"
 														style="float: right;"></i>
 													</a>
 												</h4>
@@ -106,13 +105,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener"
 														data-toggle="collapse" href="#qna_166">의뢰하려는 프로젝트의 견적이
-														궁금합니다. <i class="fa fa-angle-down" style="float: right;"></i><i
-														class="fa fa-angle-up" style="float: right;"></i>
+														궁금합니다. 알려주세요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
 												</h4>
 											</div>
@@ -129,13 +128,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener"
 														data-toggle="collapse" href="#qna_167">프로젝트의 예상 기간, 지출
 														가능 예산을 작성하기 어렵습니다. <i class="fa fa-angle-down"
-														style="float: right;"></i><i class="fa fa-angle-up"
 														style="float: right;"></i>
 													</a>
 												</h4>
@@ -154,13 +153,14 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_168">서비스 이용 절차를
-														알려주세요. <i class="fa fa-angle-down" style="float: right;"></i><i
-														class="fa fa-angle-up" style="float: right;"></i>
+														알려주세요. <i class="fa fa-angle-down" style="float: right;"></i>
+														 
 													</a>
 												</h4>
 											</div>
@@ -177,13 +177,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_169">위시켓 이용요금은
-														얼마인가요? <i class="fa fa-angle-down" style="float: right;"></i><i
-														class="fa fa-angle-up" style="float: right;"></i>
+														얼마인가요? <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
 												</h4>
 											</div>
@@ -196,14 +196,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_170">등록한 프로젝트 내용을
-														수정하고 싶어요. <i class="fa fa-angle-down"
-														style="float: right;"></i><i class="fa fa-angle-up"
-														style="float: right;"></i>
+														수정하고 싶어요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
 												</h4>
 											</div>
@@ -217,13 +216,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_171">프로젝트를 재등록하고
-														싶어요. <i class="fa fa-angle-down" style="float: right;"></i><i
-														class="fa fa-angle-up" style="float: right;"></i>
+														싶어요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
 												</h4>
 											</div>
@@ -236,13 +235,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_172">미팅 신청은 몇 명까지
-														가능한가요? <i class="fa fa-angle-down" style="float: right;"></i><i
-														class="fa fa-angle-up" style="float: right;"></i>
+														가능한가요? <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
 												</h4>
 											</div>
@@ -255,14 +254,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_173">가입한 이메일 주소를
-														변경하고 싶어요. <i class="fa fa-angle-down"
-														style="float: right;"></i><i class="fa fa-angle-up"
-														style="float: right;"></i>
+														변경하고 싶어요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
 												</h4>
 											</div>
@@ -276,14 +274,13 @@
 												</div>
 											</div>
 										</div>
+										<hr>
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
 													<a class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_174">클라이언트, 파트너 계정
-														아이디를 동일하게 사용할 수는 없나요? <i class="fa fa-angle-down"
-														style="float: right;"></i><i class="fa fa-angle-up"
-														style="float: right;"></i>
+														아이디를 동일하게 사용할 수는 없나요? <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
 												</h4>
 											</div>

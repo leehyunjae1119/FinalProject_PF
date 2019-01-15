@@ -23,7 +23,7 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/coinmanage.css" rel="stylesheet" />
+<link href="resources/assets/css/User_Coin.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -57,7 +57,7 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a href="#"
+								<b> 투자자 </b> <a href="user_coin.do"
 									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>

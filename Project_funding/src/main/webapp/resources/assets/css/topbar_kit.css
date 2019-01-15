@@ -9668,6 +9668,15 @@ button:focus {
   text-decoration: none !important;
 }
 
+.btn.btn-link2:hover,
+.btn.btn-link2:focus,
+.btn.btn-link2:active {
+  text-decoration: none !important;
+  background-color: #ccc;
+  color: white;
+  width: 230px;
+}
+
 .btn.btn-disabled {
   cursor: not-allowed;
   pointer-events: none;

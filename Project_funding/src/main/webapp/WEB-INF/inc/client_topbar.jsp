@@ -38,27 +38,28 @@
          </div>
          <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
-               <li class="nav-item" id="item1"></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link">나의
-                     푸딩</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link">프로젝트
-                     등록</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link">프로젝트
-                     찾기</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link">파트너스
-                     목록</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link">이용방법</a></li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-               <li class="nav-item" style="float: right;"><a href="#pablo"
-                  class="btn btn-rose btn-raised btn-fab btn-round"
-                  data-toggle="dropdown"> <i class="material-icons">email</i>
-               </a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link">Login</a>
-               </li>
-               <li class="nav-item"><a href="#pablo" class="nav-link">Join</a>
-               </li>
-            </ul>
+					<li class="nav-item" id="item1"></li>
+					<li class="nav-item"><a href="client_mypage.do" class="nav-link">나의
+							푸딩</a></li>
+					<li class="nav-item"><a href="project_insert.do"
+						class="nav-link" style="color: white">프로젝트 등록</a></li>
+					<li class="nav-item"><a href="project_list.do"
+						class="nav-link" style="color: white">프로젝트 찾기</a></li>
+					<li class="nav-item"><a href="partner_list.do"
+						class="nav-link" style="color: white">파트너스 목록</a></li>
+					<li class="nav-item"><a href="question.do" class="nav-link"
+						style="color: white">이용 방법</a></li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item" style="float: right;"><a href="#pablo"
+						class="btn btn-rose btn-raised btn-fab btn-round"
+						data-toggle="dropdown"> <i class="material-icons">email</i>
+					</a></li>
+					<li class="nav-item"><a href="login.do" class="nav-link"
+						style="color: white">Login</a></li>
+					<li class="nav-item"><a href="join.do" class="nav-link"
+						style="color: white">Join</a></li>
+				</ul>
          </div>
       </div>
    </nav>

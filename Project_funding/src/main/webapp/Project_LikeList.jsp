@@ -24,27 +24,12 @@
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
 <link href="./src/main/webapp/resources/css/coinmanage.css" rel="stylesheet" />
-<link href="resources/css/likeproject.css" rel="stylesheet" />
+<link href="resources/assets/css/Project_LikeList.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
-
-<style type="text/css">
-.boxed {
-	border: 2px dashed #bcbcbc;
-	border-radius: 10px;
-}
-
-.project {
-	border-style: solid;
-	border-color: #bcbcbc;
-	border-width: 1px;
-	border-radius: 10px;
-}
-
-</style>
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -59,7 +44,7 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a href="#"
+								<b> 투자자 </b> <a href="user_infoUpdate.do"
 									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>
@@ -74,7 +59,7 @@
 								<hr>
 								<div align="center">
 								<button class="btn btn-primary btn-link" id="bu"
-									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
+									style="font-family: Roboto, Helvetica, Arial, sans-serif;" onclick="location.href='user_coin.do'">
 									코인 조회/결제
 									<div class="ripple-container"></div>
 								</button>
@@ -105,22 +90,22 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="resources/css/img/heart.PNG" alt="HEART"
+									src="resources/assets/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
+								&nbsp;&nbsp;
 								<img
-									src="resources/css/img/money.png" alt="mo"
+									src="resources/assets/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="resources/css/img/time.png" alt="da"
+									src="resources/assets/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="resources/css/img/date.png" alt="fi"
+									src="resources/assets/img/calendar.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
@@ -140,26 +125,26 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="resources/css/img/heart.PNG" alt="HEART"
+									src="resources/assets/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
+								&nbsp;&nbsp;
 								<img
-									src="resources/css/img/money.png" alt="mo"
+									src="resources/assets/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="resources/css/img/time.png" alt="da"
+									src="resources/assets/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="resources/css/img/date.png" alt="fi"
+									src="resources/assets/img/calendar.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
-
+							
 							<div class="a">
 								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
 										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
@@ -167,7 +152,7 @@
 							</div>
 						</div>
 						<br>
-												<div class="project">
+							<div class="project">
 							<div>
 								<h5>
 									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
@@ -175,26 +160,26 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="resources/css/img/heart.PNG" alt="HEART"
+									src="resources/assets/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
+								&nbsp;&nbsp;
 								<img
-									src="resources/css/img/money.png" alt="mo"
+									src="resources/assets/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="resources/css/img/time.png" alt="da"
+									src="resources/assets/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="resources/css/img/date.png" alt="fi"
+									src="resources/assets/img/calendar.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
-
+							
 							<div class="a">
 								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
 										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
@@ -202,7 +187,7 @@
 							</div>
 						</div>
 						<br>
-												<div class="project">
+									<div class="project">
 							<div>
 								<h5>
 									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
@@ -210,26 +195,26 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="resources/css/img/heart.PNG" alt="HEART"
+									src="resources/assets/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
+								&nbsp;&nbsp;
 								<img
-									src="resources/css/img/money.png" alt="mo"
+									src="resources/assets/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="resources/css/img/time.png" alt="da"
+									src="resources/assets/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="resources/css/img/date.png" alt="fi"
+									src="resources/assets/img/calendar.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
-
+							
 							<div class="a">
 								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
 										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
@@ -237,7 +222,7 @@
 							</div>
 						</div>
 						<br>
-												<div class="project">
+							<div class="project">
 							<div>
 								<h5>
 									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
@@ -245,26 +230,25 @@
 								</h5>
 								<span class="badge badge-pill badge-success">모집중</span>
 							    <img
-									src="resources/css/img/heart.PNG" alt="HEART"
+									src="resources/assets/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
+								&nbsp;&nbsp;
 								<img
-									src="resources/css/img/money.png" alt="mo"
+									src="resources/assets/img/money.png" alt="mo"
 									style="height: 20px; wedth: 35px;" id="img3">
 									<b>500000원</b>
 								<img
-									src="resources/css/img/time.png" alt="da"
+									src="resources/assets/img/time.png" alt="da"
 									style="height: 23px; wedth: 37px;" id="img4">
 									<b>150일</b>
 								<img
-									src="resources/css/img/date.png" alt="fi"
+									src="resources/assets/img/calendar.png" alt="fi"
 									style="height: 23px; wedth: 37px;" id="img5">
 									<b>2019.05.25</b>
 							</div>
-
 							<div class="a">
 								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
 										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로

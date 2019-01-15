@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
- <%@ include file="WEB-INF/inc/topbar.jsp" %>
+ <%@ include file="WEB-INF/inc/client_topbar.jsp" %>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -25,7 +25,7 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-  <link href="resources/assets/css/client_mypage.css" rel="stylesheet">
+  <link href="resources/assets/css/Client_Mypage.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -34,7 +34,7 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
+					<a href="user_infoUpdate.do">기본정보 수정하기</a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
@@ -57,7 +57,8 @@
 						 	<p class="text-muted">완료한 프로젝트</p>
 						 	<p class="text-muted" id="ok">12건</p>
 						 </div>
-						 <button class="btn" style="width: 230px;">프로젝트 등록하기</button>
+						 <!-- 프로젝트 등록으로 이동(Project_Insert.jsp) -->
+						 <a href="project_insert.do"><button class="btn" style="width: 230px;">프로젝트 등록하기</button></a>
 					</div>
 					
 

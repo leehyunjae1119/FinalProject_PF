@@ -1,0 +1,47 @@
+.main{
+	margin-top:100px;
+	
+}
+
+#img2, h5{
+	
+	display:inline-block;
+	
+}
+
+.heart{
+
+	height: 30px;
+	wedth: 30px;
+	float:right;
+	padding-right: 5px;
+	padding-top:5px;
+}
+
+#yoyak {
+	font-size: 10pt;
+	color: gray;
+	font-weight: lighter;
+}
+
+.img{
+	display:inline-block;	
+}
+.a{
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.boxed {
+	border: 2px dashed #bcbcbc;
+	border-radius: 10px;
+}
+
+.project {
+	border-style: solid;
+	border-color: #bcbcbc;
+	border-width: 1px;
+	border-radius: 10px;
+}

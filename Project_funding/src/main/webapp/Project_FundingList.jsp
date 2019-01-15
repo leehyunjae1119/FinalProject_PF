@@ -23,26 +23,14 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="./assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/myFunded.css" rel="stylesheet" />
+<link href="resources/assets/css/Project_FundingList.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
 
-<style type="text/css">
-.boxed {
-	border: 2px dashed #bcbcbc;
-	border-radius: 10px;
-}
 
-.project {
-	border-style: solid;
-	border-color: #bcbcbc;
-	border-width: 1px;
-	border-radius: 10px;
-}
-</style>
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -57,7 +45,7 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a href="#"
+								<b> 투자자 </b> <a href="user_infoUpdate.do"
 									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>
@@ -70,12 +58,14 @@
 									<b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
 								</div>
 								<hr>
+								
 								<div align="center">
-								<button class="btn btn-primary btn-link" id="bu"
+								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
 									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
 									코인 조회/결제
 									<div class="ripple-container"></div>
-								</button>
+								</button></a>
+								
 								</div>
 							</div>
 						</div>
@@ -90,23 +80,22 @@
 						<div class="project">
 							<div>
 								<h5>
-									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
 								</h5>
-								<span class="badge badge-pill badge-warning">진행중</span> <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
+								<span class="badge badge-pill badge-warning">진행중</span> 
+								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
 							</div>
 							<div>
-								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 30px;" id="img3"> <b
+								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
-								<img src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 30px;" id="img4"> <b
+								<img src="resources/assets/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
 								<img src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
@@ -124,23 +113,22 @@
 						<div class="project">
 							<div>
 								<h5>
-									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
 								</h5>
-								<span class="badge badge-pill badge-warning">진행중</span> <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
+								<span class="badge badge-pill badge-warning">진행중</span> 
+								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
 							</div>
 							<div>
-								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 30px;" id="img3"> <b
+								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
-								<img src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 30px;" id="img4"> <b
+								<img src="resources/assets/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
 								<img src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
@@ -158,23 +146,22 @@
 						<div class="project">
 							<div>
 								<h5>
-									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
 								</h5>
-								<span class="badge badge-pill badge-warning">진행중</span> <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
+								<span class="badge badge-pill badge-warning">진행중</span> 
+								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
 							</div>
 							<div>
-								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 30px;" id="img3"> <b
+								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
-								<img src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 30px;" id="img4"> <b
+								<img src="resources/assets/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
 								<img src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 

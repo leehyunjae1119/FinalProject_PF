@@ -23,20 +23,12 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="./assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/myFunded.css" rel="stylesheet" />
+<link href="resources/assets/css/Project_FundingWait.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
-
-<style type="text/css">
-.boxed{
-	border: 2px dashed #bcbcbc;
-	border-radius:10px;
-}
-
-</style>
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -51,8 +43,8 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a href="#"
-									style="font-size: 13px; color: skyblue; float: right;">기본정보
+								<b> 투자자 </b> <a 
+									style="font-size: 13px; color: skyblue; float: right;" href="user_infoUpdate.do">기본정보
 									수정하기</a>
 								<br>
 								<hr>
@@ -65,10 +57,11 @@
 								</div>
 								<hr>
 								<div align="center">
-								<button class="btn btn-primary btn-link" id="bu"
+								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
 									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
 									코인 조회/결제
-									<div class="ripple-container"></div>
+									<div class="ripple-container"></a>
+								</div>
 								</button>
 								</div>
 							</div>

@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link href="resources/assets/css/user_role02.css" rel="stylesheet">
+<link href="resources/assets/css/User_TypeWait.css" rel="stylesheet">
   
   
 </head>
@@ -34,28 +34,20 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
-						</div>
-					</div>
-					
-
-				</div>
+				<%@ include file="WEB-INF/inc/sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col">
+				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>계정 유형 변경 신청</b></h3>
-					<p>계정의 유형을 변경할 수 있습니다.</p>
+					<p class="text-muted" style="font-size: 13px;">계정의 유형을 변경할 수 있습니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15">
-							<h1><b>계정 유형이 변경되었습니다.</b></h1>	
+						<div class="col col-md-15" id="col15">
+							<img src="resources/assets/img/check.png" />
+							<div class="h_4">
+								<h4 id="h"><b>계정 유형 변경 신청이 완료되었습니다.</b></h4>
+								<h4 id="h2"><b>승인 후 변경 처리됩니다.</b></h4>
+							</div>
 						</div>
 					</div>
 				</div>

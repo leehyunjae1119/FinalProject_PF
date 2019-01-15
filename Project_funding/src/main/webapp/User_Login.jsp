@@ -44,13 +44,13 @@
                 <div class="card-header card-header-primary text-center">
                   <h4 class="card-title">Login</h4>
                   <div class="social-line"> 
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
-                      <i class="fab fa-facebook-square"></i>
+                    <a href="#" class="btn btn-just-icon btn-link">
+                    	<i class="fab fa-facebook-square"></i>
                     </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
+                    <a href="#" class="btn btn-just-icon btn-link">
 						<i class="fab fa-kickstarter"></i>
                     </a>
-                    <a href="#pablo" class="btn btn-just-icon btn-link">
+                    <a href="#" class="btn btn-just-icon btn-link">
                       <i class="fab fa-neos"></i>
                     </a>
                   </div>

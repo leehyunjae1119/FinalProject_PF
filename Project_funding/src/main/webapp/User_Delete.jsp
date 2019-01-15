@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/user_out.css" rel="stylesheet">
+  <link href="resources/assets/css/User_Delete.css" rel="stylesheet">
   
   
 </head>
@@ -34,42 +34,25 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
-						</div>
-					</div>
-					<hr>
-					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="#">기본정보수정</a> 
-						 <a class="btn btn-info btn-link" href="#">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="#">계좌관리</a> 
-						 <a class="btn btn-info btn-link active" href="#">회원탈퇴</a>
-					</div>
-
-				</div>
+				<%@ include file="WEB-INF/inc/sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col">
+				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>회원탈퇴</b></h3>
-					<p>회원탈퇴를 신청할 수 있습니다.</p>
+					<p class="text-muted" style="font-size: 13px;">회원탈퇴를 신청할 수 있습니다.</p>
 				</div>
 				<br>
 						<div class="col col-md-15">
 							<form>
+								<div class="user_email">
+									<b>이메일</b>&nbsp;&nbsp;&nbsp; 
+									<p><b>uiyhp123@naver.com</b></p>
+								</div>
+
 								<h4>
 									<b>비밀번호 입력</b>
 								</h4>
-								<p>개인정보 보호 및 회원탈퇴를 위해 비밀번호를 다시 한번 확인합니다.</p>
-								<div class="user_email">
-									<b>이메일</b>&nbsp;&nbsp;&nbsp; <p><b>uiyhp123@naver.com</b></p>
-								</div>
-
+								<p class="text-muted" style="font-size: 13px;">개인정보 보호 및 회원탈퇴를 위해 비밀번호를 다시 한번 확인합니다.</p>
 								<div class="user_pw">
 									<b>비밀번호</b>&nbsp;&nbsp;&nbsp; <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요.">
 								</div>

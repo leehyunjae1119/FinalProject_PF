@@ -23,14 +23,13 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/partnerlist.css" rel="stylesheet" />
+<link href="resources/assets/css/User_PartnerList.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
-
-
+	
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -94,7 +93,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="resources/css/img/fuck.PNG"
+									<img src="resources/assets/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -132,7 +131,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="resources/css/img/fuck.PNG"
+									<img src="resources/assets/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -170,7 +169,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="resources/css/img/fuck.PNG"
+									<img src="resources/assets/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -208,7 +207,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="resources/css/img/fuck.PNG"
+									<img src="resources/assets/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>
@@ -246,7 +245,7 @@
 									</div>
 								</div>
 								<div class="col-sm-3" style="float:right; padding-top:30px;">
-									<img src="resources/css/img/fuck.PNG"
+									<img src="resources/assets/img/fuck.PNG"
 										style="height: 120px; width: 230px;" id="img5">
 								</div>						
 							</div>

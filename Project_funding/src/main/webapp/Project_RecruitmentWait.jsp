@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/Project_SupportWait.css" rel="stylesheet">
+  <link href="resources/assets/css/Project_RecruitmentWait.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -43,18 +43,13 @@
 						</div>
 					</div>
 					<hr>
-					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="user_infoUpdate.do">기본정보수정</a> 
-						 <a class="btn btn-info btn-link active" href="user_pwUpdate.do">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="user_delete.do">회원탈퇴</a>
-					</div>
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col">
 				<div class="col col-md-15">
-					<h3><b>지원중</b></h3>
-					<p>지원한 프로젝트를 확인할 수 있습니다.</p>
+					<h3><b>지원 모집 중</b></h3>
+					<p>등록한 프로젝트를 확인할 수 있습니다.</p>
 				</div>
 				<br>
 						<div class="col col-md-15">

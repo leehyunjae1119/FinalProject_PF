@@ -1,16 +1,3 @@
-.user_email b, .user_email p {
-	display: inline-block;
-}
-
-.user_pw{
-	padding-top: 40px;
-}
-
-.out_bt{
-	padding-top: 40px;
-	float: right;
-}
-
 .main{
 	margin-top: 100px;
 }
@@ -20,8 +7,16 @@
 	margin-left: 10px;
 }
 
+.col-md-3{
+	display: inline-block;
+}
+
 .user_img{
 	margin-top: -30px;
 	width: 60px;
 	height: 60px;
+}
+
+#apply{
+	padding-left: 0px;
 }
