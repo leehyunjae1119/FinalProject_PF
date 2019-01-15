@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
- <%@ include file="WEB-INF/inc/topbar.jsp" %>
+ <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">

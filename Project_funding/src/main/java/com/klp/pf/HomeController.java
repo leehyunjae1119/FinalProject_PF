@@ -36,19 +36,48 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value="/index.do")
+	public String index() {
+		return "index";
+	}
+	
 	@RequestMapping(value="/project_insert.do")
 	public String insert() {
-		return "project_insert";
+		return "Project_Insert";
 	}
 	
 	@RequestMapping(value="/project_list.do")
 	public String list() {
-		return "project_list";
+		return "Project_List";
 	}
 	
 	@RequestMapping(value="/project_view.do")
 	public String view() {
 		return "project_view";
 	}
+	
+	@RequestMapping(value="/partner_list.do")
+	public String partnerlist() {
+		return "User_PartnerList";
+	}
+	@RequestMapping(value="/question.do")
+	public String question() {
+		return "Question";
+	}
+	
+	@RequestMapping(value="/user_coin.do")
+	public String coin() {
+		return "User_Coin";
+	}
+	@RequestMapping(value="/user_update.do")
+	public String typeupdate() {
+		return "User_TypeUpdate";
+	}
+	@RequestMapping(value="/project_fundinglist.do")
+	public String projectfunding() {
+		return "Project_FundingList";
+	}
+	
+	
 	
 }
