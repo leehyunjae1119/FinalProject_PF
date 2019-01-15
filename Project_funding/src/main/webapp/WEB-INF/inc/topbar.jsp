@@ -42,10 +42,10 @@
                     	</a>
                     </li>
                     <li class="nav-item">
-                    <a href="#pablo" class="nav-link">Login</a>
+                    <a href="login.do" class="nav-link">Login</a>
                   </li>
                   <li class="nav-item">
-                    <a href="#pablo" class="nav-link">Join</a>
+                    <a href="join.do" class="nav-link">Join</a>
                   </li>
                </ul>
        </div>
