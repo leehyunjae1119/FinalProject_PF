@@ -1,0 +1,46 @@
+.user_pwcheck{
+	padding-top: 40px;
+}
+
+.user_pwbt{
+	padding-top: 70px;
+	float: right;
+}
+.main{
+	margin-top: 100px;
+}
+
+.user_info{
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.user_img{
+	margin-top: -30px;
+	width: 60px;
+	height: 60px;
+}
+
+#sidebar > a {
+	float: right;
+	font-size: 12px;
+	color: #A6A6A6;
+}
+
+a.btn.btn-link2 {
+	text-align: center;
+	color: black;
+	width: 230px;
+	background-color: white;
+	box-shadow: none;
+}
+
+.user_pw b, .user_pwcheck b {
+	margin-bottom: 10px;
+}
+
+.col-md-12 a {
+	font-size: 13px;
+}
+
+

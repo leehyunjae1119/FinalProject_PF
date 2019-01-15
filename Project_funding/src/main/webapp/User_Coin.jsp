@@ -57,7 +57,7 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a href="#"
+								<b> 투자자 </b> <a href="user_coin.do"
 									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>

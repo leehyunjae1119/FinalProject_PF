@@ -34,7 +34,7 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
+					<a href="user_infoUpdate.do">기본정보 수정하기</a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
@@ -44,14 +44,6 @@
 						</div>
 					</div>
 					<hr>
-					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="#">검수 중</a> 
-						 <a class="btn btn-info btn-link" href="#">지원자 모집 중</a> 
-						 <a class="btn btn-info btn-link" href="#">진행중인 프로젝트</a> 
-						 <a class="btn btn-info btn-link" href="#">완료한 프로젝트</a>
-						<a class="btn btn-info btn-link" href="#">계정 유형 변경 신청</a>
-						 
-					</div>
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
