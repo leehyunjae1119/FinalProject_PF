@@ -45,7 +45,8 @@
 						<div class="col col-md-15">
 							<form>
 								<div class="user_email">
-									<b>이메일</b>&nbsp;&nbsp;&nbsp; <p><b>uiyhp123@naver.com</b></p>
+									<b>이메일</b>&nbsp;&nbsp;&nbsp; 
+									<p><b>uiyhp123@naver.com</b></p>
 								</div>
 
 								<h4>
