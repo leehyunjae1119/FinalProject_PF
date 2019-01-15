@@ -1,0 +1,46 @@
+.user_info{
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.col-md-3{
+	display: inline-block;
+}
+
+.user_img{
+	margin-top: -30px;
+	width: 60px;
+	height: 60px;
+}
+
+.apply_project p, .ing_project p, .project p {
+	display: inline-block;
+	font-size: 13px;
+}
+
+#apply, #ing, #ok {
+	float: right;
+}
+
+table th {
+	font-size: 14px;
+	text-align: center;
+	width: 25%;
+}
+
+table td {
+	text-align: center;
+	font-size: 13px;
+}
+
+.view {
+	font-size: 13px;
+	float: right;
+	margin-top: 10px;
+}
+
+.like_project {
+	margin-bottom: 70px;
+}
+
+

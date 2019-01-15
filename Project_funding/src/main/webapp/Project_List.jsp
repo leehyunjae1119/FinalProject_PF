@@ -21,7 +21,7 @@
 
 </head>
 <body>
-
+<div class="main main-raised">
 <div class="list_container">
 	<div class="row">
 	<div class="col-md-12" id="col10">
@@ -749,6 +749,6 @@
 		</div>
 	</div>
 </div>
-
+</div>
 </body>
 </html>

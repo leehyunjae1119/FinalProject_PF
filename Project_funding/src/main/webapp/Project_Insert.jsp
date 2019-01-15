@@ -23,7 +23,7 @@
 </head>
 
 <body>
-
+<div class="main main-raised">
 <div class="insert_container">
 	<div class="col-md-1" id="col1">
 	</div>
@@ -174,6 +174,6 @@
 		</div>
 	</div>
 </div>
-
+</div>
 </body>
 </html>
