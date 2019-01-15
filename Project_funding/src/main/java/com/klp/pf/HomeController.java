@@ -93,7 +93,7 @@ public class HomeController {
 	//파트너 프로필
 	@RequestMapping(value="partners_profile.do")
 	public String partners_profile() {
-		return "PartnersProfile";
+		return "Partner_Profile";
 	}
 	//유저 계정 유형
 	@RequestMapping(value="user_typeUpdate.do")
