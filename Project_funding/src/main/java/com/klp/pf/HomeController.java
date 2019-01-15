@@ -38,17 +38,17 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_insert.do")
 	public String insert() {
-		return "project_insert";
+		return "Project_insert";
 	}
 	
 	@RequestMapping(value="/project_list.do")
 	public String list() {
-		return "project_list";
+		return "Project_list";
 	}
 	
 	@RequestMapping(value="/project_view.do")
 	public String view() {
-		return "project_view";
+		return "Project_view";
 	}
 	
 }

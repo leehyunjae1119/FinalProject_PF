@@ -1,5 +1,6 @@
 .user_idemail{
 	padding-left: 30px;
+	margin-top: 30px;
 }
 
 .user_info_write{
@@ -30,3 +31,40 @@
 	height: 60px;
 }
 
+a.btn.btn-link {
+	text-align: center;
+	color: black;
+	width: 230px;
+}
+
+#sidebar > a {
+	float: right;
+	font-size: 12px;
+	color: #A6A6A6;
+}
+
+.col-md-12 a {
+	font-size: 13px;
+}
+
+.user_idemail p {
+	font-size: 15px;
+	display: inline-block;
+}
+
+.user_bt {
+	margin-right: 45%;
+	margin-top: 50px;
+}
+
+.user_info_write {
+	margin-bottom: 20px;
+}
+
+.user_info_write b {
+	margin-bottom: 10px;
+}
+
+#profile_img {
+	margin-bottom: 40px;
+}

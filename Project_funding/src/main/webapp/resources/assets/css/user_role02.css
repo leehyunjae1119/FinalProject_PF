@@ -12,3 +12,34 @@
 	width: 60px;
 	height: 60px;
 }
+
+#sidebar > a {
+	float: right;
+	font-size: 12px;
+	color: #A6A6A6;
+}
+
+#h {
+	margin-left: 5%;
+	width: 100%;
+}
+
+#h2 {
+	margin-left: 26%;
+}
+
+#col15 {
+	height: 280px;
+}
+
+#col15 img {
+	width: 100px;
+	display: inline-block;
+	margin-left: 15%;
+	margin-top: -30px;
+}
+
+.h_4 {
+	display: inline-block;
+	padding-top: 30px;
+}

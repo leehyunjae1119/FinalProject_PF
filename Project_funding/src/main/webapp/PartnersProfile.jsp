@@ -39,7 +39,8 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<div class="partnerTitle" style="width: 200px; height: 1700px; text-align: center;">
+				<div class="col-md-3">
+					<div class="partnerTitle">
 						<div style="height:200px;">
 						<img src="resources/assets/img/project4.png" style="width: 100px;" />
 						<h4>이름 및 아이디</h4>
@@ -58,6 +59,7 @@
 						
 						
 						</div>
+					</div>
 					</div>
 
 					<div class="col-md-9" style="width: 1100px; height: 1500px; left:100px;">
