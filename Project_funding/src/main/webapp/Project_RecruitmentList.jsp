@@ -34,7 +34,7 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
+					<a href="#">기본정보 수정하기</a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
@@ -45,59 +45,95 @@
 					</div>
 					<hr>
 					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="user_infoUpdate.do">기본정보수정</a> 
-						 <a class="btn btn-info btn-link " href="user_pwUpdate.do">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="user_delete.do">회원탈퇴</a>
+						 <a class="btn btn-info btn-link" href="#">검수 중</a> 
+						 <a class="btn btn-info btn-link" href="#">지원자 모집 중</a> 
+						 <a class="btn btn-info btn-link" href="#">진행중인 프로젝트</a> 
+						 <a class="btn btn-info btn-link" href="#">완료한 프로젝트</a>
+						<a class="btn btn-info btn-link" href="#">계정 유형 변경 신청</a>
+						 
 					</div>
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15" id="apply">
-					<h3><b>지원내역</b></h3>
-					<p>회원님이 지원한 프로젝트 목록입니다.</p>
+					<h3><b>지원자 모집 중</b></h3>
+					<p>회원님이 등록한 프로젝트 목록입니다.</p>
 				</div>
 				<br>
 						<div class="col col-md-15" style="border: 1px solid black;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
+							<span class="badge badge-pill badge-success">심사대기중</span>
+							<span class="badge badge-pill badge-warning">지원자현황</span>
+							
 							<p>
-								<img src="resources/assets/img/money.png"/>&nbsp;예상금액:&nbsp;<b>500,000,000</b>|&nbsp;
-								<img src="resources/assets/img/time.png"/>&nbsp;예상기간:&nbsp;<b>3개월</b>| &nbsp;
-								<img src="resources/assets/img/calendar.png"/>&nbsp;모집마감:&nbsp;<b>2019.02.08</b>
+							<p>
+								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000</b>&nbsp;
+								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>&nbsp;
+								<img src="resources/assets/img/calendar.png"/>&nbsp;<b>모집마감:&nbsp;2019.02.08</b>
+								<img src="resources/assets/img/person.png"/>&nbsp;<b>모집마감:&nbsp;2/6명</b>
+								
 							<p>
 								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
 									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
 									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
 									Zeplin 형태로 제공드릴 예정입니다.)
 								</b>
+								<p>
+								<span class="badge badge-pill badge-success" style="background-color: #BDBDBD">JAVA</span>
+								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">CSS</span>
+								<span class="badge badge-pill badge-success" style="background-color: #BDBDBD">HTML</span>
+								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">ORACLE</span>
 						</div>
 						<p>
 						<div class="col col-md-15" style="border: 1px solid black;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
+							<span class="badge badge-pill badge-success">심사대기중</span>
+							<span class="badge badge-pill badge-warning">지원자현황</span>
+							
 							<p>
-								<img src="resources/assets/img/money.png"/>&nbsp;예상금액:&nbsp;<b>500,000,000</b>|&nbsp;
-								<img src="resources/assets/img/time.png"/>&nbsp;예상기간:&nbsp;<b>3개월</b>| &nbsp;
-								<img src="resources/assets/img/calendar.png"/>&nbsp;모집마감:&nbsp;<b>2019.02.08</b>
+							<p>
+								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000</b>&nbsp;
+								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>&nbsp;
+								<img src="resources/assets/img/calendar.png"/>&nbsp;<b>모집마감:&nbsp;2019.02.08</b>
+								<img src="resources/assets/img/person.png"/>&nbsp;<b>모집마감:&nbsp;2/6명</b>
+								
 							<p>
 								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
 									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
 									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
 									Zeplin 형태로 제공드릴 예정입니다.)
 								</b>
+								<p>
+								<span class="badge badge-pill badge-success" style="background-color: #BDBDBD">JAVA</span>
+								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">CSS</span>
+								<span class="badge badge-pill badge-success" style="background-color: #BDBDBD">HTML</span>
+								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">ORACLE</span>
 						</div>
 						<p>
 						<div class="col col-md-15" style="border: 1px solid black;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
+							<span class="badge badge-pill badge-success">심사대기중</span>
+							<span class="badge badge-pill badge-warning">지원자현황</span>
+							
 							<p>
-								<img src="resources/assets/img/money.png"/>&nbsp;예상금액:&nbsp;<b>500,000,000</b>|&nbsp;
-								<img src="resources/assets/img/time.png"/>&nbsp;예상기간:&nbsp;<b>3개월</b>| &nbsp;
-								<img src="resources/assets/img/calendar.png"/>&nbsp;모집마감:&nbsp;<b>2019.02.08</b>
+							<p>
+								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000</b>&nbsp;
+								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>&nbsp;
+								<img src="resources/assets/img/calendar.png"/>&nbsp;<b>모집마감:&nbsp;2019.02.08</b>
+								<img src="resources/assets/img/person.png"/>&nbsp;<b>모집마감:&nbsp;2/6명</b>
+								
 							<p>
 								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
 									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
 									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
 									Zeplin 형태로 제공드릴 예정입니다.)
 								</b>
+								<p>
+								<span class="badge badge-pill badge-success" style="background-color: #BDBDBD">JAVA</span>
+								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">CSS</span>
+								<span class="badge badge-pill badge-success" style="background-color: #BDBDBD">HTML</span>
+								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">ORACLE</span>
 						</div>
 					</div>
 				</div>

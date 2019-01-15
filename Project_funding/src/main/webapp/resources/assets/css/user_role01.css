@@ -18,3 +18,8 @@
 	height: 60px;
 }
 
+#sidebar > a {
+	float: right;
+	font-size: 12px;
+	color: #A6A6A6;
+}

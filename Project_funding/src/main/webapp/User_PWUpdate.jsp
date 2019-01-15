@@ -53,28 +53,26 @@
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col">
+				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>비밀번호 변경</b></h3>
-					<p>개인정보 보호를 위해 비밀번호를 주기적으로 변경해주세요.</p>
+					<p class="text-muted"  style="font-size: 12px;">개인정보 보호를 위해 비밀번호를 주기적으로 변경해주세요.</p>
 				</div>
 				<br>
 						<div class="col col-md-15">
 							<form action="#">
 							<div class="user_pw">
-							<b>*새 비밀번호</b> 
-								<input type="password"  class="form-control"><p>
-								비밀번호는 8자 이상 32자 이하로 입력해주세요.
+								<h4><b>* 새 비밀번호</b></h4>
+								<input type="password"  class="form-control" placeholder="비밀번호는 8자 이상 32자 이하로 입력해주세요."><p>
 							</div>
 							
 							<div class="user_pwcheck">
-								<b>*새 비밀번호 확인</b> 
-								<input type="password"  class="form-control"><p>
-								동일한 비밀번호를 입력해주세요.
+								<h4><b>* 새 비밀번호 확인</b></h4> 
+								<input type="password" class="form-control" placeholder="동일한 비밀번호를 입력해주세요."><p>
 							</div>
 							<div class="user_pwbt">
-								<input type="submit" class="btn btn-primary" value="변경완료">
-								<input type="button" class="btn btn-primary" value="취소">
+								<input type="submit" class="btn btn-success" value="변경완료">
+								<input type="button" class="btn" value="취소">
 							</div>
 							</form>
 						</div>

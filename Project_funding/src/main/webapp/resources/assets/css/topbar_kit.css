@@ -9666,6 +9666,9 @@ button:focus {
 .btn.btn-link:focus,
 .btn.btn-link:active {
   text-decoration: none !important;
+  background-color: #ccc;
+  color: white;
+  width: 230px;
 }
 
 .btn.btn-disabled {

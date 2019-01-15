@@ -43,6 +43,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_insert.do")
 	public String insert() {
+
 		return "Project_Insert";
 	}
 	
@@ -160,4 +161,17 @@ public class HomeController {
 	public String user_delete() {
 		return"User_Delete";
 	}
+	
+	
+	//파트너스 나의푸딩
+	@RequestMapping(value="partner_mypage.do")
+	public String partnermypage() {
+		return "Partner_Mypage";
+	}
+	
+	//클라이언트 나의푸딩
+		@RequestMapping(value="client_mypage.do")
+		public String clientrmypage() {
+			return "Client_Mypage";
+		}
 }
