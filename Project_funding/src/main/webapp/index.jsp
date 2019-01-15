@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="main main-raised">
+  <div class="main main-raised-index">
     <div class="section section-basic">
       <div class="container">
         <div class="number_container">
