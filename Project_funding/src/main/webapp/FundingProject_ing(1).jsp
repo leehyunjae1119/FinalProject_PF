@@ -48,7 +48,7 @@
                    <a class="btn btn-info btn-link" href="#">계정 유형 변경 신청</a> 
                    <a class="btn btn-info btn-link" href="#">미팅 관리</a> 
                    <a class="btn btn-info btn-link" href="#">지원 내역</a>
-                   <a class="btn btn-info btn-link" href="#">진행중인 프로젝트</a>
+                   <a class="btn btn-info btn-link active" href="#">진행중인 프로젝트</a>
                    <a class="btn btn-info btn-link" href="#">완료한 프로젝트</a>
                </div>
 

@@ -50,5 +50,13 @@ public class HomeController {
 	public String view() {
 		return "project_view";
 	}
-	
+
+	@RequestMapping(value="/login.do")
+	public String login() {
+		return "User_Login";
+	}
+	@RequestMapping(value="/join.do")
+	public String join() {
+		return "User_Join";
+	}
 }

@@ -28,12 +28,12 @@
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
 	
 	
-	<jsp-config>
+	 <jsp-config>
 	<jsp-property-group>
 		<url-pattern>*.jsp</url-pattern>
 		<page-encoding>UTF-8</page-encoding>
