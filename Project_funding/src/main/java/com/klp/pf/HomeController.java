@@ -53,7 +53,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_view.do")
 	public String view() {
-		return "project_view";
+		return "Project_View";
 	}
 
 	@RequestMapping(value="/partner_list.do")
@@ -149,5 +149,15 @@ public class HomeController {
 	@RequestMapping(value="partnerReg_career.do")
 	public String partnerReg_career() {
 		return"PartnerReg_career";
+	}
+	//비밀번호 번경
+	@RequestMapping(value="user_pwUpdate.do")
+	public String user_pwUpdate() {
+		return"User_PWUpdate";
+	}
+	//회원 탈퇴
+	@RequestMapping(value="user_delete.do")
+	public String user_delete() {
+		return"User_Delete";
 	}
 }
