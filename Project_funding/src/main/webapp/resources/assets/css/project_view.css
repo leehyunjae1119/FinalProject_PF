@@ -7,6 +7,7 @@
 .view_title {
 	margin-left: 10%;
 	text-align: center;
+	padding-bottom: 20px;
 }
 
 .view_title2 p, .view_title2 span, #support {
@@ -36,10 +37,12 @@
 	border: dotted 1px #ccc;
 	margin-left: 30px;
 	height: 550px;
+	margin-top: 20px;
 }
 
 #col10 {
 	float: left;
+	padding-top: 50px;
 }
 
 .client_container {
@@ -145,10 +148,6 @@
 	margin-right: 10%;
 }
 
-/* .start_date { */
-/* 	margin-left: 15%; */
-/* } */
-
 .interest_project {
 	float: right;
 }
@@ -171,5 +170,14 @@ textarea, .free_img {
 }
 
 .comment_container {
-	margin-bottom: 100px;
+	padding-bottom: 100px;
 }
+
+.interest_project {
+	border: 1px solid;
+}
+
+.project_title3 {
+	border: 1px solid;
+}
+

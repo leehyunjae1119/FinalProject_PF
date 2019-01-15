@@ -21,6 +21,7 @@
 </head>
 <body>
 
+<div class="main main-raised">
 <div class="project_view_container">
 	<div class="row" id="row">
 		<div class="col-md-9" id="col10">
@@ -47,16 +48,18 @@
        					<p class="text-muted">모집 마감&nbsp;&nbsp;&nbsp;2019년 1월 1일</p>
        				</div>
        			</div>
-       			<div class="project_title3">
-       				<div class="insert_date">
-       					<p class="text-muted">등록일&nbsp;&nbsp;&nbsp;2019년 1월 1일</p>
+       			<div class="project_title2">
+       				<div class="project_money">
+       					<img src="resources/assets/img/money.png" />
+       					<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
        				</div>
-       				<div class="start_date">
-       					<p class="text-muted">예상 시작일&nbsp;&nbsp;&nbsp;2019년 2월 1일</p>
+       				<div class="project_time">
+       					<img src="resources/assets/img/time.png" />	
+       					<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
        				</div>
-       				<div class="interest_project">
-       					<img src="resources/css/img/heart.PNG" id="heart" />
-       					<p class="text-muted">관심 프로젝트 추가하기</p>
+       				<div class="project_support">
+       					<img src="resources/assets/img/K-021.png" />
+       					<p class="text-muted">모집 마감&nbsp;&nbsp;&nbsp;2019년 1월 1일</p>
        				</div>
        			</div>
        			<hr />
@@ -120,11 +123,12 @@
 		<div class="free_img">
 			<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
 		</div>
-		<textarea rows="4" cols="100" name="content" style="margin-left: 30px; vertical-align: middle;"></textarea>
+		<textarea rows="4" cols="90" name="content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
 		<button class="btn">등록하기</button>
 	</div>
 	
 </div>
-
+</div>
+<%@ include file="WEB-INF/inc/footer.jsp" %>
 </body>
 </html>
