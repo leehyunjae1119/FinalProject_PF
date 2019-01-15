@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
- <%@ include file="WEB-INF/inc/topbar.jsp" %>
+ <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -34,7 +34,7 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>파트너스</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
+					<a href="user_infoUpdate.do">기본정보 수정하기</a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
@@ -90,7 +90,7 @@
 									</tr>
 								</tbody>
 						</table>
-						<a href="#" class="view">자세히 보기 >></a>
+						<a href="project_likeList.do" class="view">자세히 보기 >></a>
 					</div>
 					<div class="like_project">
 						<h5>지원 내역</h5>
@@ -112,30 +112,9 @@
 									</tr>
 								</tbody>
 						</table>
-						<a href="#" class="view">자세히 보기 >></a>
+						<a href="project_supportList.do" class="view">자세히 보기 >></a>
 					</div>
-					<div class="like_project">
-						<h5>미팅 예정</h5>
-							<table class="table table-bordered">
-								<thead class="thead-light">
-									<tr>
-										<th scope="col">프로젝트 제목</th>
-     									<th scope="col">예상 금액</th>
-      									<th scope="col">예상 기간</th>
-      									<th scope="col">마감 일자</th>
-									</tr>
-								</thead>
-								<tbody id="tbody">
-									<tr id="cloneTr">
-      									<td>프로젝트 제목 어쩌구 저쩌구</td>
-      									<td>1,000,000원</td>
-      									<td>30일</td>
-      									<td>3월 1일</td>
-									</tr>
-								</tbody>
-						</table>
-						<a href="#" class="view">자세히 보기 >></a>
-					</div>
+					
 					<div class="like_project">
 						<h5>진행 중인 프로젝트</h5>
 							<table class="table table-bordered">
@@ -156,7 +135,7 @@
 									</tr>
 								</tbody>
 						</table>
-						<a href="#" class="view">자세히 보기 >></a>
+						<a href="project_ing.do" class="view">자세히 보기 >></a>
 					</div>
 					
 				</div>

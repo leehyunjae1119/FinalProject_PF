@@ -27,8 +27,7 @@
 		id="sectionsNav">
 		<div class="container">
 			<div class="navbar-translate">
-				<img src="resources/assets/img/main_Icon_white.png" id="main_logo"
-					style="width: 100px;" />
+				<a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					aria-expanded="false" aria-label="Toggle navigation">
 					<span class="sr-only">Toggle navigation</span> <span
@@ -42,12 +41,15 @@
 					<li class="nav-item" id="item1"></li>
 					<li class="nav-item"><a href="#pablo" class="nav-link">나의
 							푸딩</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">프로젝트
-							찾기</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">파트너스
-							목록</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">이용
-							방법</a></li>
+					<li class="nav-item">
+                    <a href="project_list.do" class="nav-link">프로젝트 찾기</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="partner_list.do" class="nav-link">파트너스 목록</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="question.do" class="nav-link">이용 방법</a>
+                  </li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item" style="float: right;"><a href="#pablo"
@@ -81,11 +83,11 @@
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav" style="color:black;">
 					<li class="nav-item" id="item1"></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+					<li class="nav-item"><a href="user_coin.do" class="nav-link" id="ho"
 						style="padding-top: 17px;">코인 관리</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+					<li class="nav-item"><a href="user_update.do" class="nav-link" id="ho"
 						style="padding-top: 17px;">계정 유형 변경 신청</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+					<li class="nav-item"><a href="project_fundinglist.do" class="nav-link" id="ho"
 						style="padding-top: 17px;">투자한 프로젝트</a></li>
 				</ul>
 			</div>
