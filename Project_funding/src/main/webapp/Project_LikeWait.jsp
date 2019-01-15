@@ -48,28 +48,33 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-				<div class="col-sm-4">
-				
-					<div class="center-block">
-						<div class="title">
-							<h6>
-								파트너스
-								<button class="btn btn-primary btn-link" style="color: skyblue;">
-									개인정보수정
+				<div class="col-sm-3" style="padding-right: 90px;">
+
+						<div class="center-block">
+							<div class="sidebar">
+								<b> 파트너스 </b> <a href="#"
+									style="font-size: 13px; color: skyblue; float: right;">기본정보
+									수정하기</a>
+								<br>
+								<hr>
+								<div align="center">
+									<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
+										class="rounded-circle img-fluid"
+										style="height: 120px; wedth: 120px;">
+									<br><br>
+									<b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
+								</div>
+								<hr>
+								<div align="center">
+								<button class="btn btn-primary btn-link" id="bu"
+									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
+									코인 조회/결제
 									<div class="ripple-container"></div>
 								</button>
-							</h6>
-							<div style="position: relative; left: 30px;">
-								<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
-									class="rounded-circle img-fluid"
-									style="height: 80px; wedth: 80px;"> <br> <b
-									style="position: relative; left: 20px;">wooju</b> <br> <b
-									style="position: relative; left: -20px;"><small>wwzzzzzzz@naver.com</small></b>
+								</div>
 							</div>
-							<div></div>
 						</div>
 					</div>
-				</div>
 				<div class="col-sm-8">
 					<h3><strong>관심 프로젝트</strong></h3>
 					<h5>회원님이 관심 등록한 프로젝트를 확인할 수 있습니다.</h5>

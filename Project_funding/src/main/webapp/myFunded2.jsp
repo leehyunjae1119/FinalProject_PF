@@ -6,8 +6,8 @@
 <%@ include file="WEB-INF/inc/topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
-	href="resources/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
+	href="./assets/img/apple-icon.png">
+<link rel="icon" type="image/png" href="./assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Project Funding</title>
 <meta
@@ -19,12 +19,11 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 <!-- CSS Files -->
-<link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
+ <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
-<link href="resources/assets/demo/demo.css" rel="stylesheet" />
+<link href="./assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="./src/main/webapp/resources/css/coinmanage.css" rel="stylesheet" />
-<link href="resources/css/likeproject.css" rel="stylesheet" />
+<link href="resources/css/myFunded.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
@@ -43,7 +42,6 @@
 	border-width: 1px;
 	border-radius: 10px;
 }
-
 </style>
 </head>
 <body>
@@ -84,80 +82,66 @@
 					</div>
 					<div class="col-sm-8">
 						<h3>
-							<strong>관심 프로젝트</strong>
+							<strong>투자한 프로젝트</strong>
 						</h3>
-						<h5>회원님이 관심 등록한 프로젝트를 확인할 수 있습니다.</h5>
-						<div class="boxed">
-							<br>
-							<ol>
-								<li>관심 프로젝트로 추가한 프로젝트 목록입니다.</li>
-								<li>지원 완료한 프로젝트의 경우, 목록에서 지원 내역으로 이동됩니다.</li>
-								<li>프로젝트 마감이 완료된 경우, 목록에서 자동으로 삭제됩니다.</li>
-								<li>[프로젝트 지원하기]버튼을 클릭하여 해당 프로젝트에 지원할 수 있습니다.</li>
-							</ol>
-						</div>
+						<h5>회원님이 투자한 프로젝트 목록입니다.</h5>
 						<br>
+						<hr>
 						<div class="project">
 							<div>
 								<h5>
-									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
-											프레임워크 웹 어플리케이션 개발자 양성과정</strong></a>
+									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
 								</h5>
-								<span class="badge badge-pill badge-success">모집중</span>
-							    <img
+								<span class="badge badge-pill badge-warning">진행중</span> <img
 									src="resources/css/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
-								<img
-									src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 35px;" id="img3">
-									<b>500000원</b>
-								<img
-									src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 37px;" id="img4">
-									<b>150일</b>
-								<img
-									src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 37px;" id="img5">
-									<b>2019.05.25</b>
+								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" id="img3"> <b
+									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
+								<img src="resources/css/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" id="img4"> <b
+									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
+								<img src="resources/css/img/date.png" alt="fi"
+									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
 							<div class="a">
 								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
 										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
 									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
+							</div>
+							<div
+								style="padding-left: 15px; padding-bottom: 5px; padding-top: 5px;">
+								<b>투자금 : 5000000 원</b>
 							</div>
 						</div>
 						<br>
 						<div class="project">
 							<div>
 								<h5>
-									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
-											프레임워크 웹 어플리케이션 개발자 양성과정</strong></a>
+									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
 								</h5>
-								<span class="badge badge-pill badge-success">모집중</span>
-							    <img
+								<span class="badge badge-pill badge-warning">진행중</span> <img
 									src="resources/css/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
-								<img
-									src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 35px;" id="img3">
-									<b>500000원</b>
-								<img
-									src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 37px;" id="img4">
-									<b>150일</b>
-								<img
-									src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 37px;" id="img5">
-									<b>2019.05.25</b>
+								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" id="img3"> <b
+									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
+								<img src="resources/css/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" id="img4"> <b
+									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
+								<img src="resources/css/img/date.png" alt="fi"
+									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
 							<div class="a">
@@ -165,34 +149,33 @@
 										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
 									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
 							</div>
+							<div
+								style="padding-left: 15px; padding-bottom: 5px; padding-top: 5px;">
+								<b>투자금 : 5000000 원</b>
+							</div>
 						</div>
 						<br>
-												<div class="project">
+						<div class="project">
 							<div>
 								<h5>
-									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
-											프레임워크 웹 어플리케이션 개발자 양성과정</strong></a>
+									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
 								</h5>
-								<span class="badge badge-pill badge-success">모집중</span>
-							    <img
+								<span class="badge badge-pill badge-warning">진행중</span> <img
 									src="resources/css/img/heart.PNG" alt="HEART"
 									style="height: 30px; wedth: 30px;" id="img2">
 
 							</div>
 							<div>
-								&nbsp&nbsp
-								<img
-									src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 35px;" id="img3">
-									<b>500000원</b>
-								<img
-									src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 37px;" id="img4">
-									<b>150일</b>
-								<img
-									src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 37px;" id="img5">
-									<b>2019.05.25</b>
+								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" id="img3"> <b
+									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
+								<img src="resources/css/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" id="img4"> <b
+									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
+								<img src="resources/css/img/date.png" alt="fi"
+									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
 							<div class="a">
@@ -200,119 +183,37 @@
 										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
 									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
 							</div>
-						</div>
-						<br>
-												<div class="project">
-							<div>
-								<h5>
-									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
-											프레임워크 웹 어플리케이션 개발자 양성과정</strong></a>
-								</h5>
-								<span class="badge badge-pill badge-success">모집중</span>
-							    <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
-
-							</div>
-							<div>
-								&nbsp&nbsp
-								<img
-									src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 35px;" id="img3">
-									<b>500000원</b>
-								<img
-									src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 37px;" id="img4">
-									<b>150일</b>
-								<img
-									src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 37px;" id="img5">
-									<b>2019.05.25</b>
-							</div>
-
-							<div class="a">
-								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
-										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
-									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
+							<div
+								style="padding-left: 15px; padding-bottom: 5px; padding-top: 5px;">
+								<b>투자금 : 5000000 원</b>
 							</div>
 						</div>
 						<br>
-												<div class="project">
-							<div>
-								<h5>
-									<a style="color: skyblue;"><strong>&nbsp&nbsp 자바
-											프레임워크 웹 어플리케이션 개발자 양성과정</strong></a>
-								</h5>
-								<span class="badge badge-pill badge-success">모집중</span>
-							    <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
-
-							</div>
-							<div>
-								&nbsp&nbsp
-								<img
-									src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 35px;" id="img3">
-									<b>500000원</b>
-								<img
-									src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 37px;" id="img4">
-									<b>150일</b>
-								<img
-									src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 37px;" id="img5">
-									<b>2019.05.25</b>
-							</div>
-
-							<div class="a">
-								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
-										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
-									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
-							</div>
-						</div>
-						
 						<br>
-						<ul class="pagination pagination-info" style="padding-left:230px;">
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link"> prev</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">1</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">2</a>
-                </li>
-                <li class="active page-item">
-                  <a href="javascript:void(0);" class="page-link">3</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">4</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">5</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">next </a>
-                </li>
-              </ul>
-						<!-- 페이징
-						<div class="text-center">
-							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-							</ul>
-						</div>
-						-->
+						<ul class="pagination pagination-info"
+							style="padding-left: 230px;">
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link"> prev</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">1</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">2</a></li>
+							<li class="active page-item"><a href="javascript:void(0);"
+								class="page-link">3</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">4</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">5</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">next </a></li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	</div>
+	<%@ include file="WEB-INF/inc/footer.jsp" %>
 	<!-- Classic Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
@@ -345,23 +246,23 @@
 		</div>
 	</div>
 	<!--  End Modal -->
-	<%@ include file="WEB-INF/inc/footer.jsp" %>
+
 	<!--   Core JS Files   -->
-	<script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>
-	<script src="resources/assets/js/core/bootstrap-material-design.min.js"
+	<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="./assets/js/core/bootstrap-material-design.min.js"
 		type="text/javascript"></script>
-	<script src="resources/assets/js/plugins/moment.min.js"></script>
+	<script src="./assets/js/plugins/moment.min.js"></script>
 	<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
-	<script src="resources/assets/js/plugins/bootstrap-datetimepicker.js"
+	<script src="./assets/js/plugins/bootstrap-datetimepicker.js"
 		type="text/javascript"></script>
 	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-	<script src="resources/assets/js/plugins/nouislider.min.js"
+	<script src="./assets/js/plugins/nouislider.min.js"
 		type="text/javascript"></script>
 	<!--  Google Maps Plugin    -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
-	<script src="resources/assets/js/material-kit.js?v=2.0.5"
+	<script src="./assets/js/material-kit.js?v=2.0.5"
 		type="text/javascript"></script>
 	<script>
 		$(document).ready(function() {
@@ -434,6 +335,5 @@
 
 		});
 	</script>
-
 </body>
 </html>
