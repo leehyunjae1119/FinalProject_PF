@@ -33,30 +33,12 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
-						</div>
-					</div>
-					<hr>
-					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="user_infoUpdate.do">기본정보수정</a> 
-						 <a class="btn btn-info btn-link active" href="user_pwUpdate.do">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="user_delete.do">회원탈퇴</a>
-					</div>
-
-
-				</div>
+				<%@ include file="WEB-INF/inc/sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>회원정보수정</b></h3>
-					<p class="text-muted" style="font-size: 12px;">회원정보를 수정할 수 있습니다.</p>
+					<p class="text-muted" style="font-size: 13px;">회원정보를 수정할 수 있습니다.</p>
 				</div>
 				<br>
 						<div class="col col-md-15">

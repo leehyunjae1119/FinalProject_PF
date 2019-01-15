@@ -10,7 +10,7 @@
 <body>
 
 	<div class="col-md-3" id="sidebar">
-		<b>클라이언트</b>&nbsp;&nbsp; <a href="#">기본정보 수정하기</a>
+		<b>클라이언트</b>&nbsp;&nbsp; <a href="#"><b>기본정보 수정하기</b></a>
 		<hr>
 		<div class="user_info">
 			<img src="resources/assets/img/Teemo.png"
@@ -22,9 +22,10 @@
 		</div>
 		<hr>
 		<div class="col-md-12">
-			<a class="btn btn-link active" href="#">기본정보수정</a> <a
-				class="btn btn-link" href="#">비밀번호변경</a> <a class="btn btn-link"
-				href="#">계정 유형 변경 신청</a><br /> <a class="btn btn-link" href="#">회원탈퇴</a>
+			<a class="btn btn-link2 active" href="#">기본정보수정</a> 
+			<a class="btn btn-link2" href="#">비밀번호변경</a> 
+			<a class="btn btn-link2" href="#">계정 유형 변경 신청</a><br /> 
+			<a class="btn btn-link2" href="#">회원탈퇴</a>
 		</div>
 
 	</div>
