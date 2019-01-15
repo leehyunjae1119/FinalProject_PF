@@ -27,8 +27,7 @@
       id="sectionsNav">
       <div class="container">
          <div class="navbar-translate">
-            <img src="resources/assets/img/main_Icon_white.png" id="main_logo"
-               style="width: 100px;" />
+            <a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                aria-expanded="false" aria-label="Toggle navigation">
                <span class="sr-only">Toggle navigation</span> <span
