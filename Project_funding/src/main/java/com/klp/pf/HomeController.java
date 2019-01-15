@@ -43,18 +43,26 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_insert.do")
 	public String insert() {
+<<<<<<< HEAD
 		return "Project_insert";
+=======
+
+		return "Project_Insert";
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 	}
 	
 	@RequestMapping(value="/project_list.do")
 	public String list() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 		return "Project_List";
 	}
 
 	@RequestMapping(value="/project_view.do")
 	public String view() {
-		return "Project_view";
+		return "Project_View";
 	}
 
 	@RequestMapping(value="/partner_list.do")
@@ -151,4 +159,27 @@ public class HomeController {
 	public String partnerReg_career() {
 		return"PartnerReg_career";
 	}
+	//비밀번호 번경
+	@RequestMapping(value="user_pwUpdate.do")
+	public String user_pwUpdate() {
+		return"User_PWUpdate";
+	}
+	//회원 탈퇴
+	@RequestMapping(value="user_delete.do")
+	public String user_delete() {
+		return"User_Delete";
+	}
+	
+	
+	//파트너스 나의푸딩
+	@RequestMapping(value="partner_mypage.do")
+	public String partnermypage() {
+		return "Partner_Mypage";
+	}
+	
+	//클라이언트 나의푸딩
+		@RequestMapping(value="client_mypage.do")
+		public String clientrmypage() {
+			return "Client_Mypage";
+		}
 }

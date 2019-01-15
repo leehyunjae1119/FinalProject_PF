@@ -45,10 +45,9 @@
 					</div>
 					<hr>
 					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="#">기본정보수정</a> 
-						 <a class="btn btn-info btn-link" href="#">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="#">계좌관리</a> 
-						 <a class="btn btn-info btn-link" href="#">회원탈퇴</a>
+						 <a class="btn btn-info btn-link" href="user_infoUpdate.do">기본정보수정</a> 
+						 <a class="btn btn-info btn-link " href="user_pwUpdate.do">비밀번호변경</a> 
+						 <a class="btn btn-info btn-link" href="user_delete.do">회원탈퇴</a>
 					</div>
 
 				</div>

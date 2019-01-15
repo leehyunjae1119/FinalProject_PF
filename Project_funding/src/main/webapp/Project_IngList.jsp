@@ -34,7 +34,7 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
+					<a href="user_infoUpdate.do">기본정보 수정하기</a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
@@ -44,15 +44,7 @@
 						</div>
 					</div>
 					<hr>
-			       <div class="col-md-6">
-                   <a class="btn btn-info btn-link" href="#">내 프로필</a> 
-                   <a class="btn btn-info btn-link" href="#">계정 유형 변경 신청</a> 
-                   <a class="btn btn-info btn-link" href="#">미팅 관리</a> 
-                   <a class="btn btn-info btn-link" href="#">지원 내역</a>
-                   <a class="btn btn-info btn-link" href="#">진행중인 프로젝트</a>
-                   <a class="btn btn-info btn-link" href="#">완료한 프로젝트</a>
-               </div>
-
+			      
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
@@ -62,7 +54,7 @@
 				</div>
 				<br>
 						<div class="col col-md-15" style="border: 1px solid black;">
-							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
+							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p>
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
 								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>
@@ -78,7 +70,7 @@
 						</div>
 						<p>
 						<div class="col col-md-15" style="border: 1px solid black;">
-							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
+							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p>
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
 								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>
@@ -93,7 +85,7 @@
 						</div>
 						<p>
 						<div class="col col-md-15" style="border: 1px solid black;">
-							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
+							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p>
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
 								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>
