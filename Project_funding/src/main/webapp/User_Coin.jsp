@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/investorTopbar.jsp" %>
+
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -57,7 +57,7 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a href="user_coin.do"
+								<b> 투자자 </b> <a href="user_infoUpdate.do"
 									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>
@@ -71,11 +71,11 @@
 								</div>
 								<hr>
 								<div align="center">
-								<button class="btn btn-primary btn-link" id="bu"
+								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
 									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
 									코인 조회/결제
 									<div class="ripple-container"></div>
-								</button>
+								</button></a>
 								</div>
 							</div>
 						</div>

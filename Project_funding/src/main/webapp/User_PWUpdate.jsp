@@ -33,7 +33,6 @@
 	<div class="main main-raised" class="main">
 		<div class="section section-basic">
 			<div class="container">
-<<<<<<< HEAD
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
 					<a href="#"><b>기본정보 수정하기</b></a>
@@ -55,11 +54,10 @@
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
-=======
+
 			<div class="row">			
-				<%@ include file="WEB-INF/inc/sidebar.jsp" %>
 								<!-- 왼쪽 사이드 바 div -->
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
+
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>비밀번호 변경</b></h3>
