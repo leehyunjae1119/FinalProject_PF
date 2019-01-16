@@ -121,7 +121,6 @@ public class HomeController {
 	public String logOut(String user_id, String user_pw, HttpSession session) {
 		if(session!=null) {
 			session.invalidate();
-			
 			session =null;
 		}
 		return "index";
