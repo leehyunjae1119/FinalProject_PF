@@ -164,29 +164,31 @@
                 </li>
               </ul>
 						<hr />
-						<b style="color: gray;">코인 충전 및 결제<br></b>
-						<div id="select" style="padding-top:10px;">
-							<select class="btn btn-default dropdown-toggle"
-								name="location_name"
-								style="height: 40px; width: 100%; background-color: white; color: gray;">
-								<option value="" selected="selected">충전할 금액을 선택해주세요.</option>
-								<option value="50,000">50,000 <a>원</a></option>
-								<option value="100,000">100,000 <a>원</a></option>
-								<option value="500,000">500,000 <a>원</a></option>
-							</select>
-						</div>
-						<div class="form-check" style="padding-top:10px;">
-							<label class="form-check-label"> <input
-								class="form-check-input" type="checkbox" value="">
-								코인 충전 결제에 동의합니다. <span class="form-check-sign"> <span
-									class="check"></span>
-							</span>
-							</label>
-						</div>
-						<br>
-						<div align="center" style="padding-bottom:50px;">
-							<button class="btn" >결제하기<div class="ripple-container"></div></button>
-						</div>
+						<form action="user_coinpayment.do" class="form" method="post">
+							<b style="color: gray;">코인 충전 및 결제<br></b>
+							<div id="select" style="padding-top: 10px;">
+								<select class="btn btn-default dropdown-toggle" name="amount"
+									style="height: 40px; width: 100%; background-color: white; color: gray;">
+									<option value="" selected="selected">충전할 금액을 선택해주세요.</option>
+									<option value="50,000">50,000 <a>원</a></option>
+									<option value="100,000">100,000 <a>원</a></option>
+									<option value="500,000">500,000 <a>원</a></option>
+								</select>
+							</div>
+							<div class="form-check" style="padding-top: 10px;">
+								<label class="form-check-label"> 
+								<input class="form-check-input" type="checkbox" value=""> 코인 충전 결제에 동의합니다. 
+									<span class="form-check-sign"> 
+										<span class="check">
+										</span>
+									</span>
+								</label>
+							</div>
+							<br>
+							<div align="center" style="padding-bottom: 50px;">
+								<input type="submit" class="btn" value="결제하기">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
