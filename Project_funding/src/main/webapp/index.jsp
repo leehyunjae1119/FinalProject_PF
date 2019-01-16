@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:if test="${userdto eq null }">
+<c:if test="${userdto eq null }"> 
  <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
  </c:if>
  
