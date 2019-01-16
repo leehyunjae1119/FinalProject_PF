@@ -124,7 +124,7 @@
 			<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
 		</div>
 		<textarea rows="4" cols="90" name="content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
-		<button class="btn">등록하기</button>
+		<button class="btn btn-success">등록하기</button>
 	</div>
 	
 </div>
