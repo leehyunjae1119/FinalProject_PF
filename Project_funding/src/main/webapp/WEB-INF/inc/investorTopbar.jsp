@@ -94,6 +94,7 @@
 						style="padding-top: 17px;">투자한 프로젝트</a></li>
 				</ul>
 			</div>
+			</div>
 	</nav>
 	<br>
 	<br>
