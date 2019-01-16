@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+<%@ include file="WEB-INF/inc/Partners_topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -28,17 +28,10 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row row-offcanvas row-offcanvas-right">
-					<div class="col-6 col-md-2 sidebar-offcanvas" id="sidebar">
-						<div class="list-group">
-							<a class="btn btn-info btn-link" href="partnerReg_info.do">파트너스 정보</a>
-							<a class="btn btn-info btn-link active" href="partnerReg_about.do">자기 소개</a>
-							<a class="btn btn-info btn-link" href="partnerReg_portfolio.do">포트폴리오</a>
-							<a class="btn btn-info btn-link" href="partnerReg_technology.do">보유 기술</a>
-							<a class="btn btn-info btn-link" href="partnerReg_career.do">경력/학력/자격증</a>
-						</div>
-					</div>
-					<div class="col-12 col-md-9">
-						<h2><strong>포트폴리오 등록</strong></h2>
+										<%@include file="WEB-INF/inc/profile_sidebar.jsp" %>
+
+					<div class="col-12 col-md-9" style="margin-top:-30px;">
+						<h3><b>포트폴리오 등록</b></h3>
 						<hr>
 						<form action="#">
 							<div class="form-group">

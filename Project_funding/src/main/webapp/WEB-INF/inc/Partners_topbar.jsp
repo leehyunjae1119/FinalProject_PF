@@ -97,6 +97,8 @@
 						id="ho" style="padding-top: 17px;">완료한 프로젝트</a></li>
 				</ul>
 			</div>
+			</div>
+			
 	</nav>
 	<br>
 	<br>
