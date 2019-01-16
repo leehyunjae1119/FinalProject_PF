@@ -15,7 +15,7 @@
   <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
    
  <c:if test="${userdto.getUser_type() eq '투자자' }">
-  <%@ include file="WEB-INF/inc/investorTopbar.jsp" %></c:if>
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %></c:if>
   
 <link rel="author" href="https://plus.google.com/113101541449927918834"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
