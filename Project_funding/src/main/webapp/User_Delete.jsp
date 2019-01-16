@@ -45,16 +45,16 @@
 						<div class="col col-md-15">
 							<form>
 								<div class="user_email">
-									<b>이메일</b>&nbsp;&nbsp;&nbsp; 
-									<p><b>uiyhp123@naver.com</b></p>
+									<p class="text-muted"><b>이메일</b>&nbsp;&nbsp;&nbsp;</p>
+									<p class="text-muted"><b>uiyhp123@naver.com</b></p>
 								</div>
 
-								<h4>
+								<h3>
 									<b>비밀번호 입력</b>
-								</h4>
+								</h3>
 								<p class="text-muted" style="font-size: 13px;">개인정보 보호 및 회원탈퇴를 위해 비밀번호를 다시 한번 확인합니다.</p>
 								<div class="user_pw">
-									<b>비밀번호</b>&nbsp;&nbsp;&nbsp; <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요.">
+									<b>비밀번호</b>&nbsp;&nbsp;&nbsp;<input type="password" class="form-control" placeholder="비밀번호를 입력해주세요.">
 								</div>
 								
 								<div class="out_bt">

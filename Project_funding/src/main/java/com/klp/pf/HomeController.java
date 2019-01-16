@@ -43,25 +43,12 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_insert.do")
 	public String insert() {
-
-<<<<<<< HEAD
-		return "Project_insert";
-
-=======
 		return "Project_Insert";
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 	}
 	
 	@RequestMapping(value="/project_list.do")
 	public String list() {
-<<<<<<< HEAD
-		return "Project_list";
-		
-	}
-=======
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
-	
-		return "Project_List"; 
+		return "Project_List";
 	}
 
 	@RequestMapping(value="/project_view.do")
@@ -73,6 +60,7 @@ public class HomeController {
 	public String partnerlist() {
 		return "User_PartnerList";
 	}
+	
 	@RequestMapping(value="/question.do")
 	public String question() {
 		return "Question";
