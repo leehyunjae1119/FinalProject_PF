@@ -174,4 +174,9 @@ public class HomeController {
 		public String clientrmypage() {
 			return "Client_Mypage";
 		}
+	//비밀번호 찾기
+		@RequestMapping(value="user_findPW.do")
+		public String user_findPW() {
+			return"User_FindPW";
+		}
 }

@@ -73,7 +73,7 @@
 								
 								<div align="center">
 								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
-									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
+									style="font-family: Roboto, Helvetica, Arial, sans-serif; ">
 									코인 조회/결제
 									<div class="ripple-container"></div>
 								</button></a>

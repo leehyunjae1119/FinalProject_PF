@@ -86,13 +86,13 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="material-icons" style="font-size:13px;">비밀번호를 잊으셨나요?</i>
-                  		<a href="Findpassword.jsp" class="btn btn-primary btn-link btn-wd btn-lg" style="text-align:left;">비밀번호 찾기</a>
+                  		<a href="user_findPW.do" class="btn btn-primary btn-link btn-wd btn-lg" style="text-align:left;">비밀번호 찾기</a>
                   	  </span>  
                     </div>    
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="material-icons" style="font-size:13px;">아직 회원이 아니신가요?</i>
-                 		 <a href="SignUp.jsp" class="btn btn-primary btn-link btn-wd btn-lg">회원가입</a>
+                 		 <a href="join.do" class="btn btn-primary btn-link btn-wd btn-lg">회원가입</a>
                       </span>                
                     </div>    
                   </div>
