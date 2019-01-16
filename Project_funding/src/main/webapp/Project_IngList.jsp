@@ -25,7 +25,7 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-  <link href="resources/assets/css/client_applying01.css" rel="stylesheet">
+  <link href="resources/assets/css/Project_IngList.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -39,8 +39,8 @@
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
 						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
+							<p class="text-muted">teemo</p>
+							<p class="text-muted">teemo@naver.com</p>
 						</div>
 					</div>
 					<hr>
@@ -55,43 +55,43 @@
 				<br>
 						<div class="col col-md-15" style="border: 1px solid black;">
 							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
-							<p>
+							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
 								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>
 								<img src="resources/assets/img/calendar.png"/>&nbsp;<b>지원인원:&nbsp;2/6명</b>
 								<span class="badge badge-pill badge-success">진행중</span>
 								
-							<p>
+							<p class="text-muted">
 								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
 									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
 									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
 									Zeplin 형태로 제공드릴 예정입니다.)
 								</b>
 						</div>
-						<p>
+						<p class="text-muted">
 						<div class="col col-md-15" style="border: 1px solid black;">
 							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
-							<p>
+							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
 								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>
 								<img src="resources/assets/img/calendar.png"/>&nbsp;<b>지원인원:&nbsp;2/6명</b>
 								<span class="badge badge-pill badge-success">진행중</span>
-							<p>
+							<p class="text-muted">
 								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
 									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
 									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
 									Zeplin 형태로 제공드릴 예정입니다.)
 								</b>
 						</div>
-						<p>
+						<p class="text-muted">
 						<div class="col col-md-15" style="border: 1px solid black;">
 							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
-							<p>
+							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
 								<img src="resources/assets/img/time.png"/>&nbsp;<b>예상기간:&nbsp;3개월</b>
 								<img src="resources/assets/img/calendar.png"/>&nbsp;<b>지원인원:&nbsp;2/6명</b>
 								<span class="badge badge-pill badge-success">진행중</span>
-							<p>
+							<p class="text-muted">
 								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
 									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
 									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및

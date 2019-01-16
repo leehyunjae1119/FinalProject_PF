@@ -1,5 +1,5 @@
-.user_email{
-	padding-top: 70px;
+.user_email b, .user_email p {
+	display: inline-block;
 }
 
 .user_pw{

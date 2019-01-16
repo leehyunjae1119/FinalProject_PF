@@ -31,3 +31,16 @@
 	padding-top:10px;
 	padding-bottom:10px;
 }
+
+.boxed {
+	border: 2px dashed #bcbcbc;
+	border-radius: 10px;
+}
+
+
+.project {
+	border-style: solid;
+	border-color: #bcbcbc;
+	border-width: 1px;
+	border-radius: 10px;
+}

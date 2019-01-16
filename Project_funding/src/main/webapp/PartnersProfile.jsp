@@ -39,7 +39,7 @@
 	<div class="main main-raised">
 		<div class="section section-basic">
 			<div class="container">
-<<<<<<< HEAD
+
 				<div class="row">
 				<div class="col-md-3">
 					<div class="partnerTitle">
@@ -60,7 +60,6 @@
 							<div class="p_list"><a href=#>진행한 프로젝트</a></div>
 						
 						
-=======
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
 					<a href="#">기본정보 수정하기</a>
@@ -70,18 +69,14 @@
 						<div class="user_info">
 							<p>teemo</p>
 							<p>teemo@naver.com</p>
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 						</div>
 					</div>
-<<<<<<< HEAD
-=======
 					<hr>
 					<div class="col-md-3">
 						 <a class="btn btn-info btn-link active" href="#">기본정보수정</a> 
 						 <a class="btn btn-info btn-link" href="#">비밀번호변경</a> 
 						 <a class="btn btn-info btn-link" href="#">계좌관리</a> 
 						 <a class="btn btn-info btn-link" href="#">회원탈퇴</a>
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 					</div>
 
 				</div>

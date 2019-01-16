@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/apply_list02.css" rel="stylesheet">
+  <link href="resources/assets/css/Project_RecruitmentWait.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -33,34 +33,28 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="#">기본정보 수정하기</a>
+					<a href="user_infoUpdate.do">기본정보 수정하기</a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
 						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
+							<p class="text-muted">teemo</p>
+							<p class="text-muted">teemo@naver.com</p>
 						</div>
 					</div>
 					<hr>
-					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="#">기본정보수정</a> 
-						 <a class="btn btn-info btn-link" href="#">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="#">계좌관리</a> 
-						 <a class="btn btn-info btn-link" href="#">회원탈퇴</a>
-					</div>
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col">
 				<div class="col col-md-15">
 					<h3><b>지원 모집 중</b></h3>
-					<p>등록한 프로젝트를 확인할 수 있습니다.</p>
+					<p class="text-muted">등록한 프로젝트를 확인할 수 있습니다.</p>
 				</div>
 				<br>
 						<div class="col col-md-15">
 							<img src="resources/assets/img/support.png"/><br>
-							<p>
+							<p class="text-muted">
 							<b>
 							1. 현재 지원 중인 프로젝트 목록입니다.<br/>
 							2. 클라이언트는 프로젝트의 지원자 모집 마감 이후, 최대 10일간 검토 기간을 가집니다.<br/>

@@ -1,8 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
+<c:if test="${userdto eq null }">
  <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
+ </c:if>
+ 
+ <c:if test="${userdto.getUser_type() eq '파트너스' }">
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '투자자' }">
+  <%@ include file="WEB-INF/inc/investorTopbar.jsp" %></c:if>
+  
 <link rel="author" href="https://plus.google.com/113101541449927918834"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 <!-- index.css 참조 -->

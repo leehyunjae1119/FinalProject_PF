@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/user_role01.css" rel="stylesheet">
+  <link href="resources/assets/css/User_TypeUpdate.css" rel="stylesheet">
   
   
 </head>
@@ -34,30 +34,18 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
-						</div>
-					</div>
-					
-
-				</div>
+				<%@ include file="WEB-INF/inc/sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>계정 유형 변경 신청</b></h3>
-					<p>계정의 유형을 변경할 수 있습니다.</p>
+					<p class="text-muted" style="font-size: 13px;">계정의 유형을 변경할 수 있습니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15">
+						<div class="col col-md-15" id="col15">
 							<form action="#">
-								<b>유형변경</b>
-								<select title="user_type" class="form-control">
+								<h4><b>유형변경</b></h4>
+								<select title="user_type" class="form-control" id="select_type">
 									<option>=== 유형을 선택해 주세요 ===</option>
 									<option>개인</option>
 									<option>클라이언트</option>
@@ -66,7 +54,7 @@
 							</form>
 						</div>
 							<div class="user_bt">
-								<input type="submit" class="btn btn-primary" value="변경하기">
+								<input type="submit" class="btn btn-success" value="변경하기">
 							</div>
 					</div>
 				</div>

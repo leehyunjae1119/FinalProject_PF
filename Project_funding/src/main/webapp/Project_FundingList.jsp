@@ -23,26 +23,14 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="./assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/myFunded.css" rel="stylesheet" />
+<link href="resources/assets/css/Project_FundingList.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
 
-<style type="text/css">
-.boxed {
-	border: 2px dashed #bcbcbc;
-	border-radius: 10px;
-}
 
-.project {
-	border-style: solid;
-	border-color: #bcbcbc;
-	border-width: 1px;
-	border-radius: 10px;
-}
-</style>
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -86,29 +74,28 @@
 						<h3>
 							<strong>투자한 프로젝트</strong>
 						</h3>
-						<h5>회원님이 투자한 프로젝트 목록입니다.</h5>
+						<h3>회원님이 투자한 프로젝트 목록입니다.</h3>
 						<br>
 						<hr>
 						<div class="project">
 							<div>
-								<h5>
-									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+								<h3>
+									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h5>
-								<span class="badge badge-pill badge-warning">진행중</span> <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
+								</h3>
+								<span class="badge badge-pill badge-warning">진행중</span> 
+								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
 							</div>
 							<div>
-								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 30px;" id="img3"> <b
+								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
-								<img src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 30px;" id="img4"> <b
+								<img src="resources/assets/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
 								<img src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
@@ -125,24 +112,23 @@
 						<br>
 						<div class="project">
 							<div>
-								<h5>
-									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+								<h3>
+									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h5>
-								<span class="badge badge-pill badge-warning">진행중</span> <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
+								</h3>
+								<span class="badge badge-pill badge-warning">진행중</span> 
+								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
 							</div>
 							<div>
-								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 30px;" id="img3"> <b
+								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
-								<img src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 30px;" id="img4"> <b
+								<img src="resources/assets/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
 								<img src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
@@ -159,24 +145,23 @@
 						<br>
 						<div class="project">
 							<div>
-								<h5>
-									<b style="color: #3DB7CC;"><strong>&nbsp&nbsp 자바
+								<h3>
+									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h5>
-								<span class="badge badge-pill badge-warning">진행중</span> <img
-									src="resources/css/img/heart.PNG" alt="HEART"
-									style="height: 30px; wedth: 30px;" id="img2">
+								</h3>
+								<span class="badge badge-pill badge-warning">진행중</span> 
+								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
 							</div>
 							<div>
-								&nbsp&nbsp <img src="resources/css/img/money.png" alt="mo"
-									style="height: 20px; wedth: 30px;" id="img3"> <b
+								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
-								<img src="resources/css/img/time.png" alt="da"
-									style="height: 23px; wedth: 30px;" id="img4"> <b
+								<img src="resources/assets/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
 								<img src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 30px;" id="img5"> <b
+									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>
 
@@ -221,14 +206,14 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Modal title</h5>
+					<h3 class="modal-title">Modal title</h3>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<i class="material-icons">clear</i>
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Far far away, behind the word mountains, far from the
+					<p class="text-muted">Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
 						Separated they live in Bookmarksgrove right at the coast of the
 						Semantics, a large language ocean. A small river named Duden flows

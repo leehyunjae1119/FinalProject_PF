@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-<link href="resources/assets/css/user_role02.css" rel="stylesheet">
+<link href="resources/assets/css/User_TypeWait.css" rel="stylesheet">
   
   
 </head>
@@ -34,19 +34,7 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
-						</div>
-					</div>
-					
-
-				</div>
+				<%@ include file="WEB-INF/inc/sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">

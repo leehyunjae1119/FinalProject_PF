@@ -23,20 +23,12 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="./assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/myFunded.css" rel="stylesheet" />
+<link href="resources/assets/css/Project_FundingWait.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
-
-<style type="text/css">
-.boxed{
-	border: 2px dashed #bcbcbc;
-	border-radius:10px;
-}
-
-</style>
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -95,14 +87,14 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Modal title</h5>
+					<h3 class="modal-title">Modal title</h3>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<i class="material-icons">clear</i>
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Far far away, behind the word mountains, far from the
+					<p class="text-muted">Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
 						Separated they live in Bookmarksgrove right at the coast of the
 						Semantics, a large language ocean. A small river named Duden flows
