@@ -57,7 +57,7 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a href="user_coin.do"
+								<b> 투자자 </b> <a href="user_infoUpdate.do"
 									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>
@@ -71,11 +71,9 @@
 								</div>
 								<hr>
 								<div align="center">
-								<button class="btn btn-primary btn-link" id="bu"
-									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
-									코인 조회/결제
+							
+								<a href="user_coin.do">코인 조회/결제</a>
 									<div class="ripple-container"></div>
-								</button>
 								</div>
 							</div>
 						</div>

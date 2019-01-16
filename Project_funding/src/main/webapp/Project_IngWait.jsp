@@ -38,8 +38,8 @@
                <div class="user_info">
                   <img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
                   <div class="user_info">
-                     <p>teemo</p>
-                     <p>teemo@naver.com</p>
+                     <p class="text-muted">teemo</p>
+                     <p class="text-muted">teemo@naver.com</p>
                   </div>
                </div>
                <hr>
@@ -56,12 +56,12 @@
             <div class="col">
             <div class="col col-md-15">
                <h3><b>진행중</b></h3>
-               <p>진행중인 프로젝트를 확인할 수 있습니다.</p>
+               <p class="text-muted">진행중인 프로젝트를 확인할 수 있습니다.</p>
             </div>
             <br>
                   <div class="col col-md-15">
                      <img src="resources/assets/img/support.png"/><br>
-                     <p>
+                     <p class="text-muted">
                      <b>
                      1. 현재 진행중인 프로젝트 목록입니다.<br/>
                      2. 클라이언트는 프로젝트의 지원자 모집 마감 이후, 최대 10일간 검토 기간을 가집니다.<br/>

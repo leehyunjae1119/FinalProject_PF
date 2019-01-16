@@ -87,14 +87,14 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Modal title</h5>
+					<h3 class="modal-title">Modal title</h3>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<i class="material-icons">clear</i>
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Far far away, behind the word mountains, far from the
+					<p class="text-muted">Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
 						Separated they live in Bookmarksgrove right at the coast of the
 						Semantics, a large language ocean. A small river named Duden flows

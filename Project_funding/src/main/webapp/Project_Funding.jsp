@@ -40,8 +40,8 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a 
-									style="font-size: 13px; color: skyblue; float: right;" href="user_infoUpdate.do">기본정보
+								<b> 투자자 </b> <a href="#"
+									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>
 								<hr>
@@ -54,11 +54,10 @@
 								</div>
 								<hr>
 								<div align="center">
-								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
+								<button class="btn btn-primary btn-link" id="bu"
 									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
 									코인 조회/결제
-									<div class="ripple-container"></a>
-								</div>
+									<div class="ripple-container"></div>
 								</button>
 								</div>
 							</div>
@@ -190,7 +189,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Far far away, behind the word mountains, far from the
+					<p class="text-muted">Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
 						Separated they live in Bookmarksgrove right at the coast of the
 						Semantics, a large language ocean. A small river named Duden flows

@@ -51,14 +51,17 @@
 						style="color: white">이용 방법</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item" style="float: right;"><a href="#pablo"
-						class="btn btn-rose btn-raised btn-fab btn-round"
-						data-toggle="dropdown"> <i class="material-icons">email</i>
-					</a></li>
-					<li class="nav-item"><a href="login.do" class="nav-link"
-						style="color: white">Login</a></li>
-					<li class="nav-item"><a href="join.do" class="nav-link"
-						style="color: white">Join</a></li>
+					<li class="nav-item" style="float: right;">
+						<a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
+							 <i class="material-icons">email</i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="#pablo" class="nav-link">${userdto.user_id }</a>
+
+					<li class="nav-item">
+						<a href="logOut.do" class="nav-link"style="color: white">Log out</a>
+					</li>
 				</ul>
          </div>
       </div>

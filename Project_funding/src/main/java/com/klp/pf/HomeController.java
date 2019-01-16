@@ -55,13 +55,14 @@ public class HomeController {
 	@RequestMapping(value="/project_insert.do")
 	public String insert() {
 
+
 		return "Project_Insert";
 	}
 	
 	@RequestMapping(value="/project_list.do")
 	public String list() {
-	
-		return "Project_List"; 
+		return "Project_List";
+
 	}
 
 	@RequestMapping(value="/project_view.do")
@@ -73,6 +74,7 @@ public class HomeController {
 	public String partnerlist() {
 		return "User_PartnerList";
 	}
+	
 	@RequestMapping(value="/question.do")
 	public String question() {
 		return "Question";
@@ -113,6 +115,16 @@ public class HomeController {
 		} 
 		return "User_Login";
 	}
+	@RequestMapping(value="/logOut.do")
+	public String logOut(String user_id, String user_pw, HttpSession session) {
+		if(session!=null) {
+			session.invalidate();
+			
+			session =null;
+		}
+		return "index";
+	}
+	
 	//회원가입
 	@RequestMapping(value="/join.do")
 	public String join() {
@@ -200,5 +212,10 @@ public class HomeController {
 		@RequestMapping(value="client_mypage.do")
 		public String clientrmypage() {
 			return "Client_Mypage";
+		}
+	//비밀번호 찾기
+		@RequestMapping(value="user_findPW.do")
+		public String user_findPW() {
+			return"User_FindPW";
 		}
 }

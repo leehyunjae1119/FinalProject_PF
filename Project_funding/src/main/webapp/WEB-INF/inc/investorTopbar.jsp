@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -56,9 +58,10 @@
 						class="btn btn-rose btn-raised btn-fab btn-round"
 						data-toggle="dropdown"> <i class="material-icons">email</i>
 					</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Login</a>
+					<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
 					</li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Join</a>
+					<li class="nav-item">
+					<a href="logOut.do" class="nav-link"style="color: white">Log out</a>
 					</li>
 				</ul>
 			</div>
