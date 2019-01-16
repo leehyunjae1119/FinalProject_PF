@@ -4,9 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
- <%@ include file="WEB-INF/inc/topbar.jsp" %>
-
 <c:if test="${userdto eq null }"> 
  <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
  </c:if>
@@ -31,7 +28,7 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
-            <h1>Creative Project</h1>
+            <h1>Ceative Project</h1>
             <h3>Let's make a valuable investment.</h3>
           </div>
         </div>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
