@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/pw_change.css" rel="stylesheet">
+  <link href="resources/assets/css/User_PWUpdate.css" rel="stylesheet">
   
   
 </head>
@@ -33,8 +33,28 @@
 	<div class="main main-raised" class="main">
 		<div class="section section-basic">
 			<div class="container">
+			<div class="row">
+				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
+					<a href="#"><b>기본정보 수정하기</b></a>
+					<hr>
+					<div class="user_info">
+						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
+						<div class="user_info">
+							<p class="text-muted">teemo</p>
+							<p class="text-muted">teemo@naver.com</p>
+						</div>
+					</div>
+					<hr>
+					<div class="col-md-12">
+						 <a class="btn btn-link active" href="#">기본정보수정</a> 
+						 <a class="btn btn-link" href="#">비밀번호변경</a> 
+						 <a class="btn btn-link" href="#">계좌관리</a><br />
+						 <a class="btn btn-link" href="#">회원탈퇴</a>
+					</div>
+
+				</div>
+				<!-- 왼쪽 사이드 바 div -->
 			<div class="row">			
-				<%@ include file="WEB-INF/inc/sidebar.jsp" %>
 								<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
@@ -45,12 +65,12 @@
 						<div class="col col-md-15">
 							<form action="#">
 							<div class="user_pw">
-								<h4><b>* 새 비밀번호</b></h4>
+								<h3><b>* 새 비밀번호</b></h3>
 								<input type="password"  class="form-control" placeholder="비밀번호는 8자 이상 32자 이하로 입력해주세요."><p>
 							</div>
 							
 							<div class="user_pwcheck">
-								<h4><b>* 새 비밀번호 확인</b></h4> 
+								<h3><b>* 새 비밀번호 확인</b></h3> 
 								<input type="password" class="form-control" placeholder="동일한 비밀번호를 입력해주세요."><p>
 							</div>
 							<div class="user_pwbt">
@@ -65,6 +85,8 @@
 			</div>
 		</div>
 	</div>
+	</div>
+	
 	<%@ include file="WEB-INF/inc/footer.jsp" %>
 		
 		

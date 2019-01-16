@@ -23,26 +23,9 @@
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- index.css 참조 -->
-<link href="resources/css/funding.css" rel="stylesheet" />
+<link href="resources/assets/css/Project_Funding.css" rel="stylesheet" />
 <!-- fontawesome -->
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-	crossorigin="anonymous">
-
-<style type="text/css">
-.boxed {
-	border: 2px dashed #bcbcbc;
-	border-radius: 10px;
-}
-
-.project {
-	border-style: solid;
-	border-color: #bcbcbc;
-	border-width: 1px;
-	border-radius: 10px;
-}
-</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -57,8 +40,8 @@
 
 						<div class="center-block">
 							<div class="sidebar">
-								<b> 투자자 </b> <a 
-									style="font-size: 13px; color: skyblue; float: right;" href="user_infoUpdate.do">기본정보
+								<b> 투자자 </b> <a href="#"
+									style="font-size: 13px; color: skyblue; float: right;">기본정보
 									수정하기</a>
 								<br>
 								<hr>
@@ -71,11 +54,10 @@
 								</div>
 								<hr>
 								<div align="center">
-								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
+								<button class="btn btn-primary btn-link" id="bu"
 									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
 									코인 조회/결제
-									<div class="ripple-container"></a>
-								</div>
+									<div class="ripple-container"></div>
 								</button>
 								</div>
 							</div>
@@ -89,10 +71,10 @@
 						<hr>
 
 						<div id="bou" style="text-align:center">
-							<img alt="money" src="resources/css/img/money.png"><b>예상금액</b> <b>500,000
-								원 &nbsp&nbsp</b> <img alt="time" src="resources/css/img/time.png" ><b>예상기간</b>
-							<b>120 일 &nbsp&nbsp</b> <img alt="date" src="resources/css/img/date.png"><b>모집마감</b>
-							<b>2019.2.8 &nbsp&nbsp</b>
+							<img alt="money" src="resources/assets/img/money.png"><b>예상금액</b> <b>500,000
+								원 &nbsp;&nbsp;</b> <img alt="time" src="resources/assets/img/time.png" ><b>예상기간</b>
+							<b>120 일 &nbsp;&nbsp;</b> <img alt="date" src="resources/assets/img/calendar.png"><b>모집마감</b>
+							<b>2019.2.8 &nbsp;&nbsp;</b>
 						</div>
 
 						<br>

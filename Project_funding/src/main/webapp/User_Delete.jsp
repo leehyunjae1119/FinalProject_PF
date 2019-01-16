@@ -24,7 +24,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/user_out.css" rel="stylesheet">
+  <link href="resources/assets/css/User_Delete.css" rel="stylesheet">
   
   
 </head>
@@ -47,6 +47,7 @@
 								<div class="user_email">
 									<b>이메일</b>&nbsp;&nbsp;&nbsp; 
 									<p>uiyhp123@naver.com</p>
+									
 								</div>
 
 								<div class="user_pw">

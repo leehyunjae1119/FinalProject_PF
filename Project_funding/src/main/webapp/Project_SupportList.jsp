@@ -25,7 +25,7 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-  <link href="resources/assets/css/apply_list01.css" rel="stylesheet">
+  <link href="resources/assets/css/Project_SupportList.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -44,11 +44,15 @@
 						</div>
 					</div>
 					<hr>
+<<<<<<< HEAD
+					
+=======
 					<div class="col-md-6">
 						 <a class="btn btn-info btn-link" href="user_infoUpdate.do">기본정보수정</a> 
 						 <a class="btn btn-info btn-link " href="user_pwUpdate.do">비밀번호변경</a> 
 						 <a class="btn btn-info btn-link" href="user_delete.do">회원탈퇴</a>
 					</div>
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->

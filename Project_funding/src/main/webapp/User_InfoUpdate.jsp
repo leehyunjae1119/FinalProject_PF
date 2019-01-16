@@ -23,7 +23,7 @@
   <link href="resources/assets/css/index.css" rel="stylesheet" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link href="resources/assets/css/infoupdate.css" rel="stylesheet">
+  <link href="resources/assets/css/User_InfoUpdate.css" rel="stylesheet">
   
   
 </head>
@@ -42,18 +42,18 @@
 				</div>
 				<br>
 						<div class="col col-md-15">
-								<h4>
+								<h3>
 									<b>계정 정보</b>
-								</h4>
+								</h3>
 								<div class="user_idemail">
 									<b>아이디</b>&nbsp;&nbsp;&nbsp; <p class="text-muted">uiyhp123</p><br>
 									<b>이메일</b>&nbsp;&nbsp;&nbsp; <p class="text-muted">uiyhp123@naver.com</p>
 								</div>
 								<hr>
 								<div class="user_info_up">
-									<h4>
+									<h3>
 										<b>기본 정보</b>
-									</h4>
+									</h3>
 									<br>
 									<form action="#">	
 									<div class="user_info_write" id="profile_img">
