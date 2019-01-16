@@ -53,7 +53,7 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<%@ include file="WEB-INF/inc/sidebar.jsp" %>
+					<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %>
 					<div class="col-sm-8">
 						<h3>
 							<strong>코인 관리</strong>

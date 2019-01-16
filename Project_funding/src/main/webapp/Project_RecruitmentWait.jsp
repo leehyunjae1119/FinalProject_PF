@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-  <%@ include file="WEB-INF/inc/topbar.jsp" %>
+  <%@ include file="WEB-INF/inc/client_topbar.jsp" %>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -32,20 +32,7 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p class="text-muted">teemo</p>
-							<p class="text-muted">teemo@naver.com</p>
-						</div>
-					</div>
-					<hr>
-
-				</div>
-				<!-- 왼쪽 사이드 바 div -->
+				 <%@ include file="WEB-INF/inc/client_sidebar.jsp" %>
 				<div class="col">
 				<div class="col col-md-15">
 					<h3><b>지원 모집 중</b></h3>

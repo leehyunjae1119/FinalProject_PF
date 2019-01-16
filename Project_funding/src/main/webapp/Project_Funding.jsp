@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -38,7 +38,8 @@
 				<div class="row">
 
 
-						<%@ include file="WEB-INF/inc/sidebar.jsp" %>
+						
+  						<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %>
 		
 					<div class="col-sm-8">
 						<h3>

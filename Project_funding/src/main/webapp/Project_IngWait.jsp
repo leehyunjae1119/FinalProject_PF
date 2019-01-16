@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <%@ include file="WEB-INF/inc/topbar.jsp" %>
+   <c:if test="${userdto.getUser_type() eq '파트너스' }">
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -32,27 +37,11 @@
       <div class="section section-basic">
          <div class="container">
          <div class="row">
-            <div class="col-md-3" id="sidebar"><b>파트너스</b>&nbsp;&nbsp;
-               <a href="user_infoUpdate.do">기본정보 수정하기</a>
-               <hr>
-               <div class="user_info">
-                  <img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-                  <div class="user_info">
-                     <p class="text-muted">teemo</p>
-                     <p class="text-muted">teemo@naver.com</p>
-                  </div>
-               </div>
-               <hr>
-               <div class="col-md-6">
-                   <a class="btn btn-info btn-link" href="partners_profile.do">내 프로필</a> 
-                   <a class="btn btn-info btn-link" href="user_typeUpdate.do">계정 유형 변경 신청</a> 
-                   <a class="btn btn-info btn-link" href="project_supportList.do">지원 내역</a>
-                   <a class="btn btn-info btn-link" href="project_ing.do">진행중인 프로젝트</a>
-                   <a class="btn btn-info btn-link" href="project_end.do">완료한 프로젝트</a>
-               </div>
-
-            </div>
-            <!-- 왼쪽 사이드 바 div -->
+             <c:if test="${userdto.getUser_type() eq '파트너스' }">
+			  <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
+			   
+			 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+			  <%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>
             <div class="col">
             <div class="col col-md-15">
                <h3><b>진행중</b></h3>
