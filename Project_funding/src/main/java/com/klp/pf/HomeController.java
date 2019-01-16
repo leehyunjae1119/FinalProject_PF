@@ -81,11 +81,16 @@ public class HomeController {
 	public String question() {
 		return "Question";
 	}
-	
+	//코인
 	@RequestMapping(value="/user_coin.do")
 	public String coin() {
 		return "User_Coin";
 	}
+	@RequestMapping(value="/user_coinpayment.do")
+	public String user_coinpayment(String amount, Model model) {
+		return "User_CoinPayment";
+	}
+	
 	@RequestMapping(value="/user_update.do")
 	public String typeupdate() {
 		return "User_TypeUpdate";
