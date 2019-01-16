@@ -61,7 +61,7 @@
 								
 								<div align="center">
 								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
-									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
+									style="font-family: Roboto, Helvetica, Arial, sans-serif; ">
 									코인 조회/결제
 									<div class="ripple-container"></div>
 								</button></a>
@@ -74,15 +74,15 @@
 						<h3>
 							<strong>투자한 프로젝트</strong>
 						</h3>
-						<h5>회원님이 투자한 프로젝트 목록입니다.</h5>
+						<h3>회원님이 투자한 프로젝트 목록입니다.</h3>
 						<br>
 						<hr>
 						<div class="project">
 							<div>
-								<h5>
+								<h3>
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h5>
+								</h3>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -112,10 +112,10 @@
 						<br>
 						<div class="project">
 							<div>
-								<h5>
+								<h3>
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h5>
+								</h3>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -145,10 +145,10 @@
 						<br>
 						<div class="project">
 							<div>
-								<h5>
+								<h3>
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h5>
+								</h3>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -206,14 +206,14 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Modal title</h5>
+					<h3 class="modal-title">Modal title</h3>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<i class="material-icons">clear</i>
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Far far away, behind the word mountains, far from the
+					<p class="text-muted">Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
 						Separated they live in Bookmarksgrove right at the coast of the
 						Semantics, a large language ocean. A small river named Duden flows

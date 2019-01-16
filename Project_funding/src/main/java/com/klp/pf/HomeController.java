@@ -4,12 +4,19 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.klp.pf.dto.PF_UserDto;
+import com.klp.pf.model.biz.PF_Biz;
 
 /**
  * Handles requests for the application home page.
@@ -36,6 +43,10 @@ public class HomeController {
 		return "index";
 	}
 	
+	//-------------------------------------------------------
+	@Autowired
+	private PF_Biz biz;
+	
 	@RequestMapping(value="/index.do")
 	public String index() {
 		return "index";
@@ -46,13 +57,14 @@ public class HomeController {
 
 
 		return "Project_Insert";
-
 	}
 	
 	@RequestMapping(value="/project_list.do")
 	public String list() {
 	
-		return "Project_List"; 
+
+		return "Project_List";
+
 	}
 
 	@RequestMapping(value="/project_view.do")
@@ -64,6 +76,7 @@ public class HomeController {
 	public String partnerlist() {
 		return "User_PartnerList";
 	}
+	
 	@RequestMapping(value="/question.do")
 	public String question() {
 		return "Question";
@@ -89,6 +102,26 @@ public class HomeController {
 	public String login() {
 		return "User_Login";
 	}
+	@RequestMapping(value="/loginCheck.do")
+	public String loginCheck(String user_id, String user_pw, HttpSession session) {
+		String page = "";
+		PF_UserDto dto = biz.selectUser(user_id);
+		if(dto.getUser_pw().equals(user_pw)) {
+			session.setAttribute("userdto", dto);
+			return "index";
+		} 
+		return "User_Login";
+	}
+	@RequestMapping(value="/logOut.do")
+	public String logOut(String user_id, String user_pw, HttpSession session) {
+		if(session!=null) {
+			session.invalidate();
+			
+			session =null;
+		}
+		return "index";
+	}
+	
 	//회원가입
 	@RequestMapping(value="/join.do")
 	public String join() {
@@ -176,5 +209,10 @@ public class HomeController {
 		@RequestMapping(value="client_mypage.do")
 		public String clientrmypage() {
 			return "Client_Mypage";
+		}
+	//비밀번호 찾기
+		@RequestMapping(value="user_findPW.do")
+		public String user_findPW() {
+			return"User_FindPW";
 		}
 }

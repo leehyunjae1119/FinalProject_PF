@@ -35,49 +35,45 @@
 
 <body class="index-page sidebar-collapse">
 
-	<div class="main main-raised" style="margin-top: 100px;">
+	<div class="main main-raised">
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<div class="partnerTitle" style="width: 200px; height: 1700px; text-align: center;">
-						<div style="height:200px;">
-						<img src="resources/assets/img/project4.png" style="width: 100px;" />
-						<h4>이름 및 아이디</h4>
-						</div>
-						
-						<div>
-						<h4>목록</h4>
-						<hr>
-						</div>
-						
-						<div class="p_font">
-							<div class="p_list"><a href=#>자기소개</a></div>
-							<div class="p_list"><a href=#>보유기술</a></div>
-							<div class="p_list"><a href=#>경력/학력/자격증</a></div>
-							<div class="p_list"><a href=#>진행한 프로젝트</a></div>
-						
-						
+					<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
+					<a href="#">기본정보 수정하기</a>
+					<hr>
+					<div class="user_info">
+						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
+						<div class="user_info">
+							<p class="text-muted">teemo</p>
+							<p class="text-muted">teemo@naver.com</p>
 						</div>
 					</div>
+					<hr>
+					<div class="col-md-6">
+						 <a class="btn btn-info btn-link active" href="#">기본정보수정</a> 
+						 <a class="btn btn-info btn-link" href="#">비밀번호변경</a> 
+						 <a class="btn btn-info btn-link" href="#">계좌관리</a> 
+						 <a class="btn btn-info btn-link" href="#">회원탈퇴</a>
+					</div>
 
-					<div class="col-md-9" style="width: 1100px; height: 1500px; left:100px;">
-						<div class="ddd"
-							style="width: 820px; height: 200px; ">
-							<div class="intro"><h3><b>자기소개</b></h3></div>
+				</div>
+					<div class="col-12 col-md-9">
+						<div class="container">
+							<h3><b>자기소개</b></h3>
 							<div class="button_position" style="float: right;">
-								<button class="btn btn-primary">업데이트 하기</button>
+								<button class="btn btn-warning">업데이트 하기</button>
 							</div>
-							<br> <br>밥을 위해서는 옷을 위경해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을
+							<br> <br><div>밥을 위해서는 옷을 위경해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을
 							위해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을 위해서는 미인을 구하기 위해서는 그랬는가? 밥을 위해서는
-							옷을 위해서는 미인을 구하기 위해서는 그랬는가? <br> <br>
+							옷을 위해서는 미인을 구하기 위해서는 그랬는가? <div></div><br> <br>
 							<hr>
 						</div>
-
-						<div class="ddd"
-							style="width: 820px; height: 550px; ">
-							<div class="intro"><b>보유기술</b></div>
+					</div>
+						<div class="container">
+							<h3><b>보유기술</b></h3>
 							<div class="button_position" style="float: right;">
-								<button class="btn btn-primary">업데이트 하기</button>
+								<input type="button" class="btn btn-warning" value="업데이트 하기">
 							</div>
 							<br> <br>
 							<table class="table table-striped">
@@ -135,14 +131,14 @@
 							</table>
 							<br> <br>
 							<hr>
-						</div>
+							</div>
+					
 
 
-						<div class="ddd"
-							style="width: 820px; height: 800px; ">
-							<div class="intro"><h3><b>경력/학력/자격증</b></h3></div>
+						<div class="container">
+							<h3><b>경력/학력/자격증</b></h3>
 							<div class="button_position" style="float: right;">
-								<button class="btn btn-primary">업데이트 하기</button>
+								<button class="btn btn-warning">업데이트 하기</button>
 							</div>
 							<br>
 							<br>
@@ -239,10 +235,10 @@
 							<hr>
 						</div>
 
-						<div class="ddd" style="width: 820px; height: 200px; ">
-							<div class="intro"><h3><b>진행한 프로젝트</b></h3></div>
+						<div class="container">
+							<h3><b>진행한 프로젝트</b></h3>
 							<div class="button_position" style="float: right;">
-								<button class="btn btn-primary">업데이트 하기</button>
+								<button class="btn btn-warning">업데이트 하기</button>
 							</div>	
 							<br> <br> 
 							<table class="table table-striped">
@@ -273,7 +269,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 
 
 

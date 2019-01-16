@@ -83,7 +83,7 @@
 							<div class="tab-pane active" id="클라이언트" role="tabpanel">
 								<section class="p5-faq-section-last">
 									<a name="Top 10"></a>
-									<h4 class="subcategory-title">Top 10</h4>
+									<h5 class="subcategory-title">Top 10</h5>
 									<div class="accordion-group p5-faq-list">
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
@@ -98,7 +98,7 @@
 											<div class="panel-collapse collapse in" id="qna_165"
 												style="height: auto;">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														'위시켓은 '클라이언트'와 '파트너스' 각 계정을 따로 가입해 활동할 수 있습니다. <br>'클라이언트'로
 														가입하시면 프로젝트를 의뢰하고 작업자를 찾으실 수 있습니다.
 													</p>
@@ -118,7 +118,7 @@
 											<div class="panel-collapse collapse in" id="qna_166"
 												style="height: auto;">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														프로젝트의 견적이 궁금하시다면 위시켓 사이트에 프로젝트를 등록해주세요.<br>제작하고자 하는
 														프로젝트 내용을 작성해 등록해주시면 위시켓 검수 매니저가 유선상으로 견적 상담을 제공합니다.<br>검수
 														매니저는 프로젝트 2만여 건을 상담한 경험이 있는 전문가로, 프로젝트에 맞는 합리적인 견적을
@@ -142,7 +142,7 @@
 											<div class="panel-collapse collapse in" id="qna_167"
 												style="height: auto;">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														내부적으로 책정된 예산이 없고 프로젝트 금액 및 기간을 산정하기 어려우시다면, 해당 공간에 '1'로
 														작성하여 등록해주세요. <br>프로젝트 등록 후 24시간 이내에 위시켓 검수 매니저가 유선상으로
 														견적 상담을 제공합니다.<br>검수 매니저는 프로젝트 2만여 건을 상담한 경험이 있는 전문가로,
@@ -166,7 +166,7 @@
 											</div>
 											<div class="panel-collapse collapse" id="qna_168">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														프로젝트 등록 &gt; 검수 &gt; 지원자 모집 &gt; 미팅 &gt; 계약 &gt; 프로젝트 시작<br>
 														<br>1. 프로젝트를 등록하시면, 위시켓 팀의 검수 과정을 거친 후 파트너에게 프로젝트가
 														공개됩니다. <br>2. 지원자 중에 가장 적합한 파트너를 선정하신 후 온/오프라인 미팅을
@@ -189,7 +189,7 @@
 											</div>
 											<div class="panel-collapse collapse" id="qna_169">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														프로젝트 비용 외에 클라이언트님께서 위시켓에 지급해야 하는 서비스 이용요금은 없습니다.<br>프로젝트가
 														끝날 때까지 위시켓을 무료로 이용하실 수 있습니다.
 													</p>
@@ -208,7 +208,7 @@
 											</div>
 											<div class="panel-collapse collapse" id="qna_170">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														등록하신 프로젝트 내용은 검수 과정 후에 사이트에 공개됩니다.<br>검수 과정에서 위시켓 검수
 														팀의 상담 연락을 받아보실 수 있으며, 내용 수정을 원하시는 경우 검수 매니저에게 말씀해 주시면 바로
 														수정해드립니다.
@@ -228,7 +228,7 @@
 											</div>
 											<div class="panel-collapse collapse" id="qna_171">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														프로젝트 재등록은 견적을 조정해야 하거나 프로젝트 내용이 변경되어 재등록이 불가피할 때만 가능합니다.<br>해당
 														경우에는 위시켓 고객센터(02-6925-4849)로 연락 주시면 도와드리겠습니다.
 													</p>
@@ -247,7 +247,7 @@
 											</div>
 											<div class="panel-collapse collapse" id="qna_172">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														미팅은 최대 2명의 파트너를 만나보실 수 있습니다. <br>미팅한 파트너 측의 문제로 프로젝트
 														진행이 불가능할 경우, 추가 미팅을 하실 수 있습니다.
 													</p>
@@ -266,7 +266,7 @@
 											</div>
 											<div class="panel-collapse collapse" id="qna_173">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														이메일 변경을 원하실 경우, 위시켓에 등록된 이메일을 통해 변경할 이메일 주소, 변경 사유를 작성하여
 														고객센터 이메일(help@wishket.com)로 보내주세요.<br>단, 계약 이력이 있을 경우
 														이메일 주소 변경이 불가능합니다.
@@ -286,7 +286,7 @@
 											</div>
 											<div class="panel-collapse collapse" id="qna_174">
 												<div class="p5-faq-list-answer">
-													<p>
+													<p class="text-muted">
 														네, 그렇습니다.<br>클라이언트-파트너 간 이용 목적의 혼동을 막기 위해 계정이 분리되어 있는
 														점 양해 부탁드립니다.
 													</p>
@@ -316,7 +316,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Far far away, behind the word mountains, far from the
+					<p class="text-muted">Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia, there live the blind texts.
 						Separated they live in Bookmarksgrove right at the coast of the
 						Semantics, a large language ocean. A small river named Duden flows

@@ -40,7 +40,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 ml-auto mr-auto">
             <div class="card card-login">
-              <form class="form" method="" action="">
+              <form class="form" method="post" action="loginCheck.do">
                 <div class="card-header card-header-primary text-center">
                   <h4 class="card-title">Login</h4>
                   <div class="social-line"> 
@@ -66,7 +66,7 @@
                         <i class="material-icons" style="font-size:13px;">아이디</i>
                       </span>
                     </div>
-                    <input type="email" class="form-control" placeholder="Email...">
+                    <input type="text" class="form-control" placeholder="ID..." name="user_id">
                   </div>
                   
                   <div class="input-group">
@@ -75,24 +75,24 @@
                         <i class="material-icons" style="font-size:13px;">비밀번호</i>
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password...">
+                    <input type="password" class="form-control" placeholder="Password..." name="user_pw">
                   </div>
                
                 <div class="footer text-center">
-                  <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">로그인</a>
+                  <input type="submit" class="btn btn-primary btn-link btn-wd btn-lg" value="로그인">
                 </div>
                
                <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="material-icons" style="font-size:13px;">비밀번호를 잊으셨나요?</i>
-                  		<a href="Findpassword.jsp" class="btn btn-primary btn-link btn-wd btn-lg" style="text-align:left;">비밀번호 찾기</a>
+                  		<a href="user_findPW.do" class="btn btn-primary btn-link btn-wd btn-lg" style="text-align:left;">비밀번호 찾기</a>
                   	  </span>  
                     </div>    
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="material-icons" style="font-size:13px;">아직 회원이 아니신가요?</i>
-                 		 <a href="SignUp.jsp" class="btn btn-primary btn-link btn-wd btn-lg">회원가입</a>
+                 		 <a href="join.do" class="btn btn-primary btn-link btn-wd btn-lg">회원가입</a>
                       </span>                
                     </div>    
                   </div>
