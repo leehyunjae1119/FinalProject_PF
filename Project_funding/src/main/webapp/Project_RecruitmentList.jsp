@@ -96,6 +96,7 @@
 									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
 									Zeplin 형태로 제공드릴 예정입니다.)
 								</b>
+								
 								<p>
 								<span class="badge badge-pill badge-success" style="background-color: #BDBDBD">JAVA</span>
 								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">CSS</span>
