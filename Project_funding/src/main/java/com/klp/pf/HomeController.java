@@ -110,6 +110,16 @@ public class HomeController {
 		} 
 		return "User_Login";
 	}
+	@RequestMapping(value="/logOut.do")
+	public String logOut(String user_id, String user_pw, HttpSession session) {
+		if(session!=null) {
+			session.invalidate();
+			
+			session =null;
+		}
+		return "index";
+	}
+	
 	//회원가입
 	@RequestMapping(value="/join.do")
 	public String join() {

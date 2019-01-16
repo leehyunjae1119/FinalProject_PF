@@ -58,8 +58,9 @@
 					</a></li>
 				<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
 
-					<li class="nav-item"><a href="join.do" class="nav-link"
-						style="color: white">Join</a></li>
+					<li class="nav-item">
+						<a href="logOut.do" class="nav-link"style="color: white">Log out</a>
+					</li>
 				</ul>
 			</div>
 		</div>
