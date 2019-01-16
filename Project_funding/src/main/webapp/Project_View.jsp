@@ -27,6 +27,7 @@
 		<div class="col-md-9" id="col10">
 			<div class="view_title">
 				<h3><span class="tim-note"><b>제공되는 참고 소스 기반 BLE 데이터 연동</b></span></h3>
+				<a href="#"><img src="resources/assets/img/heart.PNG" style="width:20px;" />&nbsp;&nbsp;<b>관심 프로젝트</b></a>
 			</div>
 			<div class="view_title2">
 				<p class="text-muted">개발 > 소프트웨어</p>
@@ -37,19 +38,19 @@
 			<div class="view_title_detail">
 				<div class="project_title2">
        				<div class="project_money">
-       					<img src="resources/assets/img/money.png" />
+       					<img src="resources/assets/img/money.png" />&nbsp;&nbsp;
        					<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p><br />
        					<p class="text-muted"><b>등록일</b>&nbsp;&nbsp;&nbsp;<b>2019년 2월 1일</b></p>
        				</div>
        				<div class="project_time">
-       					<img src="resources/assets/img/time.png" />	
+       					<img src="resources/assets/img/time.png" />&nbsp;&nbsp;
        					<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p><br />
        					<p class="text-muted"><b>예상 시작일</b>&nbsp;&nbsp;&nbsp;<b>2019년 3월 1일</b></p>
        				</div>
        				<div class="project_support">
-       					<img src="resources/assets/img/K-021.png" />
+       					<img src="resources/assets/img/K-021.png" />&nbsp;&nbsp;
        					<p class="text-muted"><b>모집 마감</b>&nbsp;&nbsp;&nbsp;<b>2019년 1월 1일</b></p><br />
-       					<a><img src="resources/assets/img/heart.PNG" />관심 프로젝트</a>
+       					
        				</div>
        			</div>
        		</div>
