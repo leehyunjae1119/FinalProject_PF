@@ -25,3 +25,11 @@
 	width: 60px;
 	height: 60px;
 }
+
+.user_email p {
+	font-size: 15px;
+}
+
+.user_email {
+	margin-bottom: 20px;
+}

@@ -130,7 +130,7 @@
 							</table>
 							<br> <br>
 							<hr>
-							</div>
+					 </div>
 					
 
 

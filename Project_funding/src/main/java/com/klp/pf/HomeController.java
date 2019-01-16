@@ -61,6 +61,8 @@ public class HomeController {
 	
 	@RequestMapping(value="/project_list.do")
 	public String list() {
+	
+
 		return "Project_List";
 
 	}

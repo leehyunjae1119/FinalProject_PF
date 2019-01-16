@@ -44,15 +44,12 @@
 						</div>
 					</div>
 					<hr>
-<<<<<<< HEAD
-					
-=======
+
 					<div class="col-md-6">
 						 <a class="btn btn-info btn-link" href="user_infoUpdate.do">기본정보수정</a> 
 						 <a class="btn btn-info btn-link " href="user_pwUpdate.do">비밀번호변경</a> 
 						 <a class="btn btn-info btn-link" href="user_delete.do">회원탈퇴</a>
 					</div>
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->

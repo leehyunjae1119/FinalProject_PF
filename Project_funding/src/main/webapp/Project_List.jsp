@@ -24,7 +24,7 @@
 <div class="main main-raised">
 <div class="list_container">
 	<div class="row">
-	<div class="col-md-12">
+	<div class="col-md-12" style="height: 170px;">
 		<div class="container_title">
 		<h3><span class="tim-note"><b>프로젝트 찾기</b></span></h3>
  		<div class="project_list">
@@ -46,17 +46,17 @@
 		<div class="col-md-2" id="list_col">
 			<div class="list_container2">
 				<div class="project_array">
-					<p class="text-muted" style="font-size: 13px;"><b>프로젝트 정렬</b></p>
+					<p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
 				</div>
 				<div class="project_array_2">
-					<h6><a href="#">금액 높은 순</a></h6>
-					<h6><a href="#">최신 등록 순</a></h6>
-					<h6><a href="#">마감 등록 순</a></h6>
+					<a href="#">금액 높은 순</a><br />
+					<a href="#">최신 등록 순</a><br />
+					<a href="#">마감 등록 순</a><br />
 				</div>
 			
 			<div class="project_category">
 				<div class="project_cate_title">
-					<p class="text-muted" style="font-size: 13px;"><b>프로젝트 카테고리</b></p>
+					<p class="text-muted" style="font-size: 15px;"><b>프로젝트 카테고리</b></p>
 				</div>
 				<div class="project_cate">
 					<div class="form-check">
@@ -208,7 +208,7 @@
 						<p class="text-muted" style="font-size: 13px;"><b>미팅 진행지역</b></p>
 					</div>
 					<div class="select_area">
-						<select name="category">
+						<select name="category" style="font-size: 13px;">
 							<option value="" selected>전체 지역</option>
   							<option value="web">서울특별시</option>
   							<option value="app">경기도</option>
@@ -228,7 +228,7 @@
 						</select>
 					</div>
 					<div class="search_button">
-						<button class="btn">검색</button>
+						<button class="btn" style="width: 200px;">검색</button>
 					</div>
 				</div>
 				<!-- 미팅 지역 끝! -->
@@ -244,14 +244,14 @@
 					<div class="project_title2">
        					<div class="project_money">
        						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
+       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p>
        					</div>
        					<div class="project_time">
        						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
+       						<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p>
        					</div>
        					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
+       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;<b>2019.01.01</b></p>
        					</div>
        				</div>
 					<div class="c_detail">
@@ -280,10 +280,10 @@
        					</div>
        					<div class="end_date">
        						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
+       						<p class="text-muted"><b>마감 1주일 4일 전</b></p>
        						<br />
        						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
+       						<p class="text-muted"><b>총 78명 지원</b></p>
        					</div>
        				</div>
 				</div>
@@ -292,14 +292,14 @@
 					<div class="project_title2">
        					<div class="project_money">
        						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
+       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p>
        					</div>
        					<div class="project_time">
        						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
+       						<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p>
        					</div>
        					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
+       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;<b>2019.01.01</b></p>
        					</div>
        				</div>
 					<div class="c_detail">
@@ -328,10 +328,10 @@
        					</div>
        					<div class="end_date">
        						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
+       						<p class="text-muted"><b>마감 1주일 4일 전</b></p>
        						<br />
        						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
+       						<p class="text-muted"><b>총 78명 지원</b></p>
        					</div>
        				</div>
 				</div>
@@ -723,10 +723,10 @@
 				<!-- 페이징 -->
 				<div id="pagination">
 					<ul class="pagination pagination-info">
-                		<li class="active page-item">
+                		<li class="page-item">
                 	  		<a href="javascript:void(0);" class="page-link"> prev</a>
                 		</li>
-               			<li class="page-item">
+               			<li class="active page-item">
                   			<a href="javascript:void(0);" class="page-link">1</a>
                 		</li>
                	 		<li class="page-item">
@@ -750,5 +750,7 @@
 	</div>
 </div>
 </div>
+
+<%@ include file="WEB-INF/inc/footer.jsp" %>
 </body>
 </html>
