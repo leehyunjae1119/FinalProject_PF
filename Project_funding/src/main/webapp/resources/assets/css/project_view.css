@@ -14,6 +14,10 @@
 	display: inline-block;
 }
 
+.view_title2 {
+	margin-bottom: 10px;
+}
+
 #row {
 	display: inline-block;
 	width: 100%;
@@ -34,8 +38,7 @@
 #col2 {
 	float: right;
 	width: 20%;
-	margin-left: 30px;
-	height: 550px;
+	height: 570px;
 	margin-top: 20px;
 	border-style: solid;
 	border-color: #bcbcbc;
@@ -61,12 +64,12 @@
 .client_img img {
 	width: 180px;
 	height: 180px;
-	text-align: center;
 	margin-bottom: 20px;
 }
 
 .client_img {
 	border-bottom: 1px solid #ccc;
+	text-align: center;
 }
 
 .star {
@@ -97,6 +100,7 @@
 
 .money {
 	float: right;
+	margin-bottom: 20px;
 }
 
 .project_money img, .project_money p {
@@ -117,42 +121,6 @@
 
 .project_money img, .project_time img, .project_support img {
 	width: 20px;
-}
-
-.project_time {
-	margin-left: 20%;
-}
-
-.project_support {
-	float: right;
-}
-
-.project_title3 img {
-	width: 25px;
-}
-
-.project_title3 p, .project_title3 img {
-	display: inline-block;
-}
-
-.project_title2 {
-	height: 25px;
-}
-
-.project_title3 {
-	height: 25px;
-}
-
-.insert_date, .start_date, .interest_project {
-	display: inline-block;
-}
-
-.insert_date {
-	margin-right: 10%;
-}
-
-.interest_project {
-	float: right;
 }
 
 .project_content {
@@ -176,11 +144,27 @@ textarea, .free_img {
 	padding-bottom: 100px;
 }
 
-.interest_project {
-	border: 1px solid;
+.project_title2 p {
+	font-size: 17px;
 }
 
-.project_title3 {
-	border: 1px solid;
+#support_id {
+	margin-left: 4%;
+}
+
+textarea {
+	width: 82%;
+}
+
+.project_support {
+	float: right;
+}
+
+.project_time {
+	margin-left: 0px;
+}
+
+.project_title2 > div {
+	width: 33%;
 }
 

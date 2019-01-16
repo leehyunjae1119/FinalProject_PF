@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
+ <%@ include file="WEB-INF/inc/topbar.jsp" %>
 <link rel="author" href="https://plus.google.com/113101541449927918834"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 <!-- index.css 참조 -->
@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
-            <h1>Ceative Project</h1>
+            <h1>Creative Project</h1>
             <h3>Let's make a valuable investment.</h3>
           </div>
         </div>

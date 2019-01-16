@@ -38,22 +38,33 @@
 				<div class="project_title2">
        				<div class="project_money">
        					<img src="resources/assets/img/money.png" />
-       					<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p><br />
-       					<p class="text-muted"><b>등록일</b>&nbsp;&nbsp;&nbsp;<b>2019년 2월 1일</b></p>
+       					<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
        				</div>
        				<div class="project_time">
        					<img src="resources/assets/img/time.png" />	
-       					<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p><br />
-       					<p class="text-muted"><b>예상 시작일</b>&nbsp;&nbsp;&nbsp;<b>2019년 3월 1일</b></p>
+       					<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
        				</div>
-       				<div class="project_support">
+       				<div class="project_support" id="support_id">
        					<img src="resources/assets/img/K-021.png" />
-       					<p class="text-muted"><b>모집 마감</b>&nbsp;&nbsp;&nbsp;<b>2019년 1월 1일</b></p><br />
-       					<a><img src="resources/assets/img/heart.PNG" />관심 프로젝트</a>
+       					<p class="text-muted">모집 마감&nbsp;&nbsp;&nbsp;2019년 1월 1일</p>
        				</div>
        			</div>
        		</div>
-       	
+       			
+       		<div class="view_title_detail">
+       			<div class="project_title2">
+       				<div class="project_money">
+       					<p class="text-muted">등록일&nbsp;&nbsp;&nbsp;2019년 2월 1일</p>
+       				</div>
+       				<div class="project_time">
+       					<p class="text-muted">예상 시작일&nbsp;&nbsp;&nbsp;2019년 3월 1일</p>
+       				</div>
+       				<div class="project_support" id="support_id2">
+       					<img src="resources/assets/img/heart.PNG" />
+       					<p class="text-muted">관심 프로젝트 추가하기</p>
+       				</div>
+       			</div>
+			</div>
 			<hr />
 			
 			<div class="project_content">

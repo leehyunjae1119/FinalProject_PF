@@ -7,10 +7,11 @@
 	border-bottom: solid 1px #ccc;
 	margin-left: 10%;
 	margin-bottom: 5%;
+	margin-top: 30px;
 }
 
 .list_container {
-	margin-top: 150px;
+	margin-top: 100px;
 }
 
 .list_container2 {
@@ -52,10 +53,13 @@ h3 {
 }
 
 .project_content_form {
-	border: dotted 1px #ccc;
 	margin-bottom: 30px;
-	padding-left: 10px;
+	padding-left: 15px;
 	height: 220px;
+	border-style: solid;
+	border-color: #bcbcbc;
+	border-width: 1px;
+	border-radius: 10px;
 }
 
 #list_col {
@@ -67,11 +71,10 @@ h3 {
 }
 
 .project_content_detail {
-	text-overflow: hidden;
-	height: 122px;
+	height: 120px;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	width: 700px;
+	width: 80%;
 	display: inline-block;
 }
 
@@ -93,10 +96,10 @@ h3 {
 }
 
 #detail {
-	width: 80%px;
+	width: 100%;
 	display: inline-block;
 	height: 120px;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 .project_time {
@@ -109,6 +112,7 @@ h3 {
 	width: 19%;
 	padding-left: 20px;
 	vertical-align: top;
+	float: right;
 }
 
 .end_date img {
@@ -130,10 +134,13 @@ h3 {
 }
 
 .project_array_2 a {
-	color: black;
+	color: #6c757d;
+	font-size: 13px;
 }
 
 #pagination {
 	margin-top: 100px;
 	margin-left: 23%;
+	margin-bottom: 100px;
 }
+
