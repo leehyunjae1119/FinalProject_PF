@@ -6,7 +6,8 @@
 <title>Puding</title>
 <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
 </head>
-<body>
+
+<body class="index-page sidebar-collapse">
 
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" id="sectionsNav">
     <div class="container">

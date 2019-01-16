@@ -52,9 +52,7 @@
 						 <a class="btn btn-link" href="#">회원탈퇴</a>
 					</div>
 
-				</div>
-				<!-- 왼쪽 사이드 바 div -->
-			<div class="row">			
+				</div>		
 								<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">

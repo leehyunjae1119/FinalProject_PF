@@ -1,7 +1,3 @@
-.user_email{
-	padding-top: 70px;
-}
-
 .user_pw{
 	padding-top: 40px;
 }
@@ -24,4 +20,8 @@
 	margin-top: -30px;
 	width: 60px;
 	height: 60px;
+}
+
+.user_email b, .user_email p {
+	display: inline-block;
 }
