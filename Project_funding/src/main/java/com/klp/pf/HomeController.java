@@ -110,11 +110,11 @@ public class HomeController {
 		if(dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
 			
-			if(dto.getUser_email_check().equals("TRUE")) {
+//			if(dto.getUser_email_check().equals("TRUE")) {
 				return "index";
-			} else {
-				return "sendEmail";
-			}
+//			} else {
+//				return "sendEmail";
+//			}
 		} 
 		return "User_Login";
 	}
