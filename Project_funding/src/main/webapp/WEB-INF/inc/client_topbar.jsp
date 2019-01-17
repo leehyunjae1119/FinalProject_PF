@@ -24,6 +24,9 @@
    transition: all 0.5s ease;
 }
 </style>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
    <nav
@@ -147,7 +150,7 @@
 						
 						<!-- Modal footer -->
 						<div class="modal-footer">
-							<input type="submit" class="btn btn-warning" value="보내기"/>
+							<input type="submit" class="btn btn-warning" value="보내기" id="send"/>
 							<!-- data-dismiss : 모달창 닫기 -->
 							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
 						</div>
