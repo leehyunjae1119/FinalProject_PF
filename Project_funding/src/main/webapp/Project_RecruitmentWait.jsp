@@ -34,12 +34,12 @@
 			<div class="row">
 				 <%@ include file="WEB-INF/inc/client_sidebar.jsp" %>
 				<div class="col">
-				<div class="col col-md-15">
+				<div class="col col-md-15" >
 					<h3><b>지원 모집 중</b></h3>
 					<p class="text-muted">등록한 프로젝트를 확인할 수 있습니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15">
+						<div class="col col-md-15" style="border:1px solid black; border-radius: 10px;">
 							<img src="resources/assets/img/support.png"/><br>
 							<p class="text-muted">
 							<b>

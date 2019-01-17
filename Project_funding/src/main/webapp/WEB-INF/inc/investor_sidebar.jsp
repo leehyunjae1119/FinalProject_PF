@@ -48,8 +48,8 @@ a.active{
 			<img src="resources/assets/img/Teemo.png"
 				class="user_img rounded-circle img-fluid" />
 			<div class="user_info">
-				<p>teemo</p>
-				<p>teemo@naver.com</p>
+				<p>${userdto.user_id }</p>
+				<p>${userdto.user_email }</p>
 			</div>
 		</div>
 		<hr>

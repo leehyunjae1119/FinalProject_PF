@@ -10,18 +10,19 @@
 <body>
 
 	<div class="col-md-3" id="sidebar">
-		<b>파트너스</b>&nbsp;&nbsp; <a href="#"><b>기본정보 수정하기</b></a>
+		<b>파트너스</b>&nbsp;&nbsp; <a href="user_infoUpdate.do"><b>기본정보 수정하기</b></a>
 		<hr>
 		<div class="user_info">
 			<img src="resources/assets/img/Teemo.png"
 				class="user_img rounded-circle img-fluid" />
 			<div class="user_info">
-				<p>teemo</p>
-				<p>teemo@naver.com</p>
+				<p>${userdto.user_id }</p>
+				<p>${userdto.user_email }</p>
 			</div>
 		</div>
 		<hr>
 		<div class="col-md-12">
+
 			<a class="btn btn-link2 active" href="partnerReg_info.do">파트너스 정보</a> 
 			<a class="btn btn-link2 active" href="partnerReg_about.do">자기 소개</a> 
 			<a class="btn btn-link2 active" href="partnerReg_portfolio.do">포트폴리오</a>

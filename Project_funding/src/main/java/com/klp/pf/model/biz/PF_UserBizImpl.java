@@ -16,4 +16,8 @@ public class PF_UserBizImpl implements PF_Biz {
 	public PF_UserDto selectUser(String user_id) {
 		return pf_dao.selectUser(user_id);
 	}
+	@Override
+	public int insertUser(PF_UserDto dto) {
+		return pf_dao.insertUser(dto);
+	}
 }

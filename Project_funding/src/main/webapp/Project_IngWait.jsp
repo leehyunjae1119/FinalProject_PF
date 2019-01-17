@@ -37,6 +37,28 @@
       <div class="section section-basic">
          <div class="container">
          <div class="row">
+            <div class="col-md-3" id="sidebar"><b>파트너스</b>&nbsp;&nbsp;
+               <a href="user_infoUpdate.do">기본정보 수정하기</a>
+               <hr>
+               <div class="user_info">
+                  <img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
+                  <div class="user_info">
+                     <p class="text-muted">teemo</p>
+                     <p class="text-muted">teemo@naver.com</p>
+                  </div>
+               </div>
+               <hr>
+               <div class="col-md-6">
+                   <a class="btn btn-info btn-link" href="partners_profile.do">내 프로필</a> 
+                   <a class="btn btn-info btn-link" href="user_typeUpdate.do">계정 유형 변경 신청</a> 
+                   <a class="btn btn-info btn-link" href="project_supportList.do">지원 내역</a>
+                   <a class="btn btn-info btn-link" href="project_ing.do">진행중인 프로젝트</a>
+                   <a class="btn btn-info btn-link" href="project_end.do">완료한 프로젝트</a>
+               </div>
+
+            </div>
+            <!-- 왼쪽 사이드 바 div -->
+            <div class="col" style="margin-top: -30px;">
              <c:if test="${userdto.getUser_type() eq '파트너스' }">
 			  <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
 			   
@@ -48,7 +70,7 @@
                <p class="text-muted">진행중인 프로젝트를 확인할 수 있습니다.</p>
             </div>
             <br>
-                  <div class="col col-md-15">
+                  <div class="col col-md-15" style="border:1px solid black; border-radius: 10px;">
                      <img src="resources/assets/img/support.png"/><br>
                      <p class="text-muted">
                      <b>
@@ -67,6 +89,7 @@
             </div>
          </div>
       </div>
+   </div>
    </div>
     <%@ include file="WEB-INF/inc/footer.jsp" %>
       

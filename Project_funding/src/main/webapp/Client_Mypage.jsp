@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
   <link href="resources/assets/css/Client_Mypage.css" rel="stylesheet">
+  
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -34,7 +35,8 @@
 			<div class="container">
 			<div class="row">
 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
+					<a href="user_infoUpdate.do" style="font-size: 12px;
+	color: #A6A6A6; float:right;"><b>기본정보 수정하기</b></a>
 					<hr>
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>

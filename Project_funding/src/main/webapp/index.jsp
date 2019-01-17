@@ -4,31 +4,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<c:if test="${userdto eq null }"> 
- <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
- </c:if>
- 
- <c:if test="${userdto.getUser_type() eq '파트너스' }">
-  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
-   
- <c:if test="${userdto.getUser_type() eq '클라이언트' }">
-  <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
-   
- <c:if test="${userdto.getUser_type() eq '투자자' }">
-  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %></c:if>
-  
 <link rel="author" href="https://plus.google.com/113101541449927918834"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 <!-- index.css 참조 -->
 <link href="resources/assets/css/index.css" rel="stylesheet" />
 </head>
+<body class="index-page sidebar-collapse">
 
+<c:if test="${userdto eq null }"> 
+ <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
+ </c:if>
+ 
+ <c:if test="${userdto.getUser_type() eq '파트너스' }">
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %>
+ </c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  <%@ include file="WEB-INF/inc/client_topbar.jsp" %>
+ </c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '투자자' }">
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
+  </c:if>
+  
+</head>
 <div class="page-header header-filter clear-filter gray-filter" data-parallax="true" style="background-image: url('resources/assets/img/bg1.jpg');">
     <div class="container">
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand">
-            <h1>Ceative Project</h1>
+            <h1>Creative Project</h1>
             <h3>Let's make a valuable investment.</h3>
           </div>
         </div>
@@ -59,7 +64,7 @@
        		<div class="useway_container">
        		<div class="useway1">
        			<div class="use1">
-       				<img src="resources/assets/img/examples/studio-2.jpg" class="rounded-circle img-fluid" />
+       				<img src="resources/assets/img/project.jpg" class="rounded-circle img-fluid" />
        			</div>
        			<div class="use1_content">
        				<p class="text-muted">
@@ -72,7 +77,7 @@
        		</div>
        		<div class="useway2">
        			<div class="use2">
-       				<img src="resources/assets/img/examples/studio-3.jpg"  class="rounded-circle img-fluid" />
+       				<img src="resources/assets/img/dd.gif"  class="rounded-circle img-fluid" />
        			</div>
        				<div class="use2_content">
        				<p class="text-muted">
@@ -85,7 +90,7 @@
        		</div>
        		<div class="useway3">
        			<div class="use3">
-       				<img src="resources/assets/img/examples/studio-4.jpg"  class="rounded-circle img-fluid" />
+       				<img src="resources/assets/img/moneygif.gif"  class="rounded-circle img-fluid" />
        			</div>
        				<div class="use3_content">
        				<p class="text-muted">
@@ -119,7 +124,7 @@
        	
        	<div class="project_container">
        		<div class="popular_project">
-       			<div class="title">
+       			<div class="p_title">
     				<h3><b>인기 프로젝트</b></h3>
        			</div>
        			<div class="project_content">
@@ -259,7 +264,7 @@
        	
        	<div class="project_container">
        		<div class="popular_project">
-       			<div class="title">
+       			<div class="p_title">
     				<h3><b>신규 프로젝트</b></h3>
        			</div>
        			<div class="project_content">
@@ -399,7 +404,7 @@
        	
        	<div class="project_container">
        		<div class="popular_project">
-       			<div class="title">
+       			<div class="p_title">
     				<h3><b>마감 앞둔 프로젝트</b></h3>
        			</div>
        			<div class="project_content">
@@ -540,6 +545,7 @@
       </div>
      </div>
   </div>
+</body>
 
   <%@ include file="WEB-INF/inc/footer.jsp" %>
 

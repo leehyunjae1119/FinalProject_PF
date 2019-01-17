@@ -18,6 +18,13 @@ public class PF_UserDto {
 	public PF_UserDto() {
 		super();
 	}
+	public PF_UserDto(String user_id, String user_pw, String user_email, String user_type) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_email = user_email;
+		this.user_type = user_type;
+	}
 	public PF_UserDto(int user_no, String user_id, String user_pw, String user_email, String user_type) {
 		super();
 		this.user_no = user_no;
