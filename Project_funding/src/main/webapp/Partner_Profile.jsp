@@ -45,7 +45,7 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					 <%@ include file="WEB-INF/inc/profile_sidebar.jsp" %>
+					 <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %>
 					  
 					<div class="col-12 col-md-9">
 						<div class="container">
