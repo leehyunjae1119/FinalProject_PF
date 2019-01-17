@@ -45,7 +45,7 @@
 					<p class="text-muted">회원님이 등록한 프로젝트 목록입니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<span class="badge badge-pill badge-success">심사대기중</span>
 							<span class="badge badge-pill badge-warning">지원자현황</span>
@@ -70,7 +70,7 @@
 								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">ORACLE</span>
 						</div>
 						<p>
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<span class="badge badge-pill badge-success">심사대기중</span>
 							<span class="badge badge-pill badge-warning">지원자현황</span>
@@ -96,7 +96,7 @@
 								<span class="badge badge-pill badge-warning" style="background-color: #BDBDBD">ORACLE</span>
 						</div>
 						<p>
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<span class="badge badge-pill badge-success">심사대기중</span>
 							<span class="badge badge-pill badge-warning">지원자현황</span>

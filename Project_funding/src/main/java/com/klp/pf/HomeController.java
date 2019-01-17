@@ -250,4 +250,9 @@ public class HomeController {
 		public String project_recruitmentList() {
 			return "Project_RecruitmentList";
 		}
+	//검수중
+		@RequestMapping(value="project_inspectionList.do")
+		public String project_inspectionList() {
+			return "Project_InspectionList";
+		}
 }

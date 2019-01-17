@@ -45,9 +45,28 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					 <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %>
-					  
-					<div class="col-12 col-md-9">
+ 	<%@ include file="WEB-INF/inc/partners_sidebar.jsp" %>
+				
+					<div class="col-12 col-md-9" style="margin-top:-30px;">
+						<div class="container">
+							<h3><b>(아이디)</b></h3>
+							<img src="resources/assets/img/person.png"/>개인
+							<span class="badge badge-pill badge-success">활동 가능</span>
+							<div class="button_position" style="float: right;">
+								<button onclick="location.href='partnerReg_info.do'" class="btn btn-warning">업데이트 하기</button>
+							</div>
+							
+							<br> <br>
+							<div style="margin-top:-20px;">
+							<img src="resources/assets/img/fuck.PNG"	style="height: 120px; width: 230px;">
+							<img src="resources/assets/img/fuck.PNG"style="height: 120px; width: 230px;">
+							<img src="resources/assets/img/fuck.PNG"style="height: 120px; width: 230px;">
+							
+							<br> <br>
+							<hr>
+						</div>
+					</div>
+
 						<div class="container">
 							<h3><b>자기소개</b></h3>
 							<div class="button_position" style="float: right;">
@@ -59,6 +78,35 @@
 							<hr>
 						</div>
 					</div>
+					
+						<div class="container">
+							<h3><b>포트폴리오</b></h3>
+							<div class="button_position" style="float: right;">
+								<button onclick="location.href='partnerReg_portfolio.do'" class="btn btn-warning">업데이트 하기</button>
+							</div>
+							<br><br>
+								<table class="table table-striped">
+								<thead>
+									<tr>
+										<th scope="col">제목</th>
+										<th scope="col">시작일</th>
+										<th scope="col">참여율</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th scope="row"></th>
+										<td></td>
+										<td></td>
+									</tr>
+									
+								</tbody>
+							</table>
+							<br><br>
+									<hr>
+								</div>
+					
+					
 						<div class="container">
 							<h3><b>보유기술</b></h3>
 							<div class="button_position" style="float: right;">
@@ -222,53 +270,11 @@
 
 							<hr>
 						</div>
-
-						<div class="container">
-							<h3><b>진행한 프로젝트</b></h3>
-							<div class="button_position" style="float: right;">
-								<button class="btn btn-warning">업데이트 하기</button>
-							</div>	
-							<br> <br> 
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">프로젝트 제목</th>
-										<th scope="col">클라이언트</th>
-										<th scope="col">금액</th>
-										<th scope="col">남은기간</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">하이</th>
-										<td>ㅇㅇ</td>
-										<td>ㅇㅇ</td>
-										<td>ㅇㅇ</td>
-									</tr>
-
-									
-								</tbody>
-							</table>
-							
-							 <br> <br>
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-
-
-
-
-
-
-
-
-
-
-
 
 	<!-- footer 부분 -->
 	<%@ include file="WEB-INF/inc/footer.jsp" %>

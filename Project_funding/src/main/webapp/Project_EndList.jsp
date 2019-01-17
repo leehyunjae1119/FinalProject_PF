@@ -50,7 +50,7 @@
 					<p class="text-muted">완료한 프로젝트 목록입니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
@@ -66,7 +66,7 @@
 								</b>
 						</div>
 						<p class="text-muted">
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
@@ -81,7 +81,7 @@
 								</b>
 						</div>
 						<p class="text-muted">
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>

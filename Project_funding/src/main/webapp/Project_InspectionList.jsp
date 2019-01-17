@@ -10,7 +10,6 @@
   
  <c:if test="${userdto.getUser_type() eq '클라이언트' }">
   <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
- <%@ include file="WEB-INF/inc/client_topbar.jsp" %>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -39,19 +38,7 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
-						</div>
-					</div>
-					<hr>
-
-				</div>
+				<%@include file="WEB-INF/inc/client_sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15" id="apply">
@@ -110,7 +97,7 @@
 						</div>
 						<p>
 						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
-							<a href="#" style="color: #1E4858"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
+							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<span class="badge badge-pill badge-primary">검수중</span>
 							<p>
 							<p>
