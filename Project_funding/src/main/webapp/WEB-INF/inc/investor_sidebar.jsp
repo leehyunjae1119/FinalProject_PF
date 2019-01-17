@@ -6,16 +6,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
  <link href="resources/assets/css/pw_change.css" rel="stylesheet">
- 
- <script>
+ <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+
+ <!-- 
+ <script type="text/javascript">
  $(function(){
-  var sBtn = $("div > a");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
-  sBtn.click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
-   sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
-   $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
-  })
+	  var sBtn = $("#clickevent");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
+	  sBtn.click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+	   sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+	   $(this).addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+	  })
  })
 </script>
+
+<style type="text/css">
+a.active{
+
+	background-color:#ccc;
+	color:white;
+}
+</style>
+ 
+
+ <script>
+	 $(function(){
+	  var sBtn = $("div");    //  ul > li 이를 sBtn으로 칭한다. (클릭이벤트는 li에 적용 된다.)
+	  sBtn.find("a").click(function(){   // sBtn에 속해 있는  a 찾아 클릭 하면.
+	   sBtn.removeClass("active");     // sBtn 속에 (active) 클래스를 삭제 한다.
+	   $(this).parent().addClass("active"); // 클릭한 a에 (active)클래스를 넣는다.
+	  })
+	 })
+</script>
+-->
 </head>
 <body>
 
@@ -32,8 +54,8 @@
 		</div>
 		<hr>
 		<div class="col-md-12">
-			<a class="btn btn-link2 active" href="user_coin.do">코인 조회/결제</a> 
-			<a class="btn btn-link2" href="user_delete.do">회원탈퇴</a>
+			<a id="clickevent" class="btn btn-link2 active" href="user_coin.do">코인 조회/결제</a> 
+			<a id="clickevent" class="btn btn-link2" href="user_delete.do">회원탈퇴</a>
 		</div>
 
 	</div>
