@@ -10,7 +10,7 @@
 <body>
 
 	<div class="col-md-3" id="sidebar">
-		<b>파트너스</b>&nbsp;&nbsp; <a href="#"><b>기본정보 수정하기</b></a>
+		<b>파트너스</b>&nbsp;&nbsp; <a href="user_infoUpdate.do"><b>기본정보 수정하기</b></a>
 		<hr>
 		<div class="user_info">
 			<img src="resources/assets/img/Teemo.png"
@@ -22,11 +22,11 @@
 		</div>
 		<hr>
 		<div class="col-md-12">
-			<a class="btn btn-link2 active" href="#">자기소개</a> 
-			<a class="btn btn-link2" href="#">포트폴리오</a> 
-			<a class="btn btn-link2" href="#">보유 기술</a><br /> 
-			<a class="btn btn-link2" href="#">경력/학력/자격증</a>
-			<a class="btn btn-link2" href="#">진행한 프로젝트</a>
+			<a class="btn btn-link2" href="partnerReg_info.do">파트너스 정보</a><br /> 		
+			<a class="btn btn-link2 active" href="partnerReg_about.do">자기소개</a> 
+			<a class="btn btn-link2" href="partnerReg_portfolio.do">포트폴리오</a> 
+			<a class="btn btn-link2" href="partnerReg_Technology.do">보유 기술</a><br /> 
+			<a class="btn btn-link2" href="partnerReg_career.do">경력/학력/자격증</a>
 		</div>
 
 	</div>

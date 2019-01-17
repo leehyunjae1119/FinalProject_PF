@@ -72,7 +72,7 @@
 								<input type="submit" class="btn btn-success" value="변경하기">
 							</div>
 					</div>
-				</div>
+				</div> 
 			</div>
 		</div>
 	</div>
