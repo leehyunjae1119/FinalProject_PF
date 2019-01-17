@@ -10,7 +10,7 @@
 <body>
 
 	<div class="col-md-3" id="sidebar">
-		<b>투자자</b>&nbsp;&nbsp; <a href="#"><b>기본정보 수정하기</b></a>
+		<b>투자자</b>&nbsp;&nbsp; <a href="user_infoUpdate.do"><b>기본정보 수정하기</b></a>
 		<hr>
 		<div class="user_info">
 			<img src="resources/assets/img/Teemo.png"
@@ -22,8 +22,8 @@
 		</div>
 		<hr>
 		<div class="col-md-12">
-			<a class="btn btn-link2 active" href="#">코인 조회/결제</a> 
-			<a class="btn btn-link2" href="#">회원탈퇴</a>
+			<a class="btn btn-link2 active" href="user_coin.do">코인 조회/결제</a> 
+			<a class="btn btn-link2" href="user_delete.do">회원탈퇴</a>
 		</div>
 
 	</div>
