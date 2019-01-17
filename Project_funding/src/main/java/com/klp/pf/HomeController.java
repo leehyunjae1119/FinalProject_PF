@@ -91,10 +91,6 @@ public class HomeController {
 		return "User_CoinPayment";
 	}
 	
-	@RequestMapping(value="/user_update.do")
-	public String typeupdate() {
-		return "User_TypeUpdate";
-	}
 	@RequestMapping(value="/project_fundinglist.do")
 	public String projectfunding() {
 		return "Project_FundingList";

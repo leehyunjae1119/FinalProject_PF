@@ -58,7 +58,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item" style="float: right;">
 						<a id="popbutton"class="btn btn-rose btn-raised btn-fab btn-round" 
-						data-toggle="modal" data-target="#myModal"><!-- 이메일 아이콘 누르면 모달창 연결 -->
+						data-toggle="modal" data-target="#myModal"> <!-- 이메일 아이콘 누르면 모달창 연결-->
 							 <i class="material-icons">email</i>
 						</a>
 					</li>
