@@ -105,7 +105,7 @@ public class HomeController {
 	}
 	@RequestMapping(value="/loginCheck.do")
 	public String loginCheck(String user_id, String user_pw, HttpSession session) {
-		String page = "";
+		
 		PF_UserDto dto = biz.selectUser(user_id);
 		if(dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
@@ -125,6 +125,15 @@ public class HomeController {
 	//회원가입
 	@RequestMapping(value="/join.do")
 	public String join() {
+		return "User_Join";
+	}
+	@RequestMapping(value="/joinCheck.do")
+	public String joinCheck(String user_id, String user_pw, String user_email, String user_type) {
+		PF_UserDto dto = new PF_UserDto(0, user_id, user_pw, user_email, user_type);
+		int res = biz.insertUser(dto);
+		if(res > 0) {
+			return "User_Login";
+		}
 		return "User_Join";
 	}
 	//파트너 프로필

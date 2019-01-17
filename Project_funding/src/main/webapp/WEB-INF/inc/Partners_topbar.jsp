@@ -67,7 +67,7 @@
 
 	<nav
 		class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
-		id="sectionsNav"
+		id="sectionsNav2"
 		style="background-color: #D5D5D5; margin-top: 70px; height: 55px;">
 		<div class="container">
 			<div class="navbar-translate" style="width: 100px;">

@@ -17,4 +17,10 @@ public class PF_UserDaoImpl implements PF_Dao {
 		PF_UserDto dto = sqlSession.selectOne(pf_userNamespace+"selectUser", user_id);
 		return dto;
 	}
+	
+	@Override
+	public int insertUser(PF_UserDto dto) {
+		int res = sqlSession.insert(pf_userNamespace+"insertUser", dto);
+		return res;
+	}
 }

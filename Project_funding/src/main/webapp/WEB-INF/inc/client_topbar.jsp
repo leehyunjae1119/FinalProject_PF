@@ -24,6 +24,7 @@
    transition: all 0.5s ease;
 }
 </style>
+
 </head>
 <body>
    <nav
@@ -31,6 +32,7 @@
       id="sectionsNav">
       <div class="container">
          <div class="navbar-translate">
+            <!-- 상단 메뉴바 -->
             <a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                aria-expanded="false" aria-label="Toggle navigation">
@@ -101,9 +103,9 @@
                   style="padding-top: 17px;">계정 유형 변경 신청</a></li>
             </ul>
          </div>
-         </div>
+        
    </nav>
-  
+   <br><br><br>
    
    
    <!-- 쪽지 모달창 -->
@@ -145,7 +147,7 @@
 						
 						<!-- Modal footer -->
 						<div class="modal-footer">
-							<input type="submit" class="btn btn-warning" value="보내기"/>
+							<input type="submit" class="btn btn-warning" value="보내기" id="send"/>
 							<!-- data-dismiss : 모달창 닫기 -->
 							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
 						</div>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,14 +12,14 @@
 <body>
 
 	<div class="col-md-3" id="sidebar">
-		<b>클라이언트</b>&nbsp;&nbsp; <a href="#"><b>기본정보 수정하기</b></a>
+		<b>클라이언트</b>&nbsp;&nbsp; <a href="user_infoUpdate.do"><b>기본정보 수정하기</b></a>
 		<hr>
 		<div class="user_info">
 			<img src="resources/assets/img/Teemo.png"
 				class="user_img rounded-circle img-fluid" />
 			<div class="user_info">
-				<p>teemo</p>
-				<p>teemo@naver.com</p>
+				<p>${userdto.user_id }</p>
+				<p>${userdto.user_email }</p>
 			</div>
 		</div>
 		<hr>
