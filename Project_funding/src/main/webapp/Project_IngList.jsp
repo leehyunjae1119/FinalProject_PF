@@ -34,7 +34,6 @@
 </head>
 
 <body class="index-page sidebar-collapse">
-<<<<<<< HEAD
 	<div class="main main-raised">
 		<div class="section section-basic">
 			<div class="container">
@@ -116,11 +115,8 @@
 		</div>
 	</div>
 	</div>
-	<br><br>
 	 <%@ include file="WEB-INF/inc/footer.jsp" %>
 		
-		
-=======
    <div class="main main-raised">
       <div class="section section-basic">
          <div class="container">
@@ -189,8 +185,5 @@
    </div>
    </div>
     <%@ include file="WEB-INF/inc/footer.jsp" %>
-      
-      
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
-  </body>
+    </body>
   </html>
