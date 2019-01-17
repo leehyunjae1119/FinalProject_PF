@@ -24,9 +24,7 @@
    transition: all 0.5s ease;
 }
 </style>
-<script type="text/javascript">
-	
-</script>
+
 </head>
 <body>
    <nav
@@ -34,6 +32,7 @@
       id="sectionsNav">
       <div class="container">
          <div class="navbar-translate">
+            <!-- 상단 메뉴바 -->
             <a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                aria-expanded="false" aria-label="Toggle navigation">
