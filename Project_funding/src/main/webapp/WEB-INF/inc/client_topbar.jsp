@@ -105,9 +105,9 @@
                   style="padding-top: 17px;">계정 유형 변경 신청</a></li>
             </ul>
          </div>
-         </div>
+        
    </nav>
-  
+   <br><br><br>
    
    
    <!-- 쪽지 모달창 -->
