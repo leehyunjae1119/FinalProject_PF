@@ -26,7 +26,6 @@
 </head>
 
 <body class="index-page sidebar-collapse">
-<<<<<<< HEAD
   
   <div class="section section-signup page-header" style="background-image: url('resources/assets/img/city.jpg'); margin-top: 100px;">
       <div class="container">
@@ -110,8 +109,6 @@
               
           </div>
 </div> 
-=======
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 
 	<div class="section section-signup page-header"
 		style="background-image: url('resources/assets/img/city.jpg'); margin-top: 100px;">
