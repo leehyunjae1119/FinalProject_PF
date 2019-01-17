@@ -7,7 +7,7 @@
 <head>
   <c:if test="${userdto.getUser_type() eq '파트너스' }">
   <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
-   
+  
  <c:if test="${userdto.getUser_type() eq '클라이언트' }">
   <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
   <meta charset="utf-8" />
@@ -38,17 +38,19 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
+				
 				 <c:if test="${userdto.getUser_type() eq '파트너스' }">
 				  <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
 				   
 				 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
 				  <%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>
-				<div class="col">
+				  				<div class="col" style="margin-top: -30px;">
+				  
 				<div class="col col-md-15">
 					<h3><b>진행중인 프로젝트</b></h3>
 				</div>
 				<br>
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
@@ -64,7 +66,7 @@
 								</b>
 						</div>
 						<p class="text-muted">
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
@@ -79,7 +81,7 @@
 								</b>
 						</div>
 						<p class="text-muted">
-						<div class="col col-md-15" style="border: 1px solid black;">
+						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
 							<a href="project_view.do"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
 							<p class="text-muted">
 								<img src="resources/assets/img/money.png"/>&nbsp;<b>예상금액:&nbsp;500,000,000원</b>
@@ -97,6 +99,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	 <%@ include file="WEB-INF/inc/footer.jsp" %>
 		

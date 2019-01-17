@@ -5,7 +5,10 @@
 
 .col-md-3{
 	display: inline-block;
+	
 }
+
+
 
 .user_img{
 	margin-top: -30px;
@@ -45,4 +48,3 @@ table {
 	margin-right: 4%;
 	margin-left: 4%;
 }
-

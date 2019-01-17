@@ -69,7 +69,7 @@
 								<img src="resources/assets/img/time.png" alt="da"
 									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
-								<img src="resources/css/img/date.png" alt="fi"
+								<img src="resources/assets/img/calendar.png" alt="fi"
 									style="height: 23px; wedth: 30px;" class="img"> <b
 									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
 							</div>

@@ -198,7 +198,6 @@ public class HomeController {
 		return"User_Delete";
 	}
 	
-	
 	//파트너스 나의푸딩
 	@RequestMapping(value="partner_mypage.do")
 	public String partnermypage() {

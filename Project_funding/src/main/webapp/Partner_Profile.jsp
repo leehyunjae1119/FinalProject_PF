@@ -66,6 +66,7 @@
 							<hr>
 						</div>
 					</div>
+
 						<div class="container">
 							<h3><b>자기소개</b></h3>
 							<div class="button_position" style="float: right;">
