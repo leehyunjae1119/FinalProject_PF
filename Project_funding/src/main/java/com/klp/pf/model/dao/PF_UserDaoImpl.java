@@ -23,4 +23,9 @@ public class PF_UserDaoImpl implements PF_Dao {
 		int res = sqlSession.insert(pf_userNamespace+"insertUser", dto);
 		return res;
 	}
+	@Override
+	public boolean setUser_email(String user_email) {
+		int res = sqlSession.update(pf_userNamespace+"setEmail", user_email);
+		return (res > 0) ? true : false;
+	}
 }

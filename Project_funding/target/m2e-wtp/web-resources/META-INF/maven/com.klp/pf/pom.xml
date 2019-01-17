@@ -158,7 +158,14 @@
 			<artifactId>spring-orm</artifactId>
 		<!-- 상단의 프로퍼티스 안에있는 버젼과 맞추는 법 위에 확인! -->	
 			<version>${org.springframework-version}</version>
-		</dependency>       
+		</dependency>  
+		  
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->   
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
