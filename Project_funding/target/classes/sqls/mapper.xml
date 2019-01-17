@@ -8,6 +8,6 @@
 	<select id="selectUser" resultType="PF_UserDto">
 		SELECT * FROM PF_USER
 		WHERE USER_ID = #{user_id}
-	</select>
+	</select>															
  
 </mapper>

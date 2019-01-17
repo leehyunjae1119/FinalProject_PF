@@ -38,7 +38,6 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav">
-					<li class="nav-item" id="item1"></li>
 					<li class="nav-item"><a href="#pablo" class="nav-link">나의
 							푸딩</a></li>
 					<li class="nav-item">
@@ -56,9 +55,10 @@
 						class="btn btn-rose btn-raised btn-fab btn-round"
 						data-toggle="dropdown"> <i class="material-icons">email</i>
 					</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Login</a>
-					</li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Join</a>
+					<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
+
+					<li class="nav-item">
+						<a href="logOut.do" class="nav-link"style="color: white">Log out</a>
 					</li>
 				</ul>
 			</div>
@@ -82,7 +82,6 @@
 
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav" style="color:black;">
-					<li class="nav-item" id="item1"></li>
 					<li class="nav-item"><a href="user_coin.do" class="nav-link" id="ho"
 						style="padding-top: 17px;">코인 관리</a></li>
 					<li class="nav-item"><a href="user_update.do" class="nav-link" id="ho"
@@ -91,6 +90,8 @@
 						style="padding-top: 17px;">투자한 프로젝트</a></li>
 				</ul>
 			</div>
+			</div>
+			
 	</nav>
 	<br>
 	<br>

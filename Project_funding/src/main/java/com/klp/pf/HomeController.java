@@ -219,4 +219,9 @@ public class HomeController {
 		public String user_findPW() {
 			return"User_FindPW";
 		}
+	//지원자 모집중
+		@RequestMapping(value="project_recruitmentList.do")
+		public String project_recruitmentList() {
+			return "Project_RecruitmentList";
+		}
 }
