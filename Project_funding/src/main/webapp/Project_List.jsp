@@ -228,7 +228,7 @@
 						</select>
 					</div>
 					<div class="search_button">
-						<button class="btn" style="width: 200px;">검색</button>
+						<button class="btn" style="width: 200px; height: 40px;">검색</button>
 					</div>
 				</div>
 				<!-- 미팅 지역 끝! -->

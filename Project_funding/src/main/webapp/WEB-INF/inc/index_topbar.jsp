@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,44 +27,50 @@
     <div class="container">
       <div class="navbar-translate">
         <a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation" data-target="#index_topbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-      <div class="collapse navbar-collapse">
+      <div class="collapse navbar-collapse" id="index_topbar">
                 <ul class="navbar-nav">
                   <li class="nav-item" id="item1">
                   </li>
                   <li class="nav-item">
 
-                    <a href="project_insert.do" class="nav-link"style="color:white">프로젝트 등록</a>
+                    <a href="
+                <c:if test="${userdto eq null }"> 
+                login.do
+                </c:if>
+                <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+                  project_insert.do
+                  </c:if>
+               " class="nav-link">프로젝트 등록</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="project_list.do" class="nav-link">프로젝트 찾기</a>
 
                   </li>
                   <li class="nav-item">
-                    <a href="project_list.do" class="nav-link"style="color:white">프로젝트 찾기</a>
-
+                    <a href="partner_list.do" class="nav-link">파트너스 목록</a>
                   </li>
                   <li class="nav-item">
-                    <a href="partner_list.do" class="nav-link"style="color:white">파트너스 목록</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="question.do" class="nav-link"style="color:white">이용 방법</a>
+                    <a href="question.do" class="nav-link">이용 방법</a>
                   </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                	<li class="nav-item" style="float: right;">
-                    	<a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
-                     	 	<i class="material-icons">email</i>
-                    	</a>
+                   <li class="nav-item" style="float: right;">
+                       <a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
+                            <i class="material-icons">email</i>
+                       </a>
                     </li>
                     <li class="nav-item">
-                    <a href="login.do" class="nav-link" style="color:white">Login</a>
+                    <a href="login.do" class="nav-link">Login</a>
                   </li>
                   <li class="nav-item">
-                    <a href="join.do" class="nav-link" style="color:white">Join</a>
+                    <a href="join.do" class="nav-link">Join</a>
                   </li>
                </ul>
        </div>

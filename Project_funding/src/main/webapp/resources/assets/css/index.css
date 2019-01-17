@@ -30,12 +30,13 @@
 }
 
 .use1 img, .use2 img, .use3 img {
-	width: 160px;
-	height: 160px;
+	width: 230px;
+	height: 230px;
 }
 
 .use1_content > p, .use2_content > p, .use3_content > p {
-	margin-top: 15px;
+	margin-top: 25px;
+	font-size: 14px;
 }
 
 .useway_container {
@@ -54,7 +55,7 @@
 }
 
 .graph_container {
-	margin-bottom: 70px;
+	margin-bottom: 100px;
 }
 
 .title {
@@ -67,8 +68,10 @@
 	text-align: center;
 	margin-top: 50px;
 	display: inline-block;
-	border: dotted 1px;
-	border-radius: 8%;
+	border-style: solid;
+	border-color: #bcbcbc;
+	border-width: 1px;
+	border-radius: 10px;
 	margin-left: 12px;
 }
 
@@ -82,7 +85,7 @@
 .project_content_detail {
 	text-overflow: hidden;
 	width: 310px;
-	height: 95px;
+	height: 143px;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	margin-left: 13px;
@@ -110,5 +113,13 @@
 	margin-right: 50px;
 }
 
+.p_title {
+	margin-top: 70px;
+	text-align: center;
+}
+
+.popular_project  {
+	margin-bottom: 70px;
+}
 
 

@@ -20,7 +20,6 @@
 }
 </style>
 </head>
-
 <body>
 	<nav
 		class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
@@ -29,7 +28,7 @@
 			<div class="navbar-translate">
 				<a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
+					aria-expanded="false" aria-label="Toggle navigation" >
 					<span class="sr-only">Toggle navigation</span> <span
 						class="navbar-toggler-icon"></span> <span
 						class="navbar-toggler-icon"></span> <span
@@ -66,13 +65,13 @@
 	</nav>
 
 	<nav
-		class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
-		id="sectionsNav"
+		class="navbar navbar-transparent fixed-top navbar-expand-lg"
+		id="sectionsNav2"
 		style="background-color: #D5D5D5; margin-top: 70px; height: 55px;">
 		<div class="container">
 			<div class="navbar-translate" style="width: 100px;">
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
+					aria-expanded="false" data-target="#investor_topbar">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="navbar-toggler-icon"></span> <span
 						class="navbar-toggler-icon"></span> <span
@@ -80,7 +79,7 @@
 				</button>
 			</div>
 
-			<div class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" id="investor_topbar">
 				<ul class="navbar-nav" style="color:black;">
 					<li class="nav-item" id="item1"></li>
 					<li class="nav-item"><a href="user_coin.do" class="nav-link" id="ho"
@@ -91,6 +90,7 @@
 						style="padding-top: 17px;">투자한 프로젝트</a></li>
 				</ul>
 			</div>
+		</div>
 	</nav>
 	<br>
 	<br>
