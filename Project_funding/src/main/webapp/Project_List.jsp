@@ -7,7 +7,7 @@
 <title>Puding</title>
 
 <c:if test="${userdto eq null }"> 
- <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
+ <%@ include file="WEB-INF/inc/topbar.jsp" %>
  </c:if>
  
  <c:if test="${userdto.getUser_type() eq '파트너스' }">
