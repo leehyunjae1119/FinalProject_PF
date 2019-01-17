@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+<%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="./assets/img/apple-icon.png">
@@ -41,48 +41,23 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-3" style="padding-right: 90px;">
-
-						<div class="center-block">
-							<div class="sidebar">
-								<b> 투자자 </b> <a href="user_infoUpdate.do"
-									style="font-size: 13px; color: skyblue; float: right;">기본정보
-									수정하기</a>
-								<br>
-								<hr>
-								<div align="center">
-									<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
-										class="rounded-circle img-fluid"
-										style="height: 120px; wedth: 120px;">
-									<br><br>
-									<b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
-								</div>
-								<hr>
-								
-								<div align="center">
-								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
-									style="font-family: Roboto, Helvetica, Arial, sans-serif; ">
-									코인 조회/결제
-									<div class="ripple-container"></div>
-								</button></a>
-								
-								</div>
-							</div>
-						</div>
-					</div>
+				
+					<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %>
+					
 					<div class="col-sm-8">
 						<h3>
 							<strong>투자한 프로젝트</strong>
 						</h3>
-						<h3>회원님이 투자한 프로젝트 목록입니다.</h3>
+						<h4>회원님이 투자한 프로젝트 목록입니다.</h4>
 						<br>
 						<hr>
 						<div class="project">
 							<div>
-								<h3>
+								<h5>
+								
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h3>
+								</h5>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -112,10 +87,10 @@
 						<br>
 						<div class="project">
 							<div>
-								<h3>
+								<h5>
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h3>
+								</h5>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -145,10 +120,10 @@
 						<br>
 						<div class="project">
 							<div>
-								<h3>
+								<h5>
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h3>
+								</h5>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -206,7 +181,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">Modal title</h3>
+					<h3 class="modal-title">Modal title</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<i class="material-icons">clear</i>

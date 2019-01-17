@@ -19,9 +19,9 @@
    left: 50%;
    right: 50%;
    transition: all 0.5s ease;
-    left: 0;
-     right: 0;
-    transition: all 0.5s ease;
+   left: 0;
+   right: 0;
+   transition: all 0.5s ease;
 }
 </style>
 </head>
@@ -58,7 +58,7 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item" style="float: right;">
 						<a id="popbutton"class="btn btn-rose btn-raised btn-fab btn-round" 
-						data-toggle="modal" data-target="#myModal">
+						data-toggle="modal" data-target="#myModal"><!-- 이메일 아이콘 누르면 모달창 연결 -->
 							 <i class="material-icons">email</i>
 						</a>
 					</li>
@@ -72,15 +72,6 @@
          </div>
       </div>
    </nav>
-   <div class="modal fade" id="layerpop">
-  <div class="modal-dialog">
-    <div class="modal-content">
-        <!-- remote ajax call이 되는영역 -->
-    </div>
-  </div>
-</div>
-
-
 
    <nav
       class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
@@ -102,7 +93,7 @@
                <li class="nav-item" id="item1"></li>
                <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
                   style="padding-top: 17px;">검수 중</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
                <li class="nav-item"><a href="project_ing.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">진행중인 프로젝트</a></li>
@@ -114,9 +105,8 @@
          </div>
          </div>
    </nav>
-   <br>
-   <br>
-   <br>
+  
+   
    
    <!-- 쪽지 모달창 -->
 	<div>
@@ -136,24 +126,23 @@
 						</div>
 
 						<!-- Modal body -->
-						<div class="modal-body">
-						<!-- 쪽지 내용 작성하는 부분 -->
 						<form action="#">
-							<h3>
-								<b>아이디&nbsp;</b>
-							</h3>
-							<b></b><br>
-							<br>
+						<div class="modal-body">
+						
+						<!-- 쪽지 내용 작성하는 부분 -->
+							<h4>
+								<b>받는사람&nbsp; <b>mineomd123</b></b>
+							</h4>
 							
-							<h3>
+							<h4>
 								<b>제목&nbsp;</b>
-							</h3>
+							</h4>
 							<input type="text" class="form-control" id="note_title"><br>
-							<h3>
+							
+							<h4>
 								<b>내용&nbsp;</b>
-							</h3>
+							</h4>
 							<textarea rows="10" cols="40" class="form-control" id="note_content"></textarea>
-							</form>
 						</div>
 						
 						<!-- Modal footer -->
@@ -162,7 +151,7 @@
 							<!-- data-dismiss : 모달창 닫기 -->
 							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
 						</div>
-
+						</form>
 					</div>
 				</div>
 			</div>

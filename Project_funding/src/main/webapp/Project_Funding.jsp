@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/investorTopbar.jsp" %>
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -36,34 +36,11 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-3" style="padding-right: 90px;">
 
-						<div class="center-block">
-							<div class="sidebar">
-								<b> 투자자 </b> <a 
-									style="font-size: 13px; color: skyblue; float: right;" href="user_infoUpdate.do">기본정보
-									수정하기</a>
-								<br>
-								<hr>
-								<div align="center">
-									<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
-										class="rounded-circle img-fluid"
-										style="height: 120px; wedth: 120px;">
-									<br><br>
-									<b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
-								</div>
-								<hr>
-								<div align="center">
-								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
-									style="font-family: Roboto, Helvetica, Arial, sans-serif;">
-									코인 조회/결제
-									<div class="ripple-container"></a>
-								</div>
-								</button>
-								</div>
-							</div>
-						</div>
-					</div>
+
+						
+  						<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %>
+		
 					<div class="col-sm-8">
 						<h3>
 							<b>모터 사용 카메라 포커스링 제어 설계 및 SW 개발</b>

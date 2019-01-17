@@ -52,7 +52,7 @@
 					<p class="text-muted">검수 중인 프로젝트를 확인할 수 있습니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15">
+						<div class="col col-md-15" style="border:1px solid black; border-radius: 10px;">
 							<img src="resources/assets/img/support.png"/><br>
 							<p class="text-muted">
 							<b>

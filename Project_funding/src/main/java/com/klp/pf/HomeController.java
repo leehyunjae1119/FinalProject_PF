@@ -203,7 +203,6 @@ public class HomeController {
 		return"User_Delete";
 	}
 	
-	
 	//파트너스 나의푸딩
 	@RequestMapping(value="partner_mypage.do")
 	public String partnermypage() {
@@ -219,5 +218,10 @@ public class HomeController {
 		@RequestMapping(value="user_findPW.do")
 		public String user_findPW() {
 			return"User_FindPW";
+		}
+	//지원자 모집중
+		@RequestMapping(value="project_recruitmentList.do")
+		public String project_recruitmentList() {
+			return "Project_RecruitmentList";
 		}
 }

@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/topbar.jsp"%>
+<c:if test="${userdto.getUser_type() eq '파트너스' }">
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -37,15 +42,6 @@
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
 
-<<<<<<< HEAD
-=======
-<style type="text/css">
-.boxed {
-	border: 2px dashed #bcbcbc;
-	border-radius: 10px;
-}
-</style>
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -56,34 +52,12 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-<<<<<<< HEAD
-				<div class="col-sm-3" style="padding-right: 90px;">
-=======
-					<div class="col-sm-3" style="padding-right: 90px;">
 
->>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
-						<div class="center-block">
-							<div class="sidebar">
-								<b> 파트너스 </b> <a href="user_infoUpdate.do"
-									style="font-size: 13px; color: skyblue; float: right;">기본정보
-									수정하기</a> <br>
-								<hr>
-								<div align="center">
-									<img src="resources/assets/img/faces/avatar.jpg"
-										alt="Circle Image" class="rounded-circle img-fluid"
-										style="height: 120px; wedth: 120px;"> <br>
-									<br> <b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
-								</div>
-								<hr>
-								<div align="center">
-									<button class="btn btn-primary btn-link" id="bu"style="font-family: Roboto, Helvetica, Arial, sans-serif;" onclick="location.href='user_coin.do'">
-										코인 조회/결제
-										<div class="ripple-container"></div>
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
+				 <c:if test="${userdto.getUser_type() eq '파트너스' }">
+				  <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
+				   
+				 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+				  <%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>
 					<div class="col-sm-8">
 						<h3>
 							<strong>관심 프로젝트</strong>

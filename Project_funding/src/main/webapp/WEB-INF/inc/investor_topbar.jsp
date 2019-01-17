@@ -56,9 +56,10 @@
 						class="btn btn-rose btn-raised btn-fab btn-round"
 						data-toggle="dropdown"> <i class="material-icons">email</i>
 					</a></li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Login</a>
-					</li>
-					<li class="nav-item"><a href="#pablo" class="nav-link">Join</a>
+					<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
+
+					<li class="nav-item">
+						<a href="logOut.do" class="nav-link"style="color: white">Log out</a>
 					</li>
 				</ul>
 			</div>

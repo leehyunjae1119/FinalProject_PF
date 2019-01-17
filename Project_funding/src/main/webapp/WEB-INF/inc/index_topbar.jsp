@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,8 +40,14 @@
                   </li>
                   <li class="nav-item">
 
-                    <a href="project_insert.do" class="nav-link"style="color:white">프로젝트 등록</a>
-
+                    <a href="
+					 <c:if test="${userdto eq null }"> 
+					 login.do
+					 </c:if>
+					 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  					 project_insert.do
+  					 </c:if>
+					" class="nav-link"style="color:white">프로젝트 등록</a>
                   </li>
                   <li class="nav-item">
                     <a href="project_list.do" class="nav-link"style="color:white">프로젝트 찾기</a>

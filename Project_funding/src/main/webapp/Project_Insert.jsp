@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Puding</title>
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+ <%@ include file="WEB-INF/inc/client_topbar.jsp" %>
 <link href="resources/assets/css/project_insert.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
