@@ -62,7 +62,7 @@
 						<div class="container">
 							<h3><b>자기소개</b></h3>
 							<div class="button_position" style="float: right;">
-								<button class="btn btn-warning">업데이트 하기</button>
+								<button onclick="location.href='partnerReg_about.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
 							<br> <br><div>밥을 위해서는 옷을 위경해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을
 							위해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을 위해서는 미인을 구하기 위해서는 그랬는가? 밥을 위해서는
@@ -73,8 +73,7 @@
 						<div class="container">
 							<h3><b>보유기술</b></h3>
 							<div class="button_position" style="float: right;">
-								<input type="button" class="btn btn-warning" value="업데이트 하기">
-							</div>
+								<button onclick="location.href='partnerReg_technology.do'" class="btn btn-warning">업데이트 하기</button>							</div>
 							<br> <br>
 							<table class="table table-striped">
 								<thead>
@@ -138,7 +137,7 @@
 						<div class="container">
 							<h3><b>경력/학력/자격증</b></h3>
 							<div class="button_position" style="float: right;">
-								<button class="btn btn-warning">업데이트 하기</button>
+								<button onclick="location.href='partnerReg_career.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
 							<br>
 							<br>

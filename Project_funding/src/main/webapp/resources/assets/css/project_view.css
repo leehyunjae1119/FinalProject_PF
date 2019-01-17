@@ -153,18 +153,27 @@ textarea, .free_img {
 }
 
 textarea {
-	width: 82%;
+	width: 75%;
 }
 
 .project_support {
 	float: right;
 }
 
-.project_time {
-	margin-left: 0px;
-}
-
-.project_title2 > div {
+.project_money, .project_time {
 	width: 33%;
 }
+
+.view_title > h3, .view_title a {
+	display: inline-block;
+}
+
+.view_title a {
+	float: right;
+	padding-top: 10px;
+	color: #4C4C4C;
+}
+
+
+
 

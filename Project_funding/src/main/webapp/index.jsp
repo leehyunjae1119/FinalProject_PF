@@ -62,7 +62,7 @@
        		<div class="useway_container">
        		<div class="useway1">
        			<div class="use1">
-       				<img src="resources/assets/img/examples/studio-2.jpg" class="rounded-circle img-fluid" />
+       				<img src="resources/assets/img/giphy.gif" class="rounded-circle img-fluid" />
        			</div>
        			<div class="use1_content">
        				<p class="text-muted">
@@ -75,7 +75,7 @@
        		</div>
        		<div class="useway2">
        			<div class="use2">
-       				<img src="resources/assets/img/examples/studio-3.jpg"  class="rounded-circle img-fluid" />
+       				<img src="resources/assets/img/dd.gif"  class="rounded-circle img-fluid" />
        			</div>
        				<div class="use2_content">
        				<p class="text-muted">

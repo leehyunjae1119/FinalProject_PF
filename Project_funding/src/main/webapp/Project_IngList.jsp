@@ -48,7 +48,7 @@
 
 				</div>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col">
+				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15">
 					<h3><b>진행중인 프로젝트</b></h3>
 				</div>
