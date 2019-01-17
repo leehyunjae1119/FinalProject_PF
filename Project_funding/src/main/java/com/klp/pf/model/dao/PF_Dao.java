@@ -8,6 +8,7 @@ public interface PF_Dao {
 	
 	public PF_UserDto selectUser(String user_id);
 	public int insertUser(PF_UserDto dto);
+	public boolean setUser_email(String user_email);
 	
 
 }
