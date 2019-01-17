@@ -54,7 +54,7 @@ h3 {
 
 .project_content_form {
 	margin-bottom: 30px;
-	padding-left: 15px;
+	padding-left: 20px;
 	height: 220px;
 	border-style: solid;
 	border-color: #bcbcbc;
@@ -74,7 +74,7 @@ h3 {
 	height: 120px;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	width: 80%;
+	width: 83%;
 	display: inline-block;
 }
 
