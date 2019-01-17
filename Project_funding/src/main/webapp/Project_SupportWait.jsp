@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-  <%@ include file="WEB-INF/inc/topbar.jsp" %>
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -32,24 +32,7 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
-						</div>
-					</div>
-					<hr>
-					<div class="col-md-6">
-						 <a class="btn btn-info btn-link" href="user_infoUpdate.do">기본정보수정</a> 
-						 <a class="btn btn-info btn-link active" href="user_pwUpdate.do">비밀번호변경</a> 
-						 <a class="btn btn-info btn-link" href="user_delete.do">회원탈퇴</a>
-					</div>
-
-				</div>
+				<%@ include file="WEB-INF/inc/partners_sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col">
 				<div class="col col-md-15">
@@ -57,7 +40,7 @@
 					<p>지원한 프로젝트를 확인할 수 있습니다.</p>
 				</div>
 				<br>
-						<div class="col col-md-15">
+						<div class="col col-md-15" style="border:1px solid black; border-radius: 10px;">
 							<img src="resources/assets/img/support.png"/><br>
 							<p>
 							<b>

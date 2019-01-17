@@ -3,21 +3,8 @@
 	
 }
 
-#bu{
-	
-	text-align:center;
-	height:40px;
-	width:170px;
-	
-}
-
-#bu:hover{
-	background-color:purple;
-	color:white;
-}
-
-a{
-	
-	color:silver;
+#question{
+	font-weight:bold;
+	color:#919191;
 	
 }

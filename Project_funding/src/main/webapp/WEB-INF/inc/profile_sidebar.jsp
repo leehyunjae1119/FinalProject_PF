@@ -10,7 +10,7 @@
 <body>
 
 	<div class="col-md-3" id="sidebar">
-		<b>클라이언트</b>&nbsp;&nbsp; <a href="#"><b>기본정보 수정하기</b></a>
+		<b>파트너스</b>&nbsp;&nbsp; <a href="#"><b>기본정보 수정하기</b></a>
 		<hr>
 		<div class="user_info">
 			<img src="resources/assets/img/Teemo.png"
