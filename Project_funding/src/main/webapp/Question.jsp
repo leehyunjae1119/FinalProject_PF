@@ -1,9 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+<c:if test="${userdto eq null }"> 
+ <%@ include file="WEB-INF/inc/topbar.jsp" %>
+ </c:if>
+ 
+ <c:if test="${userdto.getUser_type() eq '파트너스' }">
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '투자자' }">
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %></c:if>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -46,33 +58,15 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-3">
-						<div class="center-block">
-							<div class="title"
-								style="font-family: Roboto, Helvetica, Arial, sans-serif; padding-top: 10px;">
-								<ul class="nav nav-pills nav-stacked"
-									style="list-style-type: none;">
-									<li><button class="btn btn-primary btn-link" id="bu">
-											서비스 소개
-											<div class="ripple-container"></div>
-										</button></li>
-									<li><button class="btn btn-primary btn-link" id="bu">
-											클라이언트 이용방법
-											<div class="ripple-container"></div>
-										</button></li>
-									<li><button class="btn btn-primary btn-link" id="bu">
-											파트너스 이용방법
-											<div class="ripple-container"></div>
-										</button></li>
-									<li><button class="btn btn-primary btn-link" id="bu"
-											style="background-color: purple; color: white;">
-											자주 묻는 질문
-											<div class="ripple-container"></div>
-										</button></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+                <c:if test="${userdto.getUser_type() eq '파트너스' }">
+				  <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
+				   
+				 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+				  <%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>
+				   
+				 <c:if test="${userdto.getUser_type() eq '투자자' }">
+				<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %></c:if>
+
 					<div class="col-sm-8">
 						<h3>
 							<b>자주 묻는 질문</b>
@@ -88,7 +82,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener"
+													<a id="question" class="accordion-toggle faq-title-opener"
 														data-toggle="collapse" href="#qna_165">프로젝트를 의뢰하려면
 														클라이언트/파트너 중 어떤 유형으로 가입해야 하나요? <i class="fa fa-angle-down"
 														style="float: right;"></i>
@@ -109,7 +103,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener"
+													<a id="question" class="accordion-toggle faq-title-opener"
 														data-toggle="collapse" href="#qna_166">의뢰하려는 프로젝트의 견적이
 														궁금합니다. 알려주세요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
@@ -132,7 +126,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener"
+													<a id="question" class="accordion-toggle faq-title-opener"
 														data-toggle="collapse" href="#qna_167">프로젝트의 예상 기간, 지출
 														가능 예산을 작성하기 어렵습니다. <i class="fa fa-angle-down"
 														style="float: right;"></i>
@@ -157,7 +151,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener collapsed"
+													<a id="question" class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_168">서비스 이용 절차를
 														알려주세요. <i class="fa fa-angle-down" style="float: right;"></i>
 														 
@@ -181,7 +175,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener collapsed"
+													<a id="question" class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_169">위시켓 이용요금은
 														얼마인가요? <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
@@ -200,7 +194,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener collapsed"
+													<a id="question" class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_170">등록한 프로젝트 내용을
 														수정하고 싶어요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
@@ -220,7 +214,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener collapsed"
+													<a id="question" class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_171">프로젝트를 재등록하고
 														싶어요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
@@ -239,7 +233,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener collapsed"
+													<a id="question" class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_172">미팅 신청은 몇 명까지
 														가능한가요? <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
@@ -258,7 +252,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener collapsed"
+													<a id="question" class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_173">가입한 이메일 주소를
 														변경하고 싶어요. <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>
@@ -278,7 +272,7 @@
 										<div class="p5-faq-list-pannel">
 											<div class="p5-faq-list-question p5-faq-list-question-first">
 												<h4 class="panel-title">
-													<a class="accordion-toggle faq-title-opener collapsed"
+													<a id="question" class="accordion-toggle faq-title-opener collapsed"
 														data-toggle="collapse" href="#qna_174">클라이언트, 파트너 계정
 														아이디를 동일하게 사용할 수는 없나요? <i class="fa fa-angle-down" style="float: right;"></i>
 													</a>

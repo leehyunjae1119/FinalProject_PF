@@ -9,5 +9,10 @@
 		SELECT * FROM PF_USER
 		WHERE USER_ID = #{user_id}
 	</select>
+	
+	<select id="insertUser" parameterType="PF_UserDto" >
+		INSERT INTO PF_USER
+		VALUES(PF_USER_SEQ.NEXTVAL, #{user_id}, #{user_pw}, #{user_email}, #{user_type})
+	</select>
  
 </mapper>

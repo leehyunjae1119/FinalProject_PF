@@ -39,15 +39,14 @@
                   <li class="nav-item" id="item1">
                   </li>
                   <li class="nav-item">
-
                     <a href="
-                <c:if test="${userdto eq null }"> 
-                login.do
-                </c:if>
-                <c:if test="${userdto.getUser_type() eq '클라이언트' }">
-                  project_insert.do
-                  </c:if>
-               " class="nav-link">프로젝트 등록</a>
+					 <c:if test="${userdto eq null }"> 
+					 login.do
+					 </c:if>
+					 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  					 project_insert.do
+  					 </c:if>
+					" class="nav-link"style="color:white">프로젝트 등록</a>
                   </li>
                   <li class="nav-item">
                     <a href="project_list.do" class="nav-link">프로젝트 찾기</a>

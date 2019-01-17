@@ -4,7 +4,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Puding</title>
+
 <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <style type="text/css">
 
 #ho:hover {
@@ -14,13 +19,12 @@
    left: 50%;
    right: 50%;
    transition: all 0.5s ease;
-    left: 0;
-     right: 0;
-    transition: all 0.5s ease;
+   left: 0;
+   right: 0;
+   transition: all 0.5s ease;
 }
 </style>
 </head>
-
 <body>
    <nav
       class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
@@ -30,8 +34,8 @@
             <a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                aria-expanded="false" aria-label="Toggle navigation">
-               <span class="sr-only">Toggle navigation</span> <span
-                  class="navbar-toggler-icon"></span> <span
+               <span class="sr-only">Toggle navigation</span> 
+               <span class="navbar-toggler-icon"></span> <span
                   class="navbar-toggler-icon"></span> <span
                   class="navbar-toggler-icon"></span>
             </button>
@@ -53,7 +57,8 @@
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item" style="float: right;">
-						<a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
+						<a id="popbutton"class="btn btn-rose btn-raised btn-fab btn-round" 
+						data-toggle="modal" data-target="#myModal"> <!-- 이메일 아이콘 누르면 모달창 연결-->
 							 <i class="material-icons">email</i>
 						</a>
 					</li>
@@ -88,7 +93,7 @@
                <li class="nav-item" id="item1"></li>
                <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
                   style="padding-top: 17px;">검수 중</a></li>
-               <li class="nav-item"><a href="#pablo" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
                <li class="nav-item"><a href="project_ing.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">진행중인 프로젝트</a></li>
@@ -100,8 +105,58 @@
          </div>
          </div>
    </nav>
-   <br>
-   <br>
-   <br>
+  
+   
+   
+   <!-- 쪽지 모달창 -->
+	<div>
+		<div class="container">
+			<!-- The Modal -->
+			<div class="modal" id="myModal">
+				<div class="modal-dialog ">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h3 class="modal-title">
+								<b style="padding-left: 180px;">쪽지쓰기</b>
+							</h3>
+
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<form action="#">
+						<div class="modal-body">
+						
+						<!-- 쪽지 내용 작성하는 부분 -->
+							<h4>
+								<b>받는사람&nbsp; <b>mineomd123</b></b>
+							</h4>
+							
+							<h4>
+								<b>제목&nbsp;</b>
+							</h4>
+							<input type="text" class="form-control" id="note_title"><br>
+							
+							<h4>
+								<b>내용&nbsp;</b>
+							</h4>
+							<textarea rows="10" cols="40" class="form-control" id="note_content"></textarea>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-warning" value="보내기"/>
+							<!-- data-dismiss : 모달창 닫기 -->
+							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </body>
 </html>

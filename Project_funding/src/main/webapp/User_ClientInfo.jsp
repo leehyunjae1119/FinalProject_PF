@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 
-<%@ include file="WEB-INF/inc/topbar.jsp"%>
+ <%@ include file="WEB-INF/inc/client_topbar.jsp" %>
 <link href="resources/assets/css/project_insert.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -53,26 +53,7 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-3" id="sidebar">
-						<b>클라이언트</b>&nbsp;&nbsp; <a href="#">기본정보 수정하기</a>
-						<hr>
-						<div class="user_info">
-							<img src="resources/assets/img/Teemo.png"
-								class="user_img rounded-circle img-fluid" />
-							<div class="user_info">
-								<p class="text-muted">teemo</p>
-								<p class="text-muted">teemo@naver.com</p>
-							</div>
-						</div>
-						<hr>
-						<div class="col-md-6">
-							<a class="btn btn-info btn-link active" href="#">기본정보수정</a> <a
-								class="btn btn-info btn-link" href="#">비밀번호변경</a> <a
-								class="btn btn-info btn-link" href="#">계좌관리</a> <a
-								class="btn btn-info btn-link" href="#">회원탈퇴</a>
-						</div>
-
-					</div>
+					 <%@ include file="WEB-INF/inc/client_sidebar.jsp" %>
 
 					<div class="col-12 col-md-9">
 						<div class="container">

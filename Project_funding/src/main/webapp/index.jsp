@@ -4,12 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="author" href="https://plus.google.com/113101541449927918834"/>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 <!-- index.css 참조 -->
 <link href="resources/assets/css/index.css" rel="stylesheet" />
 </head>
 <body class="index-page sidebar-collapse">
+
 <c:if test="${userdto eq null }"> 
  <%@ include file="WEB-INF/inc/index_topbar.jsp" %>
  </c:if>
@@ -21,9 +23,10 @@
   <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
    
  <c:if test="${userdto.getUser_type() eq '투자자' }">
-  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
- </c:if>
- 
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %></c:if>
+
+  
+</head>
 <div class="page-header header-filter clear-filter gray-filter" data-parallax="true" style="background-image: url('resources/assets/img/bg1.jpg');">
     <div class="container">
       <div class="row">
@@ -35,7 +38,7 @@
         </div>
       </div>
     </div>
-  </div>	
+  </div>
 
   <div class="main main-raised-index">
     <div class="section section-basic">
@@ -73,7 +76,7 @@
        		</div>
        		<div class="useway2">
        			<div class="use2">
-       				<img src="resources/assets/img/project_partners.jpg"  class="rounded-circle img-fluid" />
+       				<img src="resources/assets/img/dd.gif"  class="rounded-circle img-fluid" />
        			</div>
        				<div class="use2_content">
        				<p class="text-muted">
@@ -541,7 +544,7 @@
       </div>
      </div>
   </div>
-</body>
+
   <%@ include file="WEB-INF/inc/footer.jsp" %>
 
   <!--   Core JS Files   -->

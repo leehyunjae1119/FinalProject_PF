@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+<%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="./assets/img/apple-icon.png">
@@ -41,48 +41,56 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-3" style="padding-right: 90px;">
-
-						<div class="center-block">
-							<div class="sidebar">
-								<b> 투자자 </b> <a href="user_infoUpdate.do"
-									style="font-size: 13px; color: skyblue; float: right;">기본정보
-									수정하기</a>
-								<br>
-								<hr>
-								<div align="center">
-									<img src="resources/assets/img/faces/avatar.jpg" alt="Circle Image"
-										class="rounded-circle img-fluid"
-										style="height: 120px; wedth: 120px;">
-									<br><br>
-									<b>wooju</b> <br> <b><small>wwzzzzzzz@naver.com</small></b>
-								</div>
-								<hr>
-								
-								<div align="center">
-								<a href="user_coin.do"><button class="btn btn-primary btn-link" id="bu"
-									style="font-family: Roboto, Helvetica, Arial, sans-serif; ">
-									코인 조회/결제
-									<div class="ripple-container"></div>
-								</button></a>
-								
-								</div>
-							</div>
-						</div>
-					</div>
+				
+					<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %>
+					
 					<div class="col-sm-8">
 						<h3>
 							<strong>투자한 프로젝트</strong>
 						</h3>
-						<h3>회원님이 투자한 프로젝트 목록입니다.</h3>
+						<h4>회원님이 투자한 프로젝트 목록입니다.</h4>
 						<br>
 						<hr>
 						<div class="project">
 							<div>
-								<h3>
+								<h5>
+								
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h3>
+								</h5>
+								<span class="badge badge-pill badge-warning">진행중</span> 
+								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
+
+							</div>
+							<div>
+								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
+									style="height: 20px; wedth: 30px;" class="img"> <b
+									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
+								<img src="resources/assets/img/time.png" alt="da"
+									style="height: 23px; wedth: 30px;" class="img"> <b
+									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
+								<img src="resources/assets/img/calendar.png" alt="fi"
+									style="height: 23px; wedth: 30px;" class="img"> <b
+									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
+							</div>
+
+							<div class="a">
+								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
+										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
+									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
+							</div>
+							<div
+								style="padding-left: 15px; padding-bottom: 5px; padding-top: 5px;">
+								<b>투자금 : 5000000 원</b>
+							</div>
+						</div>
+						<br>
+						<div class="project">
+							<div>
+								<h5>
+									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
+											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
+								</h5>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -112,43 +120,10 @@
 						<br>
 						<div class="project">
 							<div>
-								<h3>
+								<h5>
 									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
 											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h3>
-								<span class="badge badge-pill badge-warning">진행중</span> 
-								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
-
-							</div>
-							<div>
-								&nbsp;&nbsp; <img src="resources/assets/img/money.png" alt="mo"
-									style="height: 20px; wedth: 30px;" class="img"> <b
-									style="font-size: 10pt">예상금액</b> <b style="font-size: 10pt">500000원</b>
-								<img src="resources/assets/img/time.png" alt="da"
-									style="height: 23px; wedth: 30px;" class="img"> <b
-									style="font-size: 10pt">예상기간</b> <b style="font-size: 10pt">150일</b>
-								<img src="resources/css/img/date.png" alt="fi"
-									style="height: 23px; wedth: 30px;" class="img"> <b
-									style="font-size: 10pt">모집마감</b> <b style="font-size: 10pt">2019.05.25</b>
-							</div>
-
-							<div class="a">
-								<b id="yoyak">하이틴 영화를 떠올리게 만드는 핫한 커플이 탄생했다! 바로 영화 <콜 미 바이 유어
-										네임>으로 헐리웃 최고 유망주 떠오른 티모시 샬라메와 바네사 파라디와 조니 뎁의 딸로 모델이자 배우로
-									활약 중인 릴리 로즈 뎁이 그 주인공.</b>
-							</div>
-							<div
-								style="padding-left: 15px; padding-bottom: 5px; padding-top: 5px;">
-								<b>투자금 : 5000000 원</b>
-							</div>
-						</div>
-						<br>
-						<div class="project">
-							<div>
-								<h3>
-									<b style="color: #3DB7CC;"><strong>&nbsp;&nbsp; 자바
-											프레임워크 웹 어플리케이션 개발자 양성과정</strong></b>
-								</h3>
+								</h5>
 								<span class="badge badge-pill badge-warning">진행중</span> 
 								<img src="resources/assets/img/heart.PNG" alt="HEART" class="heart">
 
@@ -206,7 +181,7 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">Modal title</h3>
+					<h3 class="modal-title">Modal title</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<i class="material-icons">clear</i>

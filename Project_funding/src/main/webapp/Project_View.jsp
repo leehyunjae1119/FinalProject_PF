@@ -1,11 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Puding</title>
 
-<%@ include file="WEB-INF/inc/topbar.jsp" %>
+<c:if test="${userdto eq null }"> 
+ <%@ include file="WEB-INF/inc/topbar.jsp" %>
+ </c:if>
+ 
+ <c:if test="${userdto.getUser_type() eq '파트너스' }">
+  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '클라이언트' }">
+  <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
+   
+ <c:if test="${userdto.getUser_type() eq '투자자' }">
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %></c:if>
 <link href="resources/assets/css/project_view.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
