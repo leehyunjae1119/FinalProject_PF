@@ -22,6 +22,7 @@
 		</div>
 		<hr>
 		<div class="col-md-12">
+
 			<a class="btn btn-link2 active" href="partnerReg_info.do">파트너스 정보</a> 
 			<a class="btn btn-link2 active" href="partnerReg_about.do">자기 소개</a> 
 			<a class="btn btn-link2 active" href="partnerReg_portfolio.do">포트폴리오</a>

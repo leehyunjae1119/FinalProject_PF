@@ -38,28 +38,14 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do">기본정보 수정하기</a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p class="text-muted">teemo</p>
-							<p class="text-muted">teemo@naver.com</p>
-						</div>
-					</div>
-					<hr>
-			      
-
-				</div>
-				<!-- 왼쪽 사이드 바 div -->
-				<div class="col" style="margin-top: -30px;">
+				
 				 <c:if test="${userdto.getUser_type() eq '파트너스' }">
 				  <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
 				   
 				 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
 				  <%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>
-				<div class="col">
+				  				<div class="col" style="margin-top: -30px;">
+				  
 				<div class="col col-md-15">
 					<h3><b>진행중인 프로젝트</b></h3>
 				</div>

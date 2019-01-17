@@ -37,7 +37,7 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav">
-					<li class="nav-item" id="item1"></li>
+
 					<li class="nav-item">
                     <a href="project_list.do" class="nav-link">프로젝트 찾기</a>
                   </li>
@@ -80,7 +80,6 @@
 
 			<div class="collapse navbar-collapse" id="investor_topbar">
 				<ul class="navbar-nav" style="color:black;">
-					<li class="nav-item" id="item1"></li>
 					<li class="nav-item"><a href="user_coin.do" class="nav-link" id="ho"
 						style="padding-top: 17px;">코인 관리</a></li>
 					<li class="nav-item"><a href="user_typeUpdate.do" class="nav-link" id="ho"
@@ -89,7 +88,8 @@
 						style="padding-top: 17px;">투자한 프로젝트</a></li>
 				</ul>
 			</div>
-		</div>
+			</div>
+	
 	</nav>
 	<br>
 	<br>
