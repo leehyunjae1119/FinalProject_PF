@@ -96,8 +96,6 @@ public class HomeController {
 		return "Project_FundingList";
 	}
 	
-	
-	
 	//로그인
 	@RequestMapping(value="/login.do")
 	public String login() {
@@ -142,8 +140,6 @@ public class HomeController {
 		return "index";
 	}
 
-		
-	
 	//회원가입
 	@RequestMapping(value="/join.do")
 	public String join() {
@@ -254,5 +250,26 @@ public class HomeController {
 		@RequestMapping(value="project_inspectionList.do")
 		public String project_inspectionList() {
 			return "Project_InspectionList";
+		}
+		
+	//받은 쪽지함
+		@RequestMapping(value="user_notereceive.do")
+		public String user_notereceive() {
+			
+			return "User_NoteReceive";
+		}
+		
+	//보낸 쪽지함
+		@RequestMapping(value="user_notesend.do")
+		public String user_notesend() {
+			return "User_NoteSend";
+		}
+		
+	//쪽지 보내기
+		@RequestMapping(value="sendmessage.do")
+		public String sendmessage(String user_id, String message_content) {
+			
+			return "User_PartnerList";
+			
 		}
 }

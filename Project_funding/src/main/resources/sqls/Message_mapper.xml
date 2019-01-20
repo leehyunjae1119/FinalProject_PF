@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="pf_message">
+
+	<resultMap type="PF_MessageDto" id="MessageMap">
+	
+		<result property="message_no" column="MESSAGE_NO"/>
+		<result property="message_content" column="MESSAGE_CONTENT"/>
+		<result property="message_reader" column="MESSAGE_READER"/>
+		<result property="message_sender" column="MESSAGE_SENDER"/>
+		<result property="message_senddate" column="MESSAGE_SENDDATE"/>
+		<result property="message_state" column="MESSAGE_STATE"/>
+	</resultMap>
+
+<!-- 받은 쪽지함 -->
+	<select id="receiveMessageList" resultType="MessageMap">
+		SELECT * FROM PF_MESSAGE
+		WHERE MESSAGE_READER = #{message_reader}
+	</select>
+	
+<!-- 보낸 쪽지함 -->
+	<select id="sendMessageList" resultType="MessageMap">
+		SELECT * FROM PF_MESSAGE
+		WHERE MESSAGE_SENDER = #{message_sender}
+	</select>
+
+
+
+
+
+
+</mapper>
+	

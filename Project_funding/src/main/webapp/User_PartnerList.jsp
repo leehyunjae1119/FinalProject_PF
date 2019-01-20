@@ -87,11 +87,10 @@
 								</div>
 								<div class="col-sm-6" style="wedth:100px;">
 									<h3 id="x">
-										<a style="color: skyblue;"><strong>wooju &nbsp</strong></a>
+										<a style="color: skyblue;">${userdto.user_id }</a>
 									</h3>
-									<span id="y" class="badge badge-pill badge-success">메시지
-										보내기</span>
-									<!-- 메세지보내기 버튼 <button id="y" class="btn btn-primary btn-round" style="height:15px; width:35px;">메시지 보내기<div class="ripple-container"></div></button> -->
+									<!-- 메세지 보내기 -->
+									<button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal02">메세지 보내기</button>
 
 									<div class="pr">
 										<b id="yoyak">신입개발자 새박이와 함께할 위인 구함니다.신입개발자 새박이와 함께할 위인 구함니다.
@@ -337,6 +336,58 @@
 		</div>
 		<!--  End Modal -->
 		<%@ include file="WEB-INF/inc/footer.jsp" %>
+		
+		
+		
+	<!-- =================쪽지 부분입니다=====================  --> 
+    <!--  쪽지 모달창 -->
+	<div>
+		<div class="container">
+			<!-- The Modal -->
+			<div class="modal" id="myModal02">
+				<div class="modal-dialog ">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h3 class="modal-title">
+								<b style="padding-left: 180px;">쪽지쓰기</b>
+							</h3>
+
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<form action="sendmessage.do" method="post">
+						<div class="modal-body">
+						
+						<!-- 쪽지 내용 작성하는 부분 -->
+							<h4>
+								<b>받는사람&nbsp; ${userdto.user_id }</b>
+							</h4>
+							
+							
+							<h4>
+								<b>내용&nbsp;</b>
+							</h4>
+							<textarea rows="10" cols="40" class="form-control" id="note_content"></textarea>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-warning" value="보내기" id="send"/>
+							<!-- data-dismiss : 모달창 닫기 -->
+							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+		
+		
 		<!--   Core JS Files   -->
 		<script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
 		<script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>
