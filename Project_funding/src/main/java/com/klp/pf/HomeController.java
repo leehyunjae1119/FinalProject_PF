@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.klp.pf.dto.PF_UserDto;
-import com.klp.pf.model.biz.PF_Biz;
+import com.klp.pf.model.biz.PF_UserBiz;
 
 /**
  * Handles requests for the application home page.
@@ -45,7 +45,7 @@ public class HomeController {
 	
 	//-------------------------------------------------------
 	@Autowired
-	private PF_Biz biz;
+	private PF_UserBiz biz;
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -110,11 +110,11 @@ public class HomeController {
 		if(dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
 			
-//			if(dto.getUser_email_check().equals("TRUE")) {
+			if(dto.getUser_email_check().equals("TRUE")) {
 				return "index";
-//			} else {
-//				return "sendEmail";
-//			}
+			} else {
+				return "sendEmail";
+			}
 		} 
 		return "User_Login";
 	}

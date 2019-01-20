@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.klp.pf.dto.PF_UserDto;
 
 @Repository
-public class PF_UserDaoImpl implements PF_Dao {
+public class PF_UserDaoImpl implements PF_UserDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
