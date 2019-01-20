@@ -23,6 +23,9 @@
 </head>
 
 <body>
+
+<!-- 해당 폼을 Multipart 형식임을 알려주는데, 사진, 동영상 등 글자가 아닌 파일은 모두 Multipart 형식의 데이터 -->
+<form id="frm" name="frm" enctype="multipart/form-data">
 <div class="main main-raised">
 <div class="insert_container">
 	<div class="col-md-1" id="col1">
@@ -90,7 +93,7 @@
 				</div>
 				<div class="file_content">
 					<div class="title">
-						<h5><b>파일 첨부</b></h5>
+						<h5><b>파일 첨부</b>&nbsp;&nbsp;&nbsp;<input type="file" name="file" /></h5>
 					</div>
 					
 				</div>
@@ -175,6 +178,7 @@
 	</div>
 </div>
 </div>
+</form>
 
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 </body>

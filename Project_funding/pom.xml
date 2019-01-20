@@ -158,7 +158,21 @@
 			<artifactId>spring-orm</artifactId>
 		<!-- 상단의 프로퍼티스 안에있는 버젼과 맞추는 법 위에 확인! -->	
 			<version>${org.springframework-version}</version>
-		</dependency>       
+		</dependency>      
+		
+		<!-- MultipartHttpServletRequset 파일 업로드에 필요한 Maven Dependency -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+		 
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.2.2</version>
+		</dependency> 
+		
 	</dependencies>
     <build>
         <plugins>
