@@ -91,7 +91,7 @@
 
          <div class="collapse navbar-collapse">
             <ul class="navbar-nav" style="color:black;">
-               <li class="nav-item" id="item1"></li>
+               <li class="nav-item" id="item"> </li>
                <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">검수 중</a></li>
                <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"

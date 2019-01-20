@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.klp.pf.dto.PF_UserDto;
-import com.klp.pf.model.biz.PF_Biz;
+import com.klp.pf.model.biz.PF_UserBiz;
 
 /**
  * Handles requests for the application home page.
@@ -45,7 +45,7 @@ public class HomeController {
 	
 	//-------------------------------------------------------
 	@Autowired
-	private PF_Biz biz;
+	private PF_UserBiz biz;
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -109,7 +109,12 @@ public class HomeController {
 		PF_UserDto dto = biz.selectUser(user_id);
 		if(dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
-			return "index";
+			
+			if(dto.getUser_email_check().equals("TRUE")) {
+				return "index";
+			} else {
+				return "sendEmail";
+			}
 		} 
 		return "User_Login";
 	}
@@ -121,6 +126,23 @@ public class HomeController {
 		}
 		return "index";
 	}
+	@RequestMapping(value="/sendEmail.do")
+	public String sendEmail(String user_email) {
+		if(!biz.user_sendEmail(user_email)) {
+			return "error";
+		} 
+		return "sendEmail_result";
+	
+	}
+	@RequestMapping(value="/emailCheck.do")
+	public String emailCheck(String user_email, String code) {
+		if(!biz.user_setEmailCheck(user_email, code)) {
+			return "error";
+		}
+		return "index";
+	}
+
+		
 	
 	//회원가입
 	@RequestMapping(value="/join.do")
@@ -129,7 +151,7 @@ public class HomeController {
 	}
 	@RequestMapping(value="/joinCheck.do")
 	public String joinCheck(String user_id, String user_pw, String user_email, String user_type) {
-		PF_UserDto dto = new PF_UserDto(0, user_id, user_pw, user_email, user_type);
+		PF_UserDto dto = new PF_UserDto(user_id, user_pw, user_email, user_type);
 		int res = biz.insertUser(dto);
 		if(res > 0) {
 			return "User_Login";

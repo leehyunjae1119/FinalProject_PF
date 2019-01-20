@@ -14,6 +14,10 @@ public class PF_UserDto {
 	private String user_pw;
 	private String user_email;
 	private String user_type;
+	private String user_addr;
+	private String user_email_hash;
+	private String user_email_check;
+	private String user_img;
 	
 	public PF_UserDto() {
 		super();
@@ -25,13 +29,43 @@ public class PF_UserDto {
 		this.user_email = user_email;
 		this.user_type = user_type;
 	}
-	public PF_UserDto(int user_no, String user_id, String user_pw, String user_email, String user_type) {
+	
+	public String getUser_addr() {
+		return user_addr;
+	}
+	public void setUser_addr(String user_addr) {
+		this.user_addr = user_addr;
+	}
+	public String getUser_email_hash() {
+		return user_email_hash;
+	}
+	public void setUser_email_hash(String user_email_hash) {
+		this.user_email_hash = user_email_hash;
+	}
+	public String getUser_email_check() {
+		return user_email_check;
+	}
+	public void setUser_email_check(String user_email_check) {
+		this.user_email_check = user_email_check;
+	}
+	public String getUser_img() {
+		return user_img;
+	}
+	public void setUser_img(String user_img) {
+		this.user_img = user_img;
+	}
+	public PF_UserDto(int user_no, String user_id, String user_pw, String user_email, String user_type,
+			String user_addr, String user_email_hash, String user_email_check, String user_img) {
 		super();
 		this.user_no = user_no;
 		this.user_id = user_id;
 		this.user_pw = user_pw;
 		this.user_email = user_email;
 		this.user_type = user_type;
+		this.user_addr = user_addr;
+		this.user_email_hash = user_email_hash;
+		this.user_email_check = user_email_check;
+		this.user_img = user_img;
 	}
 	public int getUser_no() {
 		return user_no;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.klp.pf.dto.PF_UserDto;
 
 @Repository
-public class PF_UserDaoImpl implements PF_Dao {
+public class PF_UserDaoImpl implements PF_UserDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
@@ -22,5 +22,10 @@ public class PF_UserDaoImpl implements PF_Dao {
 	public int insertUser(PF_UserDto dto) {
 		int res = sqlSession.insert(pf_userNamespace+"insertUser", dto);
 		return res;
+	}
+	@Override
+	public boolean setUser_email(String user_email) {
+		int res = sqlSession.update(pf_userNamespace+"setEmail", user_email);
+		return (res > 0) ? true : false;
 	}
 }

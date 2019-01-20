@@ -13,7 +13,13 @@
 	
 	<select id="insertUser" parameterType="PF_UserDto" >
 		INSERT INTO PF_USER
-		VALUES(PF_USER_SEQ.NEXTVAL, #{user_id}, #{user_pw}, #{user_email}, #{user_type})
+		VALUES(PF_USER_SEQ.NEXTVAL, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', 'FALSE', NULL)
+	</select>
+	
+	<select id="setEmail" parameterType="String">
+		UPDATE PF_USER 
+		SET USER_EMAIL_CHECK = 'TRUE' 
+		WHERE USER_EMAIL = #{user_email}
 	</select>
  
 </mapper>
