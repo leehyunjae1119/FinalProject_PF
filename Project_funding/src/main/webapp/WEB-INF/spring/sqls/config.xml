@@ -7,7 +7,7 @@
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="/sqls/mapper.xml" />
+		<mapper resource="/sqls/PF_Usermapper.xml" />
 	</mappers>
 
 </configuration>
