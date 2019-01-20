@@ -28,6 +28,7 @@ public class PF_MessageDaoImpl implements PF_MessageDao {
 		return dto02;
 	}
 
+	//쪽지 보내기
 	@Override
 	public int sendMessage(PF_MessageDto dto) {
 		int senddto = sqlSession.insert(pf_messageNamespace+"sendMessage",dto);
