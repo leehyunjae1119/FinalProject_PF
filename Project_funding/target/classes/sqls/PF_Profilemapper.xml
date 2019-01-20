@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pf_profile">
+
+	<insert id="insertProfile" parameterType="PF_ProfileDto">
+		INSERT INTO PF_PROFILE
+		VALUES(PF_PROFILE_SEQ.NEXTVAL, #{user_no}, NULL, NULL, NULL)
+	</insert>
+	
+ 
+</mapper>

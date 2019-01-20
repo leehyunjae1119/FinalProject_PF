@@ -13,9 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.klp.pf.dto.PF_ProfileDto;
 import com.klp.pf.dto.PF_UserDto;
+import com.klp.pf.model.biz.PF_ProfileBiz;
 import com.klp.pf.model.biz.PF_UserBiz;
 
 /**
@@ -45,7 +46,9 @@ public class HomeController {
 	
 	//-------------------------------------------------------
 	@Autowired
-	private PF_UserBiz biz;
+	private PF_UserBiz pf_userBiz;
+	@Autowired
+	private PF_ProfileBiz pf_profileBiz;
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -106,7 +109,7 @@ public class HomeController {
 	@RequestMapping(value="/loginCheck.do")
 	public String loginCheck(String user_id, String user_pw, HttpSession session) {
 		
-		PF_UserDto dto = biz.selectUser(user_id);
+		PF_UserDto dto = pf_userBiz.selectUser(user_id);
 		if(dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
 			
@@ -128,7 +131,7 @@ public class HomeController {
 	}
 	@RequestMapping(value="/sendEmail.do")
 	public String sendEmail(String user_email) {
-		if(!biz.user_sendEmail(user_email)) {
+		if(!pf_userBiz.user_sendEmail(user_email)) {
 			return "error";
 		} 
 		return "sendEmail_result";
@@ -136,7 +139,7 @@ public class HomeController {
 	}
 	@RequestMapping(value="/emailCheck.do")
 	public String emailCheck(String user_email, String code) {
-		if(!biz.user_setEmailCheck(user_email, code)) {
+		if(!pf_userBiz.user_setEmailCheck(user_email, code)) {
 			return "error";
 		}
 		return "index";
@@ -152,7 +155,15 @@ public class HomeController {
 	@RequestMapping(value="/joinCheck.do")
 	public String joinCheck(String user_id, String user_pw, String user_email, String user_type) {
 		PF_UserDto dto = new PF_UserDto(user_id, user_pw, user_email, user_type);
-		int res = biz.insertUser(dto);
+		int res = pf_userBiz.insertUser(dto);
+		System.out.println(res);
+		//회원가입한(파트너스)계정에 프로필 테이블을 생성해준다.
+		//res를 객체생성 파라미터에 넣어주는 이유는 회원 삽입 결과를 회원 시퀀스 번호로 받았기 때문이다.
+		if(user_type.equals("파트너스")) {
+			PF_ProfileDto profileDto = new PF_ProfileDto(res);
+			pf_profileBiz.insertProfile(profileDto);
+		}
+		//회원가입 성공시 로그인 페이지로 이동
 		if(res > 0) {
 			return "User_Login";
 		}

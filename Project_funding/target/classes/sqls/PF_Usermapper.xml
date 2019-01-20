@@ -11,10 +11,14 @@
 
 	</select>
 	
-	<select id="insertUser" parameterType="PF_UserDto" >
+	<insert id="insertUser" parameterType="PF_UserDto" >
+		<!-- 시퀀스를 먼저 생성후 삽입한다 > 이렇게 하면 시퀀스 번호를 전달 받을수 있다. -->
+		<selectKey keyProperty="user_no" resultType="int" order="BEFORE">
+			SELECT PF_USER_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블-->
+		</selectKey>
 		INSERT INTO PF_USER
-		VALUES(PF_USER_SEQ.NEXTVAL, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', 'FALSE', NULL)
-	</select>
+		VALUES(#{user_no}, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', 'FALSE', NULL)
+	</insert>
 	
 	<select id="setEmail" parameterType="String">
 		UPDATE PF_USER 
