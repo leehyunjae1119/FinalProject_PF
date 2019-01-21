@@ -54,7 +54,6 @@
 				<div class="row">
 
 					<div class="col-sm-12">
-
 						<div class="boxed">
 							<h2>
 								<strong>파트너 목록</strong>
@@ -73,6 +72,7 @@
 							</div>
 						</div>
 						<br>
+										
 						<div class="project">
 							<div class="row">
 								<div class="col-sm-2" style="float: left; padding-left:35px; padding-top:25px;">
@@ -87,7 +87,31 @@
 								</div>
 								<div class="col-sm-6" style="wedth:100px;">
 									<h3 id="x">
-										<a style="color: skyblue;">${userdto.user_id }</a>
+										<a style="color: skyblue;"> <c:choose>
+												<c:when test="${empty userlist }">
+													<tr>
+														<td colspan="4">가입된 유저가 없습니다.</td>
+													</tr>
+												</c:when>
+
+												<c:otherwise>
+													<c:forEach items="${userlist }" var="dto">
+														<tr>
+															<td>${dto.user_id }</td>
+														</tr>
+
+													</c:forEach>
+
+												</c:otherwise>
+											</c:choose>
+
+											
+											 <c:if test="${userlist.getUser_type() eq '파트너스' }">
+													${userlist.user_id }
+													ㅆㅃ
+											</c:if>
+
+										</a>
 									</h3>
 									<!-- 메세지 보내기 -->
 									<button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal02">메세지 보내기</button>
@@ -186,6 +210,7 @@
 							</div>
 						</div>
 						<br>
+									
 						<div class="project">
 							<div class="row">
 								<div class="col-sm-2" style="float: left; padding-left:35px; padding-top:25px;">
@@ -363,7 +388,7 @@
 						
 						<!-- 쪽지 내용 작성하는 부분 -->
 							<h4>
-								<b>받는사람&nbsp; ${userdto.user_id }</b>
+								<b>받는사람&nbsp; ${dto.user_id }</b>
 							</h4>
 							
 							

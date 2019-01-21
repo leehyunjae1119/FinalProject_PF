@@ -17,9 +17,13 @@
 	</select>
 	
 	<select id="setEmail" parameterType="String">
-		UPDATE PF_USER 
+		UPDATE PF_USER
 		SET USER_EMAIL_CHECK = 'TRUE' 
 		WHERE USER_EMAIL = #{user_email}
 	</select>
- 
+	
+	<!-- 유저 목록 뽑기 -->
+	<select id="userlist" parameterType="String" resultType="PF_UserDto">
+		SELECT * FROM PF_USER WHERE USER_TYPE=#{user_type}
+	</select>
 </mapper>

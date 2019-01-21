@@ -1,5 +1,6 @@
 package com.klp.pf.model.biz;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -14,16 +15,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.klp.pf.dto.PF_UserDto;
-import com.klp.pf.model.dao.PF_Dao;
+import com.klp.pf.model.dao.PF_UserDao;
 
 import util.Gmail;
 import util.SHA256;
 
 @Service
-public class PF_UserBizImpl implements PF_Biz {
+public class PF_UserBizImpl implements PF_UserBiz {
 	
 	@Autowired
-	private PF_Dao pf_dao;
+	private PF_UserDao pf_dao;
 
 	@Override
 	public PF_UserDto selectUser(String user_id) {
@@ -39,8 +40,8 @@ public class PF_UserBizImpl implements PF_Biz {
 		String from = "danepo91@gmail.com";
 		String to = user_email;
 		String subject = "PUDING 회원가입 이메일 인증 서비스 입니다.";
-		String content = "다음 링크에 접속하여 이메일 인증을 완료하세요!"+
-			"<a href='"+host+"?user_email="+user_email+"&code="+new SHA256().getSHA256(to)+"'>Click Here!</a>";
+		String content = "다음 링크에 접속하여 이메일 인증을 완료하세요!<br>"+
+			"<a href='"+host+"?user_email="+user_email+"&code="+new SHA256().getSHA256(to)+"'>인증하기</a>";
 		System.out.println(user_email);
 		Properties p = new Properties();
 		p.put("mail.smtp.user", from);
@@ -84,5 +85,12 @@ public class PF_UserBizImpl implements PF_Biz {
 		}
 		//인증 실패시(코드 유효 시간 오버)
 		return false;
+	}
+	
+	
+	@Override
+	public List<PF_UserDto> userlist(String user_type) {
+		
+		return pf_dao.userList(user_type);
 	}
 }

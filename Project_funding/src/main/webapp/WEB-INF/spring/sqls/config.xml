@@ -4,10 +4,16 @@
 
 	<typeAliases>
 		<typeAlias type="com.klp.pf.dto.PF_UserDto" alias="PF_UserDto" />
+		<typeAlias type="com.klp.pf.dto.PF_BoardDto" alias="PF_BoardDto"/>
 	</typeAliases>
 
 	<mappers>
-		<mapper resource="/sqls/mapper.xml" />
+		<mapper resource="/sqls/PF_Usermapper.xml"/>
+		<mapper resource="/sqls/PF_BoardMapper.xml"/>
+		
 	</mappers>
+	
+	
+	
 
 </configuration>

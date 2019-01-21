@@ -90,9 +90,9 @@
 
          <div class="collapse navbar-collapse">
             <ul class="navbar-nav" style="color:black;">
-               
-               
-               <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho" style="padding-top: 17px;">검수 중</a></li>
+
+               <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho"
+                  style="padding-top: 17px;">검수 중</a></li>
                <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
                <li class="nav-item"><a href="project_ing.do" class="nav-link" id="ho"
@@ -102,6 +102,7 @@
                   <li class="nav-item"><a href="user_typeUpdate.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">계정 유형 변경 신청</a></li>
             </ul>
+         </div>
          </div>
    </nav>
    <br><br><br>

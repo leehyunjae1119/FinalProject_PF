@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,13 @@
  <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
  <!-- CSS Just for demo purpose, don't include it in your project -->
  <link href="resources/assets/demo/demo.css" rel="stylesheet" />
+ 
+ <!-- 모달창 부트스트랩 -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 
 </head>
@@ -252,486 +260,55 @@
 		<!-- 카테고리 별 검색 끝! -->
 		<!-- col-md-2 끝! -->
 		<div class="col-md-8" id="col8">
+			<c:choose>
+				<c:when test="${empty ProjectList }">
+					<h3> ----- 등록된 프로젝트가 없습니다. -----</h3>
+				</c:when>
+			
+			<c:otherwise>
+			<c:forEach var="dto2" items="${ProjectList }">
 			<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
+				<h5><b><a href="#">${dto2.board_title }</a></b></h5>
+				
+				<span id="dong">user2</span>
+				<button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal" onclick="dong();">
+			메세지 보내기	
+				</button>
+	
 					<div class="project_title2">
        					<div class="project_money">
        						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p>
+       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto2.project_money }원</b></p>
        					</div>
        					<div class="project_time">
        						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p>
+       						<p class="text-muted"><b>예상 기간</b>&nbsp;&nbsp;&nbsp;<b>${dto2.project_term }일</b></p>
        					</div>
        					<div class="project_support">
-       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;<b>2019.01.01</b></p>
+       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
+       						<b><fmt:formatDate value="${dto2.board_regdate }" 
+        pattern="yyyy년 MM월 dd일"></fmt:formatDate> </b></p>
        					</div>
        				</div>
 					<div class="c_detail">
 						<div class="project_content_detail">
        						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
+       					${dto2.board_content}
        						</p>
        					
        					</div>
        					<div class="end_date">
        						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted"><b>마감 1주일 4일 전</b></p>
+       						<p class="text-muted"><b>마감 7일 전</b></p>
        						<br />
        						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted"><b>총 78명 지원</b></p>
+       						<p class="text-muted"><b>총 ${dto.recruit_personnel }명 지원</b></p>
        					</div>
        				</div>
 				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;<b>2019.01.01</b></p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted"><b>마감 1주일 4일 전</b></p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted"><b>총 78명 지원</b></p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
+				</c:forEach>
+				</c:otherwise>
+				</c:choose>
 				
 				<!-- 페이징 -->
 				<div id="pagination">
@@ -765,5 +342,57 @@
 </div>
 
 <%@ include file="WEB-INF/inc/footer.jsp" %>
+
+<!-- =================쪽지 부분입니다=====================  --> 
+    <!--  쪽지 모달창 -->
+	<div>
+		<div class="container">
+			<!-- The Modal -->
+			<div class="modal" id="myModal">
+				<div class="modal-dialog ">
+					<div class="modal-content">
+
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h3 class="modal-title">
+								<b style="padding-left: 180px;">쪽지쓰기</b>
+							</h3>
+
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<form action="sendnote.do" method="post">
+						<div class="modal-body">
+						
+						<!-- 쪽지 내용 작성하는 부분 -->
+								<h4>
+									<b id="min">받는사람&nbsp;</b>
+									<input type="text" id="userid"/>
+								</h4>
+							
+							
+							<h4>
+								<b>내용&nbsp;</b>
+							</h4>
+							<textarea rows="10" cols="40" class="form-control" id="note_content"></textarea>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-warning" value="보내기" id="send"/>
+							<!-- data-dismiss : 모달창 닫기 -->
+							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+
+
+
 </body>
 </html>

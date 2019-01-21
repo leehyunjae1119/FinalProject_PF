@@ -26,8 +26,12 @@
 		SELECT * FROM PF_MESSAGE
 		WHERE MESSAGE_SENDER = #{message_sender}
 	</select>
-
-
+	
+<!-- 쪽지 보내기 -->
+	<insert id="sendNote" >
+		
+	</insert>
+	
 
 
 

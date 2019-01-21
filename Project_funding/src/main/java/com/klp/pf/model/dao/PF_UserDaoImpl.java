@@ -1,14 +1,15 @@
 package com.klp.pf.model.dao;
 
-import org.mybatis.spring.SqlSessionTemplate;
+import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.klp.pf.dto.PF_UserDto;
 
 @Repository
-public class PF_UserDaoImpl implements PF_Dao {
+public class PF_UserDaoImpl implements PF_UserDao {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
@@ -28,5 +29,11 @@ public class PF_UserDaoImpl implements PF_Dao {
 	public boolean setUser_email(String user_email) {
 		int res = sqlSession.update(pf_userNamespace+"setEmail", user_email);
 		return (res > 0) ? true : false;
+	}
+
+	@Override
+	public List<PF_UserDto> userList(String user_type) {
+		List<PF_UserDto> userlist = sqlSession.selectList(pf_userNamespace+"userlist",user_type);
+		return userlist;
 	}
 }

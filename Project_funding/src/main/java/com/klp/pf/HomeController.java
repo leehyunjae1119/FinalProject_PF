@@ -1,9 +1,12 @@
 package com.klp.pf;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,10 +16,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.klp.pf.dto.PF_MessageDto;
 import com.klp.pf.dto.PF_UserDto;
-import com.klp.pf.model.biz.PF_Biz;
+import com.klp.pf.model.biz.PF_BoardBiz;
+import com.klp.pf.model.biz.PF_MessageBiz;
+import com.klp.pf.model.biz.PF_UserBiz;
 
 /**
  * Handles requests for the application home page.
@@ -45,7 +50,12 @@ public class HomeController {
 	
 	//-------------------------------------------------------
 	@Autowired
-	private PF_Biz biz;
+	private PF_UserBiz biz;
+	@Autowired
+	private PF_BoardBiz pf_boardBiz;
+	@Autowired
+	private PF_MessageBiz pf_messageBiz;
+	
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -60,8 +70,9 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/project_list.do")
-	public String list() {
+	public String ProjectList(Model model) {
 	
+		model.addAttribute("ProjectList", pf_boardBiz.selectBoardList());
 
 		return "Project_List";
 
@@ -72,8 +83,16 @@ public class HomeController {
 		return "Project_View";
 	}
 
+	
+	//파트너 리스트
 	@RequestMapping(value="/partner_list.do")
-	public String partnerlist() {
+	public String partnerlist(String user_type, HttpServletRequest request) {
+		List<PF_UserDto> userlist = new ArrayList<PF_UserDto>();
+		
+		userlist = biz.userlist(user_type);
+		
+		request.setAttribute("userlist", userlist);
+		
 		return "User_PartnerList";
 	}
 	
@@ -108,11 +127,11 @@ public class HomeController {
 		if(dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
 			
-//			if(dto.getUser_email_check().equals("TRUE")) {
+			if(dto.getUser_email_check().equals("TRUE")) {
 				return "index";
-//			} else {
-//				return "sendEmail";
-//			}
+			} else {
+				return "sendEmail";
+			}
 		} 
 		return "User_Login";
 	}
@@ -266,10 +285,16 @@ public class HomeController {
 		}
 		
 	//쪽지 보내기
-		@RequestMapping(value="sendmessage.do")
-		public String sendmessage(String user_id, String message_content) {
+		@RequestMapping(value="sendnote.do")
+		public String sendmessage(String user_id, String message_content, Model model) {
+			PF_MessageDto dto = new PF_MessageDto(user_id,message_content);
 			
-			return "User_PartnerList";
+			int res = pf_messageBiz.sendMessage(dto);
 			
+			if(res > 0) {
+				return "User_NoteSend";
+			}else {
+				return "Project_List";
+			}
 		}
 }

@@ -14,20 +14,17 @@ public class PF_MessageBizImpl implements PF_MessageBiz {
 	
 	@Override
 	public List<PF_MessageDto> selectReMessage(String message_reader) {
-		// TODO Auto-generated method stub
-		return null;
+		return pf_messagedao.selectReMessage(message_reader);
 	}
 
 	@Override
-	public List<PF_MessageDto> selectSeMessage(String message_reader) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<PF_MessageDto> selectSeMessage(String message_sender) {
+		return pf_messagedao.selectSeMessage(message_sender);
 	}
 
 	@Override
 	public int sendMessage(PF_MessageDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
+		return pf_messagedao.sendMessage(dto);
 	}
 
 }
