@@ -7,8 +7,11 @@
 
 	<insert id="insertProfile" parameterType="PF_ProfileDto">
 		INSERT INTO PF_PROFILE
-		VALUES(PF_PROFILE_SEQ.NEXTVAL, #{user_no}, NULL, NULL, NULL)
+		VALUES(PF_PROFILE_SEQ.NEXTVAL, #{user_no}, '개발자', '활동가능', NULL)
 	</insert>
-	
+	<select id="selectProfile" resultType="PF_ProfileDto" parameterType="int">
+		SELECT * FROM PF_PROFILE
+		WHERE USER_NO = #{user_no}
+	</select>
  
 </mapper>

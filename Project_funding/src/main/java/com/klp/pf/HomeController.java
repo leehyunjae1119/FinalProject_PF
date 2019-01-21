@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -14,8 +15,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
 import com.klp.pf.dto.PF_UserDto;
+import com.klp.pf.model.biz.PF_PortfolioBiz;
 import com.klp.pf.model.biz.PF_ProfileBiz;
 import com.klp.pf.model.biz.PF_UserBiz;
 
@@ -49,6 +52,8 @@ public class HomeController {
 	private PF_UserBiz pf_userBiz;
 	@Autowired
 	private PF_ProfileBiz pf_profileBiz;
+	@Autowired
+	private PF_PortfolioBiz pf_portfolioBiz;
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -171,7 +176,10 @@ public class HomeController {
 	}
 	//파트너 프로필
 	@RequestMapping(value="partners_profile.do")
-	public String partners_profile() {
+	public String partners_profile(HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+		model.addAttribute("profiledto", profiledto);
 		return "Partner_Profile";
 	}
 	//유저 계정 유형
@@ -206,19 +214,41 @@ public class HomeController {
 	}
 	//파트너스 정보
 	@RequestMapping(value="partnerReg_info.do")
-	public String partnerReg_info() {
+	public String partnerReg_info(HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+		model.addAttribute("profiledto", profiledto);
 		return"PartnerReg_Info";
 	}
 	//자기소개
 	@RequestMapping(value="partnerReg_about.do")
-	public String partnerReg_about() {
+	public String partnerReg_about(HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+		model.addAttribute("profiledto", profiledto);
 		return"PartnerReg_About";
 	}
 	//포트폴리오
 	@RequestMapping(value="partnerReg_portfolio.do")
 	public String partnerReg_portfolio() {
-		return"PartnerReg_Portfolio";
+		return "PartnerReg_Portfolio";
 	}
+	//포트폴리오 삽입
+	@RequestMapping(value="partnerReg_portfolioInsert.do")
+	public String partnerReg_portfolioInsert(HttpSession session, Model model, String portfolio_title, Date portfolio_start_day
+			, Date portfolio_end_day, int portfolio_participation, String portfolio_content, String portfolio_file) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+		
+		PF_PortfolioDto portfoliodto = new PF_PortfolioDto(profiledto.getProfile_no(), portfolio_title, portfolio_start_day
+				, portfolio_end_day, portfolio_participation, portfolio_content, portfolio_file);
+		int res = pf_portfolioBiz.insertPortfolio(portfoliodto);
+		if(res > 0) {
+			return "redirect:partners_profile.do";
+		}
+		return "PartnerReg_Portfolio";
+	}
+	
 	//보유 기술
 	@RequestMapping(value="partnerReg_technology.do")
 	public String partnerReg_technology() {

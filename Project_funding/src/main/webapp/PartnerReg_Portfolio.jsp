@@ -38,31 +38,31 @@
 					<div class="col-12 col-md-9" style="margin-top:-30px;">
 						<h3><b>포트폴리오 등록</b></h3>
 						<hr>
-						<form action="#">
+						<form action="partnerReg_portfolioInsert.do">
 							<div class="form-group">
     							<label for="PortfolioFormTitle">* 제목</label>
-    							<input type="email" class="form-control" id="PortfolioFormTitle" >
+    							<input name="portfolio_title" type="text" class="form-control" id="PortfolioFormTitle" >
   							</div>
 							<div class="form-group bmd-form-group is-filled">
 								<label for="PortfolioFormStartday" class="label-control bmd-label-static">* 참여시작일</label>
-								<input type="text" class="form-control datetimepicker" id="PortfolioFormStartday" value="10/05/2016">
+								<input name="portfolio_start_day" type="text" class="form-control datetimepicker" id="PortfolioFormStartday" value="10/05/2016">
 							</div>
 							<div class="form-group bmd-form-group is-filled">
 								<label for="PortfolioFormEndday" class="label-control bmd-label-static">* 참여종료일</label>
-								<input type="text" class="form-control datetimepicker" id="PortfolioFormEndday" value="10/05/2016">
+								<input name="portfolio_end_day" type="text" class="form-control datetimepicker" id="PortfolioFormEndday" value="10/05/2016">
 							</div>
 							<div class="form-group">
     							<label for="PortfolioFormTitle">* 참여율</label>
-    							<input type="text" class="form-control" id="PortfolioFormTitle" placeholder="1에서 100까지 정수로 입력해주세요.">
+    							<input name="portfolio_participation" type="text" class="form-control" id="PortfolioFormTitle" placeholder="1에서 100까지 정수로 입력해주세요.">
   							</div>
 							<div class="form-group">
 								<label for="AboutFormContent">* 요약내용</label>
-								<textarea class="form-control" id="AboutFormContent" rows="8" placeholder="한글 기준 5000자 미만으로 작성해주세요."></textarea>
+								<textarea name="portfolio_content" class="form-control" id="AboutFormContent" rows="8" placeholder="한글 기준 5000자 미만으로 작성해주세요."></textarea>
 							</div>
 							<div class="form-group form-file-upload form-file-multiple">
 								<input type="file" class="inputFileHidden">
 								<div class="input-group">
-									<input type="text" class="form-control inputFileVisible" placeholder="Single File"> 
+									<input name="portfolio_file" type="text" class="form-control inputFileVisible" placeholder="Single File"> 
 										<span class="input-group-btn">
 											<button type="button" class="btn btn-fab btn-round btn-primary">
 												<i class="material-icons">attach_file</i>
