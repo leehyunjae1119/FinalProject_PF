@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pf_coin">
+
+<select id="selectAll" parameterType="int" resultType="PF_CoinDto">
+	SELECT *
+	FROM PF_COIN
+	WHERE USER_NO=#{user_no}
+	ORDER BY COIN_NO DESC
+</select>
+
+
+<select id="select" parameterType="map" resultType="int">
+	SELECT NVL(SUM(COIN_MONEY),0) as mysum 
+	FROM PF_COIN 
+	WHERE USER_NO=#{user_no} AND COIN_STATE=#{coin_state}
+</select>
+
+
+<select id="coinInsert" parameterType="map">
+	INSERT INTO PF_COIN
+	VALUES(PF_COIN_SEQ.NEXTVAL,#{user_no},SYSDATE,#{coin_money},#{coin_state})
+</select>
+</mapper>

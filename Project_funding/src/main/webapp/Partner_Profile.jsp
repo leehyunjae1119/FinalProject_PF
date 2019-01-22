@@ -49,9 +49,9 @@
 				
 					<div class="col-12 col-md-9" style="margin-top:-30px;">
 						<div class="container">
-							<h3><b>(아이디)</b></h3>
-							<img src="resources/assets/img/person.png"/>개인
-							<span class="badge badge-pill badge-success">활동 가능</span>
+							<h3><b>${userdto.user_id }</b></h3>
+							<img src="resources/assets/img/person.png"/>${profiledto.profile_job }
+							<span class="badge badge-pill badge-success">${profiledto.profile_activity }</span>
 							<div class="button_position" style="float: right;">
 								<button onclick="location.href='partnerReg_info.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
@@ -72,12 +72,15 @@
 							<div class="button_position" style="float: right;">
 								<button onclick="location.href='partnerReg_about.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
-							<br> <br><div>밥을 위해서는 옷을 위경해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을
-							위해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을 위해서는 미인을 구하기 위해서는 그랬는가? 밥을 위해서는
-							옷을 위해서는 미인을 구하기 위해서는 그랬는가? <div></div><br> <br>
+							<br> <br>
+							<div>
+								밥을 위해서는 옷을 위경해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을
+								위해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을 위해서는 미인을 구하기 위해서는 그랬는가? 밥을 위해서는
+								옷을 위해서는 미인을 구하기 위해서는 그랬는가? 
+							</div>
+							<br> <br>
 							<hr>
 						</div>
-					</div>
 					
 						<div class="container">
 							<h3><b>포트폴리오</b></h3>
