@@ -1,7 +1,10 @@
 package com.klp.pf;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,7 +20,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.klp.pf.dto.PF_CoinDto;
 import com.klp.pf.dto.PF_PortfolioDto;
@@ -66,6 +71,78 @@ public class HomeController {
 	private PF_TechnologyBiz pf_technologyBiz;
 	@Autowired
 	private PF_CoinBiz pf_coinBiz;
+	
+	//파일 업로드 순서(ajax)
+	   //1.dependency 2개 추가 (주석 처리해놈)
+	   //2.servlet-context에서 multipartResolver 추가
+	    @RequestMapping(value="/fileUpload.do")
+	    @ResponseBody
+	    public String fileUp(MultipartHttpServletRequest multi, HttpServletRequest request) throws FileNotFoundException {
+	        // 저장 경로 설정
+//	       String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
+	       String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\portfolio";
+	       
+	       System.out.println(path);
+	       
+	        File dir = new File(path);
+	        if(!dir.isDirectory()){
+	            dir.mkdir();
+	        }
+	         
+	        String fileName=null;
+	        
+	        Iterator<String> files = multi.getFileNames();
+	        while(files.hasNext()){
+	            String uploadFile = files.next();
+	                         
+	            MultipartFile mFile = multi.getFile(uploadFile);
+	            fileName = mFile.getOriginalFilename();
+	            
+	            //파일이름 유저 주키로 지정
+	            System.out.println("실제 파일 이름 : " +fileName);
+	            try {
+	                mFile.transferTo(new File(path+"/"+fileName));
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        return path+"/"+fileName;
+	    }
+	    
+	    @RequestMapping(value="/imageUpload.do")
+	    @ResponseBody
+	    public String imageUp(MultipartHttpServletRequest multi, HttpServletRequest request) throws FileNotFoundException {
+	        // 저장 경로 설정
+//	       String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
+	       String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\image";
+	       
+	       System.out.println(path);
+	       
+	        File dir = new File(path);
+	        if(!dir.isDirectory()){
+	            dir.mkdir();
+	        }
+	         
+	        String fileName=null;
+	        
+	        Iterator<String> files = multi.getFileNames();
+	        while(files.hasNext()){
+	            String uploadFile = files.next();
+	                         
+	            MultipartFile mFile = multi.getFile(uploadFile);
+	            fileName = mFile.getOriginalFilename();
+	            
+	            //파일이름 유저 주키로 지정
+	            System.out.println("실제 파일 이름 : " +fileName);
+	            try {
+	                mFile.transferTo(new File(path+"/"+fileName));
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        return path+"/"+fileName;
+	    }
+	
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
