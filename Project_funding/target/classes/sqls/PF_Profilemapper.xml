@@ -13,5 +13,12 @@
 		SELECT * FROM PF_PROFILE
 		WHERE USER_NO = #{user_no}
 	</select>
+	<update id="updateProfile" parameterType="PF_ProfileDto">
+		UPDATE PF_PROFILE
+		SET PROFILE_JOB = #{profile_job}, 
+			PROFILE_ACTIVITY = #{profile_activity}, 
+			PROFILE_INTRO = #{profile_intro}
+		WHERE PROFILE_NO = #{profile_no}
+	</update>
  
 </mapper>

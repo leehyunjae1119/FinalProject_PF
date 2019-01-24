@@ -38,20 +38,22 @@
 					<div class="col-12 col-md-9" style="margin-top : -30px;">
 						<h3><b>파트너스 정보 등록</b></h3>
 						<hr>
-						<form action="#">
+						<form action="partnerReg_infoUpdate.do">
+							<input type="hidden" name="profile_no" value="${profiledto.profile_no }">
+							<input type="hidden" name="profile_intro" value="${profiledto.profile_intro }">
 							<div class="form-group">
 								<label for="InfoFormJob">* 직종</label> 
-								<select class="form-control" id="InfoFormJob">
-									<option>개발자</option>
-									<option>디자이너</option>
+								<select class="form-control" id="InfoFormJob" name="profile_job">
+									<option value="개발자"<c:if test="${profiledto.profile_job eq '개발자'}">selected</c:if> >개발자</option>
+									<option value="디자이너"<c:if test="${profiledto.profile_job eq '디자이너'}">selected</c:if> >디자이너</option>
 								</select>
 							</div>
 							<div class="form-group">
 								<label for="InfoFormActive">* 활동가능성</label> 
-								<select class="form-control" id="InfoFormActive">
-									<option>활동가능</option>
-									<option>협의필요</option>
-									<option>활동불가</option>
+								<select class="form-control" id="InfoFormActive"  name="profile_activity">
+									<option value="활동가능" <c:if test="${profiledto.profile_activity eq '활동가능'}">selected</c:if> >활동가능</option>
+									<option value="협의필요" <c:if test="${profiledto.profile_activity eq '협의필요'}">selected</c:if> >협의필요</option>
+									<option value="활동불가" <c:if test="${profiledto.profile_activity eq '활동불가'}">selected</c:if> >활동불가</option>
 								</select>
 							</div>
 							<div class="col-12"><input type="submit" class="btn btn-success float-right" value="등록 완료"></div>
@@ -82,5 +84,10 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 	<script src="resources/assets/js/material-kit.js?v=2.0.5" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+		
+
+	</script>
 </body>
 </html>	

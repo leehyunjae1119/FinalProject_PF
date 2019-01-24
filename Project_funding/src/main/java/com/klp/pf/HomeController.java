@@ -2,6 +2,7 @@ package com.klp.pf;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.mail.Session;
@@ -17,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
+import com.klp.pf.dto.PF_TechnologyDto;
 import com.klp.pf.dto.PF_UserDto;
 import com.klp.pf.model.biz.PF_PortfolioBiz;
 import com.klp.pf.model.biz.PF_ProfileBiz;
+import com.klp.pf.model.biz.PF_TechnologyBiz;
 import com.klp.pf.model.biz.PF_UserBiz;
 
 /**
@@ -30,7 +33,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	/**
+	/**--
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -54,6 +57,8 @@ public class HomeController {
 	private PF_ProfileBiz pf_profileBiz;
 	@Autowired
 	private PF_PortfolioBiz pf_portfolioBiz;
+	@Autowired
+	private PF_TechnologyBiz pf_technologyBiz;
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -179,7 +184,10 @@ public class HomeController {
 	public String partners_profile(HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
+		
 		model.addAttribute("profiledto", profiledto);
+		model.addAttribute("techdtoList", techdtoList);
 		return "Partner_Profile";
 	}
 	//유저 계정 유형
@@ -220,6 +228,16 @@ public class HomeController {
 		model.addAttribute("profiledto", profiledto);
 		return"PartnerReg_Info";
 	}
+	//파트너스 정보 수정 (자기소개 수정 포함)
+	@RequestMapping(value="partnerReg_infoUpdate.do")
+	public String partnerReg_infoUpdate(int profile_no, String profile_job, String profile_activity, String profile_intro) {
+		PF_ProfileDto profiledto = new PF_ProfileDto(profile_no, profile_job, profile_activity, profile_intro);
+		int res = pf_profileBiz.updateProfile(profiledto);
+		if(res > 0) {
+			return "redirect:partners_profile.do"; 
+		}
+		return "redirect:partnerReg_info.do";
+	}
 	//자기소개
 	@RequestMapping(value="partnerReg_about.do")
 	public String partnerReg_about(HttpSession session, Model model) {
@@ -253,6 +271,24 @@ public class HomeController {
 	@RequestMapping(value="partnerReg_technology.do")
 	public String partnerReg_technology() {
 		return"PartnerReg_Technology";
+	}
+	//보유 기술 삽입
+	@RequestMapping(value="partnerReg_technologyInsert.do")
+	public String partnerReg_technologyInsert(String tech_type, String tech_skill, String tech_exp, HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+		
+		int res = pf_technologyBiz.insertTechnology(profiledto.getProfile_no(), tech_type, tech_skill, tech_exp);
+		if(res > 0 ) {
+			return "redirect:partners_profile.do";
+		}
+		return "PartnerReg_Technology";
+	}
+	//보유 기술 삭제
+	@RequestMapping(value="partnerReg_technologyDelete.do")
+	public String partnerReg_technologyDelete(int tech_no) {
+		pf_technologyBiz.deleteTechnology(tech_no);
+		return "redirect:partners_profile.do";
 	}
 	//경력/학력/자격증
 	@RequestMapping(value="partnerReg_career.do")

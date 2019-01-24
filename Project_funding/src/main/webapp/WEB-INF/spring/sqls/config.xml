@@ -6,12 +6,14 @@
 		<typeAlias type="com.klp.pf.dto.PF_UserDto" alias="PF_UserDto" />
 		<typeAlias type="com.klp.pf.dto.PF_ProfileDto" alias="PF_ProfileDto" />
 		<typeAlias type="com.klp.pf.dto.PF_PortfolioDto" alias="PF_PortfolioDto" />
+		<typeAlias type="com.klp.pf.dto.PF_TechnologyDto" alias="PF_TechnologyDto" />
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/sqls/PF_Usermapper.xml" />
 		<mapper resource="/sqls/PF_Profilemapper.xml" />
 		<mapper resource="/sqls/PF_Portfoliomapper.xml" />
+		<mapper resource="/sqls/PF_Technologymapper.xml" />
 	</mappers>
 
 </configuration>
