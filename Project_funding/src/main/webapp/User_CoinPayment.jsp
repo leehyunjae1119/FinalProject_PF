@@ -16,14 +16,14 @@
 $(function() {
 	
 		var IMP = window.IMP;
-		IMP.init('imp54383215'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
+		IMP.init('imp87209214'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
 		
 		IMP.request_pay({
-		    pg : 'html5_inicis', // version 1.1.0부터 지원.
+		    pg : 'kakaopay', // version 1.1.0부터 지원.
 		    pay_method : 'card',
 		    merchant_uid : 'merchant_' + new Date().getTime(),
 		    name : 'PUDING 결제', //String
-		    amount : 20000,			//asd
+		    amount : ${amount},			//asd
 		    buyer_email : 'user_email',	//String
 		    buyer_name : 'user_id',				//String
 		    buyer_tel : '010-1234-5678',		//String
@@ -43,7 +43,7 @@ $(function() {
 		        msg += '에러내용 : ' + rsp.error_msg;
 		    }
 		    alert(msg);
-		    location.href="user_coin.do";
+		    location.href="user_coin1.do?amount="+rsp.paid_amount;
 		});
 
 })
