@@ -7,6 +7,7 @@
 		<typeAlias type="com.klp.pf.dto.PF_ProfileDto" alias="PF_ProfileDto" />
 		<typeAlias type="com.klp.pf.dto.PF_PortfolioDto" alias="PF_PortfolioDto" />
 		<typeAlias type="com.klp.pf.dto.PF_TechnologyDto" alias="PF_TechnologyDto" />
+		<typeAlias type="com.klp.pf.dto.PF_CoinDto" alias="PF_CoinDto"/>
 	</typeAliases>
 
 	<mappers>
@@ -14,6 +15,7 @@
 		<mapper resource="/sqls/PF_Profilemapper.xml" />
 		<mapper resource="/sqls/PF_Portfoliomapper.xml" />
 		<mapper resource="/sqls/PF_Technologymapper.xml" />
+		<mapper resource="/sqls/PF_Coinmapper.xml"/>
 	</mappers>
 
 </configuration>

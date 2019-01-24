@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.mail.Session;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -15,11 +16,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+
+import com.klp.pf.dto.PF_CoinDto;
 import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
 import com.klp.pf.dto.PF_TechnologyDto;
 import com.klp.pf.dto.PF_UserDto;
+import com.klp.pf.model.biz.PF_CoinBiz;
 import com.klp.pf.model.biz.PF_PortfolioBiz;
 import com.klp.pf.model.biz.PF_ProfileBiz;
 import com.klp.pf.model.biz.PF_TechnologyBiz;
@@ -59,6 +64,8 @@ public class HomeController {
 	private PF_PortfolioBiz pf_portfolioBiz;
 	@Autowired
 	private PF_TechnologyBiz pf_technologyBiz;
+	@Autowired
+	private PF_CoinBiz pf_coinBiz;
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -96,11 +103,59 @@ public class HomeController {
 	}
 	//코인
 	@RequestMapping(value="/user_coin.do")
-	public String coin() {
+	public String coin(HttpServletRequest request,HttpSession session,Model model) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		
+		int amount;
+		if(request.getParameter("amount")!=null) {
+		amount = Integer.parseInt(request.getParameter("amount"));
+		pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
+		}
+		
+		List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no());
+		int coin_charge=0;
+		//int coin_use=0;
+		
+		
+		coin_charge=pf_coinBiz.coin(userdto.getUser_no(), "충전");
+		//coin_use=pf_coinBiz.coin(userdto.getUser_no(), "사용");
+		
+		
+		model.addAttribute("coinlist", list);
+		model.addAttribute("coin", coin_charge);
+		
 		return "User_Coin";
 	}
+	
+	
+	@RequestMapping(value="/user_coin1.do")
+	public String coin1(HttpServletRequest request,HttpSession session,Model model) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		
+		int amount=0;
+		if(request.getParameter("amount")!=null) {
+		amount = Integer.parseInt(request.getParameter("amount"));
+		pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
+		}
+		
+		List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no());
+		int coin_charge=0;
+		//int coin_use=0;
+		
+
+		coin_charge=pf_coinBiz.coin(userdto.getUser_no(), "충전");
+		//coin_use=pf_coinBiz.coin(userdto.getUser_no(), "사용");
+	
+		
+		
+		model.addAttribute("coinlist", list);
+		model.addAttribute("coin", coin_charge);
+		
+		return "redirect:/user_coin.do";
+	}
 	@RequestMapping(value="/user_coinpayment.do")
-	public String user_coinpayment(String amount, Model model) {
+	public String user_coinpayment(@RequestParam String amount, Model model) {
+		model.addAttribute("amount", amount);
 		return "User_CoinPayment";
 	}
 	
