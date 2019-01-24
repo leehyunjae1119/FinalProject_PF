@@ -103,6 +103,7 @@ public class HomeController {
 	public String login() {
 		return "User_Login";
 	}
+	
 	@RequestMapping(value="/loginCheck.do")
 	public String loginCheck(String user_id, String user_pw, HttpSession session) {
 		
@@ -118,6 +119,7 @@ public class HomeController {
 		} 
 		return "User_Login";
 	}
+	
 	@RequestMapping(value="/logOut.do")
 	public String logOut(String user_id, String user_pw, HttpSession session) {
 		if(session!=null) {
