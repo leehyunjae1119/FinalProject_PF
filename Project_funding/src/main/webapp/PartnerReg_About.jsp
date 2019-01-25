@@ -38,16 +38,20 @@
 					<div class="col-12 col-md-9" style="margin-top:-30px;">
 						<h3><b>자기 소개 등록</b></h3>
 						<hr>
-						<form action="#">
+						<form action="partnerReg_infoUpdate.do">
+							<input type="hidden" name="profile_no" value="${profiledto.profile_no }">
+							<input type="hidden" name="profile_job" value="${profiledto.profile_job }">
+							<input type="hidden" name="profile_activity" value="${profiledto.profile_activity }">
+							
 							<div class="form-group">
 								<label for="AboutFormContent">* 자기소개</label>
 
 								<c:choose>
 									<c:when test="${profiledto.profile_intro eq null }"> 
-										<textarea class="form-control" id="AboutFormContent" rows="12" placeholder="한글 기준 5000자 미만으로 작성해주세요."></textarea>
+										<textarea class="form-control" name="profile_intro" id="AboutFormContent" rows="12" placeholder="한글 기준 5000자 미만으로 작성해주세요."></textarea>
 									</c:when>
 									<c:otherwise> 
-										<textarea class="form-control" id="AboutFormContent" rows="12" placeholder="${profiledto.profile_intro }"></textarea>
+										<textarea class="form-control" name="profile_intro" id="AboutFormContent" rows="12" >${profiledto.profile_intro }</textarea>
 									</c:otherwise>
 								</c:choose>
 							</div>

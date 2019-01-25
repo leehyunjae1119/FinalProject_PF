@@ -49,18 +49,18 @@
 				
 					<div class="col-12 col-md-9" style="margin-top:-30px;">
 						<div class="container">
-							<h3><b>${userdto.user_id }</b></h3>
-							<img src="resources/assets/img/person.png"/>${profiledto.profile_job }
-							<span class="badge badge-pill badge-success">${profiledto.profile_activity }</span>
+							<h3><b>${userdto.user_id }</b></h3>&nbsp;&nbsp;
+							<span class="badge badge-pill badge-success">${profiledto.profile_activity }</span>&nbsp;&nbsp;
+							<img style="width: 16px;height: 16px;" src="resources/assets/img/person.png"/>${profiledto.profile_job }
 							<div class="button_position" style="float: right;">
 								<button onclick="location.href='partnerReg_info.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
 							
 							<br> <br>
 							<div style="margin-top:-20px;">
-							<img src="resources/assets/img/fuck.PNG"	style="height: 120px; width: 230px;">
-							<img src="resources/assets/img/fuck.PNG"style="height: 120px; width: 230px;">
-							<img src="resources/assets/img/fuck.PNG"style="height: 120px; width: 230px;">
+							<img src="resources/assets/img/fuck.PNG" style="height: 120px; width: 230px;">
+							<img src="resources/assets/img/fuck.PNG" style="height: 120px; width: 230px;">
+							<img src="resources/assets/img/fuck.PNG" style="height: 120px; width: 230px;">
 							
 							<br> <br>
 							<hr>
@@ -74,9 +74,18 @@
 							</div>
 							<br> <br>
 							<div>
-								밥을 위해서는 옷을 위경해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을
-								위해서는 미인을 구하기 위해서는 그랬는가?밥을 위해서는 옷을 위해서는 미인을 구하기 위해서는 그랬는가? 밥을 위해서는
-								옷을 위해서는 미인을 구하기 위해서는 그랬는가? 
+								<c:choose>
+									<c:when test="${profiledto.profile_intro eq null }"> 
+										<div style="text-align: center;">
+											<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
+											<p></p>
+											<p>자기소개를 업데이트 해주세요.</p>
+										</div>
+									</c:when>
+									<c:otherwise> 
+										<p>${profiledto.profile_intro }</p>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							<br> <br>
 							<hr>
@@ -88,189 +97,156 @@
 								<button onclick="location.href='partnerReg_portfolio.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
 							<br><br>
+							<c:choose>
+								<c:when test="${profiledto.profile_intro eq null }"> 
+									<div style="text-align: center;">
+										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
+										<p></p>
+										<p>포트폴리오를 업데이트 해주세요.</p>
+									</div>
+								</c:when>
+								<c:otherwise> 
 								<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">제목</th>
-										<th scope="col">시작일</th>
-										<th scope="col">참여율</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row"></th>
-										<td></td>
-										<td></td>
-									</tr>
-									
-								</tbody>
-							</table>
+									<thead>
+										<tr>
+											<th scope="col">제목</th>
+											<th scope="col">시작일</th>
+											<th scope="col">참여율</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row"></th>
+											<td></td>
+											<td></td>
+										</tr>	
+									</tbody>
+								</table>
+								</c:otherwise>
+							</c:choose>
 							<br><br>
-									<hr>
-								</div>
+							<hr>
+						</div>
 					
 					
 						<div class="container">
 							<h3><b>보유기술</b></h3>
 							<div class="button_position" style="float: right;">
-								<button onclick="location.href='partnerReg_technology.do'" class="btn btn-warning">업데이트 하기</button>							</div>
+								<button onclick="location.href='partnerReg_technology.do'" class="btn btn-warning">업데이트 하기</button>
+							</div>
 							<br> <br>
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">종류</th>
-										<th scope="col">숙련도</th>
-										<th scope="col">경험</th>
-
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">C/C++</th>
-										<td>고급</td>
-										<td>10년 이상</td>
-
-									</tr>
-									<tr>
-										<th scope="row">Node.js</th>
-										<td>고급</td>
-										<td>5년 이상 10년 미만</td>
-
-									</tr>
-									<tr>
-										<th scope="row">caseperjs</th>
-										<td>고급</td>
-										<td>3년 이상 5년 미만</td>
-
-									</tr>
-									<tr>
-										<th scope="row">React</th>
-										<td>고급</td>
-										<td>1년 이상 3년 미만</td>
-
-									</tr>
-									<tr>
-										<th scope="row">Firebase</th>
-										<td>고급</td>
-										<td>3년 이상 7년 미만</td>
-
-									</tr>
-									<tr>
-										<th scope="row">AWS</th>
-										<td>고급</td>
-										<td>5년 이상 8년 미만</td>
-									</tr>
-									<tr>
-										<th scope="row">Zeplin</th>
-										<td>고급</td>
-										<td>4년 이상 6년 미만</td>
-
-									</tr>
-								</tbody>
-							</table>
+							<c:choose>
+								<c:when test="${techdtoList eq null }"> 
+									<div style="text-align: center;">
+										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
+										<p></p>
+										<p>보유기술을 업데이트 해주세요.</p>
+									</div>
+								</c:when>
+								<c:otherwise> 
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th scope="col">종류</th>
+											<th scope="col">숙련도</th>
+											<th scope="col">경험</th>
+											<th scope="col">도구</th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${techdtoList }" var="techdto">
+											<tr>	
+												<th scope="row">${techdto.tech_type }</th>
+												<td>${techdto.tech_skill }</td>
+												<td>${techdto.tech_exp }</td>
+												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_technologyDelete.do?tech_no=${techdto.tech_no }'">삭제</button></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+								</c:otherwise>
+							</c:choose>
 							<br> <br>
 							<hr>
-					 </div>
-					
-
+					 	</div>
+					 	
 
 						<div class="container">
 							<h3><b>경력/학력/자격증</b></h3>
 							<div class="button_position" style="float: right;">
 								<button onclick="location.href='partnerReg_career.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
-							<br>
-							<br>
-							
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">회사명</th>
-										<th scope="col">근무부서</th>
-										<th scope="col">직위</th>
-										<th scope="col">근무기간</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">캐주얼스텝스</th>
-										<td>개발팀</td>
-										<td>Software Engineer</td>
-										<td>2014년 06월 ~ 2016년 3월</td>
-									</tr>
-									<tr>
-										<th scope="row">코스콤</th>
-										<td>정보시스템 재구축 TF팀</td>
-										<td>대리</td>
-										<td>2013년 03월 ~ 2014년 5월</td>
-									</tr>
-									<tr>
-										<th scope="row">삼성SDS</th>
-										<td>증권 트레이닝 개발팀</td>
-										<td>대리</td>
-										<td>2007년 08월 ~ 2011년 5월</td>
-									</tr>
-									<tr>
-										<th scope="row">nerdyfactoy</th>
-										<td>개발팀</td>
-										<td>대표,CEO</td>
-										<td>2016년 03월 ~ 2016년 12월</td>
-									</tr>
-								</tbody>
-							</table>
+							<br><br> 
+							<c:choose>
+								<c:when test="${profiledto.profile_intro eq null }"> 
+									<div style="text-align: center;">
+										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
+										<p></p>
+										<p>경력/학력/자격증을 업데이트 해주세요.</p>
+									</div>
+								</c:when>
+								<c:otherwise> 
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th scope="col">회사명</th>
+											<th scope="col">근무부서</th>
+											<th scope="col">직위</th>
+											<th scope="col">근무기간</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">캐주얼스텝스</th>
+											<td>개발팀</td>
+											<td>Software Engineer</td>
+											<td>2014년 06월 ~ 2016년 3월</td>
+										</tr>
+									</tbody>
+								</table>
 							
 							<br>
 							
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">학교명</th>
-										<th scope="col">전공</th>
-										<th scope="col">분류</th>
-										<th scope="col">상태</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">ㅇㅇ대학교</th>
-										<td>경영학부</td>
-										<td>대학교</td>
-										<td>졸업</td>
-									</tr>
-
-									<tr>
-										<th scope="row">ㅇㅇ고등학교</th>
-										<td>ㅇㅇ</td>
-										<td>고등학교</td>
-										<td>졸업</td>
-									</tr>
-								</tbody>
-							</table>
-							
-							<br>
-							
-							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th scope="col">자격증명</th>
-										<th scope="col">발급기관</th>
-										<th scope="col">발행일자</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<th scope="row">정보처리기사</th>
-										<td>한국산업인력공단</td>
-										<td>2018년 08월 16일</td>
-									</tr>
-									<tr>
-										<th scope="row">정보처리기사</th>
-										<td>한국산업인력공단</td>
-										<td>2018년 08월 16일</td>
-									</tr>
-								</tbody>
-							</table>
-
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th scope="col">학교명</th>
+											<th scope="col">전공</th>
+											<th scope="col">분류</th>
+											<th scope="col">상태</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">ㅇㅇ대학교</th>
+											<td>경영학부</td>
+											<td>대학교</td>
+											<td>졸업</td>
+										</tr>
+									</tbody>
+								</table>
+								
+								<br>
+								
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th scope="col">자격증명</th>
+											<th scope="col">발급기관</th>
+											<th scope="col">발행일자</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">정보처리기사</th>
+											<td>한국산업인력공단</td>
+											<td>2018년 08월 16일</td>
+										</tr>
+									</tbody>
+								</table>
+								</c:otherwise>
+							</c:choose> 
+							<br><br>
 							<hr>
 						</div>
 					</div>
