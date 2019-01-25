@@ -39,7 +39,7 @@
 				<ul class="navbar-nav">
 
 					<li class="nav-item">
-                    <a href="project_list.do" class="nav-link">프로젝트 찾기</a>
+                    <a href="project_list.do?page=1" class="nav-link">프로젝트 찾기</a>
                   </li>
                   <li class="nav-item">
                     <a href="partner_list.do" class="nav-link">파트너스 목록</a>

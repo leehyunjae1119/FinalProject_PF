@@ -22,7 +22,9 @@ import com.klp.pf.dto.PF_CoinDto;
 import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
 import com.klp.pf.dto.PF_UserDto;
+import com.klp.pf.model.biz.PF_BoardBiz;
 import com.klp.pf.model.biz.PF_CoinBiz;
+import com.klp.pf.model.biz.PF_InvestBiz;
 import com.klp.pf.model.biz.PF_PortfolioBiz;
 import com.klp.pf.model.biz.PF_ProfileBiz;
 import com.klp.pf.model.biz.PF_UserBiz;
@@ -32,27 +34,27 @@ import com.klp.pf.model.biz.PF_UserBiz;
  */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
+
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
+
 		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+
+		model.addAttribute("serverTime", formattedDate);
+
 		return "index";
 	}
-	
-	//-------------------------------------------------------
+
+	// -------------------------------------------------------
 	@Autowired
 	private PF_UserBiz pf_userBiz;
 	@Autowired
@@ -61,297 +63,339 @@ public class HomeController {
 	private PF_PortfolioBiz pf_portfolioBiz;
 	@Autowired
 	private PF_CoinBiz pf_coinBiz;
-	
-	@RequestMapping(value="/index.do")
+	@Autowired
+	private PF_BoardBiz pf_boardBiz;
+	@Autowired
+	private PF_InvestBiz pf_investBiz;
+
+	@RequestMapping(value = "/index.do")
 	public String index() {
 		return "index";
 	}
-	
-	@RequestMapping(value="/project_insert.do")
-	public String insert() {
 
+	@RequestMapping(value = "/project_insert.do")
+	public String insert() {
 
 		return "Project_Insert";
 	}
-	
-	@RequestMapping(value="/project_list.do")
-	public String list() {
-	
 
+	@RequestMapping(value = "/project_list.do")
+	public String ProjectList(Model model, int page) {
+
+		model.addAttribute("totalCount", pf_boardBiz.totalcount());
+		model.addAttribute("page", page);
+		model.addAttribute("ProjectList", pf_boardBiz.selectBoardList(page));
+
+		System.out.println("컨트롤러" + page);
 		return "Project_List";
-
 	}
 
-	@RequestMapping(value="/project_view.do")
-	public String view() {
+	@RequestMapping(value = "/project_view.do")
+	public String ProjectView(int board_no, Model model, HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		int coin_charge = 0;
+		int coin_use = 0;
+
+		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
+		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
+
+		int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
+		model.addAttribute("invest_totalMoney", invest_totalMoney);
+		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
+		model.addAttribute("coin", coin_charge - coin_use);
+
 		return "Project_View";
 	}
 
-	@RequestMapping(value="/partner_list.do")
+	@RequestMapping(value = "/partner_list.do")
 	public String partnerlist() {
 		return "User_PartnerList";
 	}
-	
-	@RequestMapping(value="/question.do")
+
+	@RequestMapping(value = "/question.do")
 	public String question() {
 		return "Question";
 	}
-	//코인
-	@RequestMapping(value="/user_coin.do")
-	public String coin(HttpServletRequest request,HttpSession session,Model model) {
+
+	// 코인
+	////////////////////// 리스트 가져오기///////////////////////
+	@RequestMapping(value = "/user_coin.do")
+	public String coin(HttpServletRequest request, HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-		
-		int amount;
-		if(request.getParameter("amount")!=null) {
-		amount = Integer.parseInt(request.getParameter("amount"));
-		pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
-		}
-		
+
 		List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no());
-		int coin_charge=0;
-		//int coin_use=0;
-		
-		
-		coin_charge=pf_coinBiz.coin(userdto.getUser_no(), "충전");
-		//coin_use=pf_coinBiz.coin(userdto.getUser_no(), "사용");
-		
-		
+
+		int coin_charge = 0;
+		int coin_use = 0;
+
+		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
+		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
+
 		model.addAttribute("coinlist", list);
-		model.addAttribute("coin", coin_charge);
-		
+
+		// 현재 보유 포인트
+		model.addAttribute("coin", coin_charge - coin_use);
+
 		return "User_Coin";
 	}
-	
-	
-	@RequestMapping(value="/user_coin1.do")
-	public String coin1(HttpServletRequest request,HttpSession session,Model model) {
-		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-		
-		int amount=0;
-		if(request.getParameter("amount")!=null) {
-		amount = Integer.parseInt(request.getParameter("amount"));
-		pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
-		}
-		
-		List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no());
-		int coin_charge=0;
-		//int coin_use=0;
-		
 
-		coin_charge=pf_coinBiz.coin(userdto.getUser_no(), "충전");
-		//coin_use=pf_coinBiz.coin(userdto.getUser_no(), "사용");
-	
-		
-		
-		model.addAttribute("coinlist", list);
-		model.addAttribute("coin", coin_charge);
-		
+//////////////////////포인트 충전 페이지//////////////////	
+	@RequestMapping(value = "/user_coin1.do")
+	public String coin1(HttpServletRequest request, HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		int amount = 0;
+		if (request.getParameter("amount") != null) {
+			amount = Integer.parseInt(request.getParameter("amount"));
+			pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
+		}
+
+		model.addAttribute("amount", amount);
+
 		return "redirect:/user_coin.do";
 	}
-	
-	
-	
-	@RequestMapping(value="/user_coinpayment.do")
+
+///////////////////////////////사용/////////////////////////	
+	@RequestMapping(value = "coin_payment_use_01.do")
+	public String getCoin_payment_use01(Model model, int amount_val, int board_no) {
+
+		model.addAttribute("amount_val", amount_val);
+		model.addAttribute("board_no", board_no);
+		return "example01";
+	}
+
+	@RequestMapping(value = "/user_coinpayment.do")
 	public String user_coinpayment(@RequestParam String amount, Model model) {
 		model.addAttribute("amount", amount);
 		return "User_CoinPayment";
 	}
-	
-	@RequestMapping(value="/project_fundinglist.do")
+
+	@RequestMapping(value = "coin_payment_use.do", method = RequestMethod.GET)
+	public String getCoin_Payment_use(HttpSession session, int amount_val, int board_no, Model model) {
+
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		pf_coinBiz.coin_insert(userdto.getUser_no(), amount_val, "사용");
+		pf_investBiz.invest_insert(userdto.getUser_no(), amount_val, board_no);
+
+		return "redirect:/user_coin.do";
+	}
+
+	@RequestMapping(value = "/project_fundinglist.do")
 	public String projectfunding() {
 		return "Project_FundingList";
 	}
-	
-	
-	
-	//로그인
-	@RequestMapping(value="/login.do")
+
+	// 로그인
+	@RequestMapping(value = "/login.do")
 	public String login() {
 		return "User_Login";
 	}
-	@RequestMapping(value="/loginCheck.do")
+
+	@RequestMapping(value = "/loginCheck.do")
 	public String loginCheck(String user_id, String user_pw, HttpSession session) {
-		
+
 		PF_UserDto dto = pf_userBiz.selectUser(user_id);
-		if(dto.getUser_pw().equals(user_pw)) {
+		if (dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
-			
-			if(dto.getUser_email_check().equals("TRUE")) {
+
+			if (dto.getUser_email_check().equals("TRUE")) {
 				return "index";
 			} else {
 				return "sendEmail";
 			}
-		} 
+		}
 		return "User_Login";
 	}
-	@RequestMapping(value="/logOut.do")
+
+	@RequestMapping(value = "/logOut.do")
 	public String logOut(String user_id, String user_pw, HttpSession session) {
-		if(session!=null) {
+		if (session != null) {
 			session.invalidate();
-			session =null;
+			session = null;
 		}
 		return "index";
 	}
-	@RequestMapping(value="/sendEmail.do")
+
+	@RequestMapping(value = "/sendEmail.do")
 	public String sendEmail(String user_email) {
-		if(!pf_userBiz.user_sendEmail(user_email)) {
+		if (!pf_userBiz.user_sendEmail(user_email)) {
 			return "error";
-		} 
+		}
 		return "sendEmail_result";
-	
+
 	}
-	@RequestMapping(value="/emailCheck.do")
+
+	@RequestMapping(value = "/emailCheck.do")
 	public String emailCheck(String user_email, String code) {
-		if(!pf_userBiz.user_setEmailCheck(user_email, code)) {
+		if (!pf_userBiz.user_setEmailCheck(user_email, code)) {
 			return "error";
 		}
 		return "index";
 	}
 
-		
-	
-	//회원가입
-	@RequestMapping(value="/join.do")
+	// 회원가입
+	@RequestMapping(value = "/join.do")
 	public String join() {
 		return "User_Join";
 	}
-	@RequestMapping(value="/joinCheck.do")
+
+	@RequestMapping(value = "/joinCheck.do")
 	public String joinCheck(String user_id, String user_pw, String user_email, String user_type) {
 		PF_UserDto dto = new PF_UserDto(user_id, user_pw, user_email, user_type);
 		int res = pf_userBiz.insertUser(dto);
 		System.out.println(res);
-		//회원가입한(파트너스)계정에 프로필 테이블을 생성해준다.
-		//res를 객체생성 파라미터에 넣어주는 이유는 회원 삽입 결과를 회원 시퀀스 번호로 받았기 때문이다.
-		if(user_type.equals("파트너스")) {
+		// 회원가입한(파트너스)계정에 프로필 테이블을 생성해준다.
+		// res를 객체생성 파라미터에 넣어주는 이유는 회원 삽입 결과를 회원 시퀀스 번호로 받았기 때문이다.
+		if (user_type.equals("파트너스")) {
 			PF_ProfileDto profileDto = new PF_ProfileDto(res);
 			pf_profileBiz.insertProfile(profileDto);
 		}
-		//회원가입 성공시 로그인 페이지로 이동
-		if(res > 0) {
+		// 회원가입 성공시 로그인 페이지로 이동
+		if (res > 0) {
 			return "User_Login";
 		}
 		return "User_Join";
 	}
-	//파트너 프로필
-	@RequestMapping(value="partners_profile.do")
+
+	// 파트너 프로필
+	@RequestMapping(value = "partners_profile.do")
 	public String partners_profile(HttpSession session, Model model) {
-		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
 		model.addAttribute("profiledto", profiledto);
 		return "Partner_Profile";
 	}
-	//유저 계정 유형
-	@RequestMapping(value="user_typeUpdate.do")
+
+	// 유저 계정 유형
+	@RequestMapping(value = "user_typeUpdate.do")
 	public String user_typeUpdate() {
 		return "User_TypeUpdate";
 	}
-	//지원내역
-	@RequestMapping(value="project_supportList.do")
+
+	// 지원내역
+	@RequestMapping(value = "project_supportList.do")
 	public String project_supportList() {
 		return "Project_SupportList";
 	}
-	//진행중인 프로젝트
-	@RequestMapping(value="project_ing.do")
+
+	// 진행중인 프로젝트
+	@RequestMapping(value = "project_ing.do")
 	public String fundingProject_ing() {
 		return "Project_IngList";
 	}
-	//완료한 프로젝트
-	@RequestMapping(value="project_end.do")
+
+	// 완료한 프로젝트
+	@RequestMapping(value = "project_end.do")
 	public String fundingProject_end() {
 		return "Project_EndList";
 	}
-	//기본정보 수정
-	@RequestMapping(value="user_infoUpdate.do")
+
+	// 기본정보 수정
+	@RequestMapping(value = "user_infoUpdate.do")
 	public String user_infoUpdate() {
-		return"User_InfoUpdate";
+		return "User_InfoUpdate";
 	}
-	//관심프로젝트
-	@RequestMapping(value="project_likeList.do")
+
+	// 관심프로젝트
+	@RequestMapping(value = "project_likeList.do")
 	public String project_likeList() {
-		return"Project_LikeList";
+		return "Project_LikeList";
 	}
-	//파트너스 정보
-	@RequestMapping(value="partnerReg_info.do")
+
+	// 파트너스 정보
+	@RequestMapping(value = "partnerReg_info.do")
 	public String partnerReg_info(HttpSession session, Model model) {
-		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
 		model.addAttribute("profiledto", profiledto);
-		return"PartnerReg_Info";
+		return "PartnerReg_Info";
 	}
-	//자기소개
-	@RequestMapping(value="partnerReg_about.do")
+
+	// 자기소개
+	@RequestMapping(value = "partnerReg_about.do")
 	public String partnerReg_about(HttpSession session, Model model) {
-		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
 		model.addAttribute("profiledto", profiledto);
-		return"PartnerReg_About";
+		return "PartnerReg_About";
 	}
-	//포트폴리오
-	@RequestMapping(value="partnerReg_portfolio.do")
+
+	// 포트폴리오
+	@RequestMapping(value = "partnerReg_portfolio.do")
 	public String partnerReg_portfolio() {
 		return "PartnerReg_Portfolio";
 	}
-	//포트폴리오 삽입
-	@RequestMapping(value="partnerReg_portfolioInsert.do")
-	public String partnerReg_portfolioInsert(HttpSession session, Model model, String portfolio_title, Date portfolio_start_day
-			, Date portfolio_end_day, int portfolio_participation, String portfolio_content, String portfolio_file) {
-		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+
+	// 포트폴리오 삽입
+	@RequestMapping(value = "partnerReg_portfolioInsert.do")
+	public String partnerReg_portfolioInsert(HttpSession session, Model model, String portfolio_title,
+			Date portfolio_start_day, Date portfolio_end_day, int portfolio_participation, String portfolio_content,
+			String portfolio_file) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
-		
-		PF_PortfolioDto portfoliodto = new PF_PortfolioDto(profiledto.getProfile_no(), portfolio_title, portfolio_start_day
-				, portfolio_end_day, portfolio_participation, portfolio_content, portfolio_file);
+
+		PF_PortfolioDto portfoliodto = new PF_PortfolioDto(profiledto.getProfile_no(), portfolio_title,
+				portfolio_start_day, portfolio_end_day, portfolio_participation, portfolio_content, portfolio_file);
 		int res = pf_portfolioBiz.insertPortfolio(portfoliodto);
-		if(res > 0) {
+		if (res > 0) {
 			return "redirect:partners_profile.do";
 		}
 		return "PartnerReg_Portfolio";
 	}
-	
-	//보유 기술
-	@RequestMapping(value="partnerReg_technology.do")
+
+	// 보유 기술
+	@RequestMapping(value = "partnerReg_technology.do")
 	public String partnerReg_technology() {
-		return"PartnerReg_Technology";
+		return "PartnerReg_Technology";
 	}
-	//경력/학력/자격증
-	@RequestMapping(value="partnerReg_career.do")
+
+	// 경력/학력/자격증
+	@RequestMapping(value = "partnerReg_career.do")
 	public String partnerReg_career() {
-		return"PartnerReg_career";
+		return "PartnerReg_career";
 	}
-	//비밀번호 번경
-	@RequestMapping(value="user_pwUpdate.do")
+
+	// 비밀번호 번경
+	@RequestMapping(value = "user_pwUpdate.do")
 	public String user_pwUpdate() {
-		return"User_PWUpdate";
+		return "User_PWUpdate";
 	}
-	//회원 탈퇴
-	@RequestMapping(value="user_delete.do")
+
+	// 회원 탈퇴
+	@RequestMapping(value = "user_delete.do")
 	public String user_delete() {
-		return"User_Delete";
+		return "User_Delete";
 	}
-	
-	//파트너스 나의푸딩
-	@RequestMapping(value="partner_mypage.do")
+
+	// 파트너스 나의푸딩
+	@RequestMapping(value = "partner_mypage.do")
 	public String partnermypage() {
 		return "Partner_Mypage";
 	}
-	
-	//클라이언트 나의푸딩
-		@RequestMapping(value="client_mypage.do")
-		public String clientrmypage() {
-			return "Client_Mypage";
-		}
-	//비밀번호 찾기
-		@RequestMapping(value="user_findPW.do")
-		public String user_findPW() {
-			return"User_FindPW";
-		}
-	//지원자 모집중
-		@RequestMapping(value="project_recruitmentList.do")
-		public String project_recruitmentList() {
-			return "Project_RecruitmentList";
-		}
-	//검수중
-		@RequestMapping(value="project_inspectionList.do")
-		public String project_inspectionList() {
-			return "Project_InspectionList";
-		}
+
+	// 클라이언트 나의푸딩
+	@RequestMapping(value = "client_mypage.do")
+	public String clientrmypage() {
+		return "Client_Mypage";
+	}
+
+	// 비밀번호 찾기
+	@RequestMapping(value = "user_findPW.do")
+	public String user_findPW() {
+		return "User_FindPW";
+	}
+
+	// 지원자 모집중
+	@RequestMapping(value = "project_recruitmentList.do")
+	public String project_recruitmentList() {
+		return "Project_RecruitmentList";
+	}
+
+	// 검수중
+	@RequestMapping(value = "project_inspectionList.do")
+	public String project_inspectionList() {
+		return "Project_InspectionList";
+	}
 }

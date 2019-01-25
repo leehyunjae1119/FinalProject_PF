@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="pf_invest">
+  
+  	<select id="selectAll" resultType="PF_UserDto">
+  		SELECT * 
+  		FROM PF_INVEST
+  		WHERE USER_NO=#{user_no}
+  	</select>
+  	
+  	<select id="investInsert"  parameterType="PF_InvestDto">
+  		INSERT INTO PF_INVEST
+  		VALUES(PF_INVEST_SEQ.NEXTVAL,#{user_no},#{invest_money},#{board_no})
+  	</select>
+  	
+  	<select id="select" parameterType="map" resultType="int">
+  		SELECT NVL(SUM(INVEST_MONEY),0) as mysum
+  		FROM PF_INVEST
+  		WHERE USER_NO=#{user_no} AND BOARD_NO=#{board_no}
+  	</select>
+  	
+  	<select id="select_projectinvest" parameterType="int" resultType="int">
+  		SELECT NVL(SUM(INVEST_MONEY),0) as mysum
+  		FROM PF_INVEST
+  		WHERE  BOARD_NO=#{board_no}
+  	</select>
+  	
+
+</mapper>
