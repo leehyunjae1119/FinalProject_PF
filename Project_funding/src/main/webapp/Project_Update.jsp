@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,9 +29,9 @@
 	<div class="col-md-1" id="col1">
 	</div>
 	<div class="col-md-10" id="col10">
-		<form action="insert.do" method="post">
-	
-		<input type='hidden' name="user_no" value="${userdto.getUser_no()}" />
+		<form action="update.do" method="get">
+		<input type="hidden" name="board_no" value="${dto.board_no }" /> 
+		<input type="hidden" name="user_no" value="${userdto.getUser_no()}" />
 		<div class="container_title">
 		<h3><span class="tim-note"><b>프로젝트 등록</b></span></h3>
  		<div class="project_insert">
@@ -46,20 +46,21 @@
 				<div class="project_title">
 					<h5><b>프로젝트 제목</b></h5>
 				</div>
-				<div class="select_category">
+				<p>${dto.project_category}</p>
+				<div class="select_category" id="select_category">
 					<select name="project_category" style="font-size: 13px;">
-						<option value="" selected>카테고리</option>
-  						<option value="웹">웹</option>
-  						<option value="어플리케이션">어플리케이션</option>
-  						<option value="일반 소프트웨어">일반 소프트웨어</option>
-  						<option value="게임">게임</option>
-  						<option value="임베디드">임베디드</option>
-  						<option value="퍼블리싱">퍼블리싱</option>
-  						<option value="기타">기타</option>
+						<option value="">카테고리</option>
+  						<option value="웹"<c:if test="${dto.project_category eq '웹'}">selected</c:if>>웹</option>
+  						<option value="어플리케이션"<c:if test="${dto.project_category eq '어플리케이션'}">selected</c:if>>어플리케이션</option>
+  						<option value="일반 소프트웨어"<c:if test="${dto.project_category eq '일반 소프트웨어'}">selected </c:if>>일반 소프트웨어</option>
+  						<option value="게임"<c:if test="${dto.project_category eq '게임'}">selected</c:if>>게임</option>						
+  						<option value="임베디드"<c:if test="${dto.project_category eq '임베디드'}">selected</c:if>>임베디드</option>
+  						<option value="퍼블리싱"<c:if test="${dto.project_category eq '퍼블리싱'}">selected</c:if>>퍼블리싱</option>
+  						<option value="기타"<c:if test="${dto.project_category eq '기타'}">selected</c:if>>기타</option>
 					</select>
 				</div>
 				<div class="form-group has-default" id="form_subject">
-            	   	<input type="text" class="form-control" placeholder="제목을 입력해주세요." name="board_title">
+            	   	<input type="text" class="form-control" name="board_title" value="${dto.board_title }">
           		</div>
             
            		<div class="money_container">
@@ -70,7 +71,7 @@
 						<p class="text-muted">예상금액</p>
 					</div>
 					<div class="form-group" id="form2">
-						<input type="text" class="form-control" id="control" name="project_money" placeholder="1,000,000">
+						<input type="text" class="form-control" id="control" name="project_money" value="${dto.project_money }">
 					</div>
 					<p class="text-muted" id="won">원</p>
 				</div>
@@ -82,7 +83,7 @@
 						<p class="text-muted">예상기간</p>
 					</div>
 					<div class="form-group" id="form2">
-						<input type="text" class="form-control" id="control" name="project_term" placeholder="30" >
+						<input type="text" class="form-control" id="control" name="project_term" value="${dto.project_term }" >
 					</div>
 					<p class="text-muted" id="day">일</p>
 				</div>
@@ -90,13 +91,12 @@
 					<div class="title">
 						<h5><b>프로젝트 내용</b></h5>
 					</div>
-					<pre>
-					<textarea rows="15" cols="121" name="board_content"></textarea></pre>
+					<textarea rows="15" cols="121" name="board_content" id="msg">${dto.board_content }</textarea>
 				</div>
 				<div class="file_content">
 					<div class="title">
 						<h5><b>파일 첨부</b></h5>
-						<input type="text" class="form-control" id="control" name="board_file">
+						<input type="text" class="form-control" id="control" name="board_file" value="${dto.board_file }">
 					</div>
 					
 				</div>
@@ -105,7 +105,7 @@
 						<p class="text-muted">프로젝트 예상 시작일</p>
 					</div>
 					<div class="start_select">
-						<input type="text" class="form-control" id="control" name="project_start_day" placeholder="2019-02-01">
+						<input type="text" class="form-control" id="control" name="project_start_day" value="${dto.project_start_day }">
 					</div>
 					<p class="text-muted" id="day">일</p>
 				</div>
@@ -114,7 +114,7 @@
 						<p class="text-muted">모집 마감 일자</p>
 					</div>
 					<div class="start_select" style="padding-left: 60px;">
-						<input type="text" class="form-control" id="control" name="recruit_date" placeholder="2019-01-01">
+						<input type="text" class="form-control" id="control" name="recruit_date" value="${dto.recruit_date }">
 					</div>
 					<p class="text-muted" id="day">일</p>
 				</div>
@@ -124,12 +124,12 @@
 					</div>
 					<div class="people">
 						<select name="recruit_personnel" style="font-size: 13px;">
-							<option value="1" selected>1명</option>
-  							<option value="2">2명</option>
-  							<option value="3">3명</option>
-  							<option value="4">4명</option>
-  							<option value="5">5명</option>
-  							<option value="6">6명</option>
+							<option value="1"<c:if test="${dto.recruit_personnel eq '1'}">selected</c:if>>1명</option>
+  							<option value="2"<c:if test="${dto.recruit_personnel eq '2'}">selected</c:if>>2명</option>
+  							<option value="3"<c:if test="${dto.recruit_personnel eq '3'}">selected</c:if>>3명</option>
+  							<option value="4"<c:if test="${dto.recruit_personnel eq '4'}">selected</c:if>>4명</option>
+  							<option value="5"<c:if test="${dto.recruit_personnel eq '5'}">selected</c:if>>5명</option>
+  							<option value="6"<c:if test="${dto.recruit_personnel eq '6'}">selected</c:if>>6명</option>
 						</select>
 					</div>				
 				</div>
@@ -140,7 +140,7 @@
 						<img src="resources/assets/img/K-024.png" />
 							<div class="form-check" style="padding-top: 20px; margin-bottom: 50px; text-align: center;">
                 				<label class="form-check-label">
-                 				 <input class="form-check-input" type="radio" name="project_type" id="exampleRadios1" value="후원">
+                 				 <input class="form-check-input" type="radio" name="project_type" id="exampleRadios1" value="${dto.project_type }"<c:if test="${dto.project_type eq '후원'}">checked</c:if>>
                  					 <span class="circle">
                   					  <span class="check"></span>
                   					</span>
@@ -151,7 +151,7 @@
 						<img src="resources/assets/img/K-025.png" />
 							<div class="form-check" style="padding-top: 20px; margin-bottom: 50px; text-align: center;">
                 				<label class="form-check-label">
-                 				 <input class="form-check-input" type="radio" name="project_type" id="exampleRadios1" value="파트너">
+                 				 <input class="form-check-input" type="radio" name="project_type" id="exampleRadios1" value="${dto.project_type }"<c:if test="${dto.project_type eq '파트너'}">checked</c:if>>
                  					 <span class="circle">
                   					  <span class="check"></span>
                   					</span>
@@ -162,7 +162,7 @@
 						<img src="resources/assets/img/K-026.png" />
 							<div class="form-check" style="padding-top: 20px; margin-bottom: 50px; text-align: center;">
                 				<label class="form-check-label">
-                 				 <input class="form-check-input" type="radio" name="project_type" id="exampleRadios1" value="후파">
+                 				 <input class="form-check-input" type="radio" name="project_type" id="exampleRadios1" value="${dto.project_type }"<c:if test="${dto.project_type eq '후파'}">checked</c:if>>
                  					 <span class="circle">
                   					  <span class="check"></span>
                   					</span>
@@ -177,6 +177,7 @@
 		
 		<div class="insert_btn">
 			<input type="submit" value="등록" class="btn btn-success" style="width: 150px;" />
+			<input type="submit" value="수정" class="btn btn-warning" style="width: 150px;" />
 		</div>
 		
 		</form>
@@ -186,5 +187,4 @@
 
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 </body>
-
 </html>

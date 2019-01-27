@@ -49,7 +49,7 @@
 					<li class="nav-item">
 						<a href="project_insert.do" class="nav-link" style="color: white">프로젝트 등록</a>
 					</li>
-					<li class="nav-item"><a href="project_list.do"
+					<li class="nav-item"><a href="project_list.do?page=1"
 						class="nav-link" style="color: white">프로젝트 찾기</a></li>
 					<li class="nav-item"><a href="partner_list.do"
 						class="nav-link" style="color: white">파트너스 목록</a></li>
@@ -91,9 +91,9 @@
 
          <div class="collapse navbar-collapse">
             <ul class="navbar-nav" style="color:black;">
-               <li class="nav-item" id="item"> </li>
-               <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho"
-                  style="padding-top: 17px;">검수 중</a></li>
+
+               <li class="nav-item" id="item1"></li>
+               <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho" style="padding-top: 17px;">검수 중</a></li>
                <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
                <li class="nav-item"><a href="project_ing.do" class="nav-link" id="ho"

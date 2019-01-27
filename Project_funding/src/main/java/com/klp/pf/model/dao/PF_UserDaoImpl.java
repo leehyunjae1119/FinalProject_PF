@@ -32,4 +32,9 @@ public class PF_UserDaoImpl implements PF_UserDao {
 		int res = sqlSession.update(pf_userNamespace+"setEmail", user_email);
 		return (res > 0) ? true : false;
 	}
+	@Override
+	public PF_UserDto cast(int user_no) {
+		PF_UserDto res = sqlSession.selectOne(pf_userNamespace+"cast",user_no);
+		return res;
+	}
 }

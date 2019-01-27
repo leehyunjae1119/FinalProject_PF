@@ -1,4 +1,3 @@
-<%@page import="com.klp.pf.dto.PF_BoardDto"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -35,9 +34,12 @@
  <!-- CSS Just for demo purpose, don't include it in your project -->
  <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 
+<script type="text/javascript"src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 </head>
 <body>
 <jsp:useBean id="dto" class="com.klp.pf.dto.PF_BoardDto" scope="request"></jsp:useBean>
+<jsp:useBean id="comment_dto" class="com.klp.pf.dto.PF_CommentDto" scope="request"></jsp:useBean>
 
 <div class="main main-raised">
 <div class="project_view_container">
@@ -86,7 +88,6 @@
        					<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b><jsp:getProperty property="project_money" name="dto" />원</b></p><br />
        					<p class="text-muted"><b>등록일</b>&nbsp;&nbsp;&nbsp;<b>
        					${dto.board_regdate }
-       					
        					</b></p>
        				</div>
        				<div class="project_time">
@@ -106,14 +107,23 @@
 			
 			<div class="project_content">
 				<p class="text-muted" id="detail">
-       				<jsp:getProperty property="board_content" name="dto" />
+<%--        				<jsp:getProperty property="board_content" name="dto" /> --%>
+					
+					<%
+						dto.setBoard_content(dto.getBoard_content().replace("\r\n", "<br>"));
+						dto.setBoard_content(dto.getBoard_content().replace("\u0020"," "));
+					
+					%>
+					
+					
+					<%=dto.getBoard_content() %>
        			</p>
 			</div>
 			
 		</div>
 		<div class="col-md-3" id="col2">
 			<div class="client_container">
-				<p class="text-muted"><b>클라이언트 </b></p>
+				<p class="text-muted"><b>클라이언트</b></p>
 			</div>
 			<div class="client_img">
 				<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
@@ -134,43 +144,42 @@
 				<p class="text-muted"><b>누적 완료 금액</b></p>
 			</div>
 			<div class="money">
-				<p class="text-muted">${invest_totalMoney }원</p>
+				<p class="text-muted">100,000원</p>
 			</div>
 			
-		</div> 
+		</div>
 
 			<c:if test="${userdto.getUser_no() eq dto.user_no}">
 				<button class="btn btn-danger" style="float: right; margin-top: 110px; display: inline-block;" onclick="location.href='project_delete.do?board_no=<jsp:getProperty property="board_no" name="dto" />&page=1'">삭제하기</button>
   				<button class="btn btn-warning" style="float: right; margin-top: 110px; display: inline-block;" onclick="location.href='project_update.do?board_no=<jsp:getProperty property="board_no" name="dto" />'">수정하기</button>
   			</c:if>
-  			 
-  			<c:if test="${userdto.getUser_type() eq '투자자'}">
-  				<form method="get" action="coin_payment_use_01.do">
-  						<input type="hidden" value="${dto.board_no }" name="board_no">												
-						<input type="submit" value="투자하기"  class="btn btn-info"  style="float: right; margin-top: 110px; display: inline-block;">			
-						<input type="text" style="width : 100px;float: right; margin-top: 110px; display: inline-block;" class="form-control" id="control" name="amount_val">
-						
-				</form>
   			
-  		
-  			
-           </c:if>
+  			<c:if test="${userdto.getUser_type() eq '투자자' }">
+  				<button class="btn btn-info" style="float: right; margin-top: 110px; display: inline-block;">투자하기</button>
+  			</c:if>
 
 	</div>
 	<hr />
+	
 	<div class="comment_container">
-		<h5><b>프로젝트 문의</b></h5>	
-		<form id="comment_form" method="post" action="Comment_Insert.do" onsubmit="return comment_ajax(this);">
+		<h4><b>프로젝트 문의</b></h4>	
+		
+		<div id="comment_container2">
+			<form id="comment_list" name="comment_list" method="post">
+				<div id="comment_list">
+					
+				</div>
+			</form>
+		</div>
+				
+		
+		<form id="comment_form" method="post" action="comment_insert.do" onsubmit="return comment_ajax(this);" style="margin-top: 100px;">
 			<input type="hidden" name="board_no" value="${dto.board_no }" />
-			
-			<div id="comment_list">
-			
-			</div>
-			
+	
 			<div class="free_img">
 				<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
 			</div>
-			<textarea rows="4" cols="90" name="content" id="msg" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
+			<textarea rows="4" cols="90" name="comment_content" id="comment_content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
 			<button class="btn btn-success" onclick="loginCheck();">등록하기</button>
 		
 		</form>
@@ -182,16 +191,88 @@
 
 
 
+
+
 </body>
 
 <script>
 
+	$(function() {
+		getComment_list('${dto.board_no}');
+	})
+	
+// 	$(function() {
+// 		var brText = $("#comment_form").val();
+// 		brText = brText.replace(/<br>/g, '\n');
+// 	})
+	
+	
 	//f = form
 	function comment_ajax(f) {
+	
+		$.ajax({
+			url : "comment_insert.do",
+			data: $("#comment_form").serialize(),
+			type: "POST",
+			dataType: "html",
+			success: function(data) {
+				console.log(data);
+				if(data == "success") {
+					getComment_list();
+					$("#comment_content").val("");
+				}
+				
+			}, error:function(request, status, error) {
+				
+			}
+			
+		});
 		
-		var param = $(f).serialize();
+		return false;		//안 쓰면 값 두 번 들어감
+	}
+	
+	
+	function getComment_list(board_no) {
 		
-		
+		$.ajax({
+			url: "comment_list.do",
+			type: "GET",
+			dataType: "json",
+			data: $("#comment_form").serialize(),
+			success: function(data) {
+				var html = "";
+				var cCnt = data.length;
+				
+				if(data.length > 0) {
+					for(i=0; i<data.length; i++) {
+						console.log(data[i].comment_content);
+
+						html += "<div class='card' style='height: 165px;'>";
+						html += "<div class='card-body' style='display: inline-block;'>";
+						html += "<img src='resources/assets/img/examples/studio-3.jpg' class='rounded-circle img-fluid' style='width: 100px; height: 100px; display: inline-block;'>";
+						html += "<div style='display: inline-block; margin-left: 30px; width: 87%; vertican-align: center;'>";
+						html += "<h4 class='card-title' style='display: inline-block;'>"+data[i].user_id+"</h4>";
+						html += "<h4 class='card-title' style='display: inline-block; float: right;'>"+data[i].comment_regdate+"</h4>";
+						html += "<h5 class='card-category text-gray'>";
+						html += data[i].comment_content;
+						html += "</h5>";
+						html += "</div>";
+						html += "</div>";
+						html += "</div>";
+						
+					}
+				} else {
+					
+				}
+				
+				$("#cCnt").html(cCnt);
+				$("#comment_list").html(html);
+			},
+			
+			error: function(request, status, error) {
+		}
+			
+		});
 	}
 
 </script>

@@ -25,5 +25,9 @@
 		SET USER_EMAIL_CHECK = 'TRUE' 
 		WHERE USER_EMAIL = #{user_email}
 	</select>
+		<select id="cast" parameterType="int" resultType="PF_UserDto">
+		SELECT * FROM PF_USER
+		WHERE USER_NO = #{user_no}
+	</select>
  
 </mapper>

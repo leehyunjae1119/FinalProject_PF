@@ -85,4 +85,9 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		//인증 실패시(코드 유효 시간 오버)
 		return false;
 	}
+	@Override
+	public PF_UserDto cast(int user_no) {
+		
+		return pf_dao.cast(user_no);
+	}
 }

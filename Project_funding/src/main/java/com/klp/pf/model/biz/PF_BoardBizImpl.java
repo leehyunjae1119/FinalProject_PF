@@ -48,6 +48,46 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 		
 		return pf_boardDao.selectOne(board_no);
 	}
+	
+
+	   //키워드 검색
+	   @Override
+	   public List<PF_BoardDto> search(int page, String board_title) {
+	      // TODO Auto-generated method stub
+	      return pf_boardDao.search(page, board_title);
+	   }
+
+	   @Override
+	   public int totalCount_title(String board_title) {
+	      return pf_boardDao.totalCount_title(board_title);
+	   }
+
+	   
+	   //카테고리 검색
+	   @Override
+	   public List<PF_BoardDto> detail_search1(int page,String category1,String category2) {
+	      // TODO Auto-generated method stub
+	      return pf_boardDao.detail_search1(page,category1,category2);
+	   }
+
+	   @Override
+	   public int totalCount_detail(String category1, String category2) {
+	      // TODO Auto-generated method stub
+	      return pf_boardDao.totalCount_detail(category1,category2);
+	   }
+	   //높은 금액순
+	   @Override
+	   public List<PF_BoardDto> selectMoneyList(int page) {
+	      // TODO Auto-generated method stub
+	      return pf_boardDao.selectMoneyList(page);
+	   }
+	   //마감임박순
+	   @Override
+	   public List<PF_BoardDto> selectDateList(int page) {
+	      // TODO Auto-generated method stub
+	      return pf_boardDao.selectDateList(page);
+	   }
+
 
 
 }

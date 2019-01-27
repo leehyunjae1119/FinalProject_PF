@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="pf_comment">
+
+	<select id="selectCommentList" parameterType="PF_CommentDto" resultType="PF_CommentDto">
+		SELECT * FROM PF_COMMENT WHERE BOARD_NO = #{board_no} ORDER BY COMMENT_NO ASC
+	</select>
+	
+	<insert id="insertComment" parameterType="PF_CommentDto"> <!-- useGeneratedKeys="true" keyProperty="id" -->
+		INSERT INTO PF_COMMENT VALUES (PF_COMMENT_SEQ.NEXTVAL, #{comment_content}, #{board_no}, #{user_no}, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH:MI'))
+	</insert>
+
+
+</mapper>

@@ -1,7 +1,9 @@
 package com.klp.pf.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.javassist.bytecode.Descriptor.Iterator;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -31,13 +33,6 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		return res;
 	}
 
-
-	@Override
-	public int totalCount() {
-		int res = sqlSession.selectOne(pf_boardNamespace+"totalCount");
-		System.out.println("totalcount :" + res);
-		return res;
-	}
 
 	@Override
 	public int insert(PF_BoardDto dto) {
@@ -85,5 +80,85 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		int res = sqlSession.delete(pf_boardNamespace + "deleteBoard", board_no);
 		return res;
 	}
+	
+	   
+	   //금액순
+	   @Override
+	   public List<PF_BoardDto> selectMoneyList(int page) {
+	      List<PF_BoardDto> res = new ArrayList<PF_BoardDto>();
+	      try {
+	         res = sqlSession.selectList(pf_boardNamespace + "listPage_Money", page);
+	      } catch (Exception e) {
+	         System.out.println("selectList 에러");
+	         e.printStackTrace();
+	      }
+
+	      return res;
+	   }
+	   
+	   //마감임박순
+	   @Override
+	   public List<PF_BoardDto> selectDateList(int page) {
+	      List<PF_BoardDto> res = new ArrayList<PF_BoardDto>();
+	      try {
+	         res = sqlSession.selectList(pf_boardNamespace + "listPage_Date", page);
+	      } catch (Exception e) {
+	         System.out.println("selectList 에러");
+	         e.printStackTrace();
+	      }
+
+	      return res;
+	   }
+	   
+
+	   @Override
+	   public int totalCount() {
+	      int res = sqlSession.selectOne(pf_boardNamespace + "totalCount");
+	      return res;
+	   }
+
+	   //키워드 검색
+	   @Override
+	   public List<PF_BoardDto> search(int page, String board_title) {
+	      Map<String, String> map = new HashMap<String, String>();
+	      map.put("page", Integer.toString(page));
+	      map.put("board_title", board_title);
+
+	      List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "search", map);
+	      return dto;
+	   }
+
+	   @Override
+	   public int totalCount_title(String board_title) {
+
+	      int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_title", board_title);
+	      return res;
+
+	   }
+
+	   //카테고리 검색
+	   @Override
+	   public List<PF_BoardDto> detail_search1(int page, String category1,String category2) {
+	      Map<String, String> map = new HashMap<String, String>();
+
+	      map.put("page", Integer.toString(page));
+	      map.put("category1", category1);
+	      map.put("category2", category2);
+	      List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "detail_category1", map);
+	      System.out.println("daoimple" + category1);
+	      System.out.println(map);
+	      return dto;
+	   }
+
+	   @Override
+	   public int totalCount_detail(String category1, String category2) {
+	      Map<String, String> map = new HashMap<String, String>();
+	      
+	      map.put("category1", category1);
+	      map.put("category2", category2);
+	      int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_detail", map);
+	      System.out.println("total:" + res);
+	      return res;
+	   }
 
 }
