@@ -10,7 +10,6 @@ public class PF_MessageDto {
 	private String message_sender;
 	private Date message_senddate;
 	private String message_state;
-	private String user_id;
 	
 	
 	public PF_MessageDto() {
@@ -18,7 +17,7 @@ public class PF_MessageDto {
 	}
 
 	public PF_MessageDto(int message_no, String message_content, String message_reader, String message_sender,
-			Date message_senddate, String message_state, String user_id) {
+			Date message_senddate, String message_state) {
 		super();
 		this.message_no = message_no;
 		this.message_content = message_content;
@@ -26,13 +25,15 @@ public class PF_MessageDto {
 		this.message_sender = message_sender;
 		this.message_senddate = message_senddate;
 		this.message_state = message_state;
-		this.user_id = user_id;
 	}
-
-	public PF_MessageDto(String message_content, String user_id) {
+	
+	
+	//쪽지 전송
+	public PF_MessageDto(String message_content, String message_reader, String message_sender) {
 		super();
 		this.message_content = message_content;
-		this.user_id = user_id;
+		this.message_reader = message_reader;
+		this.message_sender = message_sender;
 	}
 
 	public int getMessage_no() {
@@ -81,13 +82,5 @@ public class PF_MessageDto {
 
 	public void setMessage_state(String message_state) {
 		this.message_state = message_state;
-	}
-
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
 	}
 }

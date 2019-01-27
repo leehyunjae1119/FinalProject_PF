@@ -271,7 +271,7 @@
 				<h5><b><a href="#">${dto2.board_title }</a></b></h5>
 				
 				<span id="dong">user2</span>
-				<button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal" onclick="dong();">
+				<button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
 			메세지 보내기	
 				</button>
 	
@@ -286,8 +286,7 @@
        					</div>
        					<div class="project_support">
        						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
-       						<b><fmt:formatDate value="${dto2.board_regdate }" 
-        pattern="yyyy년 MM월 dd일"></fmt:formatDate> </b></p>
+       						<b><fmt:formatDate value="${dto2.board_regdate }" pattern="yyyy년 MM월 dd일"></fmt:formatDate> </b></p>
        					</div>
        				</div>
 					<div class="c_detail">
@@ -343,15 +342,14 @@
 
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
-<!-- =================쪽지 부분입니다=====================  --> 
-    <!--  쪽지 모달창 -->
+<!-- 쪽지 전송 모달창 --> 
+
 	<div>
 		<div class="container">
 			<!-- The Modal -->
 			<div class="modal" id="myModal">
 				<div class="modal-dialog ">
 					<div class="modal-content">
-
 						<!-- Modal Header -->
 						<div class="modal-header">
 							<h3 class="modal-title">
@@ -362,20 +360,20 @@
 						</div>
 
 						<!-- Modal body -->
-						<form action="sendnote.do" method="post">
+						<!-- 값을 전송하는 부분 -->
+						<form action="message_insert.do" method="post">
+						<input type="hidden" name="sender" value="${userdto.user_id }">
 						<div class="modal-body">
 						
 						<!-- 쪽지 내용 작성하는 부분 -->
 								<h4>
 									<b id="min">받는사람&nbsp;</b>
-									<input type="text" id="userid"/>
+									<input type="text" name="reader"/>
 								</h4>
-							
-							
 							<h4>
 								<b>내용&nbsp;</b>
 							</h4>
-							<textarea rows="10" cols="40" class="form-control" id="note_content"></textarea>
+							<textarea rows="10" cols="40" class="form-control" name="content"></textarea>
 						</div>
 						
 						<!-- Modal footer -->
@@ -390,9 +388,5 @@
 			</div>
 		</div>
 	</div>
-		
-
-
-
 </body>
 </html>

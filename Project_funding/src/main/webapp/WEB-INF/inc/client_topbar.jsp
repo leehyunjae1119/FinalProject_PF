@@ -51,16 +51,18 @@
 					</li>
 					<li class="nav-item"><a href="project_list.do"
 						class="nav-link" style="color: white">프로젝트 찾기</a></li>
-					<li class="nav-item"><a href="partner_list.do"
+					<li class="nav-item"><a href="partner_list.do?user_type='파트너스'"
 						class="nav-link" style="color: white">파트너스 목록</a></li>
 					<li class="nav-item"><a href="question.do" class="nav-link"
 						style="color: white">이용 방법</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item" style="float: right;">
-						<a href="user_notereceive.do" class="btn btn-rose btn-raised btn-fab btn-round">
+						<a href="message_re.do?page=1" class="btn btn-rose btn-raised btn-fab btn-round">
 							 <i class="material-icons">email</i>
 						</a>
+						<a href="count.do" style="color:white;"><b>안읽은 메세지 개수 출력하기</b></a>
+						
 					</li>
 					<li class="nav-item">
 						<a href="#pablo" class="nav-link">${userdto.user_id }</a>

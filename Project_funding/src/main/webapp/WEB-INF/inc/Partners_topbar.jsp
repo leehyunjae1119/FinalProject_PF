@@ -5,6 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Puding</title>
 <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <style type="text/css">
 #ho:hover {
 	position: relative;
@@ -49,10 +53,11 @@
 						style="color: white">이용 방법</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item" style="float: right;"><a href="#pablo"
-						class="btn btn-rose btn-raised btn-fab btn-round"
-						data-toggle="dropdown"> <i class="material-icons">email</i>
-					</a></li>
+					<li class="nav-item" style="float: right;">
+						<a href="message_re.do?page=1" class="btn btn-rose btn-raised btn-fab btn-round">
+							 <i class="material-icons">email</i>
+						</a>
+					</li>
 				<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
 
 					<li class="nav-item">

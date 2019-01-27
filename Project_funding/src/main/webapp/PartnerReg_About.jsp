@@ -40,8 +40,16 @@
 						<hr>
 						<form action="#">
 							<div class="form-group">
-								<label for="AboutFormContent">* 자기소개</label> 
-								<textarea class="form-control" id="AboutFormContent" rows="12" placeholder="한글 기준 5000자 미만으로 작성해주세요."></textarea>
+								<label for="AboutFormContent">* 자기소개</label>
+
+								<c:choose>
+									<c:when test="${profiledto.profile_intro eq null }"> 
+										<textarea class="form-control" id="AboutFormContent" rows="12" placeholder="한글 기준 5000자 미만으로 작성해주세요."></textarea>
+									</c:when>
+									<c:otherwise> 
+										<textarea class="form-control" id="AboutFormContent" rows="12" placeholder="${profiledto.profile_intro }"></textarea>
+									</c:otherwise>
+								</c:choose>
 							</div>
 							
 							<div class="col-12"><input type="submit" class="btn btn-success float-right" value="등록 완료"></div>

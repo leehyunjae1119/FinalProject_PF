@@ -11,3 +11,15 @@ CREATE TABLE(
 	MESSAGE_SENDDATE DATE NOT NULL, --보낸 날짜
 	MESSAGE_STATE VARCHAR2 NOT NULL --쪽지 상태(안읽음 / 읽음)
 );
+
+INSERT INTO PF_BOARD VALUES(PF_BOARD_SEQ.NEXTVAL, '남은시간 2주','ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ','1,000,000',2,
+    '2019/01/22','2019/01/01','dd','jsp','ss','dd','진행중',SYSDATE,1);
+    
+INSERT INTO PF_BOARD VALUES(PF_BOARD_SEQ.NEXTVAL, '남은시간 2주','ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ','1,000,000',2,
+    '2019/01/22','2019/01/01','10','jsp','ss','dd','진행중',SYSDATE,1);
+    
+INSERT INTO PF_BOARD VALUES(PF_BOARD_SEQ.NEXTVAL, '남은시간 2주','ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ','1,000,000',2,
+    '2019/01/22','2019/01/01','20','jsp','ss','dd','진행중',SYSDATE,1);
+
+
+SELECT * FROM PF_MESSAGE;

@@ -23,8 +23,8 @@
 		<hr>
 		<div class="col-md-12">
 
-			<a class="btn btn-link2 active" href="user_notereceive.do">받은 쪽지함</a> 
-			<a class="btn btn-link2 active" href="user_notesend.do">보낸 쪽지함</a> 
+			<a class="btn btn-link2 active" href="message_re.do?page=1">받은 쪽지함</a> 
+			<a class="btn btn-link2 active" href="message_se.do?page=1">보낸 쪽지함</a> 
 		</div>
 
 	</div>
