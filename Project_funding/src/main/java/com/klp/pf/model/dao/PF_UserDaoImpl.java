@@ -45,5 +45,12 @@ public class PF_UserDaoImpl implements PF_UserDao {
 	public PF_UserDto MessageUser(int user_no) {
 		PF_UserDto messageuser = sqlSession.selectOne(pf_userNamespace+"MessageUser",user_no);
 		return messageuser;
+	
+	}	
+		
+	@Override
+	public PF_UserDto cast(int user_no) {
+		PF_UserDto res = sqlSession.selectOne(pf_userNamespace+"cast",user_no);
+		return res;
 	}
 }

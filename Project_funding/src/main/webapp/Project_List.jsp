@@ -41,41 +41,47 @@
  <!-- CSS Just for demo purpose, don't include it in your project -->
  <link href="resources/assets/demo/demo.css" rel="stylesheet" />
  
- <!-- 모달창 부트스트랩 -->
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ 
+ <script type="text/javascript"src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-<script type="text/javascript" src="resources/paging/pasing.js?ver=1"></script>
+<c:if test="${page ne null}">
+<script type="text/javascript" src="resources/paging/paging.js?ver=1"></script>
+</c:if>
+<c:if test="${page1 ne null}">
+<script type="text/javascript" src="resources/paging/paging2.js?ver=1"></script>
+</c:if>
 
 
+
+   
 </head>
-<body>
 
+<body>
 <div class="main main-raised">
 <div class="list_container">
    <div class="row">
    <div class="col-md-12" style="height: 170px;">
       <div class="container_title">
       <h3><span class="tim-note"><b>프로젝트 찾기</b></span></h3>
-       <div class="project_list">
-          <form class="form-inline ml-auto">
-                  <div class="form-group has-white">
-                    <input type="text" class="form-control" placeholder="Search">
+           <div class="project_list">
+          <form class="form-inline ml-auto" action="search.do?page=1" method="post">
+             <input type="hidden" id="page" value="1">
+                  <div class="form-group has-white"> 
+                    <input type="text" class="form-control" placeholder="Search" name="board_title" style="color: black;">
                   </div>
-                  <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
+                  <button type="submit" class="btn btn-white btn-raised btn-fab btn-round" >
                     <i class="material-icons" style="background-color: black;">search</i>
                   </button>
-            </form>
- 		</div> 
-			<p class="text-muted">
-			15,846개의 프로젝트가 있습니다.
-			</p>
-		</div>
-	</div>
-	
-	
+            
+            </form> 
+       </div>
+       
+       
+         <p class="text-muted">
+         ${totalCount }개의 프로젝트가 있습니다.
+         </p>
+      </div>
+   </div>
    
       <div class="col-md-2" id="list_col">
          <div class="list_container2">
@@ -83,11 +89,12 @@
                <p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
             </div>
             <div class="project_array_2">
-               <a href="#">금액 높은 순</a><br />
-               <a href="#">최신 등록 순</a><br />
-               <a href="#">마감 등록 순</a><br />
+               <a href="project_list_money.do?page=1">금액 높은 순</a><br />
+                    <a href="project_list.do?page=1">최신 등록 순</a><br />
+                     <a href="project_list_date.do?page=1">마감 등록 순</a><br />
             </div>
          
+         <form  action="detail_search.do?page=1"  method="post">
          <div class="project_category">
             <div class="project_cate_title">
                <p class="text-muted" style="font-size: 15px;"><b>프로젝트 카테고리</b></p>
@@ -95,7 +102,8 @@
             <div class="project_cate">
                <div class="form-check">
                          <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="">개발
+                        <input class="form-check-input" type="checkbox" id="checkAll" value="check all"  >
+                           개발
                         <span class="form-check-sign">
                           <span class="check"></span>
                         </span>
@@ -104,7 +112,7 @@
                    <div class="project_cate2">
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value="웹" name="category1" >
                               웹
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -113,7 +121,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value="어플리케이션" name="category1">
                               어플리케이션
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -122,7 +130,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value="일반 소프트웨어" name="category1">
                               일반 소프트웨어
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -131,7 +139,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value="게임" name="category1">
                               게임
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -140,7 +148,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value="임베디드" name="category1">
                               임베디드
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -149,7 +157,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value="퍼블리싱" name="category1">
                               퍼블리싱
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -158,7 +166,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value="기타" name="category1">
                               기타
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -166,11 +174,12 @@
                          </label>
                       </div>
                    </div>
+             
             </div>
             <div class="project_cate">
                <div class="form-check">
                          <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="">
+                        <input class="form-check-input" type="checkbox" value="금액">
                            금액
                         <span class="form-check-sign">
                           <span class="check"></span>
@@ -180,7 +189,7 @@
                    <div class="project_cate2">
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value=1000000 name="category2">
                               100만원 이하
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -189,7 +198,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value=5000000 name="category2">
                               500만원 이하
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -198,7 +207,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value=10000000 name="category2">
                               1000만원 이하
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -207,7 +216,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value=50000000 name="category2">
                               5000만원 이하
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -216,7 +225,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value=100000000 name="category2">
                               1억 이하
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -225,7 +234,7 @@
                       </div>
                       <div class="form-check">
                             <label class="form-check-label">
-                           <input class="form-check-input" type="checkbox" value="">
+                           <input class="form-check-input" type="checkbox" value=1000000000 name="category2">
                               10억 이하
                            <span class="form-check-sign">
                              <span class="check"></span>
@@ -236,41 +245,20 @@
                    </div>
             </div>
             
-            <div class="meeting_title">
-               <div class="meeting_area_title">
-                  <p class="text-muted" style="font-size: 13px;"><b>미팅 진행지역</b></p>
-               </div>
-               <div class="select_area">
-                  <select name="category" style="font-size: 13px;">
-                     <option value="" selected>전체 지역</option>
-                       <option value="web">서울특별시</option>
-                       <option value="app">경기도</option>
-                       <option value="software">인천 광역시</option>
-                       <option value="game">부산 광역시</option>
-                       <option value="embedded">부산 광역시</option>
-                       <option value="publishing">대구 광역시</option>
-                       <option value="other">광주 광역시</option>
-                       <option value="other">대전 광역시</option>
-                       <option value="other">울산 광역시</option>
-                       <option value="other">세종 특별자치시</option>
-                       <option value="other">강원도</option>
-                       <option value="other">충청도</option>
-                       <option value="other">전라도</option>
-                       <option value="other">경상도</option>
-                       <option value="other">제주 특별자치도</option>
-                  </select>
-               </div>
-               <div class="search_button">
+            <div class="search_button">
                   <button class="btn" style="width: 200px; height: 40px;">검색</button>
-               </div>
-            </div>
+             </div>
             <!-- 미팅 지역 끝! -->
             
          </div>
+       </form>   
+            
          </div>
-      </div>
+         </div>
+
       <input type="hidden" id="totalCount" value='${totalCount }'> 
       <input type="hidden" id="page" value='${page }'>
+      <input type="hidden" id="page" value='${page1 }'>
       <!-- 카테고리 별 검색 끝! -->
       <!-- col-md-2 끝! -->
       <div class="col-md-8" id="col8">
@@ -283,7 +271,7 @@
          <c:forEach var="dto" items="${ProjectList }">
          <div class="project_content_form">
             <h5><b><a href="project_view.do?board_no=${dto.board_no }&user_no=${dto.user_no}">${dto.board_title }</a></b></h5>
-			       <div class="project_title2">
+               <div class="project_title2">
                       <div class="project_money">
                          <img src="resources/assets/img/money.png" />
                          <p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_money }원</b></p>
@@ -303,7 +291,29 @@
                       ${dto.board_content}
                          </p>
                       
-                      </div>              
+                      </div>
+                      
+<%
+  
+//                String a = dto.getBoard_regdate();
+//                    System.out.println(dto);
+//                System.out.println(a);
+//                Date Ato = new SimpleDateFormat("yyyy-MM-dd").parse(a);
+//                System.out.println(Ato);
+               
+//                String b = dto.getRecruit_date();
+//                System.out.println(b);
+//                Date Bto = new SimpleDateFormat("yyyy-MM-dd").parse(b);
+//                System.out.println(Bto);
+               
+//                 long diffSec = Bto.getTime() - Ato.getTime();
+//                long diffDays = diffSec / (24 * 60 * 60 * 1000);
+//                System.out.println(diffDays);
+            
+//                dto.setRecruit(diffDays);
+            
+             %>
+                                   
                       <div class="end_date">
                          <img src="resources/assets/img/K-021.png" />      
                          <p class="text-muted"><b>마감 ${dto.getRecruit()}일 전</b></p>
@@ -316,19 +326,45 @@
             </c:forEach>
             </c:otherwise>
             </c:choose>
-      </div>
+      
             <!-- 페이징 -->
                <div id="pagination">
                
-               <ul class="pagination pagination-info" id="pasing">
+               <ul class="pagination " id="pasing">
+               
                </ul>
                
                </div>
-               </div>
-               </div>
-               </div>
-               
-            
+            <!-- <div id="pagination">
+               <ul class="pagination pagination-info">
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link"> prev</a>
+                      </li>
+                        <li class="active page-item">
+                           <a href="javascript:void(0);" class="page-link">1</a>
+                      </li>
+                         <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">2</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">3</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">4</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">5</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">next </a>
+                      </li>
+                    </ul>
+         </div>-->
+      </div>
+   </div>
+</div>
+</div>
+
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 </body>
 </html>

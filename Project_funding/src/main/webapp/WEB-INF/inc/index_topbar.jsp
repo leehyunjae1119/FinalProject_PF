@@ -49,7 +49,7 @@
 					" class="nav-link"style="color:white">프로젝트 등록</a>
                   </li>
                   <li class="nav-item">
-                    <a href="project_list.do" class="nav-link">프로젝트 찾기</a>
+                    <a href="project_list.do?page=1" class="nav-link">프로젝트 찾기</a>
 
                   </li>
                   <li class="nav-item">
