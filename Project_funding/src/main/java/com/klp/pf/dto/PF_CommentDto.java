@@ -4,7 +4,7 @@ public class PF_CommentDto {
 	
 	private int comment_no;
 	private String comment_content;
-	private int board_no;
+	private  Integer board_no;
 	private int user_no;
 	private String comment_regdate;
 	

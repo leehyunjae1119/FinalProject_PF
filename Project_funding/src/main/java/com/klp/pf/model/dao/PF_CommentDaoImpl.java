@@ -59,19 +59,34 @@ public class PF_CommentDaoImpl implements PF_CommentDao {
 		
 		return res;
 	}
-
 	@Override
-	public int update(PF_CommentDto dto) {
-		
-		return 0;
-	}
+	   public int update(PF_CommentDto dto) {
+	      
+	      int res = 0;
+	      
+	      try {
+	         res = sqlSession.update(pf_commentNamespace + "updateComment", dto);
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      
+	      return res;
+	   }
 
-	@Override
-	public int delete(int comment_no) {
-		
-		return 0;
-	}
-
+	   @Override
+	   public int delete(int comment_no) {
+	      
+	      int res = 0;
+	      
+	      try {
+	         res = sqlSession.delete(pf_commentNamespace + "deleteComment", comment_no);
+	      } catch (Exception e) {
+	         System.out.println("댓글 삭제 실패");
+	         e.printStackTrace();
+	      }
+	      
+	      return res;
+	   }
 	
 	
 }
