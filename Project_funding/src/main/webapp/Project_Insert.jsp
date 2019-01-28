@@ -2,6 +2,7 @@
 
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Puding</title>
  <%@ include file="WEB-INF/inc/client_topbar.jsp" %>
@@ -94,11 +95,9 @@
 					<textarea rows="15" cols="121" name="board_content"></textarea></pre>
 				</div>
 				<div class="file_content">
-					<div class="title">
-						<h5><b>파일 첨부</b></h5>
-						<input type="text" class="form-control" id="control" name="board_file">
-					</div>
-					
+					<br/>
+					<input type="text" id="board_file" name="board_file" hidden="" />
+					<br/>
 				</div>
 				<div class="start_container">
 					<div class="start_input">
@@ -178,12 +177,40 @@
 		<div class="insert_btn">
 			<input type="submit" value="등록" class="btn btn-success" style="width: 150px;" />
 		</div>
-		
 		</form>
+		<div style="position:relative; bottom:630px; left:25px;">
+         	<form id="fileUploadForm" action="fileUpload.do" method="post" enctype="multipart/form-data">
+                 <input type="file" id="fileUpload" name="fileUpload"/>
+               <input type="button" class="btn btn-success" value="업로드" onClick="fileSubmit();">
+                &nbsp;&nbsp;
+           	</form>
+        </div>
 	</div>
 </div>
 </div>
 
+<script>
+	    function fileSubmit() {
+	        var formData = new FormData($("#fileUploadForm")[0]);
+	        $.ajax({
+	            type : 'post',
+	            url : 'fileUpload.do',
+	            data : formData,
+	            processData : false,
+	            contentType : false,
+	            success : function(html) {
+	                alert("파일 업로드하였습니다.");
+	                document.getElementById("board_file").value=html;
+	                alert(html);
+	            },
+	            error : function(error) {
+	                alert("포트폴리오 업로드에 실패하였습니다.");
+	                console.log(error);
+	                console.log(error.status);
+	            }
+	        });
+	    }	
+</script>
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 </body>
 

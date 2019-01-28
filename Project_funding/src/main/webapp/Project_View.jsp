@@ -160,7 +160,10 @@
 
 	</div>
 	<hr />
-	
+<!-- 		<iframe src="http://docs.google.com/gview?url=http://localhost:8787/pf/storage/test.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe> -->
+			<iframe src="http://localhost:8787/pf/storage/${dto.board_file }" style="width:100%; height:500px;" frameborder="0"></iframe>
+<%-- 			<h1>${dto.board_file }</h1> --%>
+	<hr />
 	<div class="comment_container">
 		<h4><b>프로젝트 문의</b></h4>	
 		

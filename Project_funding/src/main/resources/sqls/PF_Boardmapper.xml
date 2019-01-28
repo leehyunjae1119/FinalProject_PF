@@ -80,7 +80,7 @@
 	
 	
 	<select id="insertBoard" resultType="PF_BoardDto">
-		INSERT INTO PF_BOARD VALUES(PF_BOARD_SEQ.NEXTVAL, #{board_title}, #{board_content}, #{project_money}, #{project_term}, #{project_start_day}, #{recruit_date}, #{recruit_personnel}, #{project_category}, #{project_type}, NULL, '검수 중', TO_CHAR(SYSDATE, 'YYYY-MM-DD'), #{user_no})
+		INSERT INTO PF_BOARD VALUES(PF_BOARD_SEQ.NEXTVAL, #{board_title}, #{board_content}, #{project_money}, #{project_term}, #{project_start_day}, #{recruit_date}, #{recruit_personnel}, #{project_category}, #{project_type}, #{board_file}, '검수 중', TO_CHAR(SYSDATE, 'YYYY-MM-DD'), #{user_no})
 	</select>
 	
 	<select id="updateBoard" parameterType="PF_BoardDto">
