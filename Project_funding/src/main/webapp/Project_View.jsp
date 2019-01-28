@@ -146,6 +146,9 @@
          <div class="money">
             <p class="text-muted">100,000원</p>
          </div>
+         <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
+				메세지 보내기	
+		</button>
          
       </div>
 
@@ -217,6 +220,53 @@
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
 </body>
+
+						<div class="container">
+			<!-- The Modal -->
+			<div class="modal" id="myModal">
+				<div class="modal-dialog ">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h3 class="modal-title">
+								<b style="padding-left: 180px;">쪽지쓰기</b>
+							</h3>
+
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<!-- 값을 전송하는 부분 -->
+						<form action="message_insert.do?page=1" method="post">
+						<input type="hidden" name="sender" value="${userdto.user_id }" >
+						<div class="modal-body">
+						
+						<!-- 쪽지 내용 작성하는 부분 -->
+								<h4>
+									<b id="min">받는사람&nbsp;</b>
+									<input type="text" name="reader" value="${messageuser.user_id }" style="border: none; " readonly="readonly"/>
+								</h4>
+							<h4>
+								<b>내용&nbsp;</b>
+							</h4>
+							<textarea rows="10" cols="40" class="form-control" name="content"></textarea>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-warning" value="보내기" id="send"/>
+							<!-- data-dismiss : 모달창 닫기 -->
+							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 
 <script>
 
