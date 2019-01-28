@@ -1,7 +1,5 @@
 package com.klp.pf.dto;
 
-import java.util.Date;
-
 public class PF_BoardDto {
 
    
@@ -19,7 +17,7 @@ public class PF_BoardDto {
        private String project_state;
        private String board_regdate;
        private int user_no;
-       private long recruit; 
+       private long recruit;
       
        public PF_BoardDto() {
           
@@ -164,7 +162,8 @@ public class PF_BoardDto {
       public void setUser_no(int user_no) {
          this.user_no = user_no;
       }
-         
+      
+
 	@Override
 	public String toString() {
 		return "PF_BoardDto [board_no=" + board_no + ", board_title=" + board_title + ", board_content=" + board_content
@@ -173,5 +172,6 @@ public class PF_BoardDto {
 				+ ", project_category=" + project_category + ", project_type=" + project_type + ", board_file="
 				+ board_file + ", project_state=" + project_state + ", board_regdate=" + board_regdate + ", user_no="
 				+ user_no + "]";
-	}       
+	}
+       
 }

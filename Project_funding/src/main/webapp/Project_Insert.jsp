@@ -179,7 +179,7 @@
 		</div>
 		</form>
 		<div style="position:relative; bottom:630px; left:25px;">
-         	<form id="fileUploadForm" action="fileUpload.do" method="post" enctype="multipart/form-data">
+         	<form id="fileUploadForm" action="fileUpload.do" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                  <input type="file" id="fileUpload" name="fileUpload"/>
                <input type="button" class="btn btn-success" value="업로드" onClick="fileSubmit();">
                 &nbsp;&nbsp;
