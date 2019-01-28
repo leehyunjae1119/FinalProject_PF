@@ -6,6 +6,15 @@ public class PF_ProfileDto {
 	private String profile_job;
 	private String profile_activity;
 	private String profile_intro;
+	
+	
+	public PF_ProfileDto(int profile_no, String profile_job, String profile_activity, String profile_intro) {
+		super();
+		this.profile_no = profile_no;
+		this.profile_job = profile_job;
+		this.profile_activity = profile_activity;
+		this.profile_intro = profile_intro;
+	}
 	public PF_ProfileDto(int profile_no, int user_no, String profile_job, String profile_activity,
 			String profile_intro) {
 		super();

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
  <c:if test="${userdto.getUser_type() eq '파트너스' }">
   <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
    
@@ -70,12 +71,17 @@
 										<b>기본 정보</b>
 									</h3>
 									<br>
-									<form action="#">	
-									<div class="user_info_write" id="profile_img">
-										<b>프로필 사진</b><input type="text" class="form-control">
-										<input type="button" class="btn btn-warning" value="이미지 추가" style="float: right;"/>
-									</div>
+									<form id="imageUploadForm" action="imageUpload.do" method="post" enctype="multipart/form-data">
+										<div class="user_info_write" id="profile_img">
+											<b>프로필 사진</b><input  type="file" id="fileUpload" name="fileUpload" class="form-control">
+											<input type="button" class="btn btn-warning"  onClick="fileSubmit();" value="이미지 추가" style="float: right;"/>
+										</div>
+									</form>
 									<br>
+									<form action="#">
+									<div class="imageupload">
+										<input type="text" id="user_img" name="user_img" hidden=""/>
+									</div>
 									<div class="user_info_write">
 										<b>* 파트너 형태</b>
 										<select title="user_type" class="form-control">
@@ -116,6 +122,31 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+	    function fileSubmit() {
+	        var formData = new FormData($("#imageUploadForm")[0]);
+	        $.ajax({
+	            type : 'post',
+	            url : 'imageUpload.do',
+	            data : formData,
+	            processData : false,
+	            contentType : false,
+	            success : function(html) {
+	                alert("사진을 업로드하였습니다.");
+	                document.getElementById("user_img").value=html;
+	                //alert(document.getElementById("user_img").value);
+	   			 },
+	            error : function(error) {
+	                alert("사진 업로드에 실패하였습니다.");
+	                console.log(error);
+	                console.log(error.status);
+	            }
+	        });
+	    }
+	</script>
+	
+	
 	 <%@ include file="WEB-INF/inc/footer.jsp" %>
 		
 		

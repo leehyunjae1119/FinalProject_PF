@@ -39,7 +39,8 @@
 		SELECT * FROM PF_MESSAGE
 		WHERE MESSAGE_NO = #{message_no}
 	</select>
-
+	
+	
 	<!-- 쪽지 보내기 -->
 	<insert id="MessageInsert" parameterType="PF_MessageDto">
 		INSERT INTO PF_MESSAGE

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
  <c:if test="${userdto.getUser_type() eq '파트너스' }">
   <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
    
@@ -59,21 +60,28 @@
 								<label for="AboutFormContent">* 요약내용</label>
 								<textarea name="portfolio_content" class="form-control" id="AboutFormContent" rows="8" placeholder="한글 기준 5000자 미만으로 작성해주세요."></textarea>
 							</div>
-							<div class="form-group form-file-upload form-file-multiple">
-								<input type="file" class="inputFileHidden">
-								<div class="input-group">
-									<input name="portfolio_file" type="text" class="form-control inputFileVisible" placeholder="Single File"> 
-										<span class="input-group-btn">
-											<button type="button" class="btn btn-fab btn-round btn-primary">
-												<i class="material-icons">attach_file</i>
-											</button>
-										</span>
-								</div>
+							<!-- ---------------------파일 업로드 ---------------- -->
+							<div class="portfolioupload">
+							
+								<input type="text" id="portfolio_file" name="portfolio_file"  hidden=""/>
+							
 							</div>
+							<br><br><br>
 							<div class="col-12"><input type="submit" class="btn btn-success float-right" value="등록 완료"></div>
 							<div class="col-12"><input type="button" class="btn btn-default float-right" value="취소"></div>
 						</form>
-
+						
+						<form  id="fileUploadForm" action="fileUpload.do" method="post" enctype="multipart/form-data">
+							<div class="form-group form-file-upload form-file-multiple" style="position:relative; bottom:120px;">
+								<input type="file" id="fileUpload" name="fileUpload" class="inputFileHidden">
+								<div class="input-group">
+									<input name="portfolio_file" type="text" class="form-control inputFileVisible" placeholder="Single File"> 
+										<button type="button" class="btn btn-fab btn-round btn-primary" onClick="fileSubmit();">
+											<i class="material-icons">attach_file</i>		
+										</button>						
+								</div>
+							</div>
+						</form>
 					</div>
 				</div>
 
@@ -106,6 +114,27 @@
 
 	</script>
 	<script>
+	    function fileSubmit() {
+	        var formData = new FormData($("#fileUploadForm")[0]);
+	        $.ajax({
+	            type : 'post',
+	            url : 'fileUpload.do',
+	            data : formData,
+	            processData : false,
+	            contentType : false,
+	            success : function(html) {
+	                alert("파일 업로드하였습니다.");
+	                document.getElementById("portfolio_file").value=html;
+	            },
+	            error : function(error) {
+	                alert("포트폴리오 업로드에 실패하였습니다.");
+	                console.log(error);
+	                console.log(error.status);
+	            }
+	        });
+	    }	
+	</script>
+	<script>
     $(document).ready(function() {
       if ($('.card-header.card-chart').length != 0) {
         md.initDashboardPageCharts();
@@ -114,11 +143,6 @@
       if ($('#websiteViewsChart').length != 0) {
         md.initDocumentationCharts();
       }
-
-
-
-
-
       if ($('.datetimepicker').length != 0) {
         md.initFormExtendedDatetimepickers();
       }

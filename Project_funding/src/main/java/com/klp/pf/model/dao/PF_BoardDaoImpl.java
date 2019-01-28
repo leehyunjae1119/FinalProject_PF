@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.klp.pf.dto.PF_BoardDto;
 
+import java.util.ArrayList;
+
+
 @Repository
 public class PF_BoardDaoImpl implements PF_BoardDao {
 
@@ -15,11 +18,12 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<PF_BoardDto> selectBoardList() {
-		List<PF_BoardDto> res = null;
-		
+	public List<PF_BoardDto> selectBoardList(int page) {
+		List<PF_BoardDto> res = new ArrayList<PF_BoardDto>();
 		try {
-			res = sqlSession.selectList(pf_boardNamespace + "selectBoardList");
+			res = sqlSession.selectList(pf_boardNamespace + "listPage",page);
+			System.out.println("dao11"+res);
+				
 		} catch (Exception e) {
 			System.out.println("selectList 에러");
 			e.printStackTrace();
@@ -28,19 +32,59 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		return res;
 	}
 
+
 	@Override
-	public PF_BoardDto selectBoardCount() {
-		
-		PF_BoardDto dto = new PF_BoardDto();
+	public int totalCount() {
+		int res = sqlSession.selectOne(pf_boardNamespace+"totalCount");
+		System.out.println("totalcount :" + res);
+		return res;
+	}
+
+	@Override
+	public int insert(PF_BoardDto dto) {
+
+		int res = 0;
 		
 		try {
-			
+			res = sqlSession.insert(pf_boardNamespace + "insertBoard", dto);		
+			System.out.println(res);
 		} catch (Exception e) {
-			
+			System.out.println("insertBoard 에러");
+			e.printStackTrace();
 		}
 		
-		return null;
+		return res;
+	}
+
+	@Override
+	public int update(PF_BoardDto dto) {
 		
+		int res = 0;
+		
+		try {
+			res = sqlSession.update(pf_boardNamespace + "updateBoard", dto);
+		} catch (Exception e) {
+			System.out.println("updateBoard 에러");
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+
+	@Override
+	public PF_BoardDto selectOne(int board_no) {
+		
+		PF_BoardDto dto = sqlSession.selectOne(pf_boardNamespace + "selectBoard", board_no);
+		System.out.println(dto);
+		return dto;
+	}
+
+
+	@Override
+	public int delete(int board_no) {
+		
+		int res = sqlSession.delete(pf_boardNamespace + "deleteBoard", board_no);
+		return res;
 	}
 
 }

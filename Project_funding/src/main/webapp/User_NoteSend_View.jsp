@@ -113,7 +113,7 @@
 													<td><b><a href="message_view.do?message_no=${dto.message_no }" class="message">${dto.message_content }</a></b></td>
 												</c:if>
 												<c:if test="${dto.message_state eq '읽음' }">
-													<td><a href="message_view.do?message_no=${dto.message_no }" class="message">${dto.message_content }</a></td>
+													<td><a href="message_view.do?message_no=${dto.message_no }">${dto.message_content }</a></td>
 												</c:if>
 												<td>${dto.message_reader }</td>
 												<td><fmt:formatDate value="${dto.message_senddate }"
@@ -124,7 +124,7 @@
 										
 										</c:if>
 									</c:forEach>
-									<tr>
+											<tr>
 												<td colspan="4"><ul class="pagination" id="pasing"></ul></td>
 											</tr>
 								</c:otherwise>

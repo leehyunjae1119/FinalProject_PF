@@ -40,4 +40,10 @@ public class PF_UserDaoImpl implements PF_UserDao {
 		List<PF_UserDto> userlist = sqlSession.selectList(pf_userNamespace+"userlist",user_type);
 		return userlist;
 	}
+
+	@Override
+	public PF_UserDto MessageUser(int user_no) {
+		PF_UserDto messageuser = sqlSession.selectOne(pf_userNamespace+"MessageUser",user_no);
+		return messageuser;
+	}
 }

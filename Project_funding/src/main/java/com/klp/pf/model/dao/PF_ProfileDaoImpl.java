@@ -23,5 +23,10 @@ public class PF_ProfileDaoImpl implements PF_ProfileDao {
 		PF_ProfileDto dto = sqlSession.selectOne(pf_profileNamespace+"selectProfile", user_no);
 		return dto;
 	}
-
+	
+	@Override
+	public int updateProfile(PF_ProfileDto dto) {
+		int res = sqlSession.update(pf_profileNamespace+"updateProfile", dto);
+		return res;
+	}
 }

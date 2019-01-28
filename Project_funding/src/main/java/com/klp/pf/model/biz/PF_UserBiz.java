@@ -13,4 +13,6 @@ public interface PF_UserBiz {
 	public boolean user_setEmailCheck(String user_email, String code);
 	
 	public List<PF_UserDto> userlist(String user_type);
+	public PF_UserDto MessageUser(int user_no);
 }
+	

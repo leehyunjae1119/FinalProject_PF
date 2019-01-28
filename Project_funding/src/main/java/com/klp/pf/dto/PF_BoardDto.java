@@ -8,7 +8,7 @@ public class PF_BoardDto {
        private int board_no;
        private String board_title;
        private String board_content;
-       private String project_money;
+       private int project_money;
        private int project_term;
        private String project_start_day;
        private String recruit_date;
@@ -17,16 +17,17 @@ public class PF_BoardDto {
        private String project_type;
        private String board_file;
        private String project_state;
-       private Date board_regdate;
+       private String board_regdate;
        private int user_no;
+       private long recruit; 
       
        public PF_BoardDto() {
           
        }
        
-       public PF_BoardDto(int board_no, String board_title, String board_content, String project_money, int project_term,
+       public PF_BoardDto(int board_no, String board_title, String board_content, int project_money, int project_term,
              String project_start_day, String recruit_date, String recruit_personnel, String project_category,
-            String project_type, String board_file, String project_state, Date board_regdate, int user_no) {
+            String project_type, String board_file, String project_state, String board_regdate, int user_no) {
          super();
          this.board_no = board_no;
          this.board_title = board_title;
@@ -56,10 +57,18 @@ public class PF_BoardDto {
          return board_title;
       }
 
-      public void setBoard_title(String board_title) {
+      public long getRecruit() {
+      return recruit;
+   }
+
+   public void setRecruit(long recruit) {
+      this.recruit = recruit;
+   }
+
+   public void setBoard_title(String board_title) {
          this.board_title = board_title;
       }
-
+   
       public String getBoard_content() {
          return board_content;
       }
@@ -68,11 +77,11 @@ public class PF_BoardDto {
          this.board_content = board_content;
       }
 
-      public String getProject_money() {
+      public int getProject_money() {
          return project_money;
       }
 
-      public void setProject_money(String project_money) {
+      public void setProject_money(int project_money) {
          this.project_money = project_money;
       }
 
@@ -140,11 +149,11 @@ public class PF_BoardDto {
          this.project_state = project_state;
       }
 
-      public Date getBoard_regdate() {
+      public String getBoard_regdate() {
          return board_regdate;
       }
 
-      public void setBoard_regdate(Date board_regdate) {
+      public void setBoard_regdate(String board_regdate) {
          this.board_regdate = board_regdate;
       }
 
@@ -165,6 +174,5 @@ public class PF_BoardDto {
             + ", project_category=" + project_category + ", project_type=" + project_type + ", board_file="
             + board_file + ", project_state=" + project_state + ", board_regdate=" + board_regdate + ", user_no="
             + user_no + "]";
-   }
-       
+   }       
 }

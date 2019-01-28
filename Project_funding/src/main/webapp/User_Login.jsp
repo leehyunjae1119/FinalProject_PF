@@ -106,13 +106,6 @@
         </div>
       </div>
     </div>
-  
-  
-  
-  
-  
-  
-  
   <!-- footer 부분 가져다 쓰면 됨. -->
   <%@ include file="WEB-INF/inc/footer.jsp" %>
   <!--   Core JS Files   -->

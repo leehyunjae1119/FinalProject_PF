@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
+<%@ include file="WEB-INF/inc/investor_topbar.jsp"%>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
-<link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
+<link rel="icon" type="image/png"
+	href="resources/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <title>Project Funding</title>
 <meta
@@ -42,6 +45,9 @@
 	border-width: 1px;
 	border-radius: 10px;
 }
+
+
+
 </style>
 </head>
 <body>
@@ -53,7 +59,7 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
-					<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %>
+					<%@ include file="WEB-INF/inc/investor_sidebar.jsp"%>
 					<div class="col-sm-8">
 						<h3>
 							<strong>코인 관리</strong>
@@ -61,47 +67,44 @@
 						<h5>회원님의 코인을 조회하고 충전할 수 있습니다.</h5>
 						<hr>
 						<b style="color: gray;">코인 조회<br></b> <br> <b>보유 코인
-							&nbsp : &nbsp<a>150,000</a>
+							&nbsp : &nbsp<a>${coin}</a>
 						</b>
 						<hr>
 						<b style="color: gray;">코인 사용 내역<br></b>
 
 						<table class="table table-striped">
-							<tbody>
+							<thead>
 								<tr>
+									<th>번호</th>
 									<th>충전날짜</th>
 									<th>충전금액</th>
-									<th>사용금액</th>
-									<th>사용내역</th>
+									<th>상태</th>
 								</tr>
-								<tr>
-									<td>2019.01.18</td>
-									<td>200,000</td>
-									<td>200,000</td>
-									<td>RGB팬 제어 GUI 프로그램</td>
-								</tr>
-								<tr>
-									<td>2019.01.18</td>
-									<td>200,000</td>
-									<td>200,000</td>
-									<td>RGB팬 제어 GUI 프로그램</td>
-								</tr>
-								<tr>
-									<td>2019.01.18</td>
-									<td>200,000</td>
-									<td>200,000</td>
-									<td>RGB팬 제어 GUI 프로그램</td>
-								</tr>
-								<tr>
-									<td>2019.01.18</td>
-									<td>200,000</td>
-									<td>200,000</td>
-									<td>RGB팬 제어 GUI 프로그램</td>
-								</tr>
-								<tr align="center"></tr>
+							</thead>
+							
+							<tbody>
+								<c:choose>
+									<c:when test="${empty coinlist }">
+										<tr>
+											<td colspan="4" align="center">===== 충전내역이 없습니다. =====</td>
+										</tr>
+									</c:when>
+									<c:otherwise>
+										<c:forEach items="${coinlist }" var="dto">
+											<tr>
+												<td>${dto.coin_no}</td>
+												<td><fmt:formatDate value="${dto.coin_regdate }"
+														pattern="yy.MM.dd HH:mm" /></td>
+												<td>${dto.coin_money }</td>
+												<td>${dto.coin_state }</td>
+											</tr>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
+
 							</tbody>
 						</table>
-						
+
 						<!-- 페이징
 						<div class="text-center">
 							<ul class="pagination">
@@ -114,39 +117,33 @@
 						</div>
 						-->
 						<br> <br> <br> <br> <br> <br>
-						<ul class="pagination pagination-info" style="padding-left:240px;">
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link"> prev</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">1</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">2</a>
-                </li>
-                <li class="active page-item">
-                  <a href="javascript:void(0);" class="page-link">3</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">4</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">5</a>
-                </li>
-                <li class="page-item">
-                  <a href="javascript:void(0);" class="page-link">next </a>
-                </li>
-              </ul>
+						<ul class="pagination pagination-info"
+							style="padding-left: 240px;">
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link"> prev</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">1</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">2</a></li>
+							<li class="active page-item"><a href="javascript:void(0);"
+								class="page-link">3</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">4</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">5</a></li>
+							<li class="page-item"><a href="javascript:void(0);"
+								class="page-link">next </a></li>
+						</ul>
 						<hr />
-						<form action="user_coinpayment.do" class="form" method="post">
+						<form action="user_coinpayment.do" class="form" method="post" name="payment"  onSubmit="return CheckForm(this)">
 							<b style="color: gray;">코인 충전 및 결제<br></b>
 							<div id="select" style="padding-top: 10px;">
 								<select class="btn btn-default dropdown-toggle" name="amount"
 									style="height: 40px; width: 100%; background-color: white; color: gray;">
 									<option value="" selected="selected">충전할 금액을 선택해주세요.</option>
-									<option value="50,000">50,000 <a>원</a></option>
-									<option value="100,000">100,000 <a>원</a></option>
-									<option value="500,000">500,000 <a>원</a></option>
+									<option value="5000">5000 <a>원</a></option>
+									<option value="10000">10000 <a>원</a></option>
+									<option value="50000">50000 <a>원</a></option>
 								</select>
 							</div>
 							<div class="form-check" style="padding-top: 10px;">
@@ -201,10 +198,12 @@
 		</div>
 	</div>
 	<!--  End Modal -->
-	<%@ include file="WEB-INF/inc/footer.jsp" %>
+	<%@ include file="WEB-INF/inc/footer.jsp"%>
 	<!--   Core JS Files   -->
-	<script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
-	<script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>
+	<script src="resources/assets/js/core/jquery.min.js"
+		type="text/javascript"></script>
+	<script src="resources/assets/js/core/popper.min.js"
+		type="text/javascript"></script>
 	<script src="resources/assets/js/core/bootstrap-material-design.min.js"
 		type="text/javascript"></script>
 	<script src="resources/assets/js/plugins/moment.min.js"></script>
@@ -220,89 +219,75 @@
 	<script src="resources/assets/js/material-kit.js?v=2.0.5"
 		type="text/javascript"></script>
 	<script>
-				$(document).ready(function() {
-					//init DateTimePickers
-					materialKit.initFormExtendedDatetimepickers();
+		$(document).ready(function() {
+			//init DateTimePickers
+			materialKit.initFormExtendedDatetimepickers();
 
-					// Sliders Init
-					materialKit.initSliders();
-				});
+			// Sliders Init
+			materialKit.initSliders();
+		});
 
-				function scrollToDownload() {
-					if ($('.section-download').length != 0) {
-						$("html, body").animate({
-							scrollTop : $('.section-download').offset().top
-						}, 1000);
+		function scrollToDownload() {
+			if ($('.section-download').length != 0) {
+				$("html, body").animate({
+					scrollTop : $('.section-download').offset().top
+				}, 1000);
+			}
+		}
+
+		$(document).ready(function() {
+
+			$('#facebook').sharrre({
+				share : {
+					facebook : true
+				},
+				enableHover : false,
+				enableTracking : false,
+				enableCounter : false,
+				click : function(api, options) {
+					api.simulateClick();
+					api.openPopup('facebook');
+				},
+				template : '<i class="fab fa-facebook-f"></i> Facebook',
+				url : 'https://demos.creative-tim.com/material-kit/index.html'
+			});
+
+			$('#googlePlus').sharrre({
+				share : {
+					googlePlus : true
+				},
+				enableCounter : false,
+				enableHover : false,
+				enableTracking : true,
+				click : function(api, options) {
+					api.simulateClick();
+					api.openPopup('googlePlus');
+				},
+				template : '<i class="fab fa-google-plus"></i> Google',
+				url : 'https://demos.creative-tim.com/material-kit/index.html'
+			});
+
+			$('#twitter').sharrre({
+				share : {
+					twitter : true
+				},
+				enableHover : false,
+				enableTracking : false,
+				enableCounter : false,
+				buttons : {
+					twitter : {
+						via : 'CreativeTim'
 					}
-				}
+				},
+				click : function(api, options) {
+					api.simulateClick();
+					api.openPopup('twitter');
+				},
+				template : '<i class="fab fa-twitter"></i> Twitter',
+				url : 'https://demos.creative-tim.com/material-kit/index.html'
+			});
 
-				$(document)
-						.ready(
-								function() {
-
-									$('#facebook')
-											.sharrre(
-													{
-														share : {
-															facebook : true
-														},
-														enableHover : false,
-														enableTracking : false,
-														enableCounter : false,
-														click : function(api,
-																options) {
-															api.simulateClick();
-															api
-																	.openPopup('facebook');
-														},
-														template : '<i class="fab fa-facebook-f"></i> Facebook',
-														url : 'https://demos.creative-tim.com/material-kit/index.html'
-													});
-
-									$('#googlePlus')
-											.sharrre(
-													{
-														share : {
-															googlePlus : true
-														},
-														enableCounter : false,
-														enableHover : false,
-														enableTracking : true,
-														click : function(api,
-																options) {
-															api.simulateClick();
-															api
-																	.openPopup('googlePlus');
-														},
-														template : '<i class="fab fa-google-plus"></i> Google',
-														url : 'https://demos.creative-tim.com/material-kit/index.html'
-													});
-
-									$('#twitter')
-											.sharrre(
-													{
-														share : {
-															twitter : true
-														},
-														enableHover : false,
-														enableTracking : false,
-														enableCounter : false,
-														buttons : {
-															twitter : {
-																via : 'CreativeTim'
-															}
-														},
-														click : function(api,
-																options) {
-															api.simulateClick();
-															api
-																	.openPopup('twitter');
-														},
-														template : '<i class="fab fa-twitter"></i> Twitter',
-														url : 'https://demos.creative-tim.com/material-kit/index.html'
-													});
-
-								});
-			</script>
+		});
+	</script>
 </body>
 </html>

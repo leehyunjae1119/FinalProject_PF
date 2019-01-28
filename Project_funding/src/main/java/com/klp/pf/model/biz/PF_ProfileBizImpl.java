@@ -21,4 +21,8 @@ public class PF_ProfileBizImpl implements PF_ProfileBiz {
 	public PF_ProfileDto selectProfile(int user_no) {
 		return pf_dao.selectProfile(user_no);
 	}
+	@Override
+	public int updateProfile(PF_ProfileDto dto) {
+		return pf_dao.updateProfile(dto);
+	}
 }

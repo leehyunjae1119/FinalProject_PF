@@ -1,6 +1,15 @@
+<%@page import="com.klp.pf.dto.PF_BoardDto"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+<%
+//    PF_BoardDto dto = (PF_BoardDto)request.getAttribute("dto");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,18 +47,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
+<script type="text/javascript" src="resources/paging/pasing.js?ver=1"></script>
 
 
 </head>
 <body>
+
 <div class="main main-raised">
 <div class="list_container">
-	<div class="row">
-	<div class="col-md-12" style="height: 170px;">
-		<div class="container_title">
-		<h3><span class="tim-note"><b>프로젝트 찾기</b></span></h3>
- 		<div class="project_list">
- 			<form class="form-inline ml-auto">
+   <div class="row">
+   <div class="col-md-12" style="height: 170px;">
+      <div class="container_title">
+      <h3><span class="tim-note"><b>프로젝트 찾기</b></span></h3>
+       <div class="project_list">
+          <form class="form-inline ml-auto">
                   <div class="form-group has-white">
                     <input type="text" class="form-control" placeholder="Search">
                   </div>
@@ -64,329 +75,260 @@
 		</div>
 	</div>
 	
-		<div class="col-md-2" id="list_col">
-			<div class="list_container2">
-				<div class="project_array">
-					<p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
-				</div>
-				<div class="project_array_2">
-					<a href="#">금액 높은 순</a><br />
-					<a href="#">최신 등록 순</a><br />
-					<a href="#">마감 등록 순</a><br />
-				</div>
-			
-			<div class="project_category">
-				<div class="project_cate_title">
-					<p class="text-muted" style="font-size: 15px;"><b>프로젝트 카테고리</b></p>
-				</div>
-				<div class="project_cate">
-					<div class="form-check">
-               		 	<label class="form-check-label">
-                 		 <input class="form-check-input" type="checkbox" value="">
-                 		 	<p class="text-muted" style="font-size: 12px;">개발</p>
-                 		 <span class="form-check-sign">
-                	 	   <span class="check"></span>
-                		  </span>
-                		</label>
-             		</div>
-             		<div class="project_cate2">
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">웹</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">어플리케이션</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">일반 소프트웨어</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">게임</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">임베디드</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">퍼블리싱</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">기타</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             		</div>
-				</div>
-				<div class="project_cate">
-					<div class="form-check">
-               		 	<label class="form-check-label">
-                 		 <input class="form-check-input" type="checkbox" value="">
-                 		 	<p class="text-muted" style="font-size: 12px;">금액</p>
-                 		 <span class="form-check-sign">
-                	 	   <span class="check"></span>
-                		  </span>
-                		</label>
-             		</div>
-             		<div class="project_cate2">
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">100만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">500만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">1000만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">5000만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">1억 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">10억 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			
-             		</div>
-				</div>
-				
-				<div class="meeting_title">
-					<div class="meeting_area_title">
-						<p class="text-muted" style="font-size: 13px;"><b>미팅 진행지역</b></p>
-					</div>
-					<div class="select_area">
-						<select name="category" style="font-size: 13px;">
-							<option value="" selected>전체 지역</option>
-  							<option value="web">서울특별시</option>
-  							<option value="app">경기도</option>
-  							<option value="software">인천 광역시</option>
-  							<option value="game">부산 광역시</option>
-  							<option value="embedded">부산 광역시</option>
-  							<option value="publishing">대구 광역시</option>
-  							<option value="other">광주 광역시</option>
-  							<option value="other">대전 광역시</option>
-  							<option value="other">울산 광역시</option>
-  							<option value="other">세종 특별자치시</option>
-  							<option value="other">강원도</option>
-  							<option value="other">충청도</option>
-  							<option value="other">전라도</option>
-  							<option value="other">경상도</option>
-  							<option value="other">제주 특별자치도</option>
-						</select>
-					</div>
-					<div class="search_button">
-						<button class="btn" style="width: 200px; height: 40px;">검색</button>
-					</div>
-				</div>
-				<!-- 미팅 지역 끝! -->
-				
-			</div>
-			</div>
-		</div>
-		<!-- 카테고리 별 검색 끝! -->
-		<!-- col-md-2 끝! -->
-		<div class="col-md-8" id="col8">
-			<c:choose>
-				<c:when test="${empty ProjectList }">
-					<h3> ----- 등록된 프로젝트가 없습니다. -----</h3>
-				</c:when>
-			
-			<c:otherwise>
-			<c:forEach var="dto2" items="${ProjectList }">
-			<div class="project_content_form">
-				<h5><b><a href="#">${dto2.board_title }</a></b></h5>
-				
-				<span id="dong">user2</span>
-				<button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
-			메세지 보내기	
-				</button>
 	
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto2.project_money }원</b></p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted"><b>예상 기간</b>&nbsp;&nbsp;&nbsp;<b>${dto2.project_term }일</b></p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
-       						<b><fmt:formatDate value="${dto2.board_regdate }" pattern="yyyy년 MM월 dd일"></fmt:formatDate> </b></p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					${dto2.board_content}
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted"><b>마감 7일 전</b></p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted"><b>총 ${dto.recruit_personnel }명 지원</b></p>
-       					</div>
-       				</div>
-				</div>
-				</c:forEach>
-				</c:otherwise>
-				</c:choose>
-				
-				<!-- 페이징 -->
-				<div id="pagination">
-					<ul class="pagination pagination-info">
-                		<li class="page-item">
-                	  		<a href="javascript:void(0);" class="page-link"> prev</a>
-                		</li>
-               			<li class="active page-item">
-                  			<a href="javascript:void(0);" class="page-link">1</a>
-                		</li>
-               	 		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">2</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">3</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">4</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">5</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">next </a>
-                		</li>
-              		</ul>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-
+   
+      <div class="col-md-2" id="list_col">
+         <div class="list_container2">
+            <div class="project_array">
+               <p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
+            </div>
+            <div class="project_array_2">
+               <a href="#">금액 높은 순</a><br />
+               <a href="#">최신 등록 순</a><br />
+               <a href="#">마감 등록 순</a><br />
+            </div>
+         
+         <div class="project_category">
+            <div class="project_cate_title">
+               <p class="text-muted" style="font-size: 15px;"><b>프로젝트 카테고리</b></p>
+            </div>
+            <div class="project_cate">
+               <div class="form-check">
+                         <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="">개발
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                   </div>
+                   <div class="project_cate2">
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              웹
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              어플리케이션
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              일반 소프트웨어
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              게임
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              임베디드
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              퍼블리싱
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              기타
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                   </div>
+            </div>
+            <div class="project_cate">
+               <div class="form-check">
+                         <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="">
+                           금액
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                   </div>
+                   <div class="project_cate2">
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              100만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              500만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              1000만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              5000만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              1억 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="">
+                              10억 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      
+                   </div>
+            </div>
+            
+            <div class="meeting_title">
+               <div class="meeting_area_title">
+                  <p class="text-muted" style="font-size: 13px;"><b>미팅 진행지역</b></p>
+               </div>
+               <div class="select_area">
+                  <select name="category" style="font-size: 13px;">
+                     <option value="" selected>전체 지역</option>
+                       <option value="web">서울특별시</option>
+                       <option value="app">경기도</option>
+                       <option value="software">인천 광역시</option>
+                       <option value="game">부산 광역시</option>
+                       <option value="embedded">부산 광역시</option>
+                       <option value="publishing">대구 광역시</option>
+                       <option value="other">광주 광역시</option>
+                       <option value="other">대전 광역시</option>
+                       <option value="other">울산 광역시</option>
+                       <option value="other">세종 특별자치시</option>
+                       <option value="other">강원도</option>
+                       <option value="other">충청도</option>
+                       <option value="other">전라도</option>
+                       <option value="other">경상도</option>
+                       <option value="other">제주 특별자치도</option>
+                  </select>
+               </div>
+               <div class="search_button">
+                  <button class="btn" style="width: 200px; height: 40px;">검색</button>
+               </div>
+            </div>
+            <!-- 미팅 지역 끝! -->
+            
+         </div>
+         </div>
+      </div>
+      <input type="hidden" id="totalCount" value='${totalCount }'> 
+      <input type="hidden" id="page" value='${page }'>
+      <!-- 카테고리 별 검색 끝! -->
+      <!-- col-md-2 끝! -->
+      <div class="col-md-8" id="col8">
+         <c:choose>
+            <c:when test="${empty ProjectList }">
+               <h3 style="text-align: center;"> ----- 등록된 프로젝트가 없습니다. -----</h3>
+            </c:when>
+         
+         <c:otherwise>
+         <c:forEach var="dto" items="${ProjectList }">
+         <div class="project_content_form">
+            <h5><b><a href="project_view.do?board_no=${dto.board_no }&user_no=${dto.user_no}">${dto.board_title }</a></b></h5>
+			       <div class="project_title2">
+                      <div class="project_money">
+                         <img src="resources/assets/img/money.png" />
+                         <p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_money }원</b></p>
+                      </div>
+                      <div class="project_time">
+                         <img src="resources/assets/img/time.png" />   
+                         <p class="text-muted"><b>예상 기간</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_term }일</b></p>
+                      </div>
+                      <div class="project_support">
+                         <p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
+                         <b>${dto.board_regdate }</b></p>
+                      </div>
+                   </div>
+               <div class="c_detail">
+                  <div class="project_content_detail">
+                         <p class="text-muted" id="detail">
+                      ${dto.board_content}
+                         </p>
+                      
+                      </div>              
+                      <div class="end_date">
+                         <img src="resources/assets/img/K-021.png" />      
+                         <p class="text-muted"><b>마감 ${dto.getRecruit()}일 전</b></p>
+                         <br />
+                         <img src="resources/assets/img/support.png" />
+                         <p class="text-muted"><b>총 0명 지원</b></p>
+                      </div>
+                   </div>
+            </div>
+            </c:forEach>
+            </c:otherwise>
+            </c:choose>
+      </div>
+            <!-- 페이징 -->
+               <div id="pagination">
+               
+               <ul class="pagination pagination-info" id="pasing">
+               </ul>
+               
+               </div>
+               </div>
+               </div>
+               </div>
+               
+            
 <%@ include file="WEB-INF/inc/footer.jsp" %>
-
-<!-- 쪽지 전송 모달창 --> 
-
-	<div>
-		<div class="container">
-			<!-- The Modal -->
-			<div class="modal" id="myModal">
-				<div class="modal-dialog ">
-					<div class="modal-content">
-						<!-- Modal Header -->
-						<div class="modal-header">
-							<h3 class="modal-title">
-								<b style="padding-left: 180px;">쪽지쓰기</b>
-							</h3>
-
-							<button type="button" class="close" data-dismiss="modal">&times;</button>
-						</div>
-
-						<!-- Modal body -->
-						<!-- 값을 전송하는 부분 -->
-						<form action="message_insert.do" method="post">
-						<input type="hidden" name="sender" value="${userdto.user_id }">
-						<div class="modal-body">
-						
-						<!-- 쪽지 내용 작성하는 부분 -->
-								<h4>
-									<b id="min">받는사람&nbsp;</b>
-									<input type="text" name="reader"/>
-								</h4>
-							<h4>
-								<b>내용&nbsp;</b>
-							</h4>
-							<textarea rows="10" cols="40" class="form-control" name="content"></textarea>
-						</div>
-						
-						<!-- Modal footer -->
-						<div class="modal-footer">
-							<input type="submit" class="btn btn-warning" value="보내기" id="send"/>
-							<!-- data-dismiss : 모달창 닫기 -->
-							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
-						</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </body>
 </html>

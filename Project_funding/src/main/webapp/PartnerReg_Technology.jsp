@@ -39,7 +39,7 @@
 					<div class="col-12 col-md-9" style="margin-top:-30px;">
 						<h3><b>보유 기술 등록</b></h3>
 						<hr>
-						<form>
+						<form action="partnerReg_technologyInsert.do" method="post">
 							<table class="table table-bordered">
 								<thead class="thead-light">
 									<tr>
@@ -51,21 +51,21 @@
 								</thead>
 								<tbody id="tbody">
 									<tr id="cloneTr">
-      									<td><input type="text" class="form-control"></input></td>
+      									<td><input name="tech_type" type="text" class="form-control"></input></td>
       									<td>
-      										<select class="form-control">
-												<option>초급</option>
-												<option>중급</option>
-												<option>고급</option>
+      										<select name="tech_skill" class="form-control">
+												<option value="초급">초급</option>
+												<option value="중급">중급</option>
+												<option value="고급">고급</option>
 											</select>
 										</td>
       									<td>
-      										<select class="form-control">
-												<option>1년 미만</option>
-												<option>1년 이상 3년 미만</option>
-												<option>3년 이상 5년 미만</option>
-												<option>5년 이상 10년 미만</option>
-												<option>10년 이상</option>
+      										<select name="tech_exp" class="form-control">
+												<option value="1년 미만">1년 미만</option>
+												<option value="1년 이상 3년 미만">1년 이상 3년 미만</option>
+												<option value="3년 이상 5년 미만">3년 이상 5년 미만</option>
+												<option value="5년 이상 10년 미만">5년 이상 10년 미만</option>
+												<option value="10년 이상">10년 이상</option>
 											</select>
       									</td>
       									<td><button class="btn btn-default btn-sm" onclick="removeRow(this);">삭제</button></td>
@@ -86,20 +86,6 @@
 	</div>
 	
 	
-	
-<!-- 	<footer class="footer" data-background-color="black"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<nav class="float-left"> -->
-<!-- 				<div class="col-md-8 ml-auto mr-auto"> -->
-<!-- 					<h2>Completed with examples</h2> -->
-<!-- 					<h4>The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go. More importantly, looking at them will give you a picture of what you can built with this powerful kit. -->
-<!-- 					<br /> -->
-<!-- 						&copy;김이박 -->
-<!-- 					</h4> -->
-<!-- 				</div> -->
-<!-- 			</nav> -->
-<!-- 		</div> -->
-<!-- 	</footer> -->
 	<!--	 Core JS Files	 -->
 	<script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -118,9 +104,9 @@
     	    var oldTr = document.getElementById("tbody");
     	    var newTr = document.createElement("tr");
 	 	      
-	        newTr.innerHTML = "<td><input type='text' class='form-control'></input></td>"
-	        					+ "<td><select class='form-control'><option>초급</option><option>중급</option><option>고급</option></select></td>"
-	        					+ "<td><select class='form-control'><option>1년 미만</option><option>1년 이상 3년 미만</option><option>3년 이상 5년 미만</option><option>5년 이상 10년 미만</option><option>10년 이상</option></select></td>"
+	        newTr.innerHTML = "<td><input name='tech_type' type='text' class='form-control'></input></td>"
+	        					+ "<td><select name='tech_skill' class='form-control'><option value='초급'>초급</option><option value='중급'>중급</option><option value='고급'>고급</option></select></td>"
+	        					+ "<td><select name='tech_exp' class='form-control'><option value='1년 미만'>1년 미만</option><option value='1년 이상 3년 미만'>1년 이상 3년 미만</option><option value='3년 이상 5년 미만'>3년 이상 5년 미만</option><option value='5년 이상 10년 미만'>5년 이상 10년 미만</option><option value='10년 이상'>10년 이상</option></select></td>"
 								+ "<td><button class='btn btn-default btn-sm' onclick='removeRow(this);'>삭제</button></td>";
 	 	   	oldTr.appendChild(newTr);
 	    }

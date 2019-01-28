@@ -1,30 +1,47 @@
 package com.klp.pf;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.synth.SynthSpinnerUI;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.klp.pf.dto.PF_MessageDto;
+import com.klp.pf.dto.PF_CoinDto;
 import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
+import com.klp.pf.dto.PF_TechnologyDto;
 import com.klp.pf.dto.PF_UserDto;
 import com.klp.pf.model.biz.PF_BoardBiz;
 import com.klp.pf.model.biz.PF_MessageBiz;
+import com.klp.pf.model.biz.PF_CoinBiz;
+import com.klp.pf.model.biz.PF_InvestBiz;
 import com.klp.pf.model.biz.PF_PortfolioBiz;
 import com.klp.pf.model.biz.PF_ProfileBiz;
+import com.klp.pf.model.biz.PF_TechnologyBiz;
 import com.klp.pf.model.biz.PF_UserBiz;
 
 /**
@@ -63,8 +80,86 @@ public class HomeController {
 	private PF_PortfolioBiz pf_portfolioBiz;
 	@Autowired
 	private PF_MessageBiz pf_messageBiz;
+	@Autowired
+	private PF_TechnologyBiz pf_technologyBiz;
+	@Autowired
+	private PF_CoinBiz pf_coinBiz;
+	@Autowired
+	private PF_InvestBiz pf_investBiz;
 
-	@RequestMapping(value = "/index.do")
+	//파일 업로드 순서(ajax)
+	   //1.dependency 2개 추가 (주석 처리해놈)
+	   //2.servlet-context에서 multipartResolver 추가
+	    @RequestMapping(value="/fileUpload.do")
+	    @ResponseBody
+	    public String fileUp(MultipartHttpServletRequest multi, HttpServletRequest request) throws FileNotFoundException {
+	        // 저장 경로 설정
+//	       String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
+	       String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\portfolio";
+	       
+	       System.out.println(path);
+	       
+	        File dir = new File(path);
+	        if(!dir.isDirectory()){
+	            dir.mkdir();
+	        }
+	         
+	        String fileName=null;
+	        
+	        Iterator<String> files = multi.getFileNames();
+	        while(files.hasNext()){
+	            String uploadFile = files.next();
+	                         
+	            MultipartFile mFile = multi.getFile(uploadFile);
+	            fileName = mFile.getOriginalFilename();
+	            
+	            //파일이름 유저 주키로 지정
+	            System.out.println("실제 파일 이름 : " +fileName);
+	            try {
+	                mFile.transferTo(new File(path+"/"+fileName));
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        return path+"/"+fileName;
+	    }
+	    
+	    @RequestMapping(value="/imageUpload.do")
+	    @ResponseBody
+	    public String imageUp(MultipartHttpServletRequest multi, HttpServletRequest request) throws FileNotFoundException {
+	        // 저장 경로 설정
+//	       String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
+	       String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\image";
+	       
+	       System.out.println(path);
+	       
+	        File dir = new File(path);
+	        if(!dir.isDirectory()){
+	            dir.mkdir();
+	        }
+	         
+	        String fileName=null;
+	        
+	        Iterator<String> files = multi.getFileNames();
+	        while(files.hasNext()){
+	            String uploadFile = files.next();
+	                         
+	            MultipartFile mFile = multi.getFile(uploadFile);
+	            fileName = mFile.getOriginalFilename();
+	            
+	            //파일이름 유저 주키로 지정
+	            System.out.println("실제 파일 이름 : " +fileName);
+	            try {
+	                mFile.transferTo(new File(path+"/"+fileName));
+	            } catch (Exception e) {
+	                e.printStackTrace();
+	            }
+	        }
+	        return path+"/"+fileName;
+	    }
+	
+	
+	@RequestMapping(value="/index.do")
 	public String index() {
 		return "index";
 	}
@@ -76,14 +171,33 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/project_list.do")
-	public String ProjectList(Model model) {
-		model.addAttribute("ProjectList", pf_boardBiz.selectBoardList());
+	public String ProjectList(Model model, int page) {
 
+		model.addAttribute("totalCount", pf_boardBiz.totalcount());
+		model.addAttribute("page", page);
+		model.addAttribute("ProjectList", pf_boardBiz.selectBoardList(page));
+
+		System.out.println("컨트롤러" + page);
 		return "Project_List";
 	}
 
 	@RequestMapping(value = "/project_view.do")
-	public String view() {
+	public String ProjectView(int board_no, Model model, HttpSession session, HttpServletRequest request) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		int coin_charge = 0;
+		int coin_use = 0;
+		
+		int user_no = Integer.parseInt(request.getParameter("user_no")); 
+
+		System.out.println("글을 올린 유저의 번호 " + user_no );
+		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
+		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
+
+		int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
+		model.addAttribute("invest_totalMoney", invest_totalMoney);
+		model.addAttribute("messageuser",pf_userBiz.MessageUser(user_no));
+		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
+		model.addAttribute("coin", coin_charge - coin_use);
 
 		return "Project_View";
 
@@ -97,7 +211,7 @@ public class HomeController {
 		userlist = pf_userBiz.userlist(user_type);
 
 		request.setAttribute("userlist", userlist);
-
+		
 		return "User_PartnerList";
 	}
 
@@ -106,15 +220,67 @@ public class HomeController {
 		return "Question";
 	}
 
-	// 코인
+	////////////////////// 리스트 가져오기///////////////////////
 	@RequestMapping(value = "/user_coin.do")
-	public String coin() {
+	public String coin(HttpServletRequest request, HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no());
+
+		int coin_charge = 0;
+		int coin_use = 0;
+
+		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
+		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
+
+		model.addAttribute("coinlist", list);
+
+		// 현재 보유 포인트
+		model.addAttribute("coin", coin_charge - coin_use);
+
 		return "User_Coin";
 	}
 
+//////////////////////포인트 충전 페이지//////////////////	
+	@RequestMapping(value = "/user_coin1.do")
+	public String coin1(HttpServletRequest request, HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		int amount = 0;
+		if (request.getParameter("amount") != null) {
+			amount = Integer.parseInt(request.getParameter("amount"));
+			pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
+		}
+
+		model.addAttribute("amount", amount);
+
+		return "redirect:/user_coin.do";
+	}
+
+///////////////////////////////사용/////////////////////////	
+	@RequestMapping(value = "coin_payment_use_01.do")
+	public String getCoin_payment_use01(Model model, int amount_val, int board_no) {
+
+		model.addAttribute("amount_val", amount_val);
+		model.addAttribute("board_no", board_no);
+		return "example01";
+	}
+
 	@RequestMapping(value = "/user_coinpayment.do")
-	public String user_coinpayment(String amount, Model model) {
+	public String user_coinpayment(@RequestParam String amount, Model model) {
+		model.addAttribute("amount", amount);
 		return "User_CoinPayment";
+	}
+	
+	@RequestMapping(value = "coin_payment_use.do", method = RequestMethod.GET)
+	public String getCoin_Payment_use(HttpSession session, int amount_val, int board_no, Model model) {
+
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		pf_coinBiz.coin_insert(userdto.getUser_no(), amount_val, "사용");
+		pf_investBiz.invest_insert(userdto.getUser_no(), amount_val, board_no);
+
+		return "redirect:/user_coin.do";
 	}
 
 	@RequestMapping(value = "/project_fundinglist.do")
@@ -129,11 +295,18 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/loginCheck.do")
-	public String loginCheck(String user_id, String user_pw, HttpSession session) {
+	public String loginCheck(String user_id, String user_pw, HttpSession session, Model model,String message_state) {
 
 		PF_UserDto dto = pf_userBiz.selectUser(user_id);
 		if (dto.getUser_pw().equals(user_pw)) {
 			session.setAttribute("userdto", dto);
+			// id에 맞는 쪽지함을 불러오기 위해 아이디 값을 받아온다.
+			PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+			//id값 받아옴
+			user_id = userdto.getUser_id();
+			int countmessage = pf_messageBiz.MessageUnread(user_id, message_state);
+			
+			model.addAttribute("count",countmessage);
 
 			if (dto.getUser_email_check().equals("TRUE")) {
 				return "index";
@@ -336,31 +509,17 @@ public class HomeController {
 
 // ==============================================================================================================================
 // ==============================================================================================================================
-		
-	//받은 쪽지함
-		/*
-		@RequestMapping(value = "message_re.do")
-		public String Message_Re(PF_MessageDto dto, HttpSession session, Model model) {
-			
-			//id값을 받아오기 위해 세션객체 만들어줌
-			PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-			//id값 받아옴
-			String user_id = userdto.getUser_id();
-
-			List<PF_MessageDto> reMessage = pf_messageBiz.MessageList_Re(user_id);	
-			model.addAttribute("reMessage", reMessage);
-			
-			return "User_NoteReceive_View";
-		}
-		*/
 	
 	// 받은 쪽지함
 	@RequestMapping(value = "message_re.do")
-	public String Message_Re(PF_MessageDto dto, HttpSession session, Model model, int page) {
+	public String Message_Re(PF_MessageDto dto, HttpSession session, Model model, int page,String message_state ) {
 		// id값을 받아오기 위해 세션객체 만들어줌
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		// id값 받아옴
 		String user_id = userdto.getUser_id();
+		int countmessage = pf_messageBiz.MessageUnread(user_id, message_state);
+		
+		model.addAttribute("count",countmessage);
 
 		List<PF_MessageDto> reMessage = pf_messageBiz.MessageList_Re(user_id, page);
 		model.addAttribute("reMessage", reMessage);
@@ -374,11 +533,14 @@ public class HomeController {
 		
 	// 보낸 쪽지함
 	@RequestMapping(value = "message_se.do")
-	public String Message_Se(PF_MessageDto dto, HttpSession session, Model model, int page) {
+	public String Message_Se(PF_MessageDto dto, HttpSession session, Model model, int page,String message_state) {
 		// id값을 받아오기 위해 세션객체 만들어줌
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		// id값 받아옴
 		String user_id = userdto.getUser_id();
+		int countmessage = pf_messageBiz.MessageUnread(user_id, message_state);
+		
+		model.addAttribute("count",countmessage);
 
 		List<PF_MessageDto> seMessage = pf_messageBiz.MessageList_Se(user_id, page);
 		model.addAttribute("seMessage", seMessage);
@@ -393,7 +555,7 @@ public class HomeController {
 
 	// 쪽지 보내기
 	@RequestMapping(value = "message_insert.do")
-	public String Message_Insert(Model model, HttpServletRequest request, HttpSession session) {
+	public String Message_Insert(Model model, HttpServletRequest request, HttpSession session, int page) {
 
 		String message_reader = request.getParameter("reader");
 		String message_content = request.getParameter("content");
@@ -406,7 +568,7 @@ public class HomeController {
 		int res = pf_messageBiz.MessageInsert(dto);
 
 		if (res > 0) {
-			model.addAttribute("ProjectList", pf_boardBiz.selectBoardList());
+			model.addAttribute("ProjectList", pf_boardBiz.selectBoardList(page));
 
 			return "Project_List";
 		}

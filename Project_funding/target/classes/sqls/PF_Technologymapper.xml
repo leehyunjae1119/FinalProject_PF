@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pf_technology">
+
+	<update id="insertTechnology" parameterType="List">
+		<selectKey keyProperty="tech_no" resultType="int" order="BEFORE">
+			SELECT PF_TECHNOLOGY_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블-->
+		</selectKey>
+		INSERT ALL
+    	<foreach collection="list" item="dtoList" separator=" " index="index">
+			INTO PF_TECHNOLOGY VALUES(#{tech_no}+#{index}, #{dtoList.profile_no }, #{dtoList.tech_type } ,#{dtoList.tech_skill } ,#{dtoList.tech_exp } )
+   		</foreach>
+   		SELECT * FROM DUAL
+	</update>
+	
+	<select id="selectTechnology" parameterType="int" resultType="PF_TechnologyDto">
+		SELECT * FROM PF_TECHNOLOGY 
+		WHERE PROFILE_NO = #{profile_no }
+	</select>
+	
+	<delete id="deleteTechnology" parameterType="int">
+		DELETE FROM PF_TECHNOLOGY
+		WHERE TECH_NO = #{tech_no}
+	</delete>
+</mapper>

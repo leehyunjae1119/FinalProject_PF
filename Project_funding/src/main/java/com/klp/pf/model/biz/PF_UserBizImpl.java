@@ -93,4 +93,9 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		
 		return pf_dao.userList(user_type);
 	}
+	@Override
+	public PF_UserDto MessageUser(int user_no) {
+		
+		return pf_dao.MessageUser(user_no);
+	}
 }
