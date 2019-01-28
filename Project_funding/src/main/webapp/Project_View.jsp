@@ -146,11 +146,10 @@
          <div class="money">
             <p class="text-muted">100,000원</p>
          </div>
-         <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
+      </div>
+       <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
 				메세지 보내기	
 		</button>
-         
-      </div>
 
          <c:if test="${userdto.getUser_no() eq dto.user_no}">
             <button class="btn btn-danger" style="float: right; margin-top: 110px; display: inline-block;" onclick="location.href='project_delete.do?board_no=<jsp:getProperty property="board_no" name="dto" />&page=1'">삭제하기</button>
@@ -161,34 +160,43 @@
               <button class="btn btn-info" style="float: right; margin-top: 110px; display: inline-block;">투자하기</button>
            </c:if>
 
+	</div>
+	<hr />
+<!-- 		<iframe src="http://docs.google.com/gview?url=http://localhost:8787/pf/storage/test.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe> -->
+			<iframe src="http://localhost:8787/pf/storage/${dto.board_file }" style="width:100%; height:500px;" frameborder="0"></iframe>
+<%-- 			<h1>${dto.board_file }</h1> --%>
+	<hr />
+	<div class="comment_container">
+		<h4><b>프로젝트 문의</b></h4>	
+		
+		<div id="comment_container2">
+			<div id="comment_list">
+					
+			</div>
+		</div>
+				
+		<form id="comment_form" method="post" action="comment_insert.do" onsubmit="return comment_ajax(this);" style="margin-top: 100px;">
+			<input type="hidden" name="board_no" value="${dto.board_no }" />
+	
+			<div class="free_img">
+				<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
+			</div>
+			<textarea rows="4" cols="90" name="comment_content" id="comment_content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
+			<button class="btn btn-success" onclick="loginCheck();">등록하기</button>
+		
+		</form>
+	</div>
    </div>
    <hr />
-   
-   <div class="comment_container">
-      <h4><b>프로젝트 문의</b></h4>   
-      
+       
       <div id="comment_container2">
          <div id="comment_list">
                
          </div>
       </div>
-            
-      
-      <form id="comment_form" method="post" action="comment_insert.do" onsubmit="return comment_ajax(this);" style="margin-top: 100px;">
-         <input type="hidden" name="board_no" value="${dto.board_no }" />
-         <input type="hidden" name="comment_no" value="${comment_dto.comment_no }" />
-   
-         <div class="free_img">
-            <img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
-         </div>
-         <textarea rows="4" cols="90" name="comment_content" id="comment_content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
-         <button class="btn btn-success" onclick="loginCheck();">등록하기</button>
-      
-      </form>
    </div>
    
-</div>
-</div>
+
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
 </body>
@@ -235,12 +243,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-
-
-
 <script>
+
+	var board_no = '${dto.board_no}';
+
 
    $(function() {
       getComment_list('${dto.board_no}');
@@ -263,7 +269,7 @@
          success: function(data) {
             console.log(data);
             if(data == "success") {
-               getComment_list();
+               getComment_list('${dto.board_no}');
                $("#comment_content").val("");
             }
             
@@ -276,7 +282,8 @@
       return false;      //안 쓰면 값 두 번 들어감
    }
    
-   var board_no = "{$dto.board_no}";
+  
+   
    function getComment_list(board_no) {
       
       $.ajax ({
@@ -290,7 +297,6 @@
             
             if(data.length > 0) {
                for(i=0; i<data.length; i++) {
-                  console.log(data[i].comment_content);
 
                   html += "<div class='card' style='min-height: 150px;'>";
                   html += "<div class='card-body' style='display: inline-block;'>";
@@ -353,7 +359,6 @@
 
    
    function comment_Update(c_no) {
-      console.log("comment_"+c_no);
       if($("#comment_"+c_no+" h5").hasClass("hidden")) {
          $("#comment_"+c_no+" h5").removeClass("hidden");
          $("#comment_"+c_no+" form").addClass("hidden");   
@@ -373,7 +378,7 @@
          dataType: "html",
          type: "POST",
          success: function(data) {
-            console.log(data);
+
             getComment_list("${dto.board_no}");
          }, error: function(e) {
             console.log("error");

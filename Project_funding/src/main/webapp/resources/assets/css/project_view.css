@@ -178,5 +178,8 @@ textarea {
    display: none;
 } 
 
+.hidden:first-child {
+	display: none;
+}
 
 

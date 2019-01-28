@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.util.WebUtils;
 
 import com.klp.pf.dto.PF_BoardDto;
 import com.klp.pf.dto.PF_CoinDto;
@@ -99,8 +100,8 @@ public class HomeController {
        @ResponseBody
        public String fileUp(MultipartHttpServletRequest multi, HttpServletRequest request) throws FileNotFoundException {
            // 저장 경로 설정
-//          String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
-          String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\portfolio";
+          String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/storage");
+//         String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\portfolio";
           
           System.out.println(path);
           
@@ -126,7 +127,9 @@ public class HomeController {
                    e.printStackTrace();
                }
            }
-           return path+"/"+fileName;
+           
+          // System.out.println("테스트테스트테ㅅ 트트테트스트"+fileName);
+           return fileName;
        }
        
        @RequestMapping(value="/imageUpload.do")
@@ -346,6 +349,7 @@ public class HomeController {
             PF_UserDto a = pf_userBiz.cast(commentDto.get(i).getUser_no());
             hm.put("user_id", a.getUser_id());
             hm.put("user_no",commentDto.get(i).getUser_no());
+            hm.put("board_no", commentDto.get(i).getBoard_no());
 
             hmlist.add(hm);
 
@@ -353,7 +357,8 @@ public class HomeController {
       }
       
       JSONArray json = new JSONArray(hmlist);
-      System.out.println(json.toString());
+      System.out.println(hmlist);
+      
       return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
    
    }
@@ -383,7 +388,7 @@ public class HomeController {
    @ResponseBody
    public String ajax_updateComment(@ModelAttribute("comment_dto") PF_CommentDto commentDto) {
       
-      System.out.println(commentDto);
+      System.out.println("commentDto >> " + commentDto);
       
       try {
          pf_commentBiz.update(commentDto);
