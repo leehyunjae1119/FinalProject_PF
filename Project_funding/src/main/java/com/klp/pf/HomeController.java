@@ -315,17 +315,17 @@ public class HomeController {
 		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
 		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
 
-		int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
-		model.addAttribute("invest_totalMoney", invest_totalMoney);
+		//int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
+		//model.addAttribute("invest_totalMoney", invest_totalMoney);
 		model.addAttribute("messageuser",pf_userBiz.MessageUser(user_no));
 		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
-		model.addAttribute("coin", coin_charge - coin_use);
+		//model.addAttribute("coin", coin_charge - coin_use);
 
 		return "Project_View";
 
 	}
    
-   @RequestMapping(value="/comment_list.do", produces="application/json; chatset=utf-8")
+@RequestMapping(value="/comment_list.do", produces="application/json; chatset=utf-8")
    
    @ResponseBody
    public ResponseEntity ajax_listComment (@ModelAttribute("comment_dto") PF_CommentDto comment_dto, @RequestParam("board_no") int board_no, HttpServletRequest request) {
@@ -333,8 +333,7 @@ public class HomeController {
       HttpHeaders responseHeaders = new HttpHeaders();
       responseHeaders.add("Content-Type", "application/json; charset=utf-8");
       ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
-      
-      System.out.println(comment_dto);
+
       List<PF_CommentDto> commentDto = pf_commentBiz.selectCommentList(comment_dto);
       
       
@@ -345,18 +344,14 @@ public class HomeController {
             hm.put("comment_content", commentDto.get(i).getComment_content());
             hm.put("comment_regdate", commentDto.get(i).getComment_regdate());
             PF_UserDto a = pf_userBiz.cast(commentDto.get(i).getUser_no());
-            System.out.println(a.toString());
             hm.put("user_id", a.getUser_id());
-         
-            System.out.println(hm);
-            
+            hm.put("user_no",commentDto.get(i).getUser_no());
+
             hmlist.add(hm);
-            
-            System.out.println("response = " + responseHeaders);
+
          }
       }
       
-      //JSONArray json = new JSONArray(hmlist);
       JSONArray json = new JSONArray(hmlist);
       System.out.println(json.toString());
       return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
@@ -364,10 +359,11 @@ public class HomeController {
    }
    
    
-   @RequestMapping(value="comment_insert.do")
+   @RequestMapping(value="/comment_insert.do")
    @ResponseBody
    public String ajax_addComment(@ModelAttribute("comment_dto") PF_CommentDto comment_dto, @RequestParam("board_no") int board_no, HttpServletRequest request) {
       
+	  
       HttpSession session = request.getSession();
       PF_UserDto userDto = (PF_UserDto)session.getAttribute("userdto");
       
@@ -375,7 +371,6 @@ public class HomeController {
          
          comment_dto.setUser_no(userDto.getUser_no());
          comment_dto.setBoard_no(board_no);
-         System.out.println(comment_dto.toString());
          pf_commentBiz.insert(comment_dto);
       } catch (Exception e) {
          e.printStackTrace();
@@ -384,6 +379,34 @@ public class HomeController {
       return "success";
    }
    
+   @RequestMapping(value="/comment_update.do")
+   @ResponseBody
+   public String ajax_updateComment(@ModelAttribute("comment_dto") PF_CommentDto commentDto) {
+      
+      System.out.println(commentDto);
+      
+      try {
+         pf_commentBiz.update(commentDto);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      
+      return "success";
+   }
+   
+   @RequestMapping(value="/comment_delete.do", method=RequestMethod.POST, produces="application/json; chatset=utf-8")
+   @ResponseBody
+   public String ajax_deleteComment(@RequestParam("comment_no") int comment_no) {
+      System.out.println("test");
+      try {
+         pf_commentBiz.delete(comment_no);
+      
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      
+      return "success";
+   }
 
    @RequestMapping(value = "/partner_list.do")
    public String partnerlist() {

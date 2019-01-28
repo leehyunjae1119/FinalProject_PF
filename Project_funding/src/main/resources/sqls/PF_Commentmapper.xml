@@ -12,6 +12,14 @@
 	<insert id="insertComment" parameterType="PF_CommentDto"> <!-- useGeneratedKeys="true" keyProperty="id" -->
 		INSERT INTO PF_COMMENT VALUES (PF_COMMENT_SEQ.NEXTVAL, #{comment_content}, #{board_no}, #{user_no}, TO_CHAR(SYSDATE, 'YYYY-MM-DD HH:MI'))
 	</insert>
+	
+	<update id="updateComment" parameterType="PF_CommentDto">
+      UPDATE PF_COMMENT SET COMMENT_CONTENT = #{comment_content}, COMMENT_REGDATE = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH:MI') WHERE COMMENT_NO = #{comment_no}
+   </update>
+   
+   <delete id="deleteComment" parameterType="PF_CommentDto">
+      DELETE FROM PF_COMMENT WHERE COMMENT_NO = #{comment_no}
+   </delete>
 
 
 </mapper>
