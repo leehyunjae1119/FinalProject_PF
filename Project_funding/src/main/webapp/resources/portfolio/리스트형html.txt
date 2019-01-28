@@ -1,0 +1,20 @@
+<script type="text/javascript" src="플레이어 주소"></script>
+<script type="text/javascript">jwplayer.key="키 주소";</script>
+<div id="player">Loading the player...</div>
+<script type="text/javascript">
+jwplayer("player").setup({
+playlist:[{
+title:'1번 제목',
+sources:[{file:'1번 동영상 주소'}],
+image:'1번 이미지 주소',
+},{
+title:'2번 제목',
+sources:[{file:'2번 동영상 주소'}],
+image:'2번 이미지 주소',
+},{
+title:'3번 제목',
+sources:[{file:'3번 동영상 주소'}],
+image:'3번 이미지 주소',
+}],
+});
+</script>
