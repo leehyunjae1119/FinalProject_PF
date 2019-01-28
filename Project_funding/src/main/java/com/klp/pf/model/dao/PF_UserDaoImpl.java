@@ -1,5 +1,7 @@
 package com.klp.pf.model.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,6 +34,20 @@ public class PF_UserDaoImpl implements PF_UserDao {
 		int res = sqlSession.update(pf_userNamespace+"setEmail", user_email);
 		return (res > 0) ? true : false;
 	}
+
+	@Override
+	public List<PF_UserDto> userList(String user_type) {
+		List<PF_UserDto> userlist = sqlSession.selectList(pf_userNamespace+"userlist",user_type);
+		return userlist;
+	}
+
+	@Override
+	public PF_UserDto MessageUser(int user_no) {
+		PF_UserDto messageuser = sqlSession.selectOne(pf_userNamespace+"MessageUser",user_no);
+		return messageuser;
+	
+	}	
+		
 	@Override
 	public PF_UserDto cast(int user_no) {
 		PF_UserDto res = sqlSession.selectOne(pf_userNamespace+"cast",user_no);

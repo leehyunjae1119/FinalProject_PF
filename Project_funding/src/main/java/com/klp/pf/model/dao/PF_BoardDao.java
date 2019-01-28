@@ -8,6 +8,7 @@ public interface PF_BoardDao {
 
 	String pf_boardNamespace = "pf_board.";
 	
+	
 	public List<PF_BoardDto> selectBoardList(int page);
 	public int insert(PF_BoardDto dto);
 	public PF_BoardDto selectOne(int board_no);

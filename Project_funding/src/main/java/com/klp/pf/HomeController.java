@@ -10,7 +10,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -35,14 +34,15 @@ import org.springframework.web.util.WebUtils;
 import com.klp.pf.dto.PF_BoardDto;
 import com.klp.pf.dto.PF_CoinDto;
 import com.klp.pf.dto.PF_CommentDto;
+import com.klp.pf.dto.PF_MessageDto;
 import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
-import com.klp.pf.dto.PF_TechnologyDto;
 import com.klp.pf.dto.PF_UserDto;
 import com.klp.pf.model.biz.PF_BoardBiz;
 import com.klp.pf.model.biz.PF_CoinBiz;
 import com.klp.pf.model.biz.PF_CommentBiz;
 import com.klp.pf.model.biz.PF_InvestBiz;
+import com.klp.pf.model.biz.PF_MessageBiz;
 import com.klp.pf.model.biz.PF_PortfolioBiz;
 import com.klp.pf.model.biz.PF_ProfileBiz;
 import com.klp.pf.model.biz.PF_TechnologyBiz;
@@ -82,6 +82,8 @@ public class HomeController {
    private PF_PortfolioBiz pf_portfolioBiz;
    @Autowired
    private PF_TechnologyBiz pf_technologyBiz;
+   @Autowired 
+   private PF_MessageBiz pf_messageBiz;
    @Autowired
    private PF_CoinBiz pf_coinBiz;
    @Autowired
@@ -171,206 +173,243 @@ public class HomeController {
    }
 
    @RequestMapping(value="/project_insert.do")
-	public String insert() {
+   public String insert() {
 
 
-		return "Project_Insert";
-	}
-	
+      return "Project_Insert";
+   }
+   
    @RequestMapping(value="/insert.do")
-	public String insert(HttpSession session, PF_BoardDto dto, Model model) {
-	
-		model.addAttribute("dto", pf_boardBiz.insert(dto));
+   public String insert(HttpSession session, PF_BoardDto dto, Model model) {
+   
+      model.addAttribute("dto", pf_boardBiz.insert(dto));
 
-		return "redirect:project_list.do?page=1";
-	}
-	   
-	   //페이징
-	   @RequestMapping(value="/project_list.do")
-	   public String ProjectList(Model model,int page) {
-	      
-	      model.addAttribute("totalCount",pf_boardBiz.totalcount());
-	      model.addAttribute("page", page);
-	      model.addAttribute("ProjectList", pf_boardBiz.selectBoardList(page));
-	   
-	      return "Project_List";
-	      
-	   }
-	   //금액 높은순 리스트 페이징
-	   //페이징
-	      @RequestMapping(value="/project_list_money.do")
-	      public String ProjectList_Money(Model model,int page) {
-	         
-	         model.addAttribute("totalCount",pf_boardBiz.totalcount());
-	         model.addAttribute("page1", page);
-	         model.addAttribute("ProjectList", pf_boardBiz.selectMoneyList(page));
-	      
-	         return "Project_List";
-	         
-	      }
-	      //date 리스트 페이징
-	      //페이징
-	         @RequestMapping(value="/project_list_date.do")
-	         public String ProjectList_Date(Model model,int page) {
-	            
-	            model.addAttribute("totalCount",pf_boardBiz.totalcount());
-	            model.addAttribute("page", page);
-	            model.addAttribute("ProjectList", pf_boardBiz.selectDateList(page));
-	         
-	            return "Project_List";
-	         }
-	   
-	         
-	   //검색,페이징
-	   @RequestMapping(value = "/search.do")
-	   public String search(Model model, String board_title, int page) {
+      return "redirect:project_list.do?page=1";
+   }
+      
+      //페이징
+      @RequestMapping(value="/project_list.do")
+      public String ProjectList(Model model,int page) {
+         
+         model.addAttribute("totalCount",pf_boardBiz.totalcount());
+         model.addAttribute("page", page);
+         model.addAttribute("ProjectList", pf_boardBiz.selectBoardList(page));
+      
+         return "Project_List";
+         
+      }
+      //금액 높은순 리스트 페이징
+      //페이징
+         @RequestMapping(value="/project_list_money.do")
+         public String ProjectList_Money(Model model,int page) {
+            
+            model.addAttribute("totalCount",pf_boardBiz.totalcount());
+            model.addAttribute("page1", page);
+            model.addAttribute("ProjectList", pf_boardBiz.selectMoneyList(page));
+         
+            return "Project_List";
+            
+         }
+         //date 리스트 페이징
+         //페이징
+            @RequestMapping(value="/project_list_date.do")
+            public String ProjectList_Date(Model model,int page) {
+               
+               model.addAttribute("totalCount",pf_boardBiz.totalcount());
+               model.addAttribute("page", page);
+               model.addAttribute("ProjectList", pf_boardBiz.selectDateList(page));
+            
+               return "Project_List";
+            }
+      
+            
+      //검색,페이징
+      @RequestMapping(value = "/search.do")
+      public String search(Model model, String board_title, int page) {
 
-	         model.addAttribute("ProjectList", pf_boardBiz.search(page, board_title));
-	         model.addAttribute("page", page);
-	         model.addAttribute("totalCount", pf_boardBiz.totalCount_title(board_title));
-	         model.addAttribute("board_title", board_title);
-	         return "Project_Search";
+            model.addAttribute("ProjectList", pf_boardBiz.search(page, board_title));
+            model.addAttribute("page", page);
+            model.addAttribute("totalCount", pf_boardBiz.totalCount_title(board_title));
+            model.addAttribute("board_title", board_title);
+            return "Project_Search";
 
-	   }
+      }
 
-	   //필터링 검색
-	   @RequestMapping(value="/detail_search.do")
-	   public String detail_search(Model model, String category1, String category2,HttpServletRequest request,int page) {
-	      String[] category_chk = request.getParameterValues("category1") ;
-	      String[] category_chk2 =request.getParameterValues("category2");
-	      
-	      String mCategory1;
-	      String mCategory2;
-	      
-	      // 카테고리1이 체크 되었는지 확인하는 구문
-	      if(category_chk != null) { // 체크 된 경우
-	         mCategory1 = category1.replaceAll(",", "|");
-	      }
-	      else{ // 체크 안한 경우
-	         mCategory1 = "웹|어플리케이션|일반 소프트웨어|게임|임베디드|퍼블리싱|기타";
-	      }
-	      
-	      // 카테고리2(돈)이 체크 되었는지 확인하는 구문
-	      if(category_chk2 != null) {
-	         mCategory2 = category2;
-	      }
-	      else { // 체크 안한 경우
-	         
-	         mCategory2 = "1000000000";
-	      }
-	      
-	      model.addAttribute("ProjectList",pf_boardBiz.detail_search1(page, mCategory1, mCategory2));
-	      model.addAttribute("page", page);
-	      model.addAttribute("project_category", category1);
-	      model.addAttribute("project_money",category2);
-	      model.addAttribute("totalCount_dtail", pf_boardBiz.totalCount_detail(mCategory1,mCategory2));
-	      return"Project_Search";
-	      
+      //필터링 검색
+      @RequestMapping(value="/detail_search.do")
+      public String detail_search(Model model, String category1, String category2,HttpServletRequest request,int page) {
+         String[] category_chk = request.getParameterValues("category1") ;
+         String[] category_chk2 =request.getParameterValues("category2");
+         
+         String mCategory1;
+         String mCategory2;
+         
+         // 카테고리1이 체크 되었는지 확인하는 구문
+         if(category_chk != null) { // 체크 된 경우
+            mCategory1 = category1.replaceAll(",", "|");
+         }
+         else{ // 체크 안한 경우
+            mCategory1 = "웹|어플리케이션|일반 소프트웨어|게임|임베디드|퍼블리싱|기타";
+         }
+         
+         // 카테고리2(돈)이 체크 되었는지 확인하는 구문
+         if(category_chk2 != null) {
+            mCategory2 = category2;
+         }
+         else { // 체크 안한 경우
+            
+            mCategory2 = "1000000000";
+         }
+         
+         model.addAttribute("ProjectList",pf_boardBiz.detail_search1(page, mCategory1, mCategory2));
+         model.addAttribute("page", page);
+         model.addAttribute("project_category", category1);
+         model.addAttribute("project_money",category2);
+         model.addAttribute("totalCount_dtail", pf_boardBiz.totalCount_detail(mCategory1,mCategory2));
+         return"Project_Search";
+         
 
-	   }
-	      
-	
-	@RequestMapping(value="/project_update.do")
-	public String ProjectUpdate(int board_no, Model model) {
+      }
+         
+   
+   @RequestMapping(value="/project_update.do")
+   public String ProjectUpdate(int board_no, Model model) {
+      model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
+      
+      return "Project_Update";
+   }
+   
+   @RequestMapping(value="/update.do")
+   public String update(Model model, PF_BoardDto dto, int board_no) {
+      
+      int res = pf_boardBiz.update(dto);
+      
+      if(res > 0) {
+         model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
+         return "Project_View";
+      }
+      return "Project_Update";
+   }
+   
+   @RequestMapping(value="/project_delete.do")
+   public String ProjectDelete(Model model, int board_no, int page) {
+      int res = pf_boardBiz.delete(board_no);
+      
+      if(res > 0) {
+         model.addAttribute("totalCount", pf_boardBiz.totalcount());
+         model.addAttribute("page", page);
+         model.addAttribute("Project_List", pf_boardBiz.selectBoardList(page));
+         return "redirect:project_list.do";
+      } else {
+         return "Project_View";
+      }
+   }
+
+
+   @RequestMapping(value = "/project_view.do")
+	public String ProjectView(int board_no, Model model, HttpSession session, HttpServletRequest request) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		int coin_charge = 0;
+		int coin_use = 0;
+		
+		int user_no = Integer.parseInt(request.getParameter("user_no")); 
+
+		System.out.println("글을 올린 유저의 번호 " + user_no );
+		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
+		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
+
+		//int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
+		//model.addAttribute("invest_totalMoney", invest_totalMoney);
+		model.addAttribute("messageuser",pf_userBiz.MessageUser(user_no));
 		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
-		
-		return "Project_Update";
-	}
-	
-	@RequestMapping(value="/update.do")
-	public String update(Model model, PF_BoardDto dto, int board_no) {
-		
-		int res = pf_boardBiz.update(dto);
-		
-		if(res > 0) {
-			model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
-			return "Project_View";
-		}
-		return "Project_Update";
-	}
-	
-	@RequestMapping(value="/project_delete.do")
-	public String ProjectDelete(Model model, int board_no, int page) {
-		int res = pf_boardBiz.delete(board_no);
-		
-		if(res > 0) {
-			model.addAttribute("totalCount", pf_boardBiz.totalcount());
-			model.addAttribute("page", page);
-			model.addAttribute("Project_List", pf_boardBiz.selectBoardList(page));
-			return "redirect:project_list.do";
-		} else {
-			return "Project_View";
-		}
-	}
+		//model.addAttribute("coin", coin_charge - coin_use);
 
-
-	@RequestMapping(value="/project_view.do")
-	public String ProjectView(int board_no, Model model)  {	
-		
-		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
-			
 		return "Project_View";
+
 	}
-	
-	@RequestMapping(value="/comment_list.do", produces="application/json; chatset=utf-8")
-	
-	@ResponseBody
-	public ResponseEntity ajax_listComment (@ModelAttribute("comment_dto") PF_CommentDto comment_dto, @RequestParam("board_no") int board_no, HttpServletRequest request) {
-		
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type", "application/json; charset=utf-8");
-		ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
-		
-		System.out.println(comment_dto);
-		List<PF_CommentDto> commentDto = pf_commentBiz.selectCommentList(comment_dto);
-		
-		
-		if(commentDto.size() > 0) {
-			for(int i = 0; i < commentDto.size(); i++) {
-				HashMap hm = new HashMap();
-				hm.put("comment_no", commentDto.get(i).getComment_no());
-				hm.put("comment_content", commentDto.get(i).getComment_content());
-				hm.put("comment_regdate", commentDto.get(i).getComment_regdate());
-				PF_UserDto a = pf_userBiz.cast(commentDto.get(i).getUser_no());
-				System.out.println(a.toString());
-				hm.put("user_id", a.getUser_id());
-			
-				System.out.println(hm);
-				
-				hmlist.add(hm);
-				
-				System.out.println("response = " + responseHeaders);
-			}
-		}
-		
-		//JSONArray json = new JSONArray(hmlist);
-		JSONArray json = new JSONArray(hmlist);
-		System.out.println(json.toString());
-		return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
-	
-	}
-	
-	
-	@RequestMapping(value="comment_insert.do")
-	@ResponseBody
-	public String ajax_addComment(@ModelAttribute("comment_dto") PF_CommentDto comment_dto, @RequestParam("board_no") int board_no, HttpServletRequest request) {
-		
-		HttpSession session = request.getSession();
-		PF_UserDto userDto = (PF_UserDto)session.getAttribute("userdto");
-		
-		try {
-			
-			comment_dto.setUser_no(userDto.getUser_no());
-			comment_dto.setBoard_no(board_no);
-			System.out.println(comment_dto.toString());
-			pf_commentBiz.insert(comment_dto);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return "success";
-	}
-	
+   
+@RequestMapping(value="/comment_list.do", produces="application/json; chatset=utf-8")
+   
+   @ResponseBody
+   public ResponseEntity ajax_listComment (@ModelAttribute("comment_dto") PF_CommentDto comment_dto, @RequestParam("board_no") int board_no, HttpServletRequest request) {
+      
+      HttpHeaders responseHeaders = new HttpHeaders();
+      responseHeaders.add("Content-Type", "application/json; charset=utf-8");
+      ArrayList<HashMap> hmlist = new ArrayList<HashMap>();
+
+      List<PF_CommentDto> commentDto = pf_commentBiz.selectCommentList(comment_dto);
+      
+      
+      if(commentDto.size() > 0) {
+         for(int i = 0; i < commentDto.size(); i++) {
+            HashMap hm = new HashMap();
+            hm.put("comment_no", commentDto.get(i).getComment_no());
+            hm.put("comment_content", commentDto.get(i).getComment_content());
+            hm.put("comment_regdate", commentDto.get(i).getComment_regdate());
+            PF_UserDto a = pf_userBiz.cast(commentDto.get(i).getUser_no());
+            hm.put("user_id", a.getUser_id());
+            hm.put("user_no",commentDto.get(i).getUser_no());
+
+            hmlist.add(hm);
+
+         }
+      }
+      
+      JSONArray json = new JSONArray(hmlist);
+      System.out.println(json.toString());
+      return new ResponseEntity(json.toString(), responseHeaders, HttpStatus.CREATED);
+   
+   }
+   
+   
+   @RequestMapping(value="/comment_insert.do")
+   @ResponseBody
+   public String ajax_addComment(@ModelAttribute("comment_dto") PF_CommentDto comment_dto, @RequestParam("board_no") int board_no, HttpServletRequest request) {
+      
+	  
+      HttpSession session = request.getSession();
+      PF_UserDto userDto = (PF_UserDto)session.getAttribute("userdto");
+      
+      try {
+         
+         comment_dto.setUser_no(userDto.getUser_no());
+         comment_dto.setBoard_no(board_no);
+         pf_commentBiz.insert(comment_dto);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      
+      return "success";
+   }
+   
+   @RequestMapping(value="/comment_update.do")
+   @ResponseBody
+   public String ajax_updateComment(@ModelAttribute("comment_dto") PF_CommentDto commentDto) {
+      
+      System.out.println(commentDto);
+      
+      try {
+         pf_commentBiz.update(commentDto);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      
+      return "success";
+   }
+   
+   @RequestMapping(value="/comment_delete.do", method=RequestMethod.POST, produces="application/json; chatset=utf-8")
+   @ResponseBody
+   public String ajax_deleteComment(@RequestParam("comment_no") int comment_no) {
+      System.out.println("test");
+      try {
+         pf_commentBiz.delete(comment_no);
+      
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      
+      return "success";
+   }
 
    @RequestMapping(value = "/partner_list.do")
    public String partnerlist() {
@@ -662,4 +701,221 @@ public class HomeController {
    public String project_inspectionList() {
       return "Project_InspectionList";
    }
+// ==============================================================================================================================
+// ==============================================================================================================================
+	
+	// 받은 쪽지함
+	@RequestMapping(value = "message_re.do")
+	public String Message_Re(PF_MessageDto dto, HttpSession session, Model model, int page,String message_state ) {
+		// id값을 받아오기 위해 세션객체 만들어줌
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		// id값 받아옴
+		String user_id = userdto.getUser_id();
+		int countmessage = pf_messageBiz.MessageUnread(user_id, message_state);
+		
+		model.addAttribute("count",countmessage);
+
+		List<PF_MessageDto> reMessage = pf_messageBiz.MessageList_Re(user_id, page);
+		model.addAttribute("reMessage", reMessage);
+		model.addAttribute("page", page);
+		model.addAttribute("totalCount", pf_messageBiz.totalCount_Message_Re(user_id));
+		model.addAttribute("user_id", user_id);
+
+		return "User_NoteReceive_View";
+	}
+		
+		
+	// 보낸 쪽지함
+	@RequestMapping(value = "message_se.do")
+	public String Message_Se(PF_MessageDto dto, HttpSession session, Model model, int page,String message_state) {
+		// id값을 받아오기 위해 세션객체 만들어줌
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		// id값 받아옴
+		String user_id = userdto.getUser_id();
+		int countmessage = pf_messageBiz.MessageUnread(user_id, message_state);
+		
+		model.addAttribute("count",countmessage);
+
+		List<PF_MessageDto> seMessage = pf_messageBiz.MessageList_Se(user_id, page);
+		model.addAttribute("seMessage", seMessage);
+
+		// page=1을 받았고 쪽지를 보내고 1페이지로 이동하기 위해 페이지 값들을 받아줌
+		model.addAttribute("page", page);
+		model.addAttribute("totalCount", pf_messageBiz.totalCount_Message_Se(user_id));
+		model.addAttribute("user_id", user_id);
+
+		return "User_NoteSend_View";
+	}
+
+	// 쪽지 보내기
+	@RequestMapping(value = "message_insert.do")
+	public String Message_Insert(Model model, HttpServletRequest request, HttpSession session, int page) {
+
+		String message_reader = request.getParameter("reader");
+		String message_content = request.getParameter("content");
+		String message_sender = request.getParameter("sender");
+
+		PF_MessageDto dto = new PF_MessageDto(message_content, message_reader, message_sender);
+
+		System.out.println(message_reader + message_content + message_sender);
+
+		int res = pf_messageBiz.MessageInsert(dto);
+
+		if (res > 0) {
+			model.addAttribute("ProjectList", pf_boardBiz.selectBoardList(page));
+
+			return "Project_List";
+		}
+		return "index";
+	}
+
+	// 쪽지 답장 보내기
+	@RequestMapping(value = "message_reply.do")
+	public String Message_Reply(Model model, HttpServletRequest request, HttpSession session, int page) {
+		String message_reader = request.getParameter("reader");
+		String message_content = request.getParameter("content");
+		String message_sender = request.getParameter("sender");
+
+		PF_MessageDto dto = new PF_MessageDto(message_content, message_reader, message_sender);
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		String user_id = userdto.getUser_id();
+
+		int res = pf_messageBiz.MessageInsert(dto);
+
+		if (res > 0) {
+			model.addAttribute("reMessage", pf_messageBiz.MessageList_Re(user_id, page));
+			model.addAttribute("page", page);
+			model.addAttribute("totalCount", pf_messageBiz.totalCount_Message_Se(user_id));
+			model.addAttribute("user_id", user_id);
+
+			return "User_NoteReceive_View";
+		} else {
+			return "index";
+		}
+
+	}
+
+	// 쪽지 읽기(읽음 / 안읽음 표시)
+	@RequestMapping(value = "message_view.do")
+	public String Message_View(Model model, HttpServletRequest request) {
+		int message_no = Integer.parseInt(request.getParameter("message_no"));
+
+		System.out.println(message_no);
+
+		PF_MessageDto MessageView = pf_messageBiz.MessageView(message_no);
+		int MessageUpdate = pf_messageBiz.MessageUpdate(message_no);
+
+		model.addAttribute("MessageView", MessageView);
+		model.addAttribute("MessageUpdate", MessageUpdate);
+
+		return "User_NoteView";
+	}
+
+	// 받은 쪽지 삭제
+	@RequestMapping(value = "receive_delete.do")
+	public String Re_Message_Delete(Model model, HttpServletRequest request, HttpSession session, int page) {
+		int message_no = Integer.parseInt(request.getParameter("message_no"));
+
+		int MessageDelete = pf_messageBiz.MessageDelete(message_no);
+
+		try {
+			// id에 맞는 쪽지함을 불러오기 위해 아이디 값을 받아온다.
+			PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+			// id값 받아옴
+			String user_id = userdto.getUser_id();
+
+			List<PF_MessageDto> reMessage = pf_messageBiz.MessageList_Re(user_id, page);
+
+			model.addAttribute("reMessage", reMessage);
+			model.addAttribute("page", page);
+			model.addAttribute("totalCount", pf_messageBiz.totalCount_Message_Se(user_id));
+			model.addAttribute("user_id", user_id);
+
+			return "User_NoteReceive_View";
+
+		} catch (Exception e) {
+			System.out.println("쪽지 삭제 에러");
+			return "index";
+		}
+	}
+
+	// 보낸 쪽지 삭제
+	@RequestMapping(value = "send_delete.do")
+	public String Se_Message_Delete(Model model, HttpServletRequest request, HttpSession session, int page) {
+		int message_no = Integer.parseInt(request.getParameter("message_no"));
+
+		int MessageDelete = pf_messageBiz.MessageDelete(message_no);
+
+		try {
+			// id에 맞는 쪽지함을 불러오기 위해 아이디 값을 받아온다.
+			PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+			// id값 받아옴
+			String user_id = userdto.getUser_id();
+
+			List<PF_MessageDto> seMessage = pf_messageBiz.MessageList_Se(user_id, page);
+
+			model.addAttribute("seMessage", seMessage);
+			model.addAttribute("page", page);
+			model.addAttribute("totalCount", pf_messageBiz.totalCount_Message_Se(user_id));
+			model.addAttribute("user_id", user_id);
+
+			return "User_NoteSend_View";
+
+		} catch (Exception e) {
+			System.out.println("쪽지 삭제 에러");
+			return "index";
+		}
+	}
+	
+	//받은 쪽지뷰에서 받은 쪽지함으로 이동
+	@RequestMapping(value="re_list.do")
+	public String Re_Message_List(Model model, int page, HttpSession session) {
+		
+		// id에 맞는 쪽지함을 불러오기 위해 아이디 값을 받아온다.
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		// id값 받아옴
+		String user_id = userdto.getUser_id();
+
+		List<PF_MessageDto> reMessage = pf_messageBiz.MessageList_Re(user_id, page);
+		model.addAttribute("reMessage", reMessage);
+		model.addAttribute("page", page);
+		model.addAttribute("totalCount", pf_messageBiz.totalCount_Message_Se(user_id));
+		model.addAttribute("user_id", user_id);
+		return "User_NoteReceive_View";
+	}
+	
+	//보낸 쪽지뷰에서 보낸 쪽지함으로 이동
+	@RequestMapping(value="se_list.do")
+	public String Se_Message_List(Model model, int page, HttpSession session) {
+		
+		// id에 맞는 쪽지함을 불러오기 위해 아이디 값을 받아온다.
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		//id값 받아옴
+		String user_id = userdto.getUser_id();
+		
+		List<PF_MessageDto> seMessage = pf_messageBiz.MessageList_Se(user_id, page);
+		model.addAttribute("seMessage", seMessage);
+		model.addAttribute("page", page);
+		model.addAttribute("totalCount", pf_messageBiz.totalCount_Message_Se(user_id));
+		model.addAttribute("user_id", user_id);
+		return "User_NoteSend_View";
+		
+	}
+	
+	//안읽은 쪽지 개수 출력 테스트(잘 나옴)
+	@RequestMapping(value="count.do")
+	public String counttest(Model model,HttpSession session, String message_state) {
+		// id에 맞는 쪽지함을 불러오기 위해 아이디 값을 받아온다.
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		//id값 받아옴
+		String user_id = userdto.getUser_id();
+		int countmessage = pf_messageBiz.MessageUnread(user_id, message_state);
+		
+		model.addAttribute("count",countmessage);
+		
+		return "test";
+	}
+
+   
 }

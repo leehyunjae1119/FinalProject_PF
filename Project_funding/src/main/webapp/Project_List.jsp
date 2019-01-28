@@ -7,7 +7,7 @@
 
 
 <%
-// 	PF_BoardDto dto = (PF_BoardDto)request.getAttribute("dto");
+//    PF_BoardDto dto = (PF_BoardDto)request.getAttribute("dto");
 %>
 
 <!DOCTYPE html>
@@ -77,24 +77,24 @@
        </div>
        
        
-			<p class="text-muted">
-			${totalCount }개의 프로젝트가 있습니다.
-			</p>
-		</div>
-	</div>
-	
-		<div class="col-md-2" id="list_col">
-			<div class="list_container2">
-				<div class="project_array">
-					<p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
-				</div>
-				<div class="project_array_2">
-					<a href="project_list_money.do?page=1">금액 높은 순</a><br />
-              		<a href="project_list.do?page=1">최신 등록 순</a><br />
-               		<a href="project_list_date.do?page=1">마감 등록 순</a><br />
-				</div>
-			
-			<form  action="detail_search.do?page=1"  method="post">
+         <p class="text-muted">
+         ${totalCount }개의 프로젝트가 있습니다.
+         </p>
+      </div>
+   </div>
+   
+      <div class="col-md-2" id="list_col">
+         <div class="list_container2">
+            <div class="project_array">
+               <p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
+            </div>
+            <div class="project_array_2">
+               <a href="project_list_money.do?page=1">금액 높은 순</a><br />
+                    <a href="project_list.do?page=1">최신 등록 순</a><br />
+                     <a href="project_list_date.do?page=1">마감 등록 순</a><br />
+            </div>
+         
+         <form  action="detail_search.do?page=1"  method="post">
          <div class="project_category">
             <div class="project_cate_title">
                <p class="text-muted" style="font-size: 15px;"><b>프로젝트 카테고리</b></p>
@@ -252,116 +252,116 @@
             
          </div>
        </form>   
-				
-			</div>
-			</div>
+            
+         </div>
+         </div>
 
-		<input type="hidden" id="totalCount" value='${totalCount }'> 
-		<input type="hidden" id="page" value='${page }'>
-		<input type="hidden" id="page" value='${page1 }'>
-		<!-- 카테고리 별 검색 끝! -->
-		<!-- col-md-2 끝! -->
-		<div class="col-md-8" id="col8">
-			<c:choose>
-				<c:when test="${empty ProjectList }">
-					<h3 style="text-align: center;"> ----- 등록된 프로젝트가 없습니다. -----</h3>
-				</c:when>
-			
-			<c:otherwise>
-			<c:forEach var="dto" items="${ProjectList }">
-			<div class="project_content_form">
-				<h5><b><a href="project_view.do?board_no=${dto.board_no }">${dto.board_title }</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_money }원</b></p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted"><b>예상 기간</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_term }일</b></p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
-       						<b>${dto.board_regdate }</b></p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					${dto.board_content}
-       						</p>
-       					
-       					</div>
-       					
+      <input type="hidden" id="totalCount" value='${totalCount }'> 
+      <input type="hidden" id="page" value='${page }'>
+      <input type="hidden" id="page" value='${page1 }'>
+      <!-- 카테고리 별 검색 끝! -->
+      <!-- col-md-2 끝! -->
+      <div class="col-md-8" id="col8">
+         <c:choose>
+            <c:when test="${empty ProjectList }">
+               <h3 style="text-align: center;"> ----- 등록된 프로젝트가 없습니다. -----</h3>
+            </c:when>
+         
+         <c:otherwise>
+         <c:forEach var="dto" items="${ProjectList }">
+         <div class="project_content_form">
+            <h5><b><a href="project_view.do?board_no=${dto.board_no }&user_no=${dto.user_no}">${dto.board_title }</a></b></h5>
+               <div class="project_title2">
+                      <div class="project_money">
+                         <img src="resources/assets/img/money.png" />
+                         <p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_money }원</b></p>
+                      </div>
+                      <div class="project_time">
+                         <img src="resources/assets/img/time.png" />   
+                         <p class="text-muted"><b>예상 기간</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_term }일</b></p>
+                      </div>
+                      <div class="project_support">
+                         <p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
+                         <b>${dto.board_regdate }</b></p>
+                      </div>
+                   </div>
+               <div class="c_detail">
+                  <div class="project_content_detail">
+                         <p class="text-muted" id="detail">
+                      ${dto.board_content}
+                         </p>
+                      
+                      </div>
+                      
 <%
   
-// 					String a = dto.getBoard_regdate();
-//        				System.out.println(dto);
-// 					System.out.println(a);
-// 					Date Ato = new SimpleDateFormat("yyyy-MM-dd").parse(a);
-// 					System.out.println(Ato);
-					
-// 					String b = dto.getRecruit_date();
-// 					System.out.println(b);
-// 					Date Bto = new SimpleDateFormat("yyyy-MM-dd").parse(b);
-// 					System.out.println(Bto);
-					
-//  					long diffSec = Bto.getTime() - Ato.getTime();
-// 					long diffDays = diffSec / (24 * 60 * 60 * 1000);
-// 					System.out.println(diffDays);
-				
-// 					dto.setRecruit(diffDays);
-				
- 				%>
-       				 					
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />		
-       						<p class="text-muted"><b>마감 ${dto.getRecruit()}일 전</b></p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted"><b>총 0명 지원</b></p>
-       					</div>
-       				</div>
-				</div>
-				</c:forEach>
-				</c:otherwise>
-				</c:choose>
-		
-				<!-- 페이징 -->
-					<div id="pagination">
-					
-					<ul class="pagination " id="pasing">
-					
-					</ul>
-					
-					</div>
-				<!-- <div id="pagination">
-					<ul class="pagination pagination-info">
-                		<li class="page-item">
-                	  		<a href="javascript:void(0);" class="page-link"> prev</a>
-                		</li>
-               			<li class="active page-item">
-                  			<a href="javascript:void(0);" class="page-link">1</a>
-                		</li>
-               	 		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">2</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">3</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">4</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">5</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">next </a>
-                		</li>
-              		</ul>
-			</div>-->
-		</div>
-	</div>
+//                String a = dto.getBoard_regdate();
+//                    System.out.println(dto);
+//                System.out.println(a);
+//                Date Ato = new SimpleDateFormat("yyyy-MM-dd").parse(a);
+//                System.out.println(Ato);
+               
+//                String b = dto.getRecruit_date();
+//                System.out.println(b);
+//                Date Bto = new SimpleDateFormat("yyyy-MM-dd").parse(b);
+//                System.out.println(Bto);
+               
+//                 long diffSec = Bto.getTime() - Ato.getTime();
+//                long diffDays = diffSec / (24 * 60 * 60 * 1000);
+//                System.out.println(diffDays);
+            
+//                dto.setRecruit(diffDays);
+            
+             %>
+                                   
+                      <div class="end_date">
+                         <img src="resources/assets/img/K-021.png" />      
+                         <p class="text-muted"><b>마감 ${dto.getRecruit()}일 전</b></p>
+                         <br />
+                         <img src="resources/assets/img/support.png" />
+                         <p class="text-muted"><b>총 0명 지원</b></p>
+                      </div>
+                   </div>
+            </div>
+            </c:forEach>
+            </c:otherwise>
+            </c:choose>
+      
+            <!-- 페이징 -->
+               <div id="pagination">
+               
+               <ul class="pagination " id="pasing">
+               
+               </ul>
+               
+               </div>
+            <!-- <div id="pagination">
+               <ul class="pagination pagination-info">
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link"> prev</a>
+                      </li>
+                        <li class="active page-item">
+                           <a href="javascript:void(0);" class="page-link">1</a>
+                      </li>
+                         <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">2</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">3</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">4</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">5</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">next </a>
+                      </li>
+                    </ul>
+         </div>-->
+      </div>
+   </div>
 </div>
 </div>
 

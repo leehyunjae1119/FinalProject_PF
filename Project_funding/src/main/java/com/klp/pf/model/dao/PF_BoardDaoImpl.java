@@ -5,12 +5,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.javassist.bytecode.Descriptor.Iterator;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.klp.pf.dto.PF_BoardDto;
+
+import java.util.ArrayList;
+
 
 @Repository
 public class PF_BoardDaoImpl implements PF_BoardDao {

@@ -1,5 +1,6 @@
 package com.klp.pf.model.biz;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -85,6 +86,20 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		//인증 실패시(코드 유효 시간 오버)
 		return false;
 	}
+	
+	
+	@Override
+	public List<PF_UserDto> userlist(String user_type) {
+		
+		return pf_dao.userList(user_type);
+	}
+	
+	@Override
+	public PF_UserDto MessageUser(int user_no) {
+		
+		return pf_dao.MessageUser(user_no);
+	}
+	
 	@Override
 	public PF_UserDto cast(int user_no) {
 		

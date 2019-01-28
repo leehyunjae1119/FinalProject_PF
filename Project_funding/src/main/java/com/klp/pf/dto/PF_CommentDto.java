@@ -8,6 +8,7 @@ public class PF_CommentDto {
 	private int user_no;
 	private String comment_regdate;
 	
+	
 	public int getComment_no() {
 		return comment_no;
 	}

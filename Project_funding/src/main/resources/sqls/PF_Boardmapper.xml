@@ -5,9 +5,10 @@
   
 <mapper namespace="pf_board">
 
-	<select id="selectBoardList" resultType="PF_BoardDto">
-		SELECT * FROM PF_BOARD
-	</select>
+	<!--  <select id="selectBoardList" resultType="PF_BoardDto">
+				SELECT * FROM PF_BOARD
+		  </select>
+	-->
 	
 <!-- 	<select id="listPage" resultType="PF_BoardDto" > -->
 <!-- 	<![CDATA[ SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,PROJECT_MONEY,PROJECT_TERM,RECRUIT_PERSONNEL, -->
@@ -78,7 +79,6 @@
 <!--       SELECT COUNT(BOARD_NO) FROM PF_BOARD -->
 <!--    </select> -->
 	
-	
 	<select id="insertBoard" resultType="PF_BoardDto">
 		INSERT INTO PF_BOARD VALUES(PF_BOARD_SEQ.NEXTVAL, #{board_title}, #{board_content}, #{project_money}, #{project_term}, #{project_start_day}, #{recruit_date}, #{recruit_personnel}, #{project_category}, #{project_type}, #{board_file}, '검수 중', TO_CHAR(SYSDATE, 'YYYY-MM-DD'), #{user_no})
 	</select>
@@ -88,7 +88,7 @@
 	</select>
 	
 	<select id="selectBoard" resultType="PF_BoardDto" parameterType="int">
-		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, PROJECT_MONEY, PROJECT_TERM, PROJECT_START_DAY, RECRUIT_DATE, RECRUIT_PERSONNEL, PROJECT_CATEGORY, PROJECT_TYPE, BOARD_FILE, PROJECT_STATE, BOARD_REGDATE, USER_NO FROM PF_BOARD WHERE BOARD_NO = #{board_no}
+		SELECT * FROM PF_BOARD WHERE BOARD_NO = #{board_no}
 	</select>
 	
 	

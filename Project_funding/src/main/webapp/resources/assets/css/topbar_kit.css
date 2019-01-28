@@ -4842,10 +4842,18 @@ tbody.collapse.show {
   list-style: none;
   border-radius: 0.25rem;
 }
-  
+
  
 
+.pagination{
+  display: flex;
+  list-style: none;
+  border-radius: 0.25rem;	
+  text-align: center;
+  
+}
 .page-link {
+  color: red;
   position: relative;
   display: block;
   padding: 0.5rem 0.75rem;

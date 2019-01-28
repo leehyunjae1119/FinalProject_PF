@@ -201,7 +201,6 @@
 	            success : function(html) {
 	                alert("파일 업로드하였습니다.");
 	                document.getElementById("board_file").value=html;
-	                alert(html);
 	            },
 	            error : function(error) {
 	                alert("포트폴리오 업로드에 실패하였습니다.");

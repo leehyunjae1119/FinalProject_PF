@@ -14,7 +14,6 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	@Autowired
 	private PF_BoardDao pf_boardDao;
 	
-	@Override
 	public List<PF_BoardDto> selectBoardList(int page) {
 		System.out.println("biz"+page);
 		return pf_boardDao.selectBoardList(page);
