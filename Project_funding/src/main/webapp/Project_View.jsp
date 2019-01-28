@@ -146,11 +146,10 @@
          <div class="money">
             <p class="text-muted">100,000원</p>
          </div>
-         <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
+      </div>
+       <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
 				메세지 보내기	
 		</button>
-         
-      </div>
 
          <c:if test="${userdto.getUser_no() eq dto.user_no}">
             <button class="btn btn-danger" style="float: right; margin-top: 110px; display: inline-block;" onclick="location.href='project_delete.do?board_no=<jsp:getProperty property="board_no" name="dto" />&page=1'">삭제하기</button>
@@ -178,7 +177,6 @@
 			</form>
 		</div>
 				
-		
 		<form id="comment_form" method="post" action="comment_insert.do" onsubmit="return comment_ajax(this);" style="margin-top: 100px;">
 			<input type="hidden" name="board_no" value="${dto.board_no }" />
 	
@@ -192,31 +190,15 @@
 	</div>
    </div>
    <hr />
-   
-   <div class="comment_container">
-      <h4><b>프로젝트 문의</b></h4>   
-      
+       
       <div id="comment_container2">
          <div id="comment_list">
                
          </div>
       </div>
-            
-      
-      <form id="comment_form" method="post" action="comment_insert.do" onsubmit="return comment_ajax(this);" style="margin-top: 100px;">
-         <input type="hidden" name="board_no" value="${dto.board_no }" />
-         <input type="hidden" name="comment_no" value="${comment_dto.comment_no }" />
-   
-         <div class="free_img">
-            <img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
-         </div>
-         <textarea rows="4" cols="90" name="comment_content" id="comment_content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
-         <button class="btn btn-success" onclick="loginCheck();">등록하기</button>
-      
-      </form>
    </div>
    
-</div>
+
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
 </body>
@@ -263,11 +245,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-
-
-
 <script>
 
    $(function() {
