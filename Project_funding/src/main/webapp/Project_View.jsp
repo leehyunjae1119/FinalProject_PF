@@ -172,7 +172,7 @@
             
       
       <form id="comment_form" method="post" action="comment_insert.do" onsubmit="return comment_ajax(this);" style="margin-top: 100px;">
-         <input type="hidden" name="board_no" value="${dto.board_no }" /> 
+         <input type="hidden" name="board_no" value="${dto.board_no }" />
          <input type="hidden" name="comment_no" value="${comment_dto.comment_no }" />
    
          <div class="free_img">
@@ -226,7 +226,7 @@
       return false;      //안 쓰면 값 두 번 들어감
    }
    
-   var board_no = "${dto.board_no}";
+   var board_no = "{$dto.board_no}";
    function getComment_list(board_no) {
       
       $.ajax ({

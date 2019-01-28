@@ -28,16 +28,16 @@ public class PF_CommentBizImpl implements PF_CommentBiz {
 	}
 
 	@Override
-	public int update(PF_CommentDto dto) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	   public int update(PF_CommentDto dto) {
+	      
+	      return pf_commentDao.update(dto);
+	   }
 
-	@Override
-	public int delete(int comment_no) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	   @Override
+	   public int delete(int comment_no) {
+	      
+	      return pf_commentDao.delete(comment_no);
+	   }
 
 	@Override
 	public List<PF_CommentDto> selectCommentList(PF_CommentDto dto) {
