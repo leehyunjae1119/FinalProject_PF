@@ -195,13 +195,12 @@
          </div>
       </div>
    </div>
-   
 
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
 </body>
 
-						<div class="container">
+		<div class="container">
 			<!-- The Modal -->
 			<div class="modal" id="myModal">
 				<div class="modal-dialog ">

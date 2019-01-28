@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.util.WebUtils;
 
 import com.klp.pf.dto.PF_BoardDto;
 import com.klp.pf.dto.PF_CoinDto;
@@ -100,8 +99,8 @@ public class HomeController {
        @ResponseBody
        public String fileUp(MultipartHttpServletRequest multi, HttpServletRequest request) throws FileNotFoundException {
            // 저장 경로 설정
-          String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/storage");
-//         String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\portfolio";
+//          String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
+          String path="C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\portfolio";
           
           System.out.println(path);
           
@@ -127,9 +126,7 @@ public class HomeController {
                    e.printStackTrace();
                }
            }
-           
-          // System.out.println("테스트테스트테ㅅ 트트테트스트"+fileName);
-           return fileName;
+           return path+"/"+fileName;
        }
        
        @RequestMapping(value="/imageUpload.do")
