@@ -38,7 +38,7 @@
 #col2 {
 	float: right;
 	width: 20%;
-	height: 570px;
+	min-height: 630px;
 	margin-top: 20px;
 	border-style: solid;
 	border-color: #bcbcbc;
@@ -181,5 +181,25 @@ textarea {
 .hidden:first-child {
 	display: none;
 }
+
+#y {
+	float: left;
+	margin-left: 15%;
+}
+
+iframe {
+	min-height: 510px;
+}
+
+.button_container {
+	min-height: 100px;
+}
+
+.partners_button {
+	min-height: 100px;
+	text-align: center;
+}
+
+
 
 
