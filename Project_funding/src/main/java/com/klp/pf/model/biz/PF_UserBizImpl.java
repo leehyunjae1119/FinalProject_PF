@@ -1,5 +1,6 @@
 package com.klp.pf.model.biz;
 
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -101,5 +102,17 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	@Override
 	public int updateUser_Info(PF_UserDto dto) {
 		return pf_dao.updateUser_Info(dto);
+	}
+	@Override
+	public List<PF_UserDto> userlist(String user_type) {
+		return pf_dao.userList(user_type);
+	}
+	@Override
+	public PF_UserDto MessageUser(int user_no) {
+		return pf_dao.MessageUser(user_no);
+	}
+	@Override
+	public PF_UserDto cast(int user_no) {
+		return pf_dao.cast(user_no);
 	}
 }

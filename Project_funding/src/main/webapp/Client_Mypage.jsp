@@ -42,8 +42,8 @@
 					<div class="user_info">
 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
 						<div class="user_info">
-							<p>teemo</p>
-							<p>teemo@naver.com</p>
+							<p>${userdto.user_id }</p>
+							<p>${userdto.user_email }</p>
 						</div>
 					</div>
 					<hr>
@@ -75,8 +75,7 @@
 							</div>
 						</h3>
 						<hr />
-						<%PF_ProfileDto profiledto = (PF_ProfileDto)request.getAttribute("profiledto"); %>
-						<p><%=profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
+						<p>${profiledto.profile_intro }</p>
 					</div>
 					
 				<div class="col col-md-15">

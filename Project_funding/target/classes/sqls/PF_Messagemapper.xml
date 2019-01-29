@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="pf_message">
+
+   	<!-- 보낸 쪽지함 리스트 -->
+   	<select id="MessageList_Re" parameterType="map" resultType="PF_MessageDto">
+	  	<![CDATA[SELECT MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE
+ 	  	FROM(SELECT  MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE, RN  
+ 	  	FROM(SELECT  MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE, ROWNUM AS RN 
+ 	  	FROM (SELECT  MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE 
+ 	  	FROM PF_MESSAGE WHERE MESSAGE_READER = #{user_id} ORDER BY MESSAGE_NO DESC))WHERE RN <= #{page} * 10) WHERE RN >=(#{page} -1) * 10 +1]]>
+   	</select> 
+   
+   	<!-- 보낸 쪽지 개수 -->
+   	<select id="totalCount_Message_Re" parameterType="String" resultType="int" >
+      	SELECT count(*) FROM PF_MESSAGE WHERE MESSAGE_READER=#{user_id}
+   	</select>
+	
+   	<!-- 받은 쪽지함 리스트 -->
+   	<select id="MessageList_Se" parameterType="map" resultType="PF_MessageDto">
+      	<![CDATA[SELECT MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE
+      	FROM(SELECT  MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE, RN  
+ 	  	FROM(SELECT  MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE, ROWNUM AS RN 
+ 	  	FROM (SELECT  MESSAGE_NO,MESSAGE_CONTENT,MESSAGE_READER,MESSAGE_SENDER,MESSAGE_SENDDATE,MESSAGE_STATE 
+	  	FROM PF_MESSAGE WHERE MESSAGE_SENDER = #{user_id} ORDER BY MESSAGE_NO DESC))WHERE RN <= #{page} * 10) WHERE RN >=(#{page} -1) * 10 +1]]>
+   	</select> 
+      
+   	<!-- 받은 쪽지 개수 -->
+   	<select id="totalCount_Message_Se" parameterType="String" resultType="int" >
+      	SELECT count(*) FROM PF_MESSAGE WHERE MESSAGE_SENDER=#{user_id}
+   	</select>
+	
+
+	<!-- 쪽지 읽기 -->
+	<select id="MessageView" resultType="PF_MessageDto">
+		SELECT * FROM PF_MESSAGE
+		WHERE MESSAGE_NO = #{message_no}
+	</select>
+	
+	
+	<!-- 쪽지 보내기 -->
+	<insert id="MessageInsert" parameterType="PF_MessageDto">
+		INSERT INTO PF_MESSAGE
+		VALUES(PF_MESSAGE_SEQ.NEXTVAL,#{message_content},#{message_reader},#{message_sender},SYSDATE,'안읽음')
+	</insert>
+
+	<!-- 쪽지 삭제 -->
+	<delete id="MessageDelete" parameterType="int">
+		DELETE FROM PF_MESSAGE 
+		WHERE MESSAGE_NO = #{message_no}
+	</delete>
+	
+	<!-- 쪽지 상태 표시 -->
+	<update id="MessageUpdate" parameterType="int">
+		UPDATE PF_MESSAGE SET MESSAGE_STATE='읽음'
+		WHERE MESSAGE_NO = #{message_no}
+	</update>	
+	
+	<!-- 받은 쪽지 중 안읽은 쪽지 개수 검색 -->
+	<select id="MessageUnread" resultType="int">
+		SELECT COUNT(*) FROM PF_MESSAGE
+		WHERE MESSAGE_READER =#{user_id} AND MESSAGE_STATE='안읽음'	
+	</select>
+
+</mapper>
+	

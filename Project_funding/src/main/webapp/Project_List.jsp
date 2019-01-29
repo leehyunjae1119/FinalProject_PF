@@ -1,5 +1,15 @@
+<%@page import="com.klp.pf.dto.PF_BoardDto"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+<%
+//    PF_BoardDto dto = (PF_BoardDto)request.getAttribute("dto");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,737 +40,328 @@
  <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
  <!-- CSS Just for demo purpose, don't include it in your project -->
  <link href="resources/assets/demo/demo.css" rel="stylesheet" />
+ 
+ 
+ <script type="text/javascript"src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<c:if test="${page ne null}">
+<script type="text/javascript" src="resources/paging/paging.js?ver=1"></script>
+</c:if>
+<c:if test="${page1 ne null}">
+<script type="text/javascript" src="resources/paging/paging2.js?ver=1"></script>
+</c:if>
 
 
+
+   
 </head>
+
 <body>
 <div class="main main-raised">
 <div class="list_container">
-	<div class="row">
-	<div class="col-md-12" style="height: 170px;">
-		<div class="container_title">
-		<h3><span class="tim-note"><b>프로젝트 찾기</b></span></h3>
- 		<div class="project_list">
- 			<form class="form-inline ml-auto">
-                  <div class="form-group has-white">
-                    <input type="text" class="form-control" placeholder="Search">
+   <div class="row">
+   <div class="col-md-12" style="height: 170px;">
+      <div class="container_title">
+      <h3><span class="tim-note"><b>프로젝트 찾기</b></span></h3>
+           <div class="project_list">
+          <form class="form-inline ml-auto" action="search.do?page=1" method="post">
+             <input type="hidden" id="page" value="1">
+                  <div class="form-group has-white"> 
+                    <input type="text" class="form-control" placeholder="Search" name="board_title" style="color: black;">
                   </div>
-                  <button type="submit" class="btn btn-white btn-raised btn-fab btn-round">
+                  <button type="submit" class="btn btn-white btn-raised btn-fab btn-round" >
                     <i class="material-icons" style="background-color: black;">search</i>
                   </button>
-            </form>
- 		</div> 
-			<p class="text-muted">
-			15,846개의 프로젝트가 있습니다.
-			</p>
-		</div>
-	</div>
-	
-		<div class="col-md-2" id="list_col">
-			<div class="list_container2">
-				<div class="project_array">
-					<p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
-				</div>
-				<div class="project_array_2">
-					<a href="#">금액 높은 순</a><br />
-					<a href="#">최신 등록 순</a><br />
-					<a href="#">마감 등록 순</a><br />
-				</div>
-			
-			<div class="project_category">
-				<div class="project_cate_title">
-					<p class="text-muted" style="font-size: 15px;"><b>프로젝트 카테고리</b></p>
-				</div>
-				<div class="project_cate">
-					<div class="form-check">
-               		 	<label class="form-check-label">
-                 		 <input class="form-check-input" type="checkbox" value="">
-                 		 	<p class="text-muted" style="font-size: 12px;">개발</p>
-                 		 <span class="form-check-sign">
-                	 	   <span class="check"></span>
-                		  </span>
-                		</label>
-             		</div>
-             		<div class="project_cate2">
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">웹</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">어플리케이션</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">일반 소프트웨어</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">게임</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">임베디드</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">퍼블리싱</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">기타</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             		</div>
-				</div>
-				<div class="project_cate">
-					<div class="form-check">
-               		 	<label class="form-check-label">
-                 		 <input class="form-check-input" type="checkbox" value="">
-                 		 	<p class="text-muted" style="font-size: 12px;">금액</p>
-                 		 <span class="form-check-sign">
-                	 	   <span class="check"></span>
-                		  </span>
-                		</label>
-             		</div>
-             		<div class="project_cate2">
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">100만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">500만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">1000만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">5000만원 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">1억 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			<div class="form-check">
-               		 		<label class="form-check-label">
-                 			 <input class="form-check-input" type="checkbox" value="">
-                 			 	<p class="text-muted" style="font-size: 12px;">10억 이하</p>
-                 			 <span class="form-check-sign">
-                	 		   <span class="check"></span>
-                			  </span>
-                			</label>
-             			</div>
-             			
-             		</div>
-				</div>
-				
-				<div class="meeting_title">
-					<div class="meeting_area_title">
-						<p class="text-muted" style="font-size: 13px;"><b>미팅 진행지역</b></p>
-					</div>
-					<div class="select_area">
-						<select name="category" style="font-size: 13px;">
-							<option value="" selected>전체 지역</option>
-  							<option value="web">서울특별시</option>
-  							<option value="app">경기도</option>
-  							<option value="software">인천 광역시</option>
-  							<option value="game">부산 광역시</option>
-  							<option value="embedded">부산 광역시</option>
-  							<option value="publishing">대구 광역시</option>
-  							<option value="other">광주 광역시</option>
-  							<option value="other">대전 광역시</option>
-  							<option value="other">울산 광역시</option>
-  							<option value="other">세종 특별자치시</option>
-  							<option value="other">강원도</option>
-  							<option value="other">충청도</option>
-  							<option value="other">전라도</option>
-  							<option value="other">경상도</option>
-  							<option value="other">제주 특별자치도</option>
-						</select>
-					</div>
-					<div class="search_button">
-						<button class="btn" style="width: 200px; height: 40px;">검색</button>
-					</div>
-				</div>
-				<!-- 미팅 지역 끝! -->
-				
-			</div>
-			</div>
-		</div>
-		<!-- 카테고리 별 검색 끝! -->
-		<!-- col-md-2 끝! -->
-		<div class="col-md-8" id="col8">
-			<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;<b>2019.01.01</b></p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
+            
+            </form> 
+       </div>
+       
+       
+         <p class="text-muted">
+         ${totalCount }개의 프로젝트가 있습니다.
+         </p>
+      </div>
+   </div>
+   
+      <div class="col-md-2" id="list_col">
+         <div class="list_container2">
+            <div class="project_array">
+               <p class="text-muted" style="font-size: 15px;"><b>프로젝트 정렬</b></p>
+            </div>
+            <div class="project_array_2">
+               <a href="project_list_money.do?page=1">금액 높은 순</a><br />
+                    <a href="project_list.do?page=1">최신 등록 순</a><br />
+                     <a href="project_list_date.do?page=1">마감 등록 순</a><br />
+            </div>
+         
+         <form  action="detail_search.do?page=1"  method="post">
+         <div class="project_category">
+            <div class="project_cate_title">
+               <p class="text-muted" style="font-size: 15px;"><b>프로젝트 카테고리</b></p>
+            </div>
+            <div class="project_cate">
+               <div class="form-check">
+                         <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="checkAll" value="check all"  >
+                           개발
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                   </div>
+                   <div class="project_cate2">
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="웹" name="category1" >
+                              웹
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="어플리케이션" name="category1">
+                              어플리케이션
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="일반 소프트웨어" name="category1">
+                              일반 소프트웨어
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="게임" name="category1">
+                              게임
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="임베디드" name="category1">
+                              임베디드
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="퍼블리싱" name="category1">
+                              퍼블리싱
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value="기타" name="category1">
+                              기타
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                   </div>
+             
+            </div>
+            <div class="project_cate">
+               <div class="form-check">
+                         <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" value="금액">
+                           금액
+                        <span class="form-check-sign">
+                          <span class="check"></span>
+                        </span>
+                      </label>
+                   </div>
+                   <div class="project_cate2">
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value=1000000 name="category2">
+                              100만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value=5000000 name="category2">
+                              500만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value=10000000 name="category2">
+                              1000만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value=50000000 name="category2">
+                              5000만원 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value=100000000 name="category2">
+                              1억 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      <div class="form-check">
+                            <label class="form-check-label">
+                           <input class="form-check-input" type="checkbox" value=1000000000 name="category2">
+                              10억 이하
+                           <span class="form-check-sign">
+                             <span class="check"></span>
+                           </span>
+                         </label>
+                      </div>
+                      
+                   </div>
+            </div>
+            
+            <div class="search_button">
+                  <button class="btn" style="width: 200px; height: 40px;">검색</button>
+             </div>
+            <!-- 미팅 지역 끝! -->
+            
+         </div>
+       </form>   
+            
+         </div>
+         </div>
 
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted"><b>마감 1주일 4일 전</b></p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted"><b>총 78명 지원</b></p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>200,000원</b></p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b>180일</b></p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;<b>2019.01.01</b></p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted"><b>마감 1주일 4일 전</b></p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted"><b>총 78명 지원</b></p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				<div class="project_content_form">
-				<h5><b><a href="#">제공되는 참고 소스 기반 BLE 데이터 연동!</a></b></h5>
-					<div class="project_title2">
-       					<div class="project_money">
-       						<img src="resources/assets/img/money.png" />
-       						<p class="text-muted">예상 금액&nbsp;&nbsp;&nbsp;200,000원</p>
-       					</div>
-       					<div class="project_time">
-       						<img src="resources/assets/img/time.png" />	
-       						<p class="text-muted">예상 시간&nbsp;&nbsp;&nbsp;180일</p>
-       					</div>
-       					<div class="project_support">
-       						<p class="text-muted">등록 일자&nbsp;&nbsp;&nbsp;2019.01.01</p>
-       					</div>
-       				</div>
-					<div class="c_detail">
-						<div class="project_content_detail">
-       						<p class="text-muted" id="detail">
-       					자사 사무실에서 상주하여 근무가 가능한 풀 스택 개발자 1분을 모집하고 있습니다.
-						- 근무 방식 : 주 5일 또는 3일 출근(상주 / 협의 후 결정합니다. )
-						- 프로젝트 대금 지급 : 월 단위 지급
-
-						모집 인원 : 1명
-						- 3년 차 이상 : 1명 (월 500만 원)
-						경력/이력 등 관련 경험에 따라 최종 계약 금액은 변경될 수 있습니다.
-
-
-						1) 근무 위치 : 서울특별시 서초구 강남대로 69길 8(신논현 역 교보타워 인근)
-						2) 근무 시간 : 오전 9시 ~ 오후 6시 또는 오전 10시 ~ 오후 7시( 휴게시간 12시 ~ 1시 또는 1시 ~ 2시 )
-						3) 근무 일정 : 1개월 이상 근무를 요청드립니다. ( 1개월 계약 후 연장 요청드릴 예정입니다. )
-						출근 예정일 : 협의 후 결정할 예정입니다.
-						4) 식사 지원 : 중식 제공합니다.
-						5) 장비 지참 : 개인 장비 지참 부탁드립니다.
-						6) 협업 예정자 : 소스코드 제공 및 인수인계 가능한 개발자분이 있습니다.
-
-						정부지원을 받아 진행되는 프로젝트로 아래 조건이 가능한 파트너와 계약이 가능합니다.
-       						</p>
-       					
-       					</div>
-       					<div class="end_date">
-       						<img src="resources/assets/img/K-021.png" />
-       						<p class="text-muted">마감 1주일 4일 전</p>
-       						<br />
-       						<img src="resources/assets/img/support.png" />
-       						<p class="text-muted">총 78명 지원</p>
-       					</div>
-       				</div>
-				</div>
-				
-				<!-- 페이징 -->
-				<div id="pagination">
-					<ul class="pagination pagination-info">
-                		<li class="page-item">
-                	  		<a href="javascript:void(0);" class="page-link"> prev</a>
-                		</li>
-               			<li class="active page-item">
-                  			<a href="javascript:void(0);" class="page-link">1</a>
-                		</li>
-               	 		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">2</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">3</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">4</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">5</a>
-                		</li>
-                		<li class="page-item">
-                  			<a href="javascript:void(0);" class="page-link">next </a>
-                		</li>
-              		</ul>
-			</div>
-		</div>
-	</div>
+      <input type="hidden" id="totalCount" value='${totalCount }'> 
+      <input type="hidden" id="page" value='${page }'>
+      <input type="hidden" id="page" value='${page1 }'>
+      <!-- 카테고리 별 검색 끝! -->
+      <!-- col-md-2 끝! -->
+      <div class="col-md-8" id="col8">
+         <c:choose>
+            <c:when test="${empty ProjectList }">
+               <h3 style="text-align: center;"> ----- 등록된 프로젝트가 없습니다. -----</h3>
+            </c:when>
+         
+         <c:otherwise>
+         <c:forEach var="dto" items="${ProjectList }">
+         <div class="project_content_form">
+            <h5><b><a href="project_view.do?board_no=${dto.board_no }&user_no=${dto.user_no}">${dto.board_title }</a></b></h5>
+               <div class="project_title2">
+                      <div class="project_money">
+                         <img src="resources/assets/img/money.png" />
+                         <p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_money }원</b></p>
+                      </div>
+                      <div class="project_time">
+                         <img src="resources/assets/img/time.png" />   
+                         <p class="text-muted"><b>예상 기간</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_term }일</b></p>
+                      </div>
+                      <div class="project_support">
+                         <p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
+                         <b>${dto.board_regdate }</b></p>
+                      </div>
+                   </div>
+               <div class="c_detail">
+                  <div class="project_content_detail">
+                         <p class="text-muted" id="detail">
+                      ${dto.board_content}
+                         </p>
+                      
+                      </div>
+                      
+<%
+  
+//                String a = dto.getBoard_regdate();
+//                    System.out.println(dto);
+//                System.out.println(a);
+//                Date Ato = new SimpleDateFormat("yyyy-MM-dd").parse(a);
+//                System.out.println(Ato);
+               
+//                String b = dto.getRecruit_date();
+//                System.out.println(b);
+//                Date Bto = new SimpleDateFormat("yyyy-MM-dd").parse(b);
+//                System.out.println(Bto);
+               
+//                 long diffSec = Bto.getTime() - Ato.getTime();
+//                long diffDays = diffSec / (24 * 60 * 60 * 1000);
+//                System.out.println(diffDays);
+            
+//                dto.setRecruit(diffDays);
+            
+             %>
+                                   
+                      <div class="end_date">
+                         <img src="resources/assets/img/K-021.png" />      
+                         <p class="text-muted"><b>마감 ${dto.getRecruit()}일 전</b></p>
+                         <br />
+                         <img src="resources/assets/img/support.png" />
+                         <p class="text-muted"><b>총 0명 지원</b></p>
+                      </div>
+                   </div>
+            </div>
+            </c:forEach>
+            </c:otherwise>
+            </c:choose>
+      
+            <!-- 페이징 -->
+               <div id="pagination">
+               
+               <ul class="pagination " id="pasing">
+               
+               </ul>
+               
+               </div>
+            <!-- <div id="pagination">
+               <ul class="pagination pagination-info">
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link"> prev</a>
+                      </li>
+                        <li class="active page-item">
+                           <a href="javascript:void(0);" class="page-link">1</a>
+                      </li>
+                         <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">2</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">3</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">4</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">5</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">next </a>
+                      </li>
+                    </ul>
+         </div>-->
+      </div>
+   </div>
 </div>
 </div>
 
