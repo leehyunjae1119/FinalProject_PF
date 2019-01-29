@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html;charset=UTF-8"); %>
 
 <html>
 <head>
@@ -201,6 +203,7 @@
 	            success : function(html) {
 	                alert("파일 업로드하였습니다.");
 	                document.getElementById("board_file").value=html;
+	               // alert(document.getElementById("board_file").value);
 	            },
 	            error : function(error) {
 	                alert("포트폴리오 업로드에 실패하였습니다.");

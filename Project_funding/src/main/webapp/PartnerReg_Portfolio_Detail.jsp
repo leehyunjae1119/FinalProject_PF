@@ -10,13 +10,16 @@
 
 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
 	<%@ include file="WEB-INF/inc/client_topbar.jsp"%></c:if>
+<c:if test="${userdto.getUser_type() eq '투자자' }">
+  <%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
+</c:if>
 <meta charset="utf-8" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png"
 	href="resources/assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<title>Material Kit by Creative Tim</title>
+<title>Puding</title>
 <meta
 	content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
 	name='viewport' />
@@ -44,40 +47,40 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row row-offcanvas row-offcanvas-right">
-					<%@include file="WEB-INF/inc/profile_sidebar.jsp"%>
+					<%@include file="WEB-INF/inc/profile_sidebar.jsp" %>
 
 					<div class="col-12 col-md-9" style="margin-top: -30px;">
 						<h3>
-							<b>${dto.portfolio_title }</b>
+							<b>${portfoliodto.portfolio_title }</b>
 						</h3>
 						<hr>
 						<form action="partnerReg_portfolioInsert.do">
 							<div class="form-group bmd-form-group is-filled">
 								<label for="PortfolioFormStartday"
 									class="label-control bmd-label-static">참여시작일</label>
-								<p class="text-muted" id="detail">${portfolio_start_day }</p>
+								<p class="text-muted" id="detail">${portfoliodto.portfolio_start_day }</p>
 							</div>
 							<div class="form-group bmd-form-group is-filled">
 								<label for="PortfolioFormEndday"
 									class="label-control bmd-label-static">참여종료일</label>
-								<p class="text-muted" id="detail">${portfolio_end_day }</p>
+								<p class="text-muted" id="detail">${portfoliodto.portfolio_end_day }</p>
 							</div>
 							<div class="form-group">
 								<label for="PortfolioFormTitle">참여율</label>
-								<p class="text-muted" id="detail">${portfolio_participation }
+								<p class="text-muted" id="detail">${portfoliodto.portfolio_participation }
 								</p>
 							</div>
 							<div class="form-group">
 								<label for="AboutFormContent">요약내용</label>
-								<p class="text-muted" id="detail">${portfolio_content }</p>
+								<p class="text-muted" id="detail">${portfoliodto.portfolio_content }</p>
 							</div>
 							<br>
 							<br>
 							<br>
 						</form>
 
-						<c:if test="${dto.board_file ne null }">
-							<iframe src="http://localhost:8787/pf/storage/${dto.board_file }"
+						<c:if test="${dto.portfolio_file ne null }">
+							<iframe src="http://localhost:8787/pf/storage/${portfoliodto.portfolio_file }"
 								style="width: 100%; height: 500px;" frameborder="0"></iframe>
 							<%--          <h1>${dto.board_file }</h1> --%>
 						</c:if>
@@ -112,122 +115,7 @@
 	<!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
 	<script src="resources/assets/js/material-kit.js?v=2.0.5"
 		type="text/javascript"></script>
-	<script>
-		$(document).ready(function() {
-			//init DateTimePickers
-			materialKit.initFormExtendedDatetimepickers();
-		});
 
-	</script>
-	<script>
-	    function fileSubmit() {
-	        var formData = new FormData($("#fileUploadForm")[0]);
-	        $.ajax({
-	            type : 'post',
-	            url : 'fileUpload.do',
-	            data : formData,
-	            processData : false,
-	            contentType : false,
-	            success : function(html) {
-	                alert("파일 업로드하였습니다.");
-	                document.getElementById("portfolio_file").value=html;
-	            },
-	            error : function(error) {
-	                alert("포트폴리오 업로드에 실패하였습니다.");
-	                console.log(error);
-	                console.log(error.status);
-	            }
-	        });
-	    }	
-	</script>
-	<script>
-    $(document).ready(function() {
-      if ($('.card-header.card-chart').length != 0) {
-        md.initDashboardPageCharts();
-      }
-
-      if ($('#websiteViewsChart').length != 0) {
-        md.initDocumentationCharts();
-      }
-      if ($('.datetimepicker').length != 0) {
-        md.initFormExtendedDatetimepickers();
-      }
-      if ($('#fullCalendar').length != 0) {
-        md.initFullCalendar();
-      }
-
-      if ($('.slider').length != 0) {
-        md.initSliders();
-      }
-
-      //  Activate the tooltips
-      $('[data-toggle="tooltip"]').tooltip();
-
-      // Activate Popovers
-      $('[data-toggle="popover"]').popover();
-
-      // Vector map
-      if ($('#worldMap').length != 0) {
-        md.initVectorMap();
-      }
-
-      if ($('#RegisterValidation').length != 0) {
-
-        setFormValidation('#RegisterValidation');
-
-        function setFormValidation(id) {
-          $(id).validate({
-            highlight: function(element) {
-              $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
-              $(element).closest('.form-check').removeClass('has-success').addClass('has-danger');
-            },
-            success: function(element) {
-              $(element).closest('.form-group').removeClass('has-danger').addClass('has-success');
-              $(element).closest('.form-check').removeClass('has-danger').addClass('has-success');
-            },
-            errorPlacement: function(error, element) {
-              $(element).closest('.form-group').append(error);
-            },
-          });
-        }
-      }
-
-    });
-
-    // FileInput
-    $('.form-file-simple .inputFileVisible').click(function() {
-      $(this).siblings('.inputFileHidden').trigger('click');
-    });
-
-    $('.form-file-simple .inputFileHidden').change(function() {
-      var filename = $(this).val().replace(/C:\\fakepath\\/i, '');
-      $(this).siblings('.inputFileVisible').val(filename);
-    });
-
-    $('.form-file-multiple .inputFileVisible, .form-file-multiple .input-group-btn').click(function() {
-      $(this).parent().parent().find('.inputFileHidden').trigger('click');
-      $(this).parent().parent().addClass('is-focused');
-    });
-
-    $('.form-file-multiple .inputFileHidden').change(function() {
-      var names = '';
-      for (var i = 0; i < $(this).get(0).files.length; ++i) {
-        if (i < $(this).get(0).files.length - 1) {
-          names += $(this).get(0).files.item(i).name + ',';
-        } else {
-          names += $(this).get(0).files.item(i).name;
-        }
-      }
-      $(this).siblings('.input-group').find('.inputFileVisible').val(names);
-    });
-
-    $('.form-file-multiple .btn').on('focus', function() {
-      $(this).parent().siblings().trigger('focus');
-    });
-
-    $('.form-file-multiple .btn').on('focusout', function() {
-      $(this).parent().siblings().trigger('focusout');
-    });
   </script>
 </body>
 </html>
