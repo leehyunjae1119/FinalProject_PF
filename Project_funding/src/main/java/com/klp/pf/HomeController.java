@@ -836,8 +836,10 @@ public class HomeController {
 	public String clientrmypage(HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
-//		profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
-//				.replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+		
+		if(profiledto.getProfile_intro()!=null) {
+			profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+		}
 		model.addAttribute("profiledto", profiledto);
 		return "Client_Mypage";
 	}

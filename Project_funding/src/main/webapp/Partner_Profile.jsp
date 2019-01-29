@@ -138,7 +138,7 @@
 							</div>
 							<br> <br>
 							<c:choose>
-								<c:when test="${techdtoList eq null }"> 
+								<c:when test="${techList eq null }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
@@ -156,7 +156,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${techList }" var="techdto">
+										<c:forEach items="${techdtoList }" var="techdto">
 											<tr>	
 												<th scope="row">${techdto.tech_type }</th>
 												<td>${techdto.tech_skill }</td>
@@ -180,7 +180,7 @@
 							</div>
 							<br><br> 
 							<c:choose>
-								<c:when test="${careerdtoList eq null }"> 
+								<c:when test="${careerList eq null }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
@@ -199,7 +199,7 @@
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${careerList}" var="careerdto">
+										<c:forEach items="${careerdtoList}" var="careerdto">
 											<tr>
 												<th scope="row">${careerdto.career_company }</th>
 												<td>${careerdto.career_dept }</td>
