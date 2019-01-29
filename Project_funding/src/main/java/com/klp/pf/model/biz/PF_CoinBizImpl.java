@@ -29,5 +29,10 @@ public class PF_CoinBizImpl implements PF_CoinBiz {
 	public int coin_insert(int user_no, int coin_money, String coin_state) {
 		return pf_dao.coin_insert(user_no, coin_money, coin_state);
 	}
+
+	@Override
+	public int coin_update(int coin_no) {
+		return pf_dao.coin_update(coin_no);
+	}
 }
 

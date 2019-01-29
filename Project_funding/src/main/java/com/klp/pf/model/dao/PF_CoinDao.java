@@ -16,5 +16,6 @@ public interface PF_CoinDao {
 		
 		//포인트 충전
 		public int coin_insert(int user_no, int coin_money, String coin_state);
+		public int coin_update(int coin_no);
 
 }

@@ -59,4 +59,11 @@ public class PF_CoinDaoImpl implements PF_CoinDao {
 		return res;
 	}
 
+	@Override
+	public int coin_update(int coin_no) {
+		int res = 0;
+		res=sqlSession.update(pf_coinNamespace+"refundMoney",coin_no);
+		return res;
+	}
+
 }

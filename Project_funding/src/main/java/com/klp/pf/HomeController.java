@@ -315,11 +315,11 @@ public class HomeController {
 		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
 		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
 
-		// int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
-		// model.addAttribute("invest_totalMoney", invest_totalMoney);
+		 int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
+		 model.addAttribute("invest_totalMoney", invest_totalMoney);
 		model.addAttribute("messageuser", pf_userBiz.MessageUser(user_no));
 		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
-		// model.addAttribute("coin", coin_charge - coin_use);
+		 model.addAttribute("coin", coin_charge - coin_use);
 
 		return "Project_View";
 	}
@@ -420,50 +420,50 @@ public class HomeController {
 	@RequestMapping(value = "/user_coin.do")
 	public String coin(HttpServletRequest request, HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
 		List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no());
+
 		int coin_charge = 0;
 		int coin_use = 0;
+		int coin_A = 0;
+		int coin_B = 0;
 
 		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
 		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
+		coin_A = pf_coinBiz.coin(userdto.getUser_no(), "환불대기중");
+		coin_B = pf_coinBiz.coin(userdto.getUser_no(), "환불완료");
 
 		model.addAttribute("coinlist", list);
+
 		// 현재 보유 포인트
-		model.addAttribute("coin", coin_charge - coin_use);
+		model.addAttribute("coin", coin_charge - coin_use + coin_A - coin_B);
 
 		return "User_Coin";
 	}
 
-	////////////////////// 포인트 충전 페이지//////////////////
+//////////////////////포인트 충전 페이지//////////////////	
 	@RequestMapping(value = "/user_coin1.do")
 	public String coin1(HttpServletRequest request, HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-		int amount = 0;
 
+		int amount = 0;
 		if (request.getParameter("amount") != null) {
 			amount = Integer.parseInt(request.getParameter("amount"));
 			pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
 		}
+
 		model.addAttribute("amount", amount);
 
 		return "redirect:/user_coin.do";
 	}
 
-	/////////////////////////////// 사용/////////////////////////
+///////////////////////////////사용/////////////////////////	
 	@RequestMapping(value = "coin_payment_use_01.do")
 	public String getCoin_payment_use01(Model model, int amount_val, int board_no) {
+
 		model.addAttribute("amount_val", amount_val);
 		model.addAttribute("board_no", board_no);
 		return "example01";
-	}
-
-	@RequestMapping(value = "coin_payment_use.do", method = RequestMethod.GET)
-	public String getCoin_Payment_use(HttpSession session, int amount_val, int board_no, Model model) {
-		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-		pf_coinBiz.coin_insert(userdto.getUser_no(), amount_val, "사용");
-		pf_investBiz.invest_insert(userdto.getUser_no(), amount_val, board_no);
-
-		return "redirect:/user_coin.do";
 	}
 
 	@RequestMapping(value = "/user_coinpayment.do")
@@ -472,6 +472,27 @@ public class HomeController {
 		return "User_CoinPayment";
 	}
 
+	@RequestMapping(value = "coin_payment_use.do", method = RequestMethod.GET)
+	public String getCoin_Payment_use(HttpSession session, int amount_val, int board_no, Model model) {
+
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+
+		pf_coinBiz.coin_insert(userdto.getUser_no(), amount_val, "사용");
+		pf_investBiz.invest_insert(userdto.getUser_no(), amount_val, board_no);
+
+		return "redirect:/user_coin.do";
+	}
+
+	
+////////////////환불/////////////////
+	@RequestMapping(value = "User_refund.do")
+	public String User_refund(int coin_no, HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		pf_coinBiz.coin_update(coin_no);
+		return "redirect:/user_coin.do";
+	}
+	
+	
 	@RequestMapping(value = "/project_fundinglist.do")
 	public String projectfunding() {
 		return "Project_FundingList";
