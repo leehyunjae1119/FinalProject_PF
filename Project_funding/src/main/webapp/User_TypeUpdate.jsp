@@ -41,38 +41,38 @@
 	<div class="main main-raised">
 		<div class="section section-basic">
 			<div class="container">
-			<div class="row">
-				 <c:if test="${userdto.getUser_type() eq '파트너스' }">
-				  <%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
-				   
-				 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
-				  <%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>
-				   
-				 <c:if test="${userdto.getUser_type() eq '투자자' }">
-				<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %></c:if>
-				<!-- 왼쪽 사이드 바 div -->
-				<div class="col" style="margin-top: -30px;">
-				<div class="col col-md-15">
-					<h3><b>계정 유형 변경 신청</b></h3>
-					<p class="text-muted" style="font-size: 13px;">계정의 유형을 변경할 수 있습니다.</p>
-				</div>
-				<br>
+				<div class="row">
+					<c:if test="${userdto.getUser_type() eq '파트너스' }">
+					<%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>
+					   
+					<c:if test="${userdto.getUser_type() eq '클라이언트' }">
+					<%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>
+					   
+					<c:if test="${userdto.getUser_type() eq '투자자' }">
+					<%@ include file="WEB-INF/inc/investor_sidebar.jsp" %></c:if>
+					<!-- 왼쪽 사이드 바 div -->
+					<div class="col" style="margin-top: -30px;">
+						<div class="col col-md-15">
+							<h3><b>계정 유형 변경 신청</b></h3>
+							<p class="text-muted" style="font-size: 13px;">계정의 유형을 변경할 수 있습니다.</p>
+						</div>
+						<br>
 						<div class="col col-md-15" id="col15">
-							<form action="#">
+							<form action="user_typeUpdateAction.do">
 								<h4><b>유형변경</b></h4>
-								<select title="user_type" class="form-control" id="select_type">
-									<option>=== 유형을 선택해 주세요 ===</option>
-									<option>개인</option>
-									<option>클라이언트</option>
-									<option>투자자</option>
+								<select title="user_type" class="form-control" id="select_type" name="select_type">
+									<option value="투자자" <c:if test="${userdto.user_type eq '투자자'}">selected</c:if>>투자자</option>
+									<option value="파트너스" <c:if test="${userdto.user_type eq '파트너스'}">selected</c:if>>파트너스</option>
+									<option value="클라이언트" <c:if test="${userdto.user_type eq '클라이언트'}">selected</c:if>>클라이언트</option>
 								</select>
+								
+								<div class="user_bt">
+									<input type="submit" class="btn btn-success" value="변경하기">
+								</div>
 							</form>
 						</div>
-							<div class="user_bt">
-								<input type="submit" class="btn btn-success" value="변경하기">
-							</div>
-					</div>
-				</div> 
+					</div> 
+				</div>
 			</div>
 		</div>
 	</div>

@@ -18,6 +18,10 @@ public class PF_UserDto {
 	private String user_email_hash;
 	private String user_email_check;
 	private String user_img;
+	private String user_name;
+	private String user_sex;
+	private String user_birth;
+	private String user_uptype;
 	
 	public PF_UserDto() {
 		super();
@@ -30,6 +34,24 @@ public class PF_UserDto {
 		this.user_type = user_type;
 	}
 	
+	public PF_UserDto(int user_no, String user_id, String user_pw, String user_email, String user_type,
+			String user_addr, String user_email_hash, String user_email_check, String user_img, String user_name,
+			String user_sex, String user_birth, String user_uptype) {
+		super();
+		this.user_no = user_no;
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_email = user_email;
+		this.user_type = user_type;
+		this.user_addr = user_addr;
+		this.user_email_hash = user_email_hash;
+		this.user_email_check = user_email_check;
+		this.user_img = user_img;
+		this.user_name = user_name;
+		this.user_sex = user_sex;
+		this.user_birth = user_birth;
+		this.user_uptype = user_uptype;
+	}
 	public String getUser_addr() {
 		return user_addr;
 	}
@@ -52,19 +74,6 @@ public class PF_UserDto {
 		return user_img;
 	}
 	public void setUser_img(String user_img) {
-		this.user_img = user_img;
-	}
-	public PF_UserDto(int user_no, String user_id, String user_pw, String user_email, String user_type,
-			String user_addr, String user_email_hash, String user_email_check, String user_img) {
-		super();
-		this.user_no = user_no;
-		this.user_id = user_id;
-		this.user_pw = user_pw;
-		this.user_email = user_email;
-		this.user_type = user_type;
-		this.user_addr = user_addr;
-		this.user_email_hash = user_email_hash;
-		this.user_email_check = user_email_check;
 		this.user_img = user_img;
 	}
 	public int getUser_no() {
@@ -97,5 +106,30 @@ public class PF_UserDto {
 	public void setUser_type(String user_type) {
 		this.user_type = user_type;
 	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+	public String getUser_sex() {
+		return user_sex;
+	}
+	public void setUser_sex(String user_sex) {
+		this.user_sex = user_sex;
+	}
+	public String getUser_birth() {
+		return user_birth;
+	}
+	public void setUser_birth(String user_birth) {
+		this.user_birth = user_birth;
+	}
+	public String getUser_uptype() {
+		return user_uptype;
+	}
+	public void setUser_uptype(String user_uptype) {
+		this.user_uptype = user_uptype;
+	}
+	
 	
 }

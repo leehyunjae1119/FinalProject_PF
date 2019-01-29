@@ -58,17 +58,17 @@
 				</div>
 				<br>
 						<div class="col col-md-15">
-							<form>
+							<form action="user_deleteAction.do">
 								<div class="user_email">
 									<b>이메일</b>&nbsp;&nbsp;&nbsp; 
-									<p>uiyhp123@naver.com</p>
+									<p>${userdto.user_email }</p>
 									
 								</div>
 
 								<div class="user_pw">
 									<b>비밀번호</b>
 									<p class="text-muted" style="font-size: 13px;">개인정보 보호 및 회원탈퇴를 위해 비밀번호를 다시 한번 확인합니다.</p>
-									<input type="password" class="form-control" placeholder="비밀번호를 입력해주세요.">
+									<input name="PW" type="password" class="form-control" placeholder="비밀번호를 입력해주세요.">
 								</div>
 								
 								<div class="out_bt">

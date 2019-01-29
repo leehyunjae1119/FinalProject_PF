@@ -1,3 +1,4 @@
+<%@page import="com.klp.pf.dto.PF_ProfileDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -83,7 +84,8 @@
 										</div>
 									</c:when>
 									<c:otherwise> 
-										<p>${profiledto.profile_intro }</p>
+										<%PF_ProfileDto profiledto = (PF_ProfileDto)request.getAttribute("profiledto"); %>
+										<p><%=profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
 									</c:otherwise>
 								</c:choose>
 							</div>
@@ -136,7 +138,7 @@
 							</div>
 							<br> <br>
 							<c:choose>
-								<c:when test="${techdtoList eq null }"> 
+								<c:when test="${profiledto.profile_intro eq null }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
@@ -193,15 +195,19 @@
 											<th scope="col">근무부서</th>
 											<th scope="col">직위</th>
 											<th scope="col">근무기간</th>
+											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">캐주얼스텝스</th>
-											<td>개발팀</td>
-											<td>Software Engineer</td>
-											<td>2014년 06월 ~ 2016년 3월</td>
-										</tr>
+										<c:forEach items="${careerdtoList}" var="careerdto">
+											<tr>
+												<th scope="row">${careerdto.career_company }</th>
+												<td>${careerdto.career_dept }</td>
+												<td>${careerdto.career_spot }</td>
+												<td>${careerdto.career_hiredate } ~ ${careerdto.career_firedate }</td>
+												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_careerDelete.do?career_no=${careerdto.career_no }'">삭제</button></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							
@@ -212,17 +218,21 @@
 										<tr>
 											<th scope="col">학교명</th>
 											<th scope="col">전공</th>
-											<th scope="col">분류</th>
 											<th scope="col">상태</th>
+											<th scope="col">재학기간</th>
+											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">ㅇㅇ대학교</th>
-											<td>경영학부</td>
-											<td>대학교</td>
-											<td>졸업</td>
-										</tr>
+										<c:forEach items="${educationdtoList}" var="educationdto">
+											<tr>
+												<th scope="row">${educationdto.edu_name }</th>
+												<td>${educationdto.edu_state }</td>
+												<td>${educationdto.edu_major }</td>
+												<td>${educationdto.edu_hiredate } ~ ${educationdto.edu_firedate }</td>
+												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_educationDelete.do?edu_no=${educationdto.edu_no }'">삭제</button></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 								
@@ -234,14 +244,18 @@
 											<th scope="col">자격증명</th>
 											<th scope="col">발급기관</th>
 											<th scope="col">발행일자</th>
+											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">정보처리기사</th>
-											<td>한국산업인력공단</td>
-											<td>2018년 08월 16일</td>
-										</tr>
+										<c:forEach items="${certificatedtoList}" var="certificatedto">
+											<tr>
+												<th scope="row">${certificatedto.certificate_name }</th>
+												<td>${certificatedto.certificate_agency }</td>
+												<td>${certificatedto.certificate_issueddate }</td>
+												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_certificateDelete.do?certificate_no=${certificatedto.certificate_no }'">삭제</button></td>
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 								</c:otherwise>

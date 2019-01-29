@@ -8,6 +8,9 @@
 		<typeAlias type="com.klp.pf.dto.PF_PortfolioDto" alias="PF_PortfolioDto" />
 		<typeAlias type="com.klp.pf.dto.PF_TechnologyDto" alias="PF_TechnologyDto" />
 		<typeAlias type="com.klp.pf.dto.PF_CoinDto" alias="PF_CoinDto"/>
+		<typeAlias type="com.klp.pf.dto.PF_CareerDto" alias="PF_CareerDto"/>
+		<typeAlias type="com.klp.pf.dto.PF_EducationDto" alias="PF_EducationDto"/>
+		<typeAlias type="com.klp.pf.dto.PF_CertificateDto" alias="PF_CertificateDto"/>
 	</typeAliases>
 
 	<mappers>
@@ -16,6 +19,9 @@
 		<mapper resource="/sqls/PF_Portfoliomapper.xml" />
 		<mapper resource="/sqls/PF_Technologymapper.xml" />
 		<mapper resource="/sqls/PF_Coinmapper.xml"/>
+		<mapper resource="/sqls/PF_Careermapper.xml"/>
+		<mapper resource="/sqls/PF_Educationmapper.xml"/>
+		<mapper resource="/sqls/PF_Certificatemapper.xml"/>
 	</mappers>
 
 </configuration>

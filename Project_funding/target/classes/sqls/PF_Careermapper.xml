@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pf_career">
+
+	<update id="insertCareer" parameterType="List">
+		<selectKey keyProperty="career_no" resultType="int" order="BEFORE">
+			SELECT PF_CAREER_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블-->
+		</selectKey>
+		INSERT ALL
+    	<foreach collection="list" item="dtoList" separator=" " index="index">
+			INTO PF_CAREER VALUES(#{career_no}+#{index}, #{dtoList.profile_no}, #{dtoList.career_company}, #{dtoList.career_dept}, #{dtoList.career_spot}, #{dtoList.career_hiredate}, #{dtoList.career_firedate})
+   		</foreach>
+   		SELECT * FROM DUAL
+	</update>
+
+	<select id="selectCareer" parameterType="int" resultType="PF_CareerDto">
+		SELECT * FROM PF_CAREER 
+		WHERE PROFILE_NO = #{profile_no }
+	</select>
+	
+	<delete id="deleteCareer" parameterType="int">
+		DELETE FROM PF_CAREER
+		WHERE CAREER_NO = #{career_no}
+	</delete>
+</mapper>

@@ -27,9 +27,9 @@
 
 <body class="index-page sidebar-collapse">
 	<div class="section section-signup page-header"
-		style="background-image: url('resources/assets/img/city.jpg'); margin-top: 100px;">
+		style="background-image: url('resources/assets/img/city.jpg');">
 		<div class="container">
-			<div class="row">
+			<div class="row" style="margin-top: 100px;">
 				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
 					<div class="card card-login" style="width: 428px;">
 						<form class="form" method="post" action="joinCheck.do" onsubmit="return PwSameCheck(this)">

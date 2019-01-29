@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pf_education">
+
+
+	<update id="insertEducation" parameterType="List">
+		<selectKey keyProperty="edu_no" resultType="int" order="BEFORE">
+			SELECT PF_EDUCATION_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블-->
+		</selectKey>
+		INSERT ALL
+    	<foreach collection="list" item="dtoList" separator=" " index="index">
+			INTO PF_EDUCATION VALUES(#{edu_no}+#{index}, #{dtoList.profile_no}, #{dtoList.edu_name}, #{dtoList.edu_state}, #{dtoList.edu_major}, #{dtoList.edu_hiredate}, #{dtoList.edu_firedate})
+   		</foreach>
+   		SELECT * FROM DUAL
+	</update>
+	
+	<select id="selectEducation" parameterType="int" resultType="PF_EducationDto">
+		SELECT * FROM PF_EDUCATION 
+		WHERE PROFILE_NO = #{profile_no }
+	</select>
+	
+	<delete id="deleteEducation" parameterType="int">
+		DELETE FROM PF_EDUCATION
+		WHERE EDU_NO = #{edu_no}
+	</delete>
+</mapper>

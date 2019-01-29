@@ -61,8 +61,8 @@
 									<b>계정 정보</b>
 								</h3>
 								<div class="user_idemail">
-									<b>아이디</b>&nbsp;&nbsp;&nbsp; <p class="text-muted">uiyhp123</p><br>
-									<b>이메일</b>&nbsp;&nbsp;&nbsp; <p class="text-muted">uiyhp123@naver.com</p>
+									<b>아이디</b>&nbsp;&nbsp;&nbsp; <p class="text-muted">${userdto.user_id }</p><br>
+									<b>이메일</b>&nbsp;&nbsp;&nbsp; <p class="text-muted">${userdto.user_email }</p>
 								</div>
 								<hr>
 								<div class="user_info_up">
@@ -70,39 +70,46 @@
 										<b>기본 정보</b>
 									</h3>
 									<br>
-									<form action="#">	
+									<form action="user_infoUpdateAction.do">	
 									<div class="user_info_write" id="profile_img">
-										<b>프로필 사진</b><input type="text" class="form-control">
+										<b>프로필 사진</b>
+										<input name="user_img" placeholder="${userdto.user_img }" type="text" class="form-control">
 										<input type="button" class="btn btn-warning" value="이미지 추가" style="float: right;"/>
 									</div>
 									<br>
 									<div class="user_info_write">
-										<b>* 파트너 형태</b>
-										<select title="user_type" class="form-control">
-											<option>개인</option>
-											<option>클라이언트</option>
-											<option>투자자</option>
-										</select>
-									</div>
-									<br>
-									<div class="user_info_write">
 										<b>* 이름</b>
-										<input type="text" class="form-control">
-									</div>
-									<br>
-									<div class="user_info_write"> 
-										<b>* 성별</b>&nbsp;&nbsp;
-										<input type="radio" value="man">&nbsp;남성&nbsp;&nbsp;
-										<input type="radio" value="woman">&nbsp;여자
+										<input name="user_name" placeholder="${userdto.user_name }" type="text" class="form-control">
 									</div>
 									<br>
 									<div class="user_info_write">
-										<b>* 생년월일</b>&nbsp;&nbsp;&nbsp;&nbsp;
+										<b>* 성별</b>&nbsp;&nbsp;</br></br>
+										<div class="form-check">
+											<label class="form-check-label">
+												<input class="form-check-input" type="radio" name="user_sex" id="exampleRadios2" value="man" checked> 남자
+												<span class="circle">
+													<span class="check"></span>
+												</span>
+											</label>
+										</div>
+										<div class="form-check">
+                							<label class="form-check-label">
+                  								<input class="form-check-input" type="radio" name="user_sex" id="exampleRadios1" value="woman"> 여자
+                  								<span class="circle">
+                   									<span class="check"></span>
+                  								</span>
+               								</label>
+             							</div>
+									</div>
+									<br>
+									<div class="user_info_write">
+										<b>* 생년월일</b>
+										<input name="user_birth" placeholder="${userdto.user_birth }" type="text" class="form-control">
 									</div>
 									<br>
 									<div class="user_info_write">
 										<b>* 주소</b>
-										<input type="text" class="form-control">
+										<input name="user_addr" placeholder="${userdto.user_addr }" type="text" class="form-control">
 										<input type="button" class="btn btn-warning" value="주소 검색"  style="float: right;"/>
 									</div>
 									<div class="user_bt">

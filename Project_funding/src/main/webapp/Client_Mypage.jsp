@@ -1,3 +1,4 @@
+<%@page import="com.klp.pf.dto.PF_ProfileDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -65,12 +66,19 @@
 					
 
 				</div>
-				<!-- 왼쪽 사이드 바 div -->
 				<div class="col">
 				<div class="col col-md-15">
-					<h3 style="margin-top: -10px;"><b>나의 푸딩</b></h3>
-					<hr />
-					<h4>환영합니다!</h4>
+					<div class="container">
+						<h3><b>나의 푸딩</b>
+							<div class="button_position" style="float: right;margin-top: -5px;">
+								<button style="margin-top: 0px;" onclick="location.href='partnerReg_about.do'" class="btn btn-warning">자기소개 수정</button>
+							</div>
+						</h3>
+						<hr />
+						<%PF_ProfileDto profiledto = (PF_ProfileDto)request.getAttribute("profiledto"); %>
+						<p><%=profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
+					</div>
+					
 				<div class="col col-md-15">
 					<table class="table table-bordered" style="width: 30%;">
 						<thead class="thead-light">

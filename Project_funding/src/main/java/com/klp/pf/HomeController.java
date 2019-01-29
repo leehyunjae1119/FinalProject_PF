@@ -2,8 +2,10 @@ package com.klp.pf;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
@@ -17,14 +19,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-
+import com.klp.pf.dto.PF_CareerDto;
+import com.klp.pf.dto.PF_CertificateDto;
 import com.klp.pf.dto.PF_CoinDto;
+import com.klp.pf.dto.PF_EducationDto;
 import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
 import com.klp.pf.dto.PF_TechnologyDto;
 import com.klp.pf.dto.PF_UserDto;
+import com.klp.pf.model.biz.PF_CareerBiz;
+import com.klp.pf.model.biz.PF_CertificateBiz;
 import com.klp.pf.model.biz.PF_CoinBiz;
+import com.klp.pf.model.biz.PF_EducationBiz;
 import com.klp.pf.model.biz.PF_PortfolioBiz;
 import com.klp.pf.model.biz.PF_ProfileBiz;
 import com.klp.pf.model.biz.PF_TechnologyBiz;
@@ -66,6 +74,12 @@ public class HomeController {
 	private PF_TechnologyBiz pf_technologyBiz;
 	@Autowired
 	private PF_CoinBiz pf_coinBiz;
+	@Autowired
+	private PF_CareerBiz pf_careerBiz;
+	@Autowired
+	private PF_EducationBiz pf_educationBiz;
+	@Autowired
+	private PF_CertificateBiz pf_certificateBiz;
 	
 	@RequestMapping(value="/index.do")
 	public String index() {
@@ -186,6 +200,21 @@ public class HomeController {
 		} 
 		return "User_Login";
 	}
+	@RequestMapping(value="/loginCheckAjax.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Boolean> loginCheckAjax(String user_id, String user_pw, HttpSession session){
+		PF_UserDto dto = pf_userBiz.login(user_id, user_pw);
+		boolean loginChk = false;
+		if(dto != null){
+			session.setAttribute("userdto", dto);
+			loginChk = true;
+		}
+		Map<String, Boolean> map = new HashMap<String, Boolean>();
+		map.put("loginChk", loginChk);
+		map.put("emailCheck", Boolean.parseBoolean(dto.getUser_email_check()));
+		return map;
+			
+	}
 	@RequestMapping(value="/logOut.do")
 	public String logOut(String user_id, String user_pw, HttpSession session) {
 		if(session!=null) {
@@ -220,11 +249,12 @@ public class HomeController {
 	@RequestMapping(value="/joinCheck.do")
 	public String joinCheck(String user_id, String user_pw, String user_email, String user_type) {
 		PF_UserDto dto = new PF_UserDto(user_id, user_pw, user_email, user_type);
+		//유저 넘버를 반환받는다.
 		int res = pf_userBiz.insertUser(dto);
 		System.out.println(res);
-		//회원가입한(파트너스)계정에 프로필 테이블을 생성해준다.
+		//회원가입한(파트너스)계정에 프로필 테이블을 생성해준다. - 클라이언트도 생성해준다.(자기소개 떄문에)
 		//res를 객체생성 파라미터에 넣어주는 이유는 회원 삽입 결과를 회원 시퀀스 번호로 받았기 때문이다.
-		if(user_type.equals("파트너스")) {
+		if(user_type.equals("파트너스") || user_type.equals("클라이언트")) {
 			PF_ProfileDto profileDto = new PF_ProfileDto(res);
 			pf_profileBiz.insertProfile(profileDto);
 		}
@@ -240,15 +270,49 @@ public class HomeController {
 		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
 		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
-		
+		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
+		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
+		List<PF_CertificateDto> certificatedtoList = pf_certificateBiz.selectCertificate(profiledto.getProfile_no());
+
 		model.addAttribute("profiledto", profiledto);
 		model.addAttribute("techdtoList", techdtoList);
+		model.addAttribute("careerdtoList", careerdtoList);
+		model.addAttribute("educationdtoList", educationdtoList);
+		model.addAttribute("certificatedtoList", certificatedtoList);
+		
+		if(techdtoList.size()==0) {
+			String techList = null;
+			model.addAttribute("techList", techList);
+		} else {
+			String techList = "techList";
+			model.addAttribute("techList", techList);
+		}
+		if(careerdtoList.size()==0 && educationdtoList.size()==0 && certificatedtoList.size()==0) {
+			String careerList = null;
+			model.addAttribute("careerList", careerList);
+		} else {
+			String careerList = "careerList";
+			model.addAttribute("careerList", careerList);
+		}
+		
 		return "Partner_Profile";
 	}
 	//유저 계정 유형
 	@RequestMapping(value="user_typeUpdate.do")
-	public String user_typeUpdate() {
+	public String user_typeUpdate(HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		if(userdto.getUser_uptype()!=null) {
+			return "User_TypeWait";
+		}
 		return "User_TypeUpdate";
+	}
+	//유저 계정 유형 변경 신청
+	@RequestMapping(value="user_typeUpdateAction.do")
+	public String user_typeUpdateAction(HttpSession session, String select_type) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		userdto.setUser_uptype(select_type);
+		pf_userBiz.updateUser_type(userdto);
+		return "User_TypeWait";
 	}
 	//지원내역
 	@RequestMapping(value="project_supportList.do")
@@ -267,7 +331,23 @@ public class HomeController {
 	}
 	//기본정보 수정
 	@RequestMapping(value="user_infoUpdate.do")
-	public String user_infoUpdate() {
+	public String user_infoUpdate(HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		model.addAttribute("userdto", userdto);
+		return"User_InfoUpdate";
+	}
+	//기본정보 수정
+	@RequestMapping(value="user_infoUpdateAction.do")
+	public String user_infoUpdateAction(HttpSession session,String user_name, String user_img, String user_sex, String user_addr, String user_birth) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		userdto.setUser_addr(user_addr);
+		userdto.setUser_birth(user_birth);
+		userdto.setUser_img(user_img);
+		userdto.setUser_name(user_name);
+		userdto.setUser_sex(user_sex);
+		
+		pf_userBiz.updateUser_Info(userdto);
+		
 		return"User_InfoUpdate";
 	}
 	//관심프로젝트
@@ -285,12 +365,17 @@ public class HomeController {
 	}
 	//파트너스 정보 수정 (자기소개 수정 포함)
 	@RequestMapping(value="partnerReg_infoUpdate.do")
-	public String partnerReg_infoUpdate(int profile_no, String profile_job, String profile_activity, String profile_intro) {
+	public String partnerReg_infoUpdate(int profile_no, String profile_job, String profile_activity, String profile_intro,HttpSession session) {
 		PF_ProfileDto profiledto = new PF_ProfileDto(profile_no, profile_job, profile_activity, profile_intro);
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		String user_type = userdto.getUser_type();
 		int res = pf_profileBiz.updateProfile(profiledto);
 		if(res > 0) {
+			if(user_type.equals("클라이언트")) {
+				return "redirect:client_mypage.do"; 
+			} 
 			return "redirect:partners_profile.do"; 
-		}
+		} 
 		return "redirect:partnerReg_info.do";
 	}
 	//자기소개
@@ -350,6 +435,42 @@ public class HomeController {
 	public String partnerReg_career() {
 		return"PartnerReg_career";
 	}
+	//경력/학력/자격증 등록
+	@RequestMapping(value="partnerReg_careerInsert.do")
+	public String partnerReg_careerInsert(HttpServletRequest request, HttpSession session
+			, String career_company, String career_dept, String career_spot, String career_hiredate_year, String career_hiredate_month, String career_firedate_year, String career_firedate_month
+			, String edu_name, String edu_state, String edu_major, String edu_hiredate_year, String edu_hiredate_month, String edu_firedate_year, String edu_firedate_month
+			, String certificate_name, String certificate_agency, String certificate_issueddate) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+
+		int careerRes = pf_careerBiz.insertCareer(profiledto.getProfile_no(), career_company, career_dept, career_spot, career_hiredate_year, career_hiredate_month, career_firedate_year, career_firedate_month);
+		int educationRes = pf_educationBiz.insertEducation(profiledto.getProfile_no(), edu_name, edu_state, edu_major, edu_hiredate_year, edu_hiredate_month, edu_firedate_year, edu_firedate_month);
+		int certificateRes = pf_certificateBiz.insertCertificate(profiledto.getProfile_no(), certificate_name, certificate_agency, certificate_issueddate);
+		
+		if(careerRes+educationRes+certificateRes == 0) {
+			return "PartnerReg_career";
+		}
+		return "redirect:partners_profile.do";
+	}
+	//보유 기술 삭제
+	@RequestMapping(value="partnerReg_careerDelete.do")
+	public String partnerReg_careerDelete(int career_no) {
+		pf_careerBiz.deleteCareer(career_no);
+		return "redirect:partners_profile.do";
+	}
+	//보유 기술 삭제
+	@RequestMapping(value="partnerReg_educationDelete.do")
+	public String partnerReg_educationDelete(int edu_no) {
+		pf_educationBiz.deleteEducation(edu_no);
+		return "redirect:partners_profile.do";
+	}
+	//보유 기술 삭제
+	@RequestMapping(value="partnerReg_certificateDelete.do")
+	public String partnerReg_certificateDelete(int certificate_no) {
+		pf_certificateBiz.deleteCertificate(certificate_no);
+		return "redirect:partners_profile.do";
+	}
 	//비밀번호 번경
 	@RequestMapping(value="user_pwUpdate.do")
 	public String user_pwUpdate() {
@@ -357,8 +478,17 @@ public class HomeController {
 	}
 	//회원 탈퇴
 	@RequestMapping(value="user_delete.do")
-	public String user_delete() {
+	public String user_delete(HttpSession session, Model model) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		model.addAttribute("userdto", userdto);
 		return"User_Delete";
+	}
+	//회원 탈퇴
+	@RequestMapping(value="user_deleteAction.do")
+	public String user_deleteAction(HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+		pf_userBiz.deleteUser(userdto);
+		return "redirect:logOut.do";
 	}
 	
 	//파트너스 나의푸딩
@@ -369,7 +499,10 @@ public class HomeController {
 	
 	//클라이언트 나의푸딩
 		@RequestMapping(value="client_mypage.do")
-		public String clientrmypage() {
+		public String clientrmypage(HttpSession session, Model model) {
+			PF_UserDto userdto = (PF_UserDto)session.getAttribute("userdto");
+			PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+			model.addAttribute("profiledto", profiledto);
 			return "Client_Mypage";
 		}
 	//비밀번호 찾기

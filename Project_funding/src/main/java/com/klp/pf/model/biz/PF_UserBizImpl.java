@@ -30,6 +30,10 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		return pf_dao.selectUser(user_id);
 	}
 	@Override
+	public PF_UserDto login(String user_id, String user_pw) {
+		return pf_dao.login(user_id, user_pw);
+	}
+	@Override
 	public int insertUser(PF_UserDto dto) {
 		return pf_dao.insertUser(dto);
 	}
@@ -84,5 +88,18 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		}
 		//인증 실패시(코드 유효 시간 오버)
 		return false;
+	}
+	
+	@Override
+	public int updateUser_type(PF_UserDto dto) {
+		return pf_dao.updateUser_type(dto);
+	}
+	@Override
+	public int deleteUser(PF_UserDto dto) {
+		return pf_dao.deleteUser(dto);
+	}
+	@Override
+	public int updateUser_Info(PF_UserDto dto) {
+		return pf_dao.updateUser_Info(dto);
 	}
 }
