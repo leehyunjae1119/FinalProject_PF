@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pf_certificate">
+
+	<update id="insertCertificate" parameterType="List">
+		<selectKey keyProperty="certificate_no" resultType="int" order="BEFORE">
+			SELECT PF_CERTIFICATE_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블-->
+		</selectKey>
+		INSERT ALL
+    	<foreach collection="list" item="dtoList" separator=" " index="index">
+			INTO PF_CERTIFICATE VALUES(#{certificate_no}+#{index}, #{dtoList.profile_no}, #{dtoList.certificate_name}, #{dtoList.certificate_agency}, #{dtoList.certificate_issueddate})
+   		</foreach>
+   		SELECT * FROM DUAL
+	</update>
+
+	<select id="selectCertificate" parameterType="int" resultType="PF_CertificateDto">
+		SELECT * FROM PF_CERTIFICATE 
+		WHERE PROFILE_NO = #{profile_no }
+	</select>
+	
+	<delete id="deleteCertificate" parameterType="int">
+		DELETE FROM PF_CERTIFICATE
+		WHERE CERTIFICATE_NO = #{certificate_no}
+	</delete>
+
+</mapper>

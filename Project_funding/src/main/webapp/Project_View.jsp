@@ -148,27 +148,42 @@
          <div class="money">
             <p class="text-muted">100,000원</p>
          </div>
-      </div>
-       <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">
-				메세지 보내기	
-		</button>
+  
+         <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">메세지 보내기</button>
 
-         <c:if test="${userdto.getUser_no() eq dto.user_no}">
-            <button class="btn btn-danger" style="float: right; margin-top: 110px; display: inline-block;" onclick="location.href='project_delete.do?board_no=<jsp:getProperty property="board_no" name="dto" />&page=1'">삭제하기</button>
-              <button class="btn btn-warning" style="float: right; margin-top: 110px; display: inline-block;" onclick="location.href='project_update.do?board_no=<jsp:getProperty property="board_no" name="dto" />'">수정하기</button>
-           </c:if>
-           
-           <c:if test="${userdto.getUser_type() eq '투자자' }">
-              <button class="btn btn-info" style="float: right; margin-top: 110px; display: inline-block;">투자하기</button>
-           </c:if>
+      </div>
 
 	</div>
 	<hr />
+	
+	<div class="file_upload">
 <!-- 		<iframe src="http://docs.google.com/gview?url=http://localhost:8787/pf/storage/test.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe> -->
 		 <c:if test="${dto.board_file ne null }">
            <iframe src="http://localhost:8787/pf/storage/${dto.board_file }" style="width:100%; height:500px;" frameborder="0"></iframe>
 <%--          <h1>${dto.board_file }</h1> --%>
           </c:if>
+	</div>
+	
+		<c:if test="${userdto.getUser_no() eq dto.user_no}">
+		<div class="button_container">
+            <button class="btn btn-danger" style="float: right; display: inline-block;" onclick="location.href='project_delete.do?board_no=<jsp:getProperty property="board_no" name="dto" />&page=1'">삭제하기</button>
+            <button class="btn btn-warning" style="float: right; display: inline-block;" onclick="location.href='project_update.do?board_no=<jsp:getProperty property="board_no" name="dto" />'">수정하기</button>
+       	</div>
+        </c:if>
+           
+        <c:if test="${userdto.getUser_type() eq '투자자' }">
+        <div class="button_container" style="text-align: center;">
+           <button class="btn btn-info btn-lg" style="display: inline-block; width: 150px;">투자하기</button>
+        </div>
+        </c:if>
+
+	
+	<c:if test="${userdto.getUser_type() eq '파트너스' }">
+		<div class="partners_button">
+        	<button id="partners" class="btn btn-rose btn-lg" style="display: inline-block; width: 150px;">지원하기</button>
+   		</div>
+    </c:if>
+	
 	<hr />
 	<div class="comment_container">
 		<h4><b>프로젝트 문의</b></h4>	

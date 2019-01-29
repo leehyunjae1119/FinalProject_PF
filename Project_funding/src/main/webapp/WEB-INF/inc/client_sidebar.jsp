@@ -22,6 +22,7 @@
 		</div>
 		<hr>
 		<div class="col-md-12">
+			<a class="btn btn-link2" href="partnerReg_about.do">자기소개 등록</a> 
 			<a class="btn btn-link2" href="user_pwUpdate.do">비밀번호변경</a> 
 			<a class="btn btn-link2" href="user_typeUpdate.do">계정 유형 변경 신청</a><br /> 
 			<a class="btn btn-link2" href="user_delete.do">회원탈퇴</a>
