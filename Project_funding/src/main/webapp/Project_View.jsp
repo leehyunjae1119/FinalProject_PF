@@ -47,6 +47,152 @@ function CheckForm(Join){
 	}
 	
 }
+
+
+var board_no = '${dto.board_no}';
+
+
+$(function() {
+   getComment_list('${dto.board_no}');
+})
+
+// $(function() {
+//    var brText = $("#comment_form").val();
+//    brText = brText.replace(/<br>/g, '\n');
+// })
+
+
+//f = form
+function comment_ajax(f) {
+
+   $.ajax({
+      url : "comment_insert.do",
+      data: $("#comment_form").serialize(),
+      type: "POST",
+      dataType: "html",
+      success: function(data) {
+         console.log(data);
+         if(data == "success") {
+            getComment_list('${dto.board_no}');
+            $("#comment_content").val("");
+         }
+         
+      }, error:function(request, status, error) {
+         
+      }
+      
+   });
+   
+   return false;      //안 쓰면 값 두 번 들어감
+}
+
+
+
+function getComment_list(board_no) {
+   
+   $.ajax ({
+      url: "comment_list.do",
+      type: "GET",
+      dataType: "json",
+      data: $("#comment_form").serialize(),
+      success: function(data) {
+         var html = "";
+         var cCnt = data.length;
+         
+         if(data.length > 0) {
+            for(i=0; i<data.length; i++) {
+
+               html += "<div class='card' style='min-height: 150px;'>";
+               html += "<div class='card-body' style='display: inline-block;'>";
+               html += "<img src='resources/assets/img/examples/studio-3.jpg' class='rounded-circle img-fluid' style='width: 100px; height: 100px; display: inline-block; float: left;'>";
+               html += "<div id='comment_"+data[i].comment_no+"' style='display: inline-block; margin-left: 30px; width: 87%; vertican-align: center;'>";
+               html += "<h4 class='card-title' style='display: inline-block;'>"+data[i].user_id+"</h4>";
+               html += "<a onclick=\"comment_Delete('"+data[i].comment_no+"');\" style='float: right; margin-left: 10px;'>";
+               html += "<i class='far fa-trash-alt fa-2x'></i></a>";
+               html += "<a onclick=\"comment_Update('"+data[i].comment_no+"');\" data-toggle='modal' style='float: right; margin-left: 10px;'>";
+               html += "<i class='far fa-edit fa-2x'></i></a>";
+               html += "<h4 class='card-title' style='display: inline-block; float: right;'>"+data[i].comment_regdate+"</h4>";
+               html += "<h5 class='card-category text-gray'>";
+               html += data[i].comment_content;
+               html += "</h5>";
+               html += "<form class='comment_update hidden' onsubmit='return comment_update_ajax(this);'>";
+               html += "<input type='hidden' name='user_no' value='"+data[i].user_no+"' />";
+               html += "<input type='hidden' name='comment_no' value='"+data[i].comment_no+"' />";
+               html += "<input type='hidden' name='board_no' value='"+board_no+"' />";
+               html += "<textarea style='display:inline-block; width:80%;' name='comment_content'>"+data[i].comment_content+"</textarea>";
+               html += "<button type='submit' class='btn btn-success' style='float: right;'>수정완료</button>";
+               html += "</form>";
+               html += "</div>";
+               html += "</div>";
+               html += "</div>";
+            }
+         } else {
+            
+         }
+         
+         $("#cCnt").html(cCnt);
+         $("#comment_list").html(html);
+      },
+      
+      error: function(request, status, error) {
+   }
+      
+   });
+}
+
+function comment_Delete(c_no) {
+   var form_data = {"comment_no" : c_no};
+   if(confirm("삭제하시겠습니까?")) {
+      $.ajax ({
+            url:'comment_delete.do',
+            type:'POST',
+            data:form_data,
+            dataType:"html",         // (컨트롤러에서 Object 형태로 리턴할 때만 json)
+            success:function(data) {
+                getComment_list("${dto.board_no}");
+            },error:function(e) {
+               console.log("error");
+            }
+        })   
+   } else {
+      alert("취소되었습니다.");
+   }
+   
+   return false;
+}
+
+
+function comment_Update(c_no) {
+   if($("#comment_"+c_no+" h5").hasClass("hidden")) {
+      $("#comment_"+c_no+" h5").removeClass("hidden");
+      $("#comment_"+c_no+" form").addClass("hidden");   
+   } else {
+      $("#comment_"+c_no+" h5").addClass("hidden");
+      $("#comment_"+c_no+" form").removeClass("hidden");
+   }
+  
+} 
+
+function comment_update_ajax(f){
+   var param_data = $(f).serialize();
+   
+   $.ajax({
+      url:"comment_update.do",
+      data: param_data,
+      dataType: "html",
+      type: "POST",
+      success: function(data) {
+
+         getComment_list("${dto.board_no}");
+      }, error: function(e) {
+         console.log("error");
+      }
+   })
+   
+   return false;
+}
+
+
 </script>
 
 <body>
@@ -150,6 +296,9 @@ function CheckForm(Join){
 				<p class="text-muted">${invest_totalMoney }원</p>
 			</div>
 			
+			     <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">메세지 보내기</button>
+			
+			
 		</div> 
 
 			<c:if test="${userdto.getUser_no() eq dto.user_no}">
@@ -188,12 +337,63 @@ function CheckForm(Join){
 	</div>
 	
 </div>
-</div>
+<hr />
+       
+      <div id="comment_container2">
+         <div id="comment_list">
+               
+         </div>
+      </div>
+   </div>
+
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
 
 
 </body>
+
+		<div class="container">
+			<!-- The Modal -->
+			<div class="modal" id="myModal">
+				<div class="modal-dialog ">
+					<div class="modal-content">
+						<!-- Modal Header -->
+						<div class="modal-header">
+							<h3 class="modal-title">
+								<b style="padding-left: 180px;">쪽지쓰기</b>
+							</h3>
+
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+
+						<!-- Modal body -->
+						<!-- 값을 전송하는 부분 -->
+						<form action="message_insert.do?page=1" method="post">
+						<input type="hidden" name="sender" value="${userdto.user_id }" >
+						<div class="modal-body">
+						
+						<!-- 쪽지 내용 작성하는 부분 -->
+								<h4>
+									<b id="min">받는사람&nbsp;</b>
+									<input type="text" name="reader" value="${messageuser.user_id }" style="border: none; " readonly="readonly"/>
+								</h4>
+							<h4>
+								<b>내용&nbsp;</b>
+							</h4>
+							<textarea rows="10" cols="40" class="form-control" name="content"></textarea>
+						</div>
+						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+							<input type="submit" class="btn btn-warning" value="보내기" id="send"/>
+							<!-- data-dismiss : 모달창 닫기 -->
+							<input type="button" class="btn btn-default" value="취소" data-dismiss="modal"/>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
 <script>
 
