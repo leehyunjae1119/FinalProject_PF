@@ -32,6 +32,7 @@
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
+<script type="text/javascript" src="resources/paging/coin_paging.js?ver=1"></script>
 
 <style type="text/css">
 .boxed {
@@ -128,8 +129,10 @@ function CheckForm(Join){
 												<c:if test="${dto.coin_state eq '충전' }">		
 												<%if(chk==true){ %>													
 														<form action="User_refund.do">
-															<input type="hidden" value="${dto.coin_no }" name="coin_no"> 
-																<input type="submit"  value="환불신청">
+															<input type="hidden" value="${page }" name="page" /> 
+															<input type="hidden" value="${dto.user_no }" name="user_no" />
+															<input type="hidden" value="${dto.coin_no }" name="coin_no" /> 
+															<input type="submit"  value="환불신청">
 														</form>
 														<%} %>
 												</c:if>	
@@ -141,36 +144,19 @@ function CheckForm(Join){
 
 							</tbody>
 						</table>
-
-						<!-- 페이징
-						<div class="text-center">
-							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-							</ul>
-						</div>
-						-->
+							<input type="hidden" id="totalCount" value='${totalCount }'> 
+      						<input type="hidden" id="page" value='${page }'>
+      						<input type="hidden" id="user_no" value='${user_no }'>
+						  <div class="text-center">
+               
+               			<ul class="pagination " id="pasing">
+               
+               			</ul>
+               
+               				</div>
+					
 						<br> <br> <br> <br> <br> <br>
-						<ul class="pagination pagination-info"
-							style="padding-left: 240px;">
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link"> prev</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">1</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">2</a></li>
-							<li class="active page-item"><a href="javascript:void(0);"
-								class="page-link">3</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">4</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">5</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">next </a></li>
-						</ul>
+			
 						<hr />
 						<form action="user_coinpayment.do" class="form" method="post" name="payment" onSubmit="return CheckForm(this)">
 							<b style="color: gray;">코인 충전 및 결제<br></b>

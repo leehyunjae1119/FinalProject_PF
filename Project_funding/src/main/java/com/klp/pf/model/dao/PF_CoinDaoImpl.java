@@ -18,16 +18,22 @@ public class PF_CoinDaoImpl implements PF_CoinDao {
 	
 	
 	@Override
-	public List<PF_CoinDto> coin_selectAll(int user_no) {
-		List<PF_CoinDto> list = new ArrayList<PF_CoinDto>();
-		try {
-		list=sqlSession.selectList(pf_coinNamespace+"selectAll",user_no);
-		}catch(Exception e) {
-			System.out.println("selectAll 에러");
-			e.printStackTrace();
-		}
-		return list;
+	public List<PF_CoinDto> coin_selectAll(int user_no, int page) {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("page", page);
+		map.put("user_no", user_no);
+		List<PF_CoinDto> dto = sqlSession.selectList(pf_coinNamespace + "coin_paging", map);
+		System.out.println(dto);
+		return dto;
+
 	}
+	@Override
+	public int totalCount_coin(int user_no) {
+		int res = sqlSession.selectOne(pf_coinNamespace + "totalCount_coin", user_no);
+		System.out.println(res);
+		return res;
+	}
+
 
 	@Override
 	public int coin(int user_no, String coin_state) {

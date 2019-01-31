@@ -16,8 +16,13 @@ public class PF_CoinBizImpl implements PF_CoinBiz {
 	
 	
 	@Override
-	public List<PF_CoinDto> coin_selectAll(int user_no) {
-		return pf_dao.coin_selectAll(user_no);
+	public List<PF_CoinDto> coin_selectAll(int user_no,int page) {
+		return pf_dao.coin_selectAll(user_no,page);
+	}
+
+	@Override
+	public int totalCount_coin(int user_no) {
+		return pf_dao.totalCount_coin(user_no);
 	}
 
 	@Override

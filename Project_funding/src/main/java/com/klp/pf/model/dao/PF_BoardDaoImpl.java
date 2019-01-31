@@ -177,7 +177,41 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	         return dto;
 	      }
 	   
-	   
+	      @Override
+			public List<PF_BoardDto> ing_list(int page, String project_state) {
+			      Map<String, String> map = new HashMap<String, String>();
+			      map.put("page", Integer.toString(page));
+			      map.put("project_state", project_state);
+			      System.out.println(map);
+			      List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "ing_list", map);
+			      return dto;
+			}
+
+
+			@Override
+			public int totalCount_ing(String project_state) {
+				  int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_ing", project_state);
+			      return res;
+			}
+
+
+			@Override
+			public List<PF_BoardDto> end_list(int page, String project_state) {
+			      Map<String, String> map = new HashMap<String, String>();
+			      map.put("page", Integer.toString(page));
+			      map.put("project_state", project_state);
+			      System.out.println(project_state);
+			      List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "end_list", map);
+			      return dto;
+			}
+
+
+			@Override
+			public int totalCount_end(String project_state) {
+				  int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_end", project_state);
+			      return res;
+			}
+
 	   
 	   
 	   

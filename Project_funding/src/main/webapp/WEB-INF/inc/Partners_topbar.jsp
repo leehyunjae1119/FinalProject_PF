@@ -93,9 +93,9 @@
 							신청</a></li>
 					<li class="nav-item"><a href="project_supportList.do"
 						class="nav-link" id="ho" style="padding-top: 17px;">지원 내역</a></li>
-					<li class="nav-item"><a href="project_ing.do" class="nav-link"
+					<li class="nav-item"><a href="project_ing.do?page=1" class="nav-link"
 						id="ho" style="padding-top: 17px;">진행중인 프로젝트</a></li>
-					<li class="nav-item"><a href="project_end.do" class="nav-link"
+					<li class="nav-item"><a href="project_end.do?page=1" class="nav-link"
 						id="ho" style="padding-top: 17px;">완료한 프로젝트</a></li>
 				</ul>
 			</div>

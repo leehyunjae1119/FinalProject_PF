@@ -87,7 +87,25 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	      return pf_boardDao.selectDateList(page);
 	   }
 
+	   @Override
+			public List<PF_BoardDto> end_list(int page, String project_state) {
+				return pf_boardDao.end_list(page, project_state);
+			}
 
+			@Override
+			public int totalCount_end(String project_state) {
+				return pf_boardDao.totalCount_end(project_state);
+			}
+
+			@Override
+			public List<PF_BoardDto> ing_list(int page, String project_state) {
+				return pf_boardDao.ing_list(page, project_state);
+			}
+
+			@Override
+			public int totalCount_ing(String project_state) {
+				return pf_boardDao.totalCount_ing(project_state);
+			}
 	   
 	   
 	      //관심 상태 변경

@@ -33,4 +33,15 @@ public interface PF_BoardDao {
 	 //관심프로젝트
 	 public int LikeUpdate(int board_no);
 	 public List<PF_BoardDto> likeList(int user_no);
+	 
+	//진행중인 프로젝트 리스트 
+	   
+	   public List<PF_BoardDto> ing_list(int page,String project_state);
+	   public int totalCount_ing(String project_state);
+	   
+	   //완료된 프로젝트 리스트
+	   public List<PF_BoardDto> end_list(int page,String project_state);
+	   public int totalCount_end(String project_state);
+
+
 }
