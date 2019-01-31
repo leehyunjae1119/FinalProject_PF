@@ -96,5 +96,22 @@
 	<select id="deleteBoard">
 		DELETE FROM PF_BOARD WHERE BOARD_NO = #{board_no}
 	</select>
+	
+	
+	
+	
+	    <!-- 관심프로젝트 표시 -->
+   <update id="LikeUpdate" parameterType="int">
+      UPDATE PF_BOARD SET BOARD_LIKE= DECODE(BOARD_LIKE,NULL,'좋아','좋아',NULL,'좋아')
+      WHERE BOARD_NO = #{board_no}
+   </update>   
+   
+   <select id="Board_like" resultType="PF_BoardDto" parameterType="int">
+      SELECT * FROM PF_BOARD
+      WHERE BOARD_LIKE = '좋아'
+      AND USER_NO = #{USER_NO}
+   </select>
+	
+	
 
 </mapper>

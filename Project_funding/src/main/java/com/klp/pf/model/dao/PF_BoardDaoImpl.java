@@ -163,4 +163,22 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	      return res;
 	   }
 
+	 //관심상태 변경
+	      @Override
+	      public int LikeUpdate(int board_no) {
+	         int like_update = sqlSession.update(pf_boardNamespace +"LikeUpdate", board_no);
+	         return like_update;
+	      }
+
+
+	      @Override
+	      public List<PF_BoardDto> likeList(int user_no) {
+	         List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "Board_like",user_no);
+	         return dto;
+	      }
+	   
+	   
+	   
+	   
+	   
 }

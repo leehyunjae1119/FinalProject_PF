@@ -30,4 +30,10 @@ public interface PF_BoardBiz {
 	   public List<PF_BoardDto> detail_search1(int page,String category1,String category2);
 	   public int totalCount_detail(String category1, String category2);
 	   
+	   
+	 //관심상태 변경
+	      public int LikeUpdate(int board_no);
+	      
+	      public List<PF_BoardDto> likeList(int user_no);
+	      
 }

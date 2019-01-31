@@ -30,5 +30,7 @@ public interface PF_BoardDao {
 	 //카테고리 검색
 	 public List<PF_BoardDto> detail_search1(int page,String category1,String category2);
 	 public int totalCount_detail(String category1, String category2);
-	   
+	 //관심프로젝트
+	 public int LikeUpdate(int board_no);
+	 public List<PF_BoardDto> likeList(int user_no);
 }

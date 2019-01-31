@@ -43,8 +43,7 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a href="partner_mypage.do" class="nav-link">나의
-							푸딩</a></li>
+					<li class="nav-item"><a href="partner_mypage.do?user_no=${userdto.user_no}" class="nav-link">나의  푸딩</a></li>
 					<li class="nav-item"><a href="project_insert.do"
 						class="nav-link" style="color: white">프로젝트 등록</a></li>
 					<li class="nav-item"><a href="project_list.do?page=1"

@@ -19,5 +19,6 @@ public interface PF_UserBiz {
 	public int updateUser_Info(PF_UserDto dto);
 	public List<PF_UserDto> userlist(String user_type);
 	public PF_UserDto MessageUser(int user_no);
+	public List<PF_UserDto> partnerlist(String user_type);
 }
 	

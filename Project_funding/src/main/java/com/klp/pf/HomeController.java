@@ -405,10 +405,18 @@ public class HomeController {
 		return "success";
 	}
 
+	
+	///파트너 리스트 출력하기
 	@RequestMapping(value = "/partner_list.do")
-	public String partnerlist() {
+	public String partnerlist(Model model, HttpServletRequest request) {
+		List<PF_UserDto> PartnersList=pf_userBiz.partnerlist("파트너스");
+		
+		
+		model.addAttribute("PartnersList",PartnersList);
+
 		return "User_PartnerList";
 	}
+
 
 	@RequestMapping(value = "/question.do")
 	public String question() {
@@ -682,11 +690,41 @@ public class HomeController {
 		return "User_InfoUpdate";
 	}
 
-	// 관심프로젝트
-	@RequestMapping(value = "project_likeList.do")
-	public String project_likeList() {
-		return "Project_LikeList";
-	}
+	   // 관심프로젝트 - 페이징
+	   @RequestMapping(value = "project_likeList.do")
+	   public String project_likeList(HttpSession session,HttpServletRequest request,PF_BoardDto dto, Model model, int page) {
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
+
+	      int board_no = Integer.parseInt(request.getParameter("board_no"));
+	      int user_no = Integer.parseInt(request.getParameter("user_no"));
+	      
+	      System.out.println(board_no);
+
+	      int LikeUpdate = pf_boardBiz.LikeUpdate(board_no);
+	      System.out.println("결과"+LikeUpdate);
+
+	      model.addAttribute("LikeUpdate", LikeUpdate);
+	      model.addAttribute("userdto",userDto);
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("ProjectList", pf_boardBiz.likeList(user_no));
+
+	      return "Partner_Mypage";
+	   }
+	   
+	   @RequestMapping(value = "likeList.do")
+	   public String likeList(HttpSession session,HttpServletRequest request,PF_BoardDto dto, Model model, int page) {
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
+	      int user_no = Integer.parseInt(request.getParameter("user_no"));
+	      
+	      model.addAttribute("userdto",userDto);
+	      
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("ProjectList", pf_boardBiz.likeList(user_no));
+	      
+	      return "Project_LikeList";
+	   }
 
 	// 파트너스 정보
 	@RequestMapping(value = "partnerReg_info.do")

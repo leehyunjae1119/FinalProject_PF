@@ -88,5 +88,20 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	   }
 
 
+	   
+	   
+	      //관심 상태 변경
+	      @Override
+	      public int LikeUpdate(int board_no) {
+	         return pf_boardDao.LikeUpdate(board_no);
+	      }
+	      
+	      
+	      //관심프로젝트 목록
+	      @Override
+	      public List<PF_BoardDto> likeList(int user_no) {
+	         // TODO Auto-generated method stub
+	         return pf_boardDao.likeList(user_no);
+	      }
 
 }
