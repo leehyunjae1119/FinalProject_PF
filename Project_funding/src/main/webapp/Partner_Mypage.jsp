@@ -108,27 +108,27 @@
                            <tbody id="tbody">
                               <tr id="cloneTr">
                                  <c:choose>
-                                    <c:when test="${empty ProjectList }">
+                                    <c:when test="${empty likelist }">
                                        <td colspan="4"><b>----- 관심 등록된 프로젝트가 없습니다. -----</b></td>
                                     </c:when>
                                     <c:otherwise>
                                        <br>
-                                       <c:forEach var="dto" items="${ProjectList }">
-                                          <c:if test="${dto.board_like eq '좋아'}">
+                                       <c:forEach var="dto" items="${likelist }">
+<%--                                           <c:if test="${dto.board_like eq '좋아'}"> --%>
                                           <tr>
                                              <td>${dto.board_title }</td>
                                              <td>${dto.project_money }원</td>
                                              <td>${dto.project_term }일</td>
                                              <td>${dto.recruit_date }</td>
                                           </tr>   
-                                          </c:if>   
+<%--                                           </c:if>    --%>
                                        </c:forEach>
                                     </c:otherwise>      
                                  </c:choose>
                               </tr>
                            </tbody>
                         </table>
-                        <a href="likeList.do?page=1&user_no=${userdto.user_no}" class="view">자세히 보기 >></a>
+                        <a href="likeList.do?user_no=${userdto.user_no}&page=1" class="view">자세히 보기 >></a>
                      </div>
                      <div class="like_project">
                         <h5>지원 내역</h5>

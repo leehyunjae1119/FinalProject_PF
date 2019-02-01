@@ -50,9 +50,9 @@
       <div class="col-md-9" id="col10">
          <div class="view_title">
             <h3><span class="tim-note"><b><jsp:getProperty property="board_title" name="dto" /></b></span></h3>
-            <c:if test="${userdto.getUser_type() eq '파트너스'}"> 
- 				<a href="project_likeList.do?board_no=${dto.board_no }&user_no=${userdto.user_no}&page=1"><img src="resources/assets/img/heart.PNG" style="width:20px;" />&nbsp;&nbsp;<b>관심 프로젝트</b></a>
-			</c:if>
+           <c:if test="${userdto.getUser_type() eq '파트너스'}"> 
+             <a href="project_likeList.do?board_no=${dto.board_no }&user_no=${userdto.user_no}&page=1"><img src="resources/assets/img/heart.PNG" style="width:20px;" />&nbsp;&nbsp;<b>관심 프로젝트</b></a>
+         </c:if>
          </div>
          <div class="view_title2">
             <p class="text-muted">개발 > <jsp:getProperty property="project_category" name="dto" /></p>

@@ -145,7 +145,7 @@ public class HomeController {
 		// 저장 경로 설정
 //          String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
 		String path = "C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\image";
-
+//		System.out.println("강일 테스트 : "+request.getSession().getServletContext().getResourcePaths("/resources"));
 		System.out.println(path);
 
 		File dir = new File(path);
@@ -707,43 +707,46 @@ public class HomeController {
 		return "User_InfoUpdate";
 	}
 
-	// 관심프로젝트 - 페이징
-	@RequestMapping(value = "project_likeList.do")
-	public String project_likeList(HttpSession session, HttpServletRequest request, PF_BoardDto dto, Model model,
-			int page) {
-		PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
+	   // 관심프로젝트 - 페이징
+	   @RequestMapping(value = "project_likeList.do")
+	   public String project_likeList(HttpSession session,HttpServletRequest request,PF_BoardDto dto, Model model, int page) {
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
 
-		int board_no = Integer.parseInt(request.getParameter("board_no"));
-		int user_no = Integer.parseInt(request.getParameter("user_no"));
+	      int board_no = Integer.parseInt(request.getParameter("board_no"));
+	      
+	      System.out.println(board_no);
+	      
+	      int likeuser_no = userDto.getUser_no();
+	      int LikeUpdate = pf_boardBiz.LikeUpdate(board_no,likeuser_no);
+	      List<PF_BoardDto> likelist = pf_boardBiz.likeList(likeuser_no);
+	      System.out.println("결과"+LikeUpdate);
+	      for(PF_BoardDto asddto:likelist) {
+	         System.out.println("디티오 좋아요 사람 : "+asddto.getLikeuser_no());
+	      }
 
-		System.out.println(board_no);
+	      model.addAttribute("LikeUpdate", LikeUpdate);
+	      model.addAttribute("userdto",userDto);
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("likelist", likelist);
 
-		int LikeUpdate = pf_boardBiz.LikeUpdate(board_no);
-		System.out.println("결과" + LikeUpdate);
-
-		model.addAttribute("LikeUpdate", LikeUpdate);
-		model.addAttribute("userdto", userDto);
-		model.addAttribute("totalCount", pf_boardBiz.totalcount());
-		model.addAttribute("page", page);
-		model.addAttribute("ProjectList", pf_boardBiz.likeList(user_no));
-
-		return "Partner_Mypage";
-	}
-
-	@RequestMapping(value = "likeList.do")
-	public String likeList(HttpSession session, HttpServletRequest request, PF_BoardDto dto, Model model, int page) {
-		PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
-		int user_no = Integer.parseInt(request.getParameter("user_no"));
-
-		model.addAttribute("userdto", userDto);
-
-		model.addAttribute("totalCount", pf_boardBiz.totalcount());
-		model.addAttribute("page", page);
-		model.addAttribute("ProjectList", pf_boardBiz.likeList(user_no));
-
-		return "Project_LikeList";
-	}
-
+	      return "redirect:partner_mypage.do";
+	   }
+	   
+	   @RequestMapping(value = "likeList.do")
+	   public String likeList(HttpSession session,HttpServletRequest request,PF_BoardDto dto, Model model, int page) {
+	      
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
+	      int likeuser_no = userDto.getUser_no();
+	      List<PF_BoardDto> likelist = pf_boardBiz.likeList(likeuser_no);
+	         
+	      model.addAttribute("userdto",userDto);
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("likeList", pf_boardBiz.likeList(likeuser_no));
+	      
+	      return "Project_LikeList";
+	   }
 	// 파트너스 정보
 	@RequestMapping(value = "partnerReg_info.do")
 	public String partnerReg_info(HttpSession session, Model model) {
@@ -902,11 +905,21 @@ public class HomeController {
 		return "redirect:logOut.do";
 	}
 
-	// 파트너스 나의푸딩
-	@RequestMapping(value = "partner_mypage.do")
-	public String partnermypage() {
-		return "Partner_Mypage";
-	}
+	   // 파트너스 나의푸딩
+	   @RequestMapping(value = "partner_mypage.do")
+	   public String partnermypage(HttpSession session, Model model, HttpServletRequest request, int page) {
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
+
+	      int likeuser_no = userDto.getUser_no();
+	      List<PF_BoardDto> likelist = pf_boardBiz.likeList(likeuser_no);
+
+	      model.addAttribute("userdto",userDto);
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("likelist", likelist);
+	      
+	      return "Partner_Mypage";
+	   }
 
 	// 클라이언트 나의푸딩
 	@RequestMapping(value = "client_mypage.do")

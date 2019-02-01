@@ -41,8 +41,7 @@ public interface PF_BoardBiz {
 
 
 	 //관심상태 변경
-	      public int LikeUpdate(int board_no);
+	      public int LikeUpdate(int board_no, int likeuser_no);
 	      
 	      public List<PF_BoardDto> likeList(int user_no);
-	      
 }

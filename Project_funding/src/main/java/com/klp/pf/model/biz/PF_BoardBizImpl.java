@@ -1,6 +1,8 @@
 package com.klp.pf.model.biz;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -108,18 +110,21 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 			}
 	   
 	   
-	      //관심 상태 변경
-	      @Override
-	      public int LikeUpdate(int board_no) {
-	         return pf_boardDao.LikeUpdate(board_no);
-	      }
-	      
-	      
-	      //관심프로젝트 목록
-	      @Override
-	      public List<PF_BoardDto> likeList(int user_no) {
-	         // TODO Auto-generated method stub
-	         return pf_boardDao.likeList(user_no);
-	      }
-
+			//관심 상태 변경
+		      @Override
+		      public int LikeUpdate(int board_no, int likeuser_no) {
+		         Map<String, Integer> map = new HashMap<String, Integer>();
+		         
+		         map.put("board_no", board_no);
+		         map.put("likeuser_no", likeuser_no);
+		         return pf_boardDao.LikeUpdate(map);
+		      }
+		      
+		      
+		      //관심프로젝트 목록
+		      @Override
+		      public List<PF_BoardDto> likeList(int user_no) {
+		         // TODO Auto-generated method stub
+		         return pf_boardDao.likeList(user_no);
+		      }
 }

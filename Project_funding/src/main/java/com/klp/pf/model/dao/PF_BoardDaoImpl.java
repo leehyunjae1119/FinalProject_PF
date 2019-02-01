@@ -163,10 +163,10 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	      return res;
 	   }
 
-	 //관심상태 변경
+	   //관심상태 변경
 	      @Override
-	      public int LikeUpdate(int board_no) {
-	         int like_update = sqlSession.update(pf_boardNamespace +"LikeUpdate", board_no);
+	      public int LikeUpdate(Map<String, Integer> map){
+	         int like_update = sqlSession.update(pf_boardNamespace +"LikeUpdate", map);
 	         return like_update;
 	      }
 

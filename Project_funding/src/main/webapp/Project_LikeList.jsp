@@ -72,13 +72,12 @@
                   </div>
 
                   <c:choose>
-                     <c:when test="${empty ProjectList }">
+                     <c:when test="${empty likeList }">
                         <h3 style="text-align: center;"><b>----- 관심 등록된 프로젝트가 없습니다. -----</b></h3>
                      </c:when>
                      <c:otherwise>
                         <br>
-                        <c:forEach var="dto" items="${ProjectList }">
-                          <c:if test="${dto.board_like eq '좋아' }">
+                        <c:forEach var="dto" items="${likeList }">
                            <div class="project_content_form">
                               <h5>
                                  <b><a
@@ -142,7 +141,6 @@
                                  </div>
                               </div>
                            </div>
-                           </c:if>
                         </c:forEach>
 
                         <br>
