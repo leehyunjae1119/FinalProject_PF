@@ -160,7 +160,7 @@
       </div>
 
 	</div>
-	<hr />
+
 	
 	<div class="file_upload">
 <!-- 		<iframe src="http://docs.google.com/gview?url=http://localhost:8787/pf/storage/test.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe> -->
@@ -178,13 +178,15 @@
         </c:if>
            
         <c:if test="${userdto.getUser_type() eq '투자자'}">
-  				<form method="get" action="coin_payment_use_01.do" onSubmit="return CheckForm(this);" name="payment">
-  						<input type="hidden" value="${dto.board_no }" name="board_no">
-  						<input type="hidden" value="${coin }" name="coin">		<!-- 보유코인을 같이 보내서 controller에서 유효성 검사 한다. -->										
-						<input type="submit" value="투자하기"  class="btn btn-info"  style="float: right; margin-top: 110px; display: inline-block;">			
-						<input type="text" style="width : 100px;float: right; margin-top: 110px; display: inline-block;" class="form-control" id="control" name="amount_val">						
-				</form>
-           	</c:if>
+        <div class="button_container" style="text-align: center;">
+  			<form method="get" action="coin_payment_use_01.do" onSubmit="return CheckForm(this);" name="payment">
+  				<input type="hidden" value="${dto.board_no }" name="board_no">
+  				<input type="hidden" value="${coin }" name="coin">		<!-- 보유코인을 같이 보내서 controller에서 유효성 검사 한다. -->										
+				<input type="text" style="width : 100px; display: inline-block;" class="form-control" id="control" name="amount_val">
+				<input type="submit" value="투자하기"  class="btn btn-info btn-lg"  style="display: inline-block; width: 150px;">									
+			</form>
+		</div>
+        </c:if>
 
 	
 	<c:if test="${userdto.getUser_type() eq '파트너스' }">

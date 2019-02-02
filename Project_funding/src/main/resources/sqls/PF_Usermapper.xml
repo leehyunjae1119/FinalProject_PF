@@ -42,7 +42,7 @@
 		WHERE USER_NO = #{user_no}
 	</select>
 	
-	<select id="partnertList" resultType="PF_UserDto">
+	<select id="partnerlist" resultType="PF_UserDto">
 		SELECT * FROM PF_USER WHERE USER_TYPE = #{user_type}
 	</select>
 	
