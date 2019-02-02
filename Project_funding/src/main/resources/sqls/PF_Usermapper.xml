@@ -61,4 +61,14 @@
 		SELECT * FROM PF_USER
 		WHERE USER_NO = #{user_no}
 	</select>
+	
+	<select id="partnerlist" parameterType="String" resultType="PF_UserDto">
+		
+		SELECT *
+		 FROM PF_USER INNER JOIN PF_PROFILE 
+		  ON PF_USER.user_no=PF_PROFILE.user_no
+		WHERE USER_TYPE=#{user_type}
+		
+	</select>
+	
 </mapper>

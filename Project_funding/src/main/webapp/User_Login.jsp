@@ -133,12 +133,8 @@
 					url:"loginCheckAjax.do",
 					data:"user_id="+idVal+"&user_pw="+pwVal,
 					success:function(msg){
-						alert(msg.loginChk);
-
 						if(msg.loginChk==true){
-							alert(msg.emailCheck);
 							if(msg.emailCheck==true){
-								alert("이동하자!");
 								location.href="index.do";
 							} else { 
 								location.href="sendEmail.jsp";

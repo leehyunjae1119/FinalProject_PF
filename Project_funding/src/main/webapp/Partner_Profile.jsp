@@ -70,7 +70,7 @@
 										<a href="partner_evaluationlist.do?user_no=${userdto.user_no }"> &nbsp;&nbsp;평가리스트</a>
 									</div>
 									
-									<c:if test="${avg eq null}">
+									<c:if test="${avg eq 0}">
                             			<i class="material-icons" style="font-size: 55px;">star star star star star</i>
                             		</c:if> 
 									<c:if test="${avg eq 1}">

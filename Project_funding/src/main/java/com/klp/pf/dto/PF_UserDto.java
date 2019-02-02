@@ -22,6 +22,7 @@ public class PF_UserDto {
 	private String user_sex;
 	private String user_birth;
 	private String user_uptype;
+	private String profile_intro;
 	
 	public PF_UserDto() {
 		super();
@@ -36,7 +37,7 @@ public class PF_UserDto {
 	
 	public PF_UserDto(int user_no, String user_id, String user_pw, String user_email, String user_type,
 			String user_addr, String user_email_hash, String user_email_check, String user_img, String user_name,
-			String user_sex, String user_birth, String user_uptype) {
+			String user_sex, String user_birth, String user_uptype, String profile_intro) {
 		super();
 		this.user_no = user_no;
 		this.user_id = user_id;
@@ -51,6 +52,13 @@ public class PF_UserDto {
 		this.user_sex = user_sex;
 		this.user_birth = user_birth;
 		this.user_uptype = user_uptype;
+		this.profile_intro = profile_intro;
+	}
+	public String getProfile_intro() {
+		return profile_intro;
+	}
+	public void setProfile_intro(String profile_intro) {
+		this.profile_intro = profile_intro;
 	}
 	public String getUser_addr() {
 		return user_addr;

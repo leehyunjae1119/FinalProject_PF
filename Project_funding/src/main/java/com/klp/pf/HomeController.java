@@ -147,9 +147,12 @@ public class HomeController {
 	@ResponseBody
 	public String imageUp(MultipartHttpServletRequest multi, HttpServletRequest request) throws FileNotFoundException {
 		// 저장 경로 설정
-        String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/storage");
+        String path = WebUtils.getRealPath(request.getSession().getServletContext(), "/storage");
 //		String path = "..\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\image";
 
+//      String path=WebUtils.getRealPath(request.getSession().getServletContext(), "/profile");
+//		String path = "C:\\Users\\Saebak\\git\\FinalProject_PF3\\Project_funding\\src\\main\\webapp\\resources\\image";
+//		System.out.println("강일 테스트 : "+request.getSession().getServletContext().getResourcePaths("/resources"));
 		System.out.println(path);
 
 		File dir = new File(path);
@@ -319,11 +322,11 @@ public class HomeController {
 		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
 		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
 
-		 int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
-		 model.addAttribute("invest_totalMoney", invest_totalMoney);
+		int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
+		model.addAttribute("invest_totalMoney", invest_totalMoney);
 		model.addAttribute("messageuser", pf_userBiz.MessageUser(user_no));
 		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
-		 model.addAttribute("coin", coin_charge - coin_use);
+		model.addAttribute("coin", coin_charge - coin_use);
 
 		return "Project_View";
 	}
@@ -409,8 +412,13 @@ public class HomeController {
 		return "success";
 	}
 
+	/// 파트너 리스트 출력하기
 	@RequestMapping(value = "/partner_list.do")
-	public String partnerlist() {
+	public String partnerlist(Model model, HttpServletRequest request) {
+		List<PF_UserDto> PartnersList = pf_userBiz.partnerlist("파트너스");
+
+		model.addAttribute("PartnersList", PartnersList);
+
 		return "User_PartnerList";
 	}
 
@@ -420,13 +428,18 @@ public class HomeController {
 	}
 
 	// 코인
-	////////////////////// 리스트 가져오기///////////////////////
+//////////////////////리스트 가져오기///////////////////////
 	@RequestMapping(value = "/user_coin.do")
-	public String coin(HttpServletRequest request, HttpSession session, Model model) {
+	public String coin(HttpServletRequest request, HttpSession session, Model model, int page, int user_no) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 
-		List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no());
+//List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no(),page);
+		model.addAttribute("coinlist", pf_coinBiz.coin_selectAll(user_no, page));
+		model.addAttribute("totalCount", pf_coinBiz.totalCount_coin(user_no));
+		model.addAttribute("page", page);
+		model.addAttribute("user_no", user_no);
 
+		System.out.println(user_no);
 		int coin_charge = 0;
 		int coin_use = 0;
 		int coin_A = 0;
@@ -437,9 +450,9 @@ public class HomeController {
 		coin_A = pf_coinBiz.coin(userdto.getUser_no(), "환불대기중");
 		coin_B = pf_coinBiz.coin(userdto.getUser_no(), "환불완료");
 
-		model.addAttribute("coinlist", list);
+//model.addAttribute("coinlist", list);
 
-		// 현재 보유 포인트
+// 현재 보유 포인트
 		model.addAttribute("coin", coin_charge - coin_use + coin_A - coin_B);
 
 		return "User_Coin";
@@ -447,16 +460,19 @@ public class HomeController {
 
 //////////////////////포인트 충전 페이지//////////////////	
 	@RequestMapping(value = "/user_coin1.do")
-	public String coin1(HttpServletRequest request, HttpSession session, Model model) {
+	public String coin1(HttpServletRequest request, HttpSession session, Model model,int page,int user_no) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 
 		int amount = 0;
 		if (request.getParameter("amount") != null) {
 			amount = Integer.parseInt(request.getParameter("amount"));
+			
 			pf_coinBiz.coin_insert(userdto.getUser_no(), amount, "충전");
 		}
 
 		model.addAttribute("amount", amount);
+		model.addAttribute("page",page);
+		model.addAttribute("user_no",user_no);
 
 		return "redirect:/user_coin.do";
 	}
@@ -487,16 +503,18 @@ public class HomeController {
 		return "redirect:/user_coin.do";
 	}
 
-	
 ////////////////환불/////////////////
 	@RequestMapping(value = "User_refund.do")
-	public String User_refund(int coin_no, HttpSession session) {
+	public String User_refund(int coin_no, HttpSession session, int page, Model model, int user_no) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		pf_coinBiz.coin_update(coin_no);
+		System.out.println("환불 :" + page);
+		model.addAttribute("coin_no", coin_no);
+		model.addAttribute("user_no", user_no);
+		model.addAttribute("page", page);
 		return "redirect:/user_coin.do";
 	}
-	
-	
+
 	@RequestMapping(value = "/project_fundinglist.do")
 	public String projectfunding() {
 		return "Project_FundingList";
@@ -602,7 +620,12 @@ public class HomeController {
 		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
 		List<PF_CertificateDto> certificatedtoList = pf_certificateBiz.selectCertificate(profiledto.getProfile_no());
 		PF_EvaluationDto evaluationdto = pf_evaluationBiz.selectEcaluation(userdto.getUser_no());
-		int avg = (int)(evaluationdto.getItem1()+evaluationdto.getItem1()+evaluationdto.getItem1())/3;
+		int avg = 0;
+		try {
+			avg = (int)(evaluationdto.getItem1()+evaluationdto.getItem1()+evaluationdto.getItem1())/3;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		if(profiledto.getProfile_intro()!=null) {
 			profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
@@ -661,13 +684,23 @@ public class HomeController {
 
 	// 진행중인 프로젝트
 	@RequestMapping(value = "project_ing.do")
-	public String fundingProject_ing() {
+	public String fundingProject_ing(Model model, int page, String project_state) {
+		model.addAttribute("ProjectList", pf_boardBiz.ing_list(page, project_state));
+		model.addAttribute("page", page);
+		model.addAttribute("totalCount", pf_boardBiz.totalCount_ing(project_state));
+		model.addAttribute("project_state", project_state);
+		System.out.println(page);
+		System.out.println(project_state);
 		return "Project_IngList";
 	}
 
 	// 완료한 프로젝트
 	@RequestMapping(value = "project_end.do")
-	public String fundingProject_end() {
+	public String fundingProject_end(Model model, int page, String project_state) {
+		model.addAttribute("ProjectList", pf_boardBiz.end_list(page, project_state));
+		model.addAttribute("page", page);
+		model.addAttribute("totalCount", pf_boardBiz.totalCount_end(project_state));
+		model.addAttribute("project_state", project_state);
 		return "Project_EndList";
 	}
 
@@ -695,12 +728,46 @@ public class HomeController {
 		return "User_InfoUpdate";
 	}
 
-	// 관심프로젝트
-	@RequestMapping(value = "project_likeList.do")
-	public String project_likeList() {
-		return "Project_LikeList";
-	}
+	   // 관심프로젝트 - 페이징
+	   @RequestMapping(value = "project_likeList.do")
+	   public String project_likeList(HttpSession session,HttpServletRequest request,PF_BoardDto dto, Model model, int page) {
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
 
+	      int board_no = Integer.parseInt(request.getParameter("board_no"));
+	      
+	      System.out.println(board_no);
+	      
+	      int likeuser_no = userDto.getUser_no();
+	      int LikeUpdate = pf_boardBiz.LikeUpdate(board_no,likeuser_no);
+	      List<PF_BoardDto> likelist = pf_boardBiz.likeList(likeuser_no);
+	      System.out.println("결과"+LikeUpdate);
+	      for(PF_BoardDto asddto:likelist) {
+	         System.out.println("디티오 좋아요 사람 : "+asddto.getLikeuser_no());
+	      }
+
+	      model.addAttribute("LikeUpdate", LikeUpdate);
+	      model.addAttribute("userdto",userDto);
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("likelist", likelist);
+
+	      return "redirect:partner_mypage.do";
+	   }
+	   
+	   @RequestMapping(value = "likeList.do")
+	   public String likeList(HttpSession session,HttpServletRequest request,PF_BoardDto dto, Model model, int page) {
+	      
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
+	      int likeuser_no = userDto.getUser_no();
+	      List<PF_BoardDto> likelist = pf_boardBiz.likeList(likeuser_no);
+	         
+	      model.addAttribute("userdto",userDto);
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("likeList", pf_boardBiz.likeList(likeuser_no));
+	      
+	      return "Project_LikeList";
+	   }
 	// 파트너스 정보
 	@RequestMapping(value = "partnerReg_info.do")
 	public String partnerReg_info(HttpSession session, Model model) {
@@ -859,20 +926,31 @@ public class HomeController {
 		return "redirect:logOut.do";
 	}
 
-	// 파트너스 나의푸딩
-	@RequestMapping(value = "partner_mypage.do")
-	public String partnermypage() {
-		return "Partner_Mypage";
-	}
+	   // 파트너스 나의푸딩
+	   @RequestMapping(value = "partner_mypage.do")
+	   public String partnermypage(HttpSession session, Model model, HttpServletRequest request, int page) {
+	      PF_UserDto userDto = (PF_UserDto) session.getAttribute("userdto");
+
+	      int likeuser_no = userDto.getUser_no();
+	      List<PF_BoardDto> likelist = pf_boardBiz.likeList(likeuser_no);
+
+	      model.addAttribute("userdto",userDto);
+	      model.addAttribute("totalCount", pf_boardBiz.totalcount());
+	      model.addAttribute("page", page);
+	      model.addAttribute("likelist", likelist);
+	      
+	      return "Partner_Mypage";
+	   }
 
 	// 클라이언트 나의푸딩
 	@RequestMapping(value = "client_mypage.do")
 	public String clientrmypage(HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
-		
-		if(profiledto.getProfile_intro()!=null) {
-			profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+
+		if (profiledto.getProfile_intro() != null) {
+			profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
+					.replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
 		}
 		model.addAttribute("profiledto", profiledto);
 		return "Client_Mypage";

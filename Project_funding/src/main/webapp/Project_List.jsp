@@ -329,9 +329,7 @@
       
             <!-- 페이징 -->
                <div id="pagination">
-               
                <ul class="pagination " id="pasing">
-               
                </ul>
                
                </div>

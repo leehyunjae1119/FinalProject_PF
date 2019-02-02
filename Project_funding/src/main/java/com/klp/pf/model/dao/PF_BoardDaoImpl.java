@@ -163,4 +163,56 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	      return res;
 	   }
 
+	   //관심상태 변경
+	      @Override
+	      public int LikeUpdate(Map<String, Integer> map){
+	         int like_update = sqlSession.update(pf_boardNamespace +"LikeUpdate", map);
+	         return like_update;
+	      }
+
+
+	      @Override
+	      public List<PF_BoardDto> likeList(int user_no) {
+	         List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "Board_like",user_no);
+	         return dto;
+	      }
+	   
+	      @Override
+			public List<PF_BoardDto> ing_list(int page, String project_state) {
+			      Map<String, String> map = new HashMap<String, String>();
+			      map.put("page", Integer.toString(page));
+			      map.put("project_state", project_state);
+			      System.out.println(map);
+			      List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "ing_list", map);
+			      return dto;
+			}
+
+
+			@Override
+			public int totalCount_ing(String project_state) {
+				  int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_ing", project_state);
+			      return res;
+			}
+
+
+			@Override
+			public List<PF_BoardDto> end_list(int page, String project_state) {
+			      Map<String, String> map = new HashMap<String, String>();
+			      map.put("page", Integer.toString(page));
+			      map.put("project_state", project_state);
+			      System.out.println(project_state);
+			      List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "end_list", map);
+			      return dto;
+			}
+
+
+			@Override
+			public int totalCount_end(String project_state) {
+				  int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_end", project_state);
+			      return res;
+			}
+
+	   
+	   
+	   
 }

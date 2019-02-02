@@ -15,6 +15,19 @@
 	FROM PF_COIN 
 	WHERE USER_NO=#{user_no} AND COIN_STATE=#{coin_state}
 </select>
+<!-- COIN  페이징 -->
+<select id="coin_paging" parameterType="int" resultType="PF_CoinDto">
+<![CDATA[ SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE
+  FROM(SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE, RN 
+  FROM(SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE, ROWNUM AS RN 
+  FROM(SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE
+  FROM PF_COIN WHERE USER_NO = #{user_no} ORDER BY COIN_NO DESC))WHERE RN <= #{page} * 10) WHERE RN >=(#{page} -1) * 10 +1]]>
+</select>   
+     
+<select id="totalCount_coin" parameterType="int"  resultType="int" >
+      SELECT count(*) FROM PF_COIN WHERE USER_NO = #{user_no}
+</select>
+
 
 
 <select id="coinInsert" parameterType="map">
