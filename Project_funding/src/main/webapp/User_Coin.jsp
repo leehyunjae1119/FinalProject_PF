@@ -32,6 +32,7 @@
 	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
 	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
 	crossorigin="anonymous">
+<script type="text/javascript" src="resources/paging/coin_paging.js?ver=1"></script>
 
 <style type="text/css">
 .boxed {
@@ -49,8 +50,27 @@
 
 
 </style>
+<script type="text/javascript">
+
+function CheckForm(Join){
+	//체크박스 체크여부 확인
+	var chk1 = document.payment.paymentCheck;
+	var select1 = document.payment.amount;
+	
+	if(select1.value==""){
+		alert('충전하실 금액을 선택해주세요.');
+		select1.focus();
+		return false;
+	}
+	if(!chk1.checked){
+		alert('결제 동의를 체크해주세요');
+		chk1.focus();
+		return false;
+	}
+}
+</script>
 </head>
-<body>
+
 <body class="index-page sidebar-collapse">
 
 	<!-- 바탕 바꾸는곳 -->
@@ -73,12 +93,14 @@
 						<b style="color: gray;">코인 사용 내역<br></b>
 
 						<table class="table table-striped">
+						
 							<thead>
 								<tr>
 									<th>번호</th>
 									<th>충전날짜</th>
 									<th>충전금액</th>
 									<th>상태</th>
+									<th>환불신청</th>
 								</tr>
 							</thead>
 							
@@ -86,10 +108,11 @@
 								<c:choose>
 									<c:when test="${empty coinlist }">
 										<tr>
-											<td colspan="4" align="center">===== 충전내역이 없습니다. =====</td>
+											<td colspan="5" align="center">===== 충전내역이 없습니다. =====</td>
 										</tr>
 									</c:when>
 									<c:otherwise>
+										<% boolean chk=true; %>
 										<c:forEach items="${coinlist }" var="dto">
 											<tr>
 												<td>${dto.coin_no}</td>
@@ -97,6 +120,23 @@
 														pattern="yy.MM.dd HH:mm" /></td>
 												<td>${dto.coin_money }</td>
 												<td>${dto.coin_state }</td>
+												<td>
+													
+													<c:if test="${dto.coin_state ne '충전' }">	
+															<%chk=false;
+															%>
+												</c:if>
+												<c:if test="${dto.coin_state eq '충전' }">		
+												<%if(chk==true){ %>													
+														<form action="User_refund.do">
+															<input type="hidden" value="${page }" name="page" /> 
+															<input type="hidden" value="${dto.user_no }" name="user_no" />
+															<input type="hidden" value="${dto.coin_no }" name="coin_no" /> 
+															<input type="submit"  value="환불신청">
+														</form>
+														<%} %>
+												</c:if>	
+													</td>
 											</tr>
 										</c:forEach>
 									</c:otherwise>
@@ -104,38 +144,21 @@
 
 							</tbody>
 						</table>
-
-						<!-- 페이징
-						<div class="text-center">
-							<ul class="pagination">
-								<li><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-							</ul>
-						</div>
-						-->
+							<input type="hidden" id="totalCount" value='${totalCount }'> 
+      						<input type="hidden" id="page" value='${page }'>
+      						<input type="hidden" id="user_no" value='${user_no }'>
+						  <div class="text-center">
+               
+               			<ul class="pagination " id="pasing">
+               
+               			</ul>
+               
+               				</div>
+					
 						<br> <br> <br> <br> <br> <br>
-						<ul class="pagination pagination-info"
-							style="padding-left: 240px;">
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link"> prev</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">1</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">2</a></li>
-							<li class="active page-item"><a href="javascript:void(0);"
-								class="page-link">3</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">4</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">5</a></li>
-							<li class="page-item"><a href="javascript:void(0);"
-								class="page-link">next </a></li>
-						</ul>
+			
 						<hr />
-						<form action="user_coinpayment.do" class="form" method="post" name="payment"  onSubmit="return CheckForm(this)">
+						<form action="user_coinpayment.do" class="form" method="post" name="payment" onSubmit="return CheckForm(this)">
 							<b style="color: gray;">코인 충전 및 결제<br></b>
 							<div id="select" style="padding-top: 10px;">
 								<select class="btn btn-default dropdown-toggle" name="amount"
@@ -148,7 +171,8 @@
 							</div>
 							<div class="form-check" style="padding-top: 10px;">
 								<label class="form-check-label"> 
-								<input class="form-check-input" type="checkbox" value=""> 코인 충전 결제에 동의합니다. 
+								<input class="form-check-input" type="checkbox" id="paymentCheck" name="paymentCheck"> 
+								코인 충전 결제에 동의합니다. 
 									<span class="form-check-sign"> 
 										<span class="check">
 										</span>

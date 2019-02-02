@@ -3,6 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<% request.setCharacterEncoding("UTF-8"); %>
+<%@page import="com.klp.pf.dto.PF_BoardDto"%>	
+
 
 <!DOCTYPE html>
 <html>
@@ -48,7 +51,9 @@
       <div class="col-md-9" id="col10">
          <div class="view_title">
             <h3><span class="tim-note"><b><jsp:getProperty property="board_title" name="dto" /></b></span></h3>
-            <a href="#"><img src="resources/assets/img/heart.PNG" style="width:20px;" />&nbsp;&nbsp;<b>관심 프로젝트</b></a>
+           <c:if test="${userdto.getUser_type() eq '파트너스'}"> 
+             <a href="project_likeList.do?board_no=${dto.board_no }&user_no=${userdto.user_no}&page=1"><img src="resources/assets/img/heart.PNG" style="width:20px;" />&nbsp;&nbsp;<b>관심 프로젝트</b></a>
+         </c:if>
          </div>
          <div class="view_title2">
             <p class="text-muted">개발 > <jsp:getProperty property="project_category" name="dto" /></p>
@@ -91,6 +96,7 @@
                       ${dto.board_regdate }
                       </b></p>
                    </div>
+                   
                    <div class="project_time">
                       <img src="resources/assets/img/time.png" />&nbsp;&nbsp;
                       <p class="text-muted"><b>예상 시간</b>&nbsp;&nbsp;&nbsp;<b><jsp:getProperty property="project_term" name="dto" />일</b></p><br />
@@ -145,10 +151,11 @@
             <p class="text-muted"><b>누적 완료 금액</b></p>
          </div>
          <div class="money">
-            <p class="text-muted">100,000원</p>
+            <p class="text-muted">${invest_totalMoney }원</p>
          </div>
   
-         <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">메세지 보내기</button>
+       			     <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">메세지 보내기</button>
+
 
       </div>
 
@@ -157,7 +164,10 @@
 	
 	<div class="file_upload">
 <!-- 		<iframe src="http://docs.google.com/gview?url=http://localhost:8787/pf/storage/test.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe> -->
-			<iframe src="http://localhost:8787/pf/storage/${dto.board_file }" style="width:100%; height:500px;" frameborder="0"></iframe>
+		 <c:if test="${dto.board_file ne null }">
+           <iframe src="http://localhost:8787/pf/storage/${dto.board_file }" style="width:100%; height:500px;" frameborder="0"></iframe>
+<%--          <h1>${dto.board_file }</h1> --%>
+          </c:if>
 	</div>
 	
 		<c:if test="${userdto.getUser_no() eq dto.user_no}">
@@ -167,11 +177,14 @@
        	</div>
         </c:if>
            
-        <c:if test="${userdto.getUser_type() eq '투자자' }">
-        <div class="button_container" style="text-align: center;">
-           <button class="btn btn-info btn-lg" style="display: inline-block; width: 150px;">투자하기</button>
-        </div>
-        </c:if>
+        <c:if test="${userdto.getUser_type() eq '투자자'}">
+  				<form method="get" action="coin_payment_use_01.do" onSubmit="return CheckForm(this);" name="payment">
+  						<input type="hidden" value="${dto.board_no }" name="board_no">
+  						<input type="hidden" value="${coin }" name="coin">		<!-- 보유코인을 같이 보내서 controller에서 유효성 검사 한다. -->										
+						<input type="submit" value="투자하기"  class="btn btn-info"  style="float: right; margin-top: 110px; display: inline-block;">			
+						<input type="text" style="width : 100px;float: right; margin-top: 110px; display: inline-block;" class="form-control" id="control" name="amount_val">						
+				</form>
+           	</c:if>
 
 	
 	<c:if test="${userdto.getUser_type() eq '파트너스' }">
@@ -258,6 +271,21 @@
 			</div>
 		</div>
 <script>
+
+
+function CheckForm(Join){
+	var coin=${coin};
+	var amount_val= document.payment.amount_val;
+	if(coin<amount_val.value){
+		alert('보유포인트가 부족합니다. 보유 포인트는' + ${coin}+'원 입니다.')
+		return false;
+	}
+	
+}
+
+
+
+
 
 	var board_no = '${dto.board_no}';
 

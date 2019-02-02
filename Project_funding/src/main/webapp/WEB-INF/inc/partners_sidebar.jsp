@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +15,15 @@
 		<b>파트너스</b>&nbsp;&nbsp; <a href="user_infoUpdate.do"><b>기본정보 수정하기</b></a>
 		<hr>
 		<div class="user_info">
-			<img src="resources/assets/img/Teemo.png"
-				class="user_img rounded-circle img-fluid" />
+			<c:choose>
+				<c:when test="${userdto.user_img eq null}">
+					<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid" />
+				</c:when>
+				<c:otherwise>
+					<img src="http://localhost:8787/pf/storage/${userdto.user_img }" class="user_img rounded-circle img-fluid" />
+<%-- 					<img src="${userdto.user_img }" class="user_img rounded-circle img-fluid" /> --%>
+				</c:otherwise>
+			</c:choose>
 			<div class="user_info">
 				<p>${userdto.user_id }</p>
 				<p>${userdto.user_email }</p>

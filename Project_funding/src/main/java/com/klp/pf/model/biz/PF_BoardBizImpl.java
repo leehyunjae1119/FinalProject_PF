@@ -1,6 +1,8 @@
 package com.klp.pf.model.biz;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,16 +89,56 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	      return pf_boardDao.selectDateList(page);
 	   }
 
-	@Override
-	public List<PF_BoardDto> ingBoardList(String project_state) {
+	   @Override
+	   public List<PF_BoardDto> ingBoardList(String project_state) {
 		
 		return pf_boardDao.ingBoardList(project_state);
-	}
+	   }
+	   
+	   @Override
+		public List<PF_BoardDto> end_list(int page, String project_state) {
+			return pf_boardDao.end_list(page, project_state);
+		}
 
-	@Override
-	public int updateState(int board_no) {
+		@Override
+		public int updateState(int board_no) {
 		
-		return pf_boardDao.updateState(board_no);
-	}
+			return pf_boardDao.updateState(board_no);
+		}
+		
+		@Override
+		public int totalCount_end(String project_state) {
+			return pf_boardDao.totalCount_end(project_state);
+		}
+		
 
+		@Override
+		public List<PF_BoardDto> ing_list(int page, String project_state) {
+			return pf_boardDao.ing_list(page, project_state);
+		}
+
+		@Override
+		public int totalCount_ing(String project_state) {
+			return pf_boardDao.totalCount_ing(project_state);
+		}
+	   
+	   
+		//관심 상태 변경
+		@Override
+		public int LikeUpdate(int board_no, int likeuser_no) {
+		    Map<String, Integer> map = new HashMap<String, Integer>();
+		         
+		    map.put("board_no", board_no);
+		    map.put("likeuser_no", likeuser_no);
+		    
+		    return pf_boardDao.LikeUpdate(map);
+		 }
+		      
+		      
+		//관심프로젝트 목록
+		@Override
+		public List<PF_BoardDto> likeList(int user_no) {
+
+		    return pf_boardDao.likeList(user_no);
+		}
 }

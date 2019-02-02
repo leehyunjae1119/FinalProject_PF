@@ -351,10 +351,10 @@
 				</c:otherwise>
 				</c:choose>
 				<!-- 페이징 -->
-				<h1>
+			
 						<ul class="pagination" id="pasing">
 						</ul>
-				</h1>
+				
 		       <!-- <div id="pagination">
 					<ul class="pagination pagination-info">
                 		<li class="page-item">

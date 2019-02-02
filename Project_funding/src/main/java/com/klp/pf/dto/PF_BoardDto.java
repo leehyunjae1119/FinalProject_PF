@@ -20,15 +20,18 @@ public class PF_BoardDto {
        private int applicant_no;
    	   private String applicant_state;
    	   private int apply_cnt;
+   	   private int likeuser_no;
+   	   private String board_like;
      
 
 	public PF_BoardDto() {
           
        }
        
-       public PF_BoardDto(int board_no, String board_title, String board_content, int project_money, int project_term,
-    		   String project_start_day, String recruit_date, String recruit_personnel, String project_category,
-            String project_type, String board_file, String project_state, String board_regdate, int user_no) {
+
+   public PF_BoardDto(int board_no, String board_title, String board_content, int project_money, int project_term,
+         String project_start_day, String recruit_date, String recruit_personnel, String project_category,
+         String project_type, String board_file, String project_state, String board_regdate, int user_no,int likeuser_no ,String board_like) {
          super();
          this.board_no = board_no;
          this.board_title = board_title;
@@ -44,6 +47,8 @@ public class PF_BoardDto {
          this.project_state = project_state;
          this.board_regdate = board_regdate;
          this.user_no = user_no;
+         this.likeuser_no = likeuser_no;
+         this.board_like = board_like;
       }
 
       public int getBoard_no() {
@@ -59,14 +64,14 @@ public class PF_BoardDto {
       }
 
       public long getRecruit() {
-		return recruit;
-	}
+      return recruit;
+   }
 
-	public void setRecruit(long recruit) {
-		this.recruit = recruit;
-	}
+   public void setRecruit(long recruit) {
+      this.recruit = recruit;
+   }
 
-	public void setBoard_title(String board_title) {
+   public void setBoard_title(String board_title) {
          this.board_title = board_title;
       }
 
@@ -95,30 +100,30 @@ public class PF_BoardDto {
       }  
 
       public String getProject_start_day() {
-		return project_start_day;
-	}
+      return project_start_day;
+   }
 
-	public void setProject_start_day(String project_start_day) {
-		this.project_start_day = project_start_day;
-	}
+   public void setProject_start_day(String project_start_day) {
+      this.project_start_day = project_start_day;
+   }
 
-	public String getRecruit_date() {
-		return recruit_date;
-	}
+   public String getRecruit_date() {
+      return recruit_date;
+   }
 
-	public void setRecruit_date(String recruit_date) {
-		this.recruit_date = recruit_date;
-	}
+   public void setRecruit_date(String recruit_date) {
+      this.recruit_date = recruit_date;
+   }
 
-	public String getRecruit_personnel() {
-		return recruit_personnel;
-	}
+   public String getRecruit_personnel() {
+      return recruit_personnel;
+   }
 
-	public void setRecruit_personnel(String recruit_personnel) {
-		this.recruit_personnel = recruit_personnel;
-	}
+   public void setRecruit_personnel(String recruit_personnel) {
+      this.recruit_personnel = recruit_personnel;
+   }
 
-	public String getProject_category() {
+   public String getProject_category() {
          return project_category;
       }
 
@@ -189,17 +194,35 @@ public class PF_BoardDto {
 	public void setApply_cnt(int apply_cnt) {
 		this.apply_cnt = apply_cnt;
 	}
-	
+      
+     public String getBoard_like() {
+        return board_like;
+      }
 
-	@Override
-	public String toString() {
-		return "PF_BoardDto [board_no=" + board_no + ", board_title=" + board_title + ", board_content=" + board_content
-				+ ", project_money=" + project_money + ", project_term=" + project_term + ", project_start_day="
-				+ project_start_day + ", recruit_date=" + recruit_date + ", recruit_personnel=" + recruit_personnel
-				+ ", project_category=" + project_category + ", project_type=" + project_type + ", board_file="
-				+ board_file + ", project_state=" + project_state + ", board_regdate=" + board_regdate + ", user_no="
-				+ user_no + ", recruit=" + recruit + ", applicant_no=" + applicant_no + ", applicant_state="
-				+ applicant_state + ", apply_cnt=" + apply_cnt + "]";
-	}   
-	
+      public void setBoard_like(String board_like) {
+        this.board_like = board_like;
+     }
+
+
+   public int getLikeuser_no() {
+      return likeuser_no;
+   }
+
+
+   public void setLikeuser_no(int likeuser_no) {
+      this.likeuser_no = likeuser_no;
+   }
+
+
+   @Override
+   public String toString() {
+      return "PF_BoardDto [board_no=" + board_no + ", board_title=" + board_title + ", board_content=" + board_content
+            + ", project_money=" + project_money + ", project_term=" + project_term + ", project_start_day="
+            + project_start_day + ", recruit_date=" + recruit_date + ", recruit_personnel=" + recruit_personnel
+            + ", project_category=" + project_category + ", project_type=" + project_type + ", board_file="
+            + board_file + ", project_state=" + project_state + ", board_regdate=" + board_regdate + ", user_no="
+            + user_no + ", recruit=" + recruit + ", likeuser_no=" + likeuser_no + ", board_like=" + board_like
+            + "]";
+   }
+
 }

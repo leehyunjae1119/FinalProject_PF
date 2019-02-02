@@ -86,7 +86,7 @@
 
 			<div class="collapse navbar-collapse" id="investor_topbar">
 				<ul class="navbar-nav" style="color:black;">
-					<li class="nav-item"><a href="user_coin.do" class="nav-link" id="ho"
+					<li class="nav-item"><a href="user_coin.do?page=1&user_no=${userdto.user_no }" class="nav-link" id="ho"
 						style="padding-top: 17px;">코인 관리</a></li>
 					<li class="nav-item"><a href="user_typeUpdate.do" class="nav-link" id="ho"
 						style="padding-top: 17px;">계정 유형 변경 신청</a></li>

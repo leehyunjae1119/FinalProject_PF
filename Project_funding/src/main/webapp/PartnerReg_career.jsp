@@ -47,36 +47,41 @@
 					<div class="col-12 col-md-9" style="margin-top:-30px;">
 						<h3><b>경력 / 학력 / 자격증 등록</b></h3>
 						<hr>
-						<form action="#">
+						<form action="partnerReg_careerInsert.do">
 							<div class="container" id="careerContainer">
 								<h4><strong>경력</strong></h4>
 								<table class="table table-bordered table-sm" id="career">
 									<tbody>
 										<tr>
       										<th style="vertical-align: middle;">* 회사명</th>
-      										<td colspan="3"><input type="text" class="form-control"></input></td>
+      										<td colspan="3"><input name="career_company" type="text" class="form-control"></input></td>
 										</tr>
 										<tr>
       										<th style="vertical-align: middle;">* 근무부서</th>
-      										<td><input type="text" class="form-control"></input></td>
+      										<td><input name="career_dept" type="text" class="form-control"></input></td>
       										<th style="vertical-align: middle;">* 직위</th>
-      										<td><input type="text" class="form-control"></input></td>
+      										<td><input name="career_spot" type="text" class="form-control"></input></td>
 										</tr>
 										<tr>
       										<th style="vertical-align: middle;">* 입사일</th>
       										<td>
       											<div class="input-group">
-      												<select id="" class="form-control select_year"></select>
-      												<select id="" class="form-control select_month"></select>
+      												<select name="career_hiredate_year" class="form-control select_year"></select>
+      												<select name="career_hiredate_month" class="form-control select_month"></select>
       											</div>
       										</td>
       										<th style="vertical-align: middle;">&nbsp;퇴사일</th>
       										<td style="vertical-align: middle; font-size:14px">
       											<div class="input-group">
-      												<select id="" class="form-control select_year"></select>
-      												<select id="" class="form-control select_month"></select>
+      												<select name="career_firedate_year" class="form-control select_year"></select>
+      												<select name="career_firedate_month" class="form-control select_month"></select>
       											</div>
       										</td>
+										</tr>
+										<tr>
+											<td colspan="4" style="text-align: right;">
+												<input class="btn btn-danger btn-sm" onclick="removeTable(this);" value="삭제">
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -89,35 +94,40 @@
 									<tbody>
 										<tr>
       										<th style="vertical-align: middle;">* 학교명</th>
-      										<td colspan="3"><input type="text" class="form-control"></input></td>
+      										<td colspan="3"><input name="edu_name" type="text" class="form-control"></input></td>
 										</tr>
 										<tr>
       										<th style="vertical-align: middle;">* 상태</th>
       										<td>
-      											<select class="form-control">
-													<option>졸업</option>
-													<option>재학</option>
-													<option>중퇴</option>
+      											<select name="edu_state" class="form-control">
+													<option value="졸업">졸업</option>
+													<option value="재학">재학</option>
+													<option value="중퇴">중퇴</option>
 												</select>
       										</td>
       										<th style="vertical-align: middle;">* 전공</th>
-      										<td><input type="text" class="form-control"></input></td>
+      										<td><input name="edu_major" type="text" class="form-control"></input></td>
 										</tr>
 										<tr>
       										<th style="vertical-align: middle;">* 입학일</th>
       										<td>
       											<div class="input-group">
-      												<select class="form-control select_year"></select>
-      												<select class="form-control select_month"></select>
+      												<select name="edu_hiredate_year" class="form-control select_year"></select>
+      												<select name="edu_hiredate_month" class="form-control select_month"></select>
       											</div>
       										</td>
       										<th style="vertical-align: middle;">&nbsp;졸업일</th>
       										<td style="vertical-align: middle; font-size:14px">
       											<div class="input-group">
-      												<select class="form-control select_year"></select>
-      												<select class="form-control select_month"></select>
+      												<select name="edu_firedate_year" class="form-control select_year"></select>
+      												<select name="edu_firedate_month" class="form-control select_month"></select>
       											</div>
       										</td>
+										</tr>
+										<tr>
+											<td colspan="4" style="text-align: right;">
+												<input class="btn btn-danger btn-sm" onclick="removeTable(this);" value="삭제">
+											</td>
 										</tr>
 									</tbody>
 								</table>
@@ -130,15 +140,19 @@
 									<tbody>
 										<tr>
       										<th style="vertical-align: middle;">* 자격증명</th>
-      										<td colspan="3"><input type="text" class="form-control"></input></td>
+      										<td colspan="3"><input name="certificate_name" type="text" class="form-control"></input></td>
 										</tr>
 										<tr>
       										<th style="vertical-align: middle;">* 발급기관</th>
-      										<td><input type="text" class="form-control"></input></td>
+      										<td><input name="certificate_agency" type="text" class="form-control"></input></td>
       										<th style="vertical-align: middle;">* 발급일자</th>
-      										<td><input type="text" class="form-control"></input></td>
+      										<td><input name="certificate_issueddate" type="text" class="form-control"></input></td>
 										</tr>
-										
+										<tr>
+											<td colspan="4" style="text-align: right;">
+												<input class="btn btn-danger btn-sm" onclick="removeTable(this);" value="삭제">
+											</td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -177,13 +191,13 @@
 		var to_day = new Date();
 		var to_year = to_day.getFullYear();
 		for(var i = to_year; i > 1899; i--){ /* 1900년부터 현재 년도 까지 */
-			$('.select_year').append("<option>" + i + "년" + "</option>");
+			$('.select_year').append("<option value='" + i + "년'>" + i + "년" + "</option>");
 		}
 		for(var i = 1; i < 13; i++){
-			$('.select_month').append("<option>" + i + "월" + "</option>");
+			$('.select_month').append("<option value='" + i + "월'>" + i + "월" + "</option>");
 		}
 		for(var i = 1; i < 32; i++){
-			$('.select_day').append("<option>" + i + "일" + "</option>");
+			$('.select_day').append("<option value='" + i + "일'>" + i + "일" + "</option>");
 		}
 		
 		
@@ -207,6 +221,9 @@
 			
 			certificateContainer.appendChild(certificate);
 
+		}
+		function removeTable(row) {
+			$(row).closest('table').remove();
 		}
 		
 	</script>

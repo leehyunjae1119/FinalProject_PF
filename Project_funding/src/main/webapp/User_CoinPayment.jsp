@@ -43,7 +43,7 @@ $(function() {
 		        msg += '에러내용 : ' + rsp.error_msg;
 		    }
 		    alert(msg);
-		    location.href="user_coin1.do?amount="+rsp.paid_amount;
+		    location.href="user_coin1.do?user_no=${userdto.user_no}&page=1&amount="+rsp.paid_amount;
 		});
 
 })

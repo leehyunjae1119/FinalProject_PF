@@ -94,11 +94,9 @@
 					<textarea rows="15" cols="121" name="board_content" id="msg">${dto.board_content }</textarea>
 				</div>
 				<div class="file_content">
-					<div class="title">
-						<h5><b>파일 첨부</b></h5>
-						<input type="text" class="form-control" id="control" name="board_file" value="${dto.board_file }">
-					</div>
 					
+						<input type="text" class="form-control" id="control" name="board_file" hidden="">	
+						<br/><br/>
 				</div>
 				<div class="start_container">
 					<div class="start_input">
@@ -114,7 +112,7 @@
 						<p class="text-muted">모집 마감 일자</p>
 					</div>
 					<div class="start_select" style="padding-left: 60px;">
-						<input type="text" class="form-control" id="control" name="recruit_date" value="${dto.recruit_date }">
+						<input type="text" class="form-control" id="control"  name="recruit_date" value="${dto.recruit_date }">
 					</div>
 					<p class="text-muted" id="day">일</p>
 				</div>
@@ -179,12 +177,38 @@
 			<input type="submit" value="등록" class="btn btn-success" style="width: 150px;" />
 			<input type="submit" value="수정" class="btn btn-warning" style="width: 150px;" />
 		</div>
-		
 		</form>
+		<div style="position:relative; bottom:630px; left:25px;">
+         	<form id="fileUploadForm" action="fileUpload.do" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+                <input type="file" id="fileUpload" name="fileUpload"  value="${dto.board_file }"/>
+                <input type="button" class="btn btn-success" value="업로드" onClick="fileSubmit();">
+                &nbsp;&nbsp;
+           	</form>
+        </div>
 	</div>
 </div>
 </div>
-
+<script>
+	    function fileSubmit() {
+	        var formData = new FormData($("#fileUploadForm")[0]);
+	        $.ajax({
+	            type : 'post',
+	            url : 'fileUpload.do',
+	            data : formData,
+	            processData : false,
+	            contentType : false,
+	            success : function(html) {
+	                alert("파일 업로드하였습니다.");
+	                document.getElementById("board_file").value=html;
+	            },
+	            error : function(error) {
+	                alert("포트폴리오 업로드에 실패하였습니다.");
+	                console.log(error);
+	                console.log(error.status);
+	            }
+	        });
+	    }	
+</script>
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 </body>
 </html>

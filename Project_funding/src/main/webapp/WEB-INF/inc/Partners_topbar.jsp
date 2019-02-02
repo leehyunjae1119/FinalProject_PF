@@ -5,10 +5,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Puding</title>
 <link href="resources/assets/css/topbar_kit.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <style type="text/css">
 #ho:hover {
 	position: relative;
@@ -43,10 +47,9 @@
 			</div>
 			<div class="collapse navbar-collapse">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a href="partner_mypage.do" class="nav-link">나의
-							푸딩</a></li>
-					<li class="nav-item"><a href="project_insert.do"
-						class="nav-link" style="color: white">프로젝트 등록</a></li>
+					<li class="nav-item"><a
+						href="partner_mypage.do?user_no=${userdto.user_no}&page=1"
+						class="nav-link">나의 푸딩</a></li>
 					<li class="nav-item"><a href="project_list.do?page=1"
 						class="nav-link" style="color: white">프로젝트 찾기</a></li>
 					<li class="nav-item"><a href="partner_list.do"
@@ -55,16 +58,14 @@
 						style="color: white">이용 방법</a></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item" style="float: right;">
-						<a href="message_re.do?page=1" class="btn btn-rose btn-raised btn-fab btn-round">
-							 <i class="material-icons">email</i>
-						</a>
-					</li>
-				<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
-
-					<li class="nav-item">
-						<a href="logOut.do" class="nav-link"style="color: white">Log out</a>
-					</li>
+					<li class="nav-item" style="float: right;"><a
+						href="message_re.do?page=1"
+						class="btn btn-rose btn-raised btn-fab btn-round"> <i
+							class="material-icons">email</i>
+					</a></li>
+					<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
+					<li class="nav-item"><a href="logOut.do" class="nav-link"
+						style="color: white">Log out</a></li>
 				</ul>
 			</div>
 		</div>
@@ -94,14 +95,14 @@
 							신청</a></li>
 					<li class="nav-item"><a href="project_supportList.do"
 						class="nav-link" id="ho" style="padding-top: 17px;">지원 내역</a></li>
-					<li class="nav-item"><a href="project_ing.do" class="nav-link"
-						id="ho" style="padding-top: 17px;">진행중인 프로젝트</a></li>
-					<li class="nav-item"><a href="project_end.do" class="nav-link"
-						id="ho" style="padding-top: 17px;">완료한 프로젝트</a></li>
+					<li class="nav-item"><a href="project_ing.do?page=1"
+						class="nav-link" id="ho" style="padding-top: 17px;">진행중인 프로젝트</a></li>
+					<li class="nav-item"><a href="project_end.do?page=1"
+						class="nav-link" id="ho" style="padding-top: 17px;">완료한 프로젝트</a></li>
 				</ul>
 			</div>
-			</div>
-			
+		</div>
+
 	</nav>
 	<br>
 	<br>

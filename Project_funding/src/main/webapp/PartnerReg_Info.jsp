@@ -33,7 +33,8 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row row-offcanvas row-offcanvas-right">
-										<%@include file="WEB-INF/inc/profile_sidebar.jsp" %>
+					
+					<%@include file="WEB-INF/inc/profile_sidebar.jsp" %>
 
 					<div class="col-12 col-md-9" style="margin-top : -30px;">
 						<h3><b>파트너스 정보 등록</b></h3>

@@ -31,6 +31,10 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		return pf_dao.selectUser(user_id);
 	}
 	@Override
+	public PF_UserDto login(String user_id, String user_pw) {
+		return pf_dao.login(user_id, user_pw);
+	}
+	@Override
 	public int insertUser(PF_UserDto dto) {
 		return pf_dao.insertUser(dto);
 	}
@@ -87,28 +91,38 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		return false;
 	}
 	
-	
+	@Override
+	public int updateUser_type(PF_UserDto dto) {
+		return pf_dao.updateUser_type(dto);
+	}
+	@Override
+	public int deleteUser(PF_UserDto dto) {
+		return pf_dao.deleteUser(dto);
+	}
+	@Override
+	public int updateUser_Info(PF_UserDto dto) {
+		return pf_dao.updateUser_Info(dto);
+	}
 	@Override
 	public List<PF_UserDto> userlist(String user_type) {
-		
 		return pf_dao.userList(user_type);
 	}
-	
 	@Override
 	public PF_UserDto MessageUser(int user_no) {
-		
 		return pf_dao.MessageUser(user_no);
 	}
-	
 	@Override
 	public PF_UserDto cast(int user_no) {
-		
 		return pf_dao.cast(user_no);
 	}
+	
 	@Override
 	public List<PF_UserDto> PartnersList_client(int user_no) {
 		
 		return pf_dao.PartnersList_client(user_no);
 	}
 	
+	public List<PF_UserDto> partnerlist(String user_type) {
+		return pf_dao.partnerlist(user_type);
+	}
 }

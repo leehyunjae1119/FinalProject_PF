@@ -10,9 +10,12 @@
 		<typeAlias type="com.klp.pf.dto.PF_MessageDto" alias="PF_MessageDto"/>
 		<typeAlias type="com.klp.pf.dto.PF_TechnologyDto" alias="PF_TechnologyDto" />
 		<typeAlias type="com.klp.pf.dto.PF_CoinDto" alias="PF_CoinDto"/>
+		<typeAlias type="com.klp.pf.dto.PF_CareerDto" alias="PF_CareerDto"/>
+		<typeAlias type="com.klp.pf.dto.PF_EducationDto" alias="PF_EducationDto"/>
+		<typeAlias type="com.klp.pf.dto.PF_CertificateDto" alias="PF_CertificateDto"/>
 		<typeAlias type="com.klp.pf.dto.PF_InvestDto" alias="PF_InvestDto"/>
 		<typeAlias type="com.klp.pf.dto.PF_CommentDto" alias="PF_CommentDto"/>
-		<typeAlias type="com.klp.pf.dto.PF_ApplicantDto" alias="PF_ApplicantDto"/>
+		<typeAlias type="com.klp.pf.dto.PF_EvaluationDto" alias="PF_EvaluationDto"/>
 	</typeAliases>
 
 	<mappers>
@@ -23,8 +26,11 @@
 		<mapper resource="/sqls/PF_Messagemapper.xml"/>
 		<mapper resource="/sqls/PF_Technologymapper.xml" />
 		<mapper resource="/sqls/PF_Coinmapper.xml"/>
+		<mapper resource="/sqls/PF_Careermapper.xml"/>
+		<mapper resource="/sqls/PF_Educationmapper.xml"/>
+		<mapper resource="/sqls/PF_Certificatemapper.xml"/>
 		<mapper resource="/sqls/PF_Investmapper.xml"/>
 		<mapper resource="/sqls/PF_Commentmapper.xml"/>
-		<mapper resource="/sqls/PF_Applicantmapper.xml"/>
+		<mapper resource="/sqls/PF_Evaluationmapper.xml"/>
 	</mappers>
 </configuration>

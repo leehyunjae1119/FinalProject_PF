@@ -26,15 +26,15 @@
 </head>
 
 <body class="index-page sidebar-collapse">
-   <div class="section section-signup page-header"
-      style="background-image: url('resources/assets/img/city.jpg'); margin-top: 100px;">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-4 col-md-6 ml-auto mr-auto">
-               <div class="card card-login" style="width: 428px;">
-                  <form class="form" method="post" action="joinCheck.do" onsubmit="return PwSameCheck(this)">
-                     <div class="card-header card-header-primary text-center">
-                        <h4 class="card-title">Sign Up</h4>
+	<div class="section section-signup page-header"
+		style="background-image: url('resources/assets/img/city.jpg');">
+		<div class="container">
+			<div class="row" style="margin-top: 100px;">
+				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
+					<div class="card card-login" style="width: 428px;">
+						<form class="form" method="post" action="joinCheck.do" onsubmit="return PwSameCheck(this)">
+							<div class="card-header card-header-primary text-center">
+								<h4 class="card-title">Sign Up</h4>
 
                      </div>
                      <p class="description text-center"></p>
@@ -123,28 +123,6 @@ function UserTypeSelect(val) {
    document.getElementById("user_type").setAttribute("value", usertype);
 }
 </script>
-
-<!--    <!-- 회원가입 버튼 클릭시 완료되며 LoginUI.jsp로 넘어가는 부분 --> -->
-<!--    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"> -->
-<!--       <div class="modal-dialog" role="document"> -->
-<!--          <div class="modal-content"> -->
-<!--             <div class="modal-header"> -->
-<!--                <h5 class="modal-title">회원가입이 완료되었습니다.</h5> -->
-<!--                <button type="button" class="close" data-dismiss="modal" -->
-<!--                   aria-label="Close"> -->
-<!--                   <i class="material-icons">clear</i> -->
-<!--                </button> -->
-<!--             </div> -->
-
-<!--             <div class="modal-footer"> -->
-<!--                <button type="button" class="btn btn-danger btn-link" -->
-<!--                   data-dismiss="modal" onclick="location.href='LoginUI.jsp'">확인</button> -->
-<!--             </div> -->
-<!--          </div> -->
-<!--       </div> -->
-<!--    </div> -->
-
-
 
    <!-- footer -->
    <%@ include file="WEB-INF/inc/footer.jsp"%>
