@@ -9,7 +9,13 @@
 		SELECT * FROM PF_USER
 		WHERE USER_ID = #{user_id}
 	</select>
-
+	<select id="login" resultType="PF_UserDto" parameterType="map">
+		SELECT *
+ 		FROM PF_USER 
+ 		WHERE USER_ID=#{user_id} AND USER_PW=#{user_pw}
+	</select>
+	
+	<!-- 프로젝트 뷰에서 글을 올린 유저의 아이디 값 가져오기 -->
 	<select id="MessageUser" resultType="PF_UserDto">
 		SELECT * FROM PF_USER
 		WHERE USER_NO = #{user_no}
@@ -31,6 +37,21 @@
 		WHERE USER_EMAIL = #{user_email}
 	</select>
 	
+	<update id="updateUser_type" parameterType="PF_UserDto">
+		UPDATE PF_USER
+		SET USER_UPTYPE = #{user_uptype}
+		WHERE USER_NO = #{user_no}
+	</update>
+ 	<update id="deleteUser" parameterType="PF_UserDto">
+ 		UPDATE PF_USER
+ 		SET USER_ID = '${user_id}_${user_no}_del', USER_EMAIL = '${user_email}_${user_no}_del'
+ 		WHERE USER_NO = #{user_no}
+ 	</update>
+ 	<update id="updateUser_Info" parameterType="PF_UserDto">
+ 		UPDATE PF_USER
+		SET USER_IMG = #{user_img}, USER_NAME = #{user_name}, USER_SEX = #{user_sex}, USER_BIRTH = #{user_birth}, USER_ADDR = #{user_addr}
+		WHERE USER_NO = #{user_no}
+ 	</update>
 	<!-- 유저 목록 뽑기 -->
 	<select id="userlist" parameterType="String" resultType="PF_UserDto">
 		SELECT * FROM PF_USER WHERE USER_TYPE=#{user_type}
@@ -41,11 +62,6 @@
 		WHERE USER_NO = #{user_no}
 	</select>
 	
-	<select id="partnerlist" resultType="PF_UserDto">
-		SELECT * FROM PF_USER WHERE USER_TYPE = #{user_type}
-	</select>
-	
-	<!-- 클라이언트 - 지원한 사람 보기 -->
 	<select id="PartnersList_client" resultType="PF_UserDto">
 		SELECT * FROM PF_USER U INNER JOIN PF_BOARD B ON U.USER_NO=B.USER_NO WHERE BOARD_NO IN (SELECT BOARD_NO FROM PF_BOARD WHERE USER_NO=#{user_no})
 	</select>
@@ -55,5 +71,4 @@
  		FROM PF_USER 
  		WHERE USER_ID=#{user_id} AND USER_PW=#{user_pw}
 	</select>
-
 </mapper>

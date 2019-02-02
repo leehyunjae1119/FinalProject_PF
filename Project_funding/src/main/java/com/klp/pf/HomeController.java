@@ -640,6 +640,8 @@ public class HomeController {
 	public String partners_profile(HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+
+
 		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
 		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
 		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
@@ -711,9 +713,9 @@ public class HomeController {
 		   
 		List<PF_BoardDto> list = pf_applicantBiz.selectAll_partners(userdto.getUser_no(), "지원함");
 		System.out.println("list >> " + list);
-
+			
 		model.addAttribute("ApplicantList", list);
- 
+		
 	   
 		return "Project_SupportList";
 	}
