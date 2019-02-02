@@ -427,14 +427,16 @@ public class HomeController {
 		return "Question";
 	}
 	
-	//지원 내역
-	@RequestMapping(value="/Apply_Project.do")
-	public String Apply(Model model, PF_ApplicantDto dto) {
-		   
-		model.addAttribute("dto", pf_applicantBiz.insert(dto));
-		   
-		return "index";
-	}
+	//지원하기
+	   @RequestMapping(value="/Apply_Project.do")
+	   public String Apply(HttpSession session, Model model, PF_ApplicantDto dto) {
+	      
+	      PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+	      dto.setUser_no(userdto.getUser_no());
+	      model.addAttribute("dto", pf_applicantBiz.insert(dto));
+	         
+	      return "index";
+	   }
 	
 
 	// 코인
@@ -488,6 +490,19 @@ public class HomeController {
 	}
 
 ///////////////////////////////사용/////////////////////////	
+	@RequestMapping(value = "investAction.do")
+	public String investAction(int board_no, int coin, int amount_val, HttpSession session, int clientUser_no, Model model) {
+//		 board_no - 보드넘버, coin - 보유코인, amount_val - 투자금액
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		int investRes = pf_investBiz.invest_insert(userdto.getUser_no(), amount_val, board_no);
+		if(investRes > 0) {
+			int coinRes = pf_coinBiz.coin_insert(userdto.getUser_no(), amount_val, "사용");
+		}
+		return "redirect:/project_view.do?user_no="+ clientUser_no +"&board_no="+ board_no;
+	}
+	
+	
+	
 	@RequestMapping(value = "coin_payment_use_01.do")
 	public String getCoin_payment_use01(Model model, int amount_val, int board_no) {
 
