@@ -22,8 +22,7 @@
 		SELECT PF_USER_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블 -->
 	</selectKey>
 		INSERT INTO PF_USER
-		VALUES(#{user_no}, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE',
-		'FALSE', NULL)
+		VALUES(#{user_no}, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', 'FALSE', NULL, NULL, NULL, NULL, NULL)
 	</insert>
 	
 	<select id="setEmail" parameterType="String">
