@@ -40,6 +40,7 @@
 <body>
 <jsp:useBean id="dto" class="com.klp.pf.dto.PF_BoardDto" scope="request"></jsp:useBean>
 <jsp:useBean id="comment_dto" class="com.klp.pf.dto.PF_CommentDto" scope="request"></jsp:useBean>
+<jsp:useBean id="applydto" class="com.klp.pf.dto.PF_ApplicantDto" scope="request"></jsp:useBean>
 
 <div class="main main-raised">
 <div class="project_view_container">
@@ -51,8 +52,8 @@
          </div>
          <div class="view_title2">
             <p class="text-muted">개발 > <jsp:getProperty property="project_category" name="dto" /></p>
-            <p class="text-muted" id="support">총 0명 지원</p>
-            
+
+            <p class="text-muted" id="support">총 ${apply_cnt }명 지원</p>           
             
             <%
                
@@ -175,7 +176,7 @@
 	
 	<c:if test="${userdto.getUser_type() eq '파트너스' }">
 		<div class="partners_button">
-        	<button id="partners" class="btn btn-rose btn-lg" style="display: inline-block; width: 150px;">지원하기</button>
+			<input type="button" id="partners" class="btn btn-rose btn-lg" value="지원하기 " style="display: inline-block; width: 150px;" onclick="location.href='Apply_Project.do?board_no=${dto.board_no}&user_no=${dto.user_no }'" />
    		</div>
     </c:if>
 	
@@ -196,7 +197,7 @@
 				<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
 			</div>
 			<textarea rows="4" cols="90" name="comment_content" id="comment_content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
-			<button class="btn btn-success" onclick="loginCheck();">등록하기</button>
+			<button class="btn btn-success">등록하기</button>
 		
 		</form>
 	</div>
@@ -264,11 +265,6 @@
    $(function() {
       getComment_list('${dto.board_no}');
    })
-   
-//    $(function() {
-//       var brText = $("#comment_form").val();
-//       brText = brText.replace(/<br>/g, '\n');
-//    })
    
    
    //f = form

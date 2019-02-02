@@ -5,11 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
-<%
-//    PF_BoardDto dto = (PF_BoardDto)request.getAttribute("dto");
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +45,6 @@
 <c:if test="${page1 ne null}">
 <script type="text/javascript" src="resources/paging/paging2.js?ver=1"></script>
 </c:if>
-
 
 
    
@@ -270,6 +264,7 @@
          <c:otherwise>
          <c:forEach var="dto" items="${ProjectList }">
          <div class="project_content_form">
+         <input type="hidden" name="board_no" value="${dto.board_no }" />
             <h5><b><a href="project_view.do?board_no=${dto.board_no }&user_no=${dto.user_no}">${dto.board_title }</a></b></h5>
                <div class="project_title2">
                       <div class="project_money">
@@ -292,34 +287,19 @@
                          </p>
                       
                       </div>
-                      
-<%
-  
-//                String a = dto.getBoard_regdate();
-//                    System.out.println(dto);
-//                System.out.println(a);
-//                Date Ato = new SimpleDateFormat("yyyy-MM-dd").parse(a);
-//                System.out.println(Ato);
-               
-//                String b = dto.getRecruit_date();
-//                System.out.println(b);
-//                Date Bto = new SimpleDateFormat("yyyy-MM-dd").parse(b);
-//                System.out.println(Bto);
-               
-//                 long diffSec = Bto.getTime() - Ato.getTime();
-//                long diffDays = diffSec / (24 * 60 * 60 * 1000);
-//                System.out.println(diffDays);
-            
-//                dto.setRecruit(diffDays);
-            
-             %>
                                    
                       <div class="end_date">
-                         <img src="resources/assets/img/K-021.png" />      
-                         <p class="text-muted"><b>마감 ${dto.getRecruit()}일 전</b></p>
+                         <img src="resources/assets/img/K-021.png" />   
+                         
+                         <fmt:parseDate value="${dto.recruit_date }" var="recruitDate" pattern="yyyy-MM-dd" />
+                         <fmt:parseNumber value="${recruitDate.time / (1000*60*60*24 )}" integerOnly="true" var="recDate"></fmt:parseNumber>
+                         <fmt:parseDate value="${dto.board_regdate }" var="boardRegDate" pattern="yyyy-MM-dd" />
+                         <fmt:parseNumber value="${boardRegDate.time / (1000*60*60*24 )}" integerOnly="true" var="regDate"></fmt:parseNumber>
+                            
+                         <p class="text-muted"><b>마감 ${recDate - regDate }일 전 </b></p>
                          <br />
                          <img src="resources/assets/img/support.png" />
-                         <p class="text-muted"><b>총 0명 지원</b></p>
+                         <p class="text-muted"><b>총 ${apply_cnt }명 지원</b></p>
                       </div>
                    </div>
             </div>

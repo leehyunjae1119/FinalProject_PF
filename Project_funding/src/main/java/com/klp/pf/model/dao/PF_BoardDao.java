@@ -15,6 +15,8 @@ public interface PF_BoardDao {
 	public int update(PF_BoardDto dto);
 	public int delete(int board_no);
 	public int totalCount();
+	public List<PF_BoardDto> ingBoardList(String project_state);
+	public int updateState(int board_no);
 	
 	
 	//keyword 검색

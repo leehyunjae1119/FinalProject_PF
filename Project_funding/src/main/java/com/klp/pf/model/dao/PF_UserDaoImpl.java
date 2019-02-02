@@ -53,4 +53,12 @@ public class PF_UserDaoImpl implements PF_UserDao {
 		PF_UserDto res = sqlSession.selectOne(pf_userNamespace+"cast",user_no);
 		return res;
 	}
+
+	@Override
+	public List<PF_UserDto> PartnersList_client(int user_no) {
+		
+		List<PF_UserDto> res = sqlSession.selectList(pf_userNamespace + "PartnersList_client", user_no);
+		return res;
+	}
+
 }

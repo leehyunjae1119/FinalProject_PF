@@ -14,7 +14,8 @@ public interface PF_BoardBiz {
 	public PF_BoardDto selectOne(int board_no);
 	public int update(PF_BoardDto dto);
 	public int delete(int board_no);
-	
+	public List<PF_BoardDto> ingBoardList(String project_state);
+	public int updateState(int board_no);
 	
 	
 	   //keyword 검색

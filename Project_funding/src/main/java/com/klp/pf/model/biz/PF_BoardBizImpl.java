@@ -87,6 +87,16 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	      return pf_boardDao.selectDateList(page);
 	   }
 
+	@Override
+	public List<PF_BoardDto> ingBoardList(String project_state) {
+		
+		return pf_boardDao.ingBoardList(project_state);
+	}
 
+	@Override
+	public int updateState(int board_no) {
+		
+		return pf_boardDao.updateState(board_no);
+	}
 
 }

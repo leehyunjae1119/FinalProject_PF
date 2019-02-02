@@ -143,3 +143,9 @@ h3 {
 	margin-bottom: 100px;
 }
 
+#applyShow {
+	display: inline-block;
+	width: 200px; 
+	vertical-align: top;
+	height: 50px;
+}

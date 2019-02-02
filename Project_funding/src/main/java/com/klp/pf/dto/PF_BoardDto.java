@@ -1,10 +1,7 @@
 package com.klp.pf.dto;
 
-import java.util.Date;
-
 public class PF_BoardDto {
 
-   
        private int board_no;
        private String board_title;
        private String board_content;
@@ -20,8 +17,12 @@ public class PF_BoardDto {
        private String board_regdate;
        private int user_no;
        private long recruit; 
-      
-       public PF_BoardDto() {
+       private int applicant_no;
+   	   private String applicant_state;
+   	   private int apply_cnt;
+     
+
+	public PF_BoardDto() {
           
        }
        
@@ -164,7 +165,32 @@ public class PF_BoardDto {
       public void setUser_no(int user_no) {
          this.user_no = user_no;
       }
-         
+
+	public int getApplicant_no() {
+		return applicant_no;
+	}
+
+	public void setApplicant_no(int applicant_no) {
+		this.applicant_no = applicant_no;
+	}
+
+	public String getApplicant_state() {
+		return applicant_state;
+	}
+
+	public void setApplicant_state(String applicant_state) {
+		this.applicant_state = applicant_state;
+	}
+
+	public int getApply_cnt() {
+		return apply_cnt;
+	}
+
+	public void setApply_cnt(int apply_cnt) {
+		this.apply_cnt = apply_cnt;
+	}
+	
+
 	@Override
 	public String toString() {
 		return "PF_BoardDto [board_no=" + board_no + ", board_title=" + board_title + ", board_content=" + board_content
@@ -172,6 +198,8 @@ public class PF_BoardDto {
 				+ project_start_day + ", recruit_date=" + recruit_date + ", recruit_personnel=" + recruit_personnel
 				+ ", project_category=" + project_category + ", project_type=" + project_type + ", board_file="
 				+ board_file + ", project_state=" + project_state + ", board_regdate=" + board_regdate + ", user_no="
-				+ user_no + "]";
-	}       
+				+ user_no + ", recruit=" + recruit + ", applicant_no=" + applicant_no + ", applicant_state="
+				+ applicant_state + ", apply_cnt=" + apply_cnt + "]";
+	}   
+	
 }

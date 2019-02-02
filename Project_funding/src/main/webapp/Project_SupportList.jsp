@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,64 +28,107 @@
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-  <link href="resources/assets/css/Project_SupportList.css" rel="stylesheet">
+  <link href="resources/assets/css/project_list.css" rel="stylesheet">
 </head>
 
 <body class="index-page sidebar-collapse">
+
 	<div class="main main-raised">
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
 				<%@ include file="WEB-INF/inc/partners_sidebar.jsp" %>
 				<!-- 왼쪽 사이드 바 div -->
-				<div class="col" style="margin-top: -30px;">
-				<div class="col col-md-15" id="apply">
-					<h3><b>지원내역</b></h3>
-					<p>회원님이 지원한 프로젝트 목록입니다.</p>
-				</div>
-				<br>
-						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
-							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
-							<p>
-								<img src="resources/assets/img/money.png"/>&nbsp;예상금액:&nbsp;<b>500,000,000</b>|&nbsp;
-								<img src="resources/assets/img/time.png"/>&nbsp;예상기간:&nbsp;<b>3개월</b>| &nbsp;
-								<img src="resources/assets/img/calendar.png"/>&nbsp;모집마감:&nbsp;<b>2019.02.08</b>
-							<p>
-								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
-									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
-									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
-									Zeplin 형태로 제공드릴 예정입니다.)
-								</b>
-						</div>
-						<p>
-						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
-							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
-							<p>
-								<img src="resources/assets/img/money.png"/>&nbsp;예상금액:&nbsp;<b>500,000,000</b>|&nbsp;
-								<img src="resources/assets/img/time.png"/>&nbsp;예상기간:&nbsp;<b>3개월</b>| &nbsp;
-								<img src="resources/assets/img/calendar.png"/>&nbsp;모집마감:&nbsp;<b>2019.02.08</b>
-							<p>
-								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
-									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
-									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
-									Zeplin 형태로 제공드릴 예정입니다.)
-								</b>
-						</div>
-						<p>
-						<div class="col col-md-15" style="border: 1px solid black; border-radius: 10px;">
-							<a href="#"><b>자바 프레임워크 웹 어플리케이션 개발자 양성과정</b></a>
-							<p>
-								<img src="resources/assets/img/money.png"/>&nbsp;예상금액:&nbsp;<b>500,000,000</b>|&nbsp;
-								<img src="resources/assets/img/time.png"/>&nbsp;예상기간:&nbsp;<b>3개월</b>| &nbsp;
-								<img src="resources/assets/img/calendar.png"/>&nbsp;모집마감:&nbsp;<b>2019.02.08</b>
-							<p>
-								<b>서비스 중인 앱의 신규 UI를 적용하는 프로젝트입니다. 기존 출시 앱과 기능은 동일하며 기존 개발
-									소스코드는 (Android/iOS) 제공 드릴 예정입니다. 디자인 위주의 리뉴얼이기 때문에 UI 개발 작업이
-									주입니다. 전반적인 UI 디자인 변경 및 일부 추가 기능을 개발하는 작업입니다. (UI 디자인 가이드 및
-									Zeplin 형태로 제공드릴 예정입니다.)
-								</b>
-						</div>
-					</div>
+				<div class="col-md-9"  id="col8" style="margin-top: -30px;">
+				
+				<h3><b>지원내역</b></h3>
+               <p class="text-muted" style="margin-bottom: 30px;">회원님이 지원한 프로젝트 목록입니다.</p>
+				
+         <c:choose>
+            <c:when test="${empty ApplicantList }">
+               <h3 style="text-align: center;"> ----- 지원한 내역이 없습니다. -----</h3>
+            </c:when>
+         
+         <c:otherwise>
+         <c:forEach var="dto" items="${ApplicantList }">
+         <div class="project_content_form">
+            <h5><b><a href="project_view.do?board_no=${dto.board_no }&user_no=${dto.user_no}">${dto.board_title }</a></b></h5> 
+               <div class="project_title2">
+                      <div class="project_money">
+                         <img src="resources/assets/img/money.png" />
+                         <p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_money }원</b></p>
+                      </div>
+                      <div class="project_time">
+                         <img src="resources/assets/img/time.png" />   
+                         <p class="text-muted"><b>예상 기간</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_term }일</b></p>
+                      </div>
+                      <div class="project_support">
+                         <p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
+                         <b>${dto.board_regdate }</b></p>
+                      </div>
+                   </div>
+               <div class="c_detail">
+                  <div class="project_content_detail">
+                         <p class="text-muted" id="detail">
+                      ${dto.board_content}
+                         </p>
+                      
+                      </div>
+                                   
+                      <div class="end_date">
+                         <img src="resources/assets/img/K-021.png" />   
+                         
+                         <fmt:parseDate value="${dto.recruit_date }" var="recruitDate" pattern="yyyy-MM-dd" />
+                         <fmt:parseNumber value="${recruitDate.time / (1000*60*60*24 )}" integerOnly="true" var="recDate"></fmt:parseNumber>
+                         <fmt:parseDate value="${dto.board_regdate }" var="boardRegDate" pattern="yyyy-MM-dd" />
+                         <fmt:parseNumber value="${boardRegDate.time / (1000*60*60*24 )}" integerOnly="true" var="regDate"></fmt:parseNumber>
+                            
+                         <p class="text-muted"><b>마감 ${recDate - regDate }일 전 </b></p>
+                         <br />
+                         <img src="resources/assets/img/support.png" />
+                         <p class="text-muted"><b>총 0명 지원</b></p>
+                      </div>
+                   </div>
+            </div>
+            </c:forEach>
+            </c:otherwise>
+            </c:choose>
+      
+            <!-- 페이징 -->
+               <div id="pagination">
+               
+               <ul class="pagination " id="pasing">
+               
+               </ul>
+               
+               </div>
+            <!-- <div id="pagination">
+               <ul class="pagination pagination-info">
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link"> prev</a>
+                      </li>
+                        <li class="active page-item">
+                           <a href="javascript:void(0);" class="page-link">1</a>
+                      </li>
+                         <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">2</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">3</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">4</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">5</a>
+                      </li>
+                      <li class="page-item">
+                           <a href="javascript:void(0);" class="page-link">next </a>
+                      </li>
+                    </ul>
+         </div>-->
+      </div>
+		
 				</div>
 			</div>
 		</div>

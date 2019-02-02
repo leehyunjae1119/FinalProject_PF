@@ -42,4 +42,13 @@
 		SELECT * FROM PF_USER
 		WHERE USER_NO = #{user_no}
 	</select>
+	
+	<select id="partnertList" resultType="PF_UserDto">
+		SELECT * FROM PF_USER WHERE USER_TYPE = #{user_type}
+	</select>
+	
+	<!-- 클라이언트 - 지원한 사람 보기 -->
+	<select id="PartnersList_client" resultType="PF_UserDto">
+		SELECT * FROM PF_USER U INNER JOIN PF_BOARD B ON U.USER_NO=B.USER_NO WHERE BOARD_NO IN (SELECT BOARD_NO FROM PF_BOARD WHERE USER_NO=#{user_no})
+	</select>
 </mapper>

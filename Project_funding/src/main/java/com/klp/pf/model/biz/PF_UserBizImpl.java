@@ -105,4 +105,10 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		
 		return pf_dao.cast(user_no);
 	}
+	@Override
+	public List<PF_UserDto> PartnersList_client(int user_no) {
+		
+		return pf_dao.PartnersList_client(user_no);
+	}
+	
 }

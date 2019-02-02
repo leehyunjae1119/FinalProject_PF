@@ -163,4 +163,35 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	      return res;
 	   }
 
+
+	@Override
+	public List<PF_BoardDto> ingBoardList(String project_state) {
+		
+		List<PF_BoardDto> list = new ArrayList<PF_BoardDto>();
+		try {
+			
+			list = sqlSession.selectList(pf_boardNamespace + "ingBoardList", project_state);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+
+	@Override
+	public int updateState(int board_no) {
+		
+		int res = 0;
+		
+		try {
+			res = sqlSession.update(pf_boardNamespace + "updateState", board_no);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+
 }

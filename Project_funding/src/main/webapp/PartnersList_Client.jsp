@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="utf-8"%>
    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,15 @@
    href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
    crossorigin="anonymous">
-   
+  
+  
+  <script type="text/javascript">
+  function showModal(data){
+     $("#myModal .modal-title").val(data)
+      $("#myModal").modal();
+  }
+  
+  </script> 
 </head>
 <body>
 <body class="index-page sidebar-collapse">
@@ -74,14 +83,14 @@
                   </div>
                   <br>
                  
-                  <div class="project">
                   <c:choose>
-                  	<c:when test="${empty PartnersList }">
-                  		<h3>----- 파트너스가 없습니다. -----</h3>
-                  	</c:when>
-                  	
-                  	<c:otherwise>
-                  	<c:forEach var="dto" items="${PartnersList }">
+                     <c:when test="${empty PartnersList }">
+                        <h3>----- 파트너스가 없습니다. -----</h3>
+                     </c:when>
+                     
+                     <c:otherwise>
+                     <c:forEach var="dto" items="${PartnersList }">
+                    <div class="project"> 
                      <div class="row">
                         <div class="col-sm-2" style="float: left; padding-left:35px; padding-top:25px;">
                            <img src="resources/assets/img/faces/avatar.jpg"
@@ -90,38 +99,44 @@
                               id="img3">
                            <br>
                            <div>
-                              <b style="padding-left:25px;">개인</b>
+                              <b style="padding-left:25px;">${dto.user_type }</b>
                            </div>
                         </div>
-                        <div class="col-sm-6" style="wedth:100px;">
-                           <h3 id="x">
-                              <a style="color: skyblue;"><strong>${dto.user_id } &nbsp</strong></a>
-                           </h3>
-                           <span id="y" class="badge badge-pill badge-success">메시지
-                              보내기</span>
-                           <!-- 메세지보내기 버튼 <button id="y" class="btn btn-primary btn-round" style="height:15px; width:35px;">메시지 보내기<div class="ripple-container"></div></button> -->
+                                 <div class="col-sm-6" style="wedth: 100px;">
+                                    <h3 id="x">
+                                       <a style="color: skyblue;"><strong>${dto.user_id }
+                                             &nbsp</strong></a>
+                                    </h3>
+                                    <button id="y" class="btn btn-primary btn-round"
+                                       onclick="showModal('${dto.user_id}')"
+                                       data-target="#myModal">메세지 보내기</button>
 
-                           <div class="pr">
-                              <b id="yoyak">신입개발자 새박이와 함께할 위인 구함니다.신입개발자 새박이와 함께할 위인 구함니다.
-                              신입개발자 새박이와 함께할 위인 구함니다.신입개발자 새박이와 함께할 위인 구함니다.신입개발자 새박이와 함께할 위인 구함니다.
-                              </b>
-                           </div>
-                           <div>
-                              <span class="badge badge-pill badge-secondary">java</span>
-                              <span class="badge badge-pill badge-secondary">python</span>
-                              <span class="badge badge-pill badge-secondary">javascript</span>
-                           </div>
-                        </div>
-                        <div class="col-sm-3" style="float:right; padding-top:30px;">
+
+                                    <div class="pr">
+                                       <b id="yoyak"> 
+                                          <c:choose>
+                                             <c:when test="${dto.profile_intro eq null }">
+                                                파트너스가 자기소개를 등록하지 않았습니다.
+                                             </c:when>
+                                             <c:otherwise>
+                                                   ${dto.profile_intro }
+                                             </c:otherwise>
+                                          </c:choose>
+                                          
+                                       </b>
+                                    </div>
+
+                                 </div>
+                                 <div class="col-sm-3" style="float:right; padding-top:30px;">
                            <img src="resources/assets/img/fuck.PNG"
                               style="height: 120px; width: 230px;" id="img5">
-                        </div>  
+                        </div>                                                 
                         </div>
+                         </div>
                         </c:forEach>   
-                        </c:otherwise>             
-
+                       </c:otherwise>             
                      </c:choose>
-                  </div>
+                
                   <br>
                   
                </div>
@@ -129,8 +144,54 @@
          </div>
       </div>
       </div>
-
       <%@ include file="WEB-INF/inc/footer.jsp" %>
+      
+
+   <div class="container">
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+         <div class="modal-dialog ">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                  <h3>
+                     <b style="padding-left: 180px;">쪽지쓰기</b>
+                  </h3>
+
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+
+               <!-- Modal body -->
+               <!-- 값을 전송하는 부분 -->
+               <form action="message_insert.do?page=1" method="post">
+                  <input type="hidden" name="sender" value="${userdto.user_id }">
+                  <div class="modal-body">
+
+                     <!-- 쪽지 내용 작성하는 부분 -->
+                     <h4 >
+                        <b id="min">받는사람&nbsp;</b>
+                         <input type="text" class="modal-title" name="reader"  style="border: none;" readonly="readonly" />
+                     </h4>
+                     <h4>
+                        <b>내용&nbsp;</b>
+                     </h4>
+                     <textarea rows="10" cols="40" class="form-control" name="content"></textarea>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                     <input type="submit" class="btn btn-warning" value="보내기"
+                        id="send" />
+                     <!-- data-dismiss : 모달창 닫기 -->
+                     <input type="button" class="btn btn-default" value="취소"
+                        data-dismiss="modal" />
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+      
       
 </body>
 </html>

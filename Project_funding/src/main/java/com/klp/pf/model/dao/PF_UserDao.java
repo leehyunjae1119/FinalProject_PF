@@ -14,5 +14,7 @@ public interface PF_UserDao {
 	public boolean setUser_email(String user_email);
 	public List<PF_UserDto> userList(String user_type);
 	public PF_UserDto MessageUser(int user_no);
+	public List<PF_UserDto> PartnersList_client(int user_no);
+	
 
 }
