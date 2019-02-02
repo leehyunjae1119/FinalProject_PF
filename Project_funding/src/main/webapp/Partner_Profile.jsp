@@ -1,6 +1,7 @@
 <%@page import="com.klp.pf.dto.PF_ProfileDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,10 @@
   	
 	<!-- fontawesome -->
 	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	</head>
+	
+
+</style>	
+</head>
 
 <body class="index-page sidebar-collapse">
 
@@ -56,17 +60,69 @@
 							<div class="button_position" style="float: right;">
 								<button onclick="location.href='partnerReg_info.do'" class="btn btn-warning">업데이트 하기</button>
 							</div>
+							<div class="row">
 							
-							<br> <br>
-							<div style="margin-top:-20px;">
-							<img src="resources/assets/img/fuck.PNG" style="height: 120px; width: 230px;">
-							<img src="resources/assets/img/fuck.PNG" style="height: 120px; width: 230px;">
-							<img src="resources/assets/img/fuck.PNG" style="height: 120px; width: 230px;">
+							<div class="col-md-6">
+								<h3><strong>활동 요약 정보</strong></h3>
+								<div class="container">
+									<div class=row>
+										<p style="font-size: 20px">평균 평점 : <fmt:formatNumber value="${(evaluationdto.item1+evaluationdto.item2+evaluationdto.item3) / 3}" pattern=".0"/></p>
+										<a href="partner_evaluationlist.do?user_no=${userdto.user_no }"> &nbsp;&nbsp;평가리스트</a>
+									</div>
+									
+									<c:if test="${avg eq null}">
+                            			<i class="material-icons" style="font-size: 55px;">star star star star star</i>
+                            		</c:if> 
+									<c:if test="${avg eq 1}">
+                            			<i class="material-icons" style="color: orange;font-size: 55px;">star</i>
+                            			<i class="material-icons">star star star star</i>
+                            		</c:if> 
+                            		<c:if test="${avg eq 2}">
+                            			<i class="material-icons" style="color: orange;font-size: 55px;">star star</i>
+                            			<i class="material-icons" style="font-size: 55px;">star star star</i>
+                            		</c:if>
+                            		<c:if test="${avg eq 3}">
+                            			<i class="material-icons" style="color: orange;font-size: 55px;">star star star</i>
+                            			<i class="material-icons" style="font-size: 55px;">star star</i>
+                            		</c:if>
+                            		<c:if test="${avg eq 4}">
+                            			<i class="material-icons" style="color: orange;font-size: 55px;">star star star star</i>
+                            			<i class="material-icons" style="font-size: 55px;">star</i>
+                      				</c:if>
+                  					<c:if test="${avg eq 5}">
+                        				<i class="material-icons" style="color: orange;font-size: 55px;">star star star star star</i>
+                          			</c:if>
+								</div>
+								<div>
+									<p>계약한 프로젝트 : 0 건</p>
+									<p>등록한 포트폴리오 : 0 건</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<h3><strong>평가 세부 항목</strong></h3>
+								<p><b>전문성    ${evaluationdto.item1}</b></p>
+								<div class="progress progress-line-success">
+                					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${evaluationdto.item1*20}%;">
+                 						<span class="sr-only">${evaluationdto.item1}</span>
+                					</div>
+              					</div>
+              					<p><b>의사소통    ${evaluationdto.item2}</b></p>
+              					<div class="progress progress-line-success">
+                					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${evaluationdto.item2*20}%;">
+                 						<span class="sr-only">${evaluationdto.item2}</span>
+                					</div>
+              					</div>
+								<p><b>적극성    ${evaluationdto.item3}</b></p>
+              					<div class="progress progress-line-success">
+                					<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: ${evaluationdto.item3*20}%;">
+                 						<span class="sr-only">${evaluationdto.item3}</span>
+                					</div>
+              					</div>
+							</div>
+							</div>
 							
-							<br> <br>
 							<hr>
 						</div>
-					</div>
 
 						<div class="container">
 							<h3><b>자기소개</b></h3>
@@ -84,8 +140,7 @@
 										</div>
 									</c:when>
 									<c:otherwise> 
-										<%PF_ProfileDto profiledto = (PF_ProfileDto)request.getAttribute("profiledto"); %>
-										<p><%=profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<","&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></p>
+										<p>${profiledto.profile_intro }</p>
 									</c:otherwise>
 								</c:choose>
 							</div>

@@ -40,7 +40,7 @@
 			<div class="row" style="margin-top: 100px">
 			<div class="col-lg-4 col-md-6 ml-auto mr-auto">
 				<div class="card card-login">
-					<form class="form" method="post" onsubmit="login();">
+<!-- 					<form class="form" method="post" onsubmit="login();"> -->
 					<div class="card-header card-header-primary text-center">
 						<h4 class="card-title">Login</h4>
 						<div class="social-line"> 
@@ -79,7 +79,7 @@
 						</div>
 					
 					<div class="footer text-center">	
-						<input type="submit" class="btn btn-primary btn-link btn-wd btn-lg" value="로그인" >
+						<input type="button" class="btn btn-primary btn-link btn-wd btn-lg" onclick="login();" value="로그인" >
 					</div>
 					
 					<div class="input-group">
@@ -98,7 +98,7 @@
 						</div>
 			
 					</div>
-					</form>
+<!-- 					</form> -->
 				</div>
 			</div>
 			</div>
@@ -115,6 +115,7 @@
 		});
 		
 		function login(){
+			
 			var idVal = $("#user_id").val();
 			var pwVal = $("#user_pw").val();
 			
@@ -125,7 +126,6 @@
 			}else if(idVal.match(/_del/)){
 				alert("삭제된 계정입니다.");
 			}else{
-				
 				$("#loginchk").show();
 				
 				$.ajax({
@@ -133,8 +133,12 @@
 					url:"loginCheckAjax.do",
 					data:"user_id="+idVal+"&user_pw="+pwVal,
 					success:function(msg){
+						alert(msg.loginChk);
+
 						if(msg.loginChk==true){
+							alert(msg.emailCheck);
 							if(msg.emailCheck==true){
+								alert("이동하자!");
 								location.href="index.do";
 							} else { 
 								location.href="sendEmail.jsp";
@@ -148,7 +152,7 @@
 					}
 				})
 			}
-			return false;
+			
 		}
 		
 </script>

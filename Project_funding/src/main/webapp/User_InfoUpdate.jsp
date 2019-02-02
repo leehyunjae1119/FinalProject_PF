@@ -114,7 +114,7 @@ pageEncoding="UTF-8"%>
 									</h3>
 									<br>
 										
-									<form id="imageUploadForm" action="imageUpload.do" method="post" enctype="multipart/form-data">
+									<form id="fileUploadForm" action="fileUpload.do" method="post" enctype="multipart/form-data">
 										<div class="user_info_write" id="profile_img">
 											<b>프로필 사진</b>
 											<input type="file" id="fileUpload" name="fileUpload" class="form-control" >
@@ -177,10 +177,10 @@ pageEncoding="UTF-8"%>
 	
 	<script>
 	function fileSubmit() {
-	var formData = new FormData($("#imageUploadForm")[0]);
+	var formData = new FormData($("#fileUploadForm")[0]);
 	$.ajax({
 	type : 'post',
-	url : 'imageUpload.do',
+	url : 'fileUpload.do',
 	data : formData,
 	processData : false,
 	contentType : false,
