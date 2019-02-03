@@ -427,10 +427,12 @@ public class HomeController {
 		return "Question";
 	}
 	
-	//지원 내역
+	//지원하기
 	@RequestMapping(value="/Apply_Project.do")
-	public String Apply(Model model, PF_ApplicantDto dto) {
-		   
+	public String Apply(HttpSession session, Model model, PF_ApplicantDto dto) {
+		
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		dto.setUser_no(userdto.getUser_no());
 		model.addAttribute("dto", pf_applicantBiz.insert(dto));
 		   
 		return "index";
@@ -691,8 +693,6 @@ public class HomeController {
 	public String project_supportList(HttpSession session, Model model, String applicant_state) {
 		   
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-
-		System.out.println("userDto >> " + userdto);
 		   
 		List<PF_BoardDto> list = pf_applicantBiz.selectAll_partners(userdto.getUser_no(), "지원함");
 		System.out.println("list >> " + list);

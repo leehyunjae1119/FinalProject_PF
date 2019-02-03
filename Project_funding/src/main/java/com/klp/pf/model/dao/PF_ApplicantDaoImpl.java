@@ -28,6 +28,7 @@ public class PF_ApplicantDaoImpl implements PF_ApplicantDao {
 		List<PF_BoardDto> res = new ArrayList<PF_BoardDto>();
 		try {
 			res = sqlSession.selectList(pf_applicantNamespace + "selectAll_partners", param);
+			System.out.println("지원내역 > " + res);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
