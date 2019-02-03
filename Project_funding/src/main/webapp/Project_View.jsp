@@ -179,9 +179,10 @@
            
         <c:if test="${userdto.getUser_type() eq '투자자'}">
         <div class="button_container" style="text-align: center;">
-  			<form method="get" action="coin_payment_use_01.do" onSubmit="return CheckForm(this);" name="payment">
+  			<form method="get" action="investAction.do" onSubmit="return CheckForm(this);" name="payment">
   				<input type="hidden" value="${dto.board_no }" name="board_no">
   				<input type="hidden" value="${coin }" name="coin">		<!-- 보유코인을 같이 보내서 controller에서 유효성 검사 한다. -->										
+				<input type="hidden" value="${dto.user_no }" name="clientUser_no">						
 				<input type="text" style="width : 100px; display: inline-block;" class="form-control" id="control" name="amount_val">
 				<input type="submit" value="투자하기"  class="btn btn-info btn-lg"  style="display: inline-block; width: 150px;">									
 			</form>

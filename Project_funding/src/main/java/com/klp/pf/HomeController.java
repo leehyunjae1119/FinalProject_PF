@@ -437,7 +437,6 @@ public class HomeController {
 		   
 		return "index";
 	}
-	
 
 	// 코인
 //////////////////////리스트 가져오기///////////////////////
@@ -490,6 +489,19 @@ public class HomeController {
 	}
 
 ///////////////////////////////사용/////////////////////////	
+	@RequestMapping(value = "investAction.do")
+	public String investAction(int board_no, int coin, int amount_val, HttpSession session, int clientUser_no, Model model) {
+//		 board_no - 보드넘버, coin - 보유코인, amount_val - 투자금액
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		int investRes = pf_investBiz.invest_insert(userdto.getUser_no(), amount_val, board_no);
+		if(investRes > 0) {
+			int coinRes = pf_coinBiz.coin_insert(userdto.getUser_no(), amount_val, "사용");
+		}
+		return "redirect:/project_view.do?user_no="+ clientUser_no +"&board_no="+ board_no;
+	}
+	
+	
+	
 	@RequestMapping(value = "coin_payment_use_01.do")
 	public String getCoin_payment_use01(Model model, int amount_val, int board_no) {
 
@@ -627,6 +639,8 @@ public class HomeController {
 	public String partners_profile(HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
+
+
 		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
 		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
 		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
@@ -696,9 +710,9 @@ public class HomeController {
 		   
 		List<PF_BoardDto> list = pf_applicantBiz.selectAll_partners(userdto.getUser_no(), "지원함");
 		System.out.println("list >> " + list);
-
+			
 		model.addAttribute("ApplicantList", list);
- 
+		
 	   
 		return "Project_SupportList";
 	}

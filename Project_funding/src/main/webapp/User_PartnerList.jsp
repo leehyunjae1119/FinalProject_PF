@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-sm-6" style="wedth:100px;">
                            <h3 id="x">
-                              <a    style="color: skyblue;"><strong>${dto.user_id } &nbsp</strong></a>
+                              <a  style="color: skyblue;"><strong>${dto.user_id } &nbsp</strong></a>
                            </h3>
                                  <button id="y" class="btn btn-primary btn-round" onclick="showModal('${dto.user_id}')" data-target="#myModal">메세지 보내기</button>
 
