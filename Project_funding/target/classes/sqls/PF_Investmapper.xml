@@ -24,6 +24,4 @@
   		FROM PF_INVEST
   		WHERE  BOARD_NO=#{board_no}
   	</select>
-  	
-
 </mapper>
