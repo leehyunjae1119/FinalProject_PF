@@ -862,11 +862,20 @@ public class HomeController {
 	}
 	// 유저 계정 유형
 	@RequestMapping(value = "user_typeUpdate.do")
-	public String user_typeUpdate(HttpSession session) {
+	public String user_typeUpdate(HttpSession session, String select_type, Model model) {
+
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-		if (userdto.getUser_uptype() != null) {
+
+		model.addAttribute("select_type", select_type);
+
+		userdto.setUser_uptype(select_type);
+
+		if (userdto.getUser_uptype() == null) {
+			return "User_TypeUpdate";
+		} else if (userdto.getUser_uptype() != null && userdto.getUser_uptype() != userdto.getUser_type()) {
 			return "User_TypeWait";
 		}
+
 		return "User_TypeUpdate";
 	}
 
@@ -1451,6 +1460,28 @@ public class HomeController {
 		}
 		return "redirect:recruitment_partnersList.do?board_no="+board_no;
 	}
+	
+	// 회원유형변경
+	@RequestMapping(value = "admin_typeupdate.do")
+	public String admin_typeUpdate(Model model) {
+
+		List<PF_UserDto> userdto = pf_userBiz.typeUpdatelist();
+
+		model.addAttribute("ProjectList", userdto);
+
+		return "Admin_typeUpdate";
+	}
+	
+	// 회원유형변경확인
+		@RequestMapping(value = "typeupdateOK.do")
+		public String typeUpdateOK(Model model, int userno) {
+						
+			System.out.println(userno);
+			int	user_no = userno;
+			System.out.println(user_no);
+			model.addAttribute("userupdate", pf_userBiz.typeupdateOK(user_no));	
+			return "redirect:admin_typeupdate.do";
+		}
 	
 	
 
