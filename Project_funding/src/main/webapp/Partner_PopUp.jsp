@@ -8,11 +8,6 @@
 <head>
   <meta charset="utf-8" />
   
-   	<c:if test="${userdto.getUser_type() eq '파트너스' }">
-  <%@ include file="WEB-INF/inc/Partners_topbar.jsp" %></c:if>
-   
- 	<c:if test="${userdto.getUser_type() eq '클라이언트' }">
-  <%@ include file="WEB-INF/inc/client_topbar.jsp" %></c:if>
 <link href="resources/assets/css/project_insert.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -40,8 +35,14 @@
 	<!-- fontawesome -->
 	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	
-
-</style>	
+<style type="text/css">
+.main-raised{
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+</style>
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -50,16 +51,13 @@
 		<div class="section section-basic">
 			<div class="container">
 				<div class="row">
- 	<%@ include file="WEB-INF/inc/partners_sidebar.jsp" %>
 				
-					<div class="col-12 col-md-9" style="margin-top:-30px;">
+					<div class="col-12" style="margin-top:-30px;">
 						<div class="container">
-							<h3><b>${userdto.user_id }</b></h3>&nbsp;&nbsp;
+							<h3><b>${partneruserdto.user_id }</b></h3>&nbsp;&nbsp;
 							<span class="badge badge-pill badge-success">${profiledto.profile_activity }</span>&nbsp;&nbsp;
 							<img style="width: 16px;height: 16px;" src="resources/assets/img/person.png"/>${profiledto.profile_job }
-							<div class="button_position" style="float: right;">
-								<button onclick="location.href='partnerReg_info.do'" class="btn btn-warning">업데이트 하기</button>
-							</div>
+							
 							<div class="row">
 							
 							<div class="col-md-6">
@@ -67,7 +65,7 @@
 								<div class="container">
 									<div class=row>
 										<p style="font-size: 20px">평균 평점 : <fmt:formatNumber value="${(evaluationdto.item1+evaluationdto.item2+evaluationdto.item3) / 3}" pattern=".0"/></p>
-										<a href="partner_evaluationlist.do?user_id=${userdto.user_id }"> &nbsp;&nbsp;평가리스트</a>
+										<a href="partner_evaluationlist.do?user_no=${userdto.user_no }"> &nbsp;&nbsp;평가리스트</a>
 									</div>
 									
 									<c:if test="${avg eq 0}">
@@ -126,9 +124,7 @@
 
 						<div class="container">
 							<h3><b>자기소개</b></h3>
-							<div class="button_position" style="float: right;">
-								<button onclick="location.href='partnerReg_about.do'" class="btn btn-warning">업데이트 하기</button>
-							</div>
+							
 							<br> <br>
 							<div>
 								<c:choose>
@@ -136,7 +132,7 @@
 										<div style="text-align: center;">
 											<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 											<p></p>
-											<p>자기소개를 업데이트 해주세요.</p>
+											<p>자기소개를 업데이트 중입니다.</p>
 										</div>
 									</c:when>
 									<c:otherwise> 
@@ -150,16 +146,14 @@
 					
 						<div class="container">
 							<h3><b>포트폴리오</b></h3>
-							<div class="button_position" style="float: right;">
-								<button onclick="location.href='partnerReg_portfolio.do'" class="btn btn-warning">업데이트 하기</button>
-							</div>
+							
 							<br><br>
 							<c:choose>
 								<c:when test="${profiledto.profile_intro eq null }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
-										<p>포트폴리오를 업데이트 해주세요.</p>
+										<p>포트폴리오를 업데이트 중입니다.</p>
 									</div>
 								</c:when>
 								<c:otherwise> 
@@ -188,16 +182,14 @@
 					
 						<div class="container">
 							<h3><b>보유기술</b></h3>
-							<div class="button_position" style="float: right;">
-								<button onclick="location.href='partnerReg_technology.do'" class="btn btn-warning">업데이트 하기</button>
-							</div>
+							
 							<br> <br>
 							<c:choose>
 								<c:when test="${techList eq null }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
-										<p>보유기술을 업데이트 해주세요.</p>
+										<p>보유기술을 업데이트 중입니다.</p>
 									</div>
 								</c:when>
 								<c:otherwise> 
@@ -207,7 +199,6 @@
 											<th scope="col">종류</th>
 											<th scope="col">숙련도</th>
 											<th scope="col">경험</th>
-											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -216,7 +207,6 @@
 												<th scope="row">${techdto.tech_type }</th>
 												<td>${techdto.tech_skill }</td>
 												<td>${techdto.tech_exp }</td>
-												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_technologyDelete.do?tech_no=${techdto.tech_no }'">삭제</button></td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -230,16 +220,14 @@
 
 						<div class="container">
 							<h3><b>경력/학력/자격증</b></h3>
-							<div class="button_position" style="float: right;">
-								<button onclick="location.href='partnerReg_career.do'" class="btn btn-warning">업데이트 하기</button>
-							</div>
+							
 							<br><br> 
 							<c:choose>
 								<c:when test="${careerList eq null }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
-										<p>경력/학력/자격증을 업데이트 해주세요.</p>
+										<p>경력/학력/자격증을 업데이트 중입니다.</p>
 									</div>
 								</c:when>
 								<c:otherwise> 
@@ -250,7 +238,6 @@
 											<th scope="col">근무부서</th>
 											<th scope="col">직위</th>
 											<th scope="col">근무기간</th>
-											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -260,7 +247,6 @@
 												<td>${careerdto.career_dept }</td>
 												<td>${careerdto.career_spot }</td>
 												<td>${careerdto.career_hiredate } ~ ${careerdto.career_firedate }</td>
-												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_careerDelete.do?career_no=${careerdto.career_no }'">삭제</button></td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -275,7 +261,6 @@
 											<th scope="col">전공</th>
 											<th scope="col">상태</th>
 											<th scope="col">재학기간</th>
-											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -285,7 +270,6 @@
 												<td>${educationdto.edu_state }</td>
 												<td>${educationdto.edu_major }</td>
 												<td>${educationdto.edu_hiredate } ~ ${educationdto.edu_firedate }</td>
-												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_educationDelete.do?edu_no=${educationdto.edu_no }'">삭제</button></td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -299,7 +283,6 @@
 											<th scope="col">자격증명</th>
 											<th scope="col">발급기관</th>
 											<th scope="col">발행일자</th>
-											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -308,7 +291,6 @@
 												<th scope="row">${certificatedto.certificate_name }</th>
 												<td>${certificatedto.certificate_agency }</td>
 												<td>${certificatedto.certificate_issueddate }</td>
-												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_certificateDelete.do?certificate_no=${certificatedto.certificate_no }'">삭제</button></td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -324,8 +306,6 @@
 		</div>
 	</div>
 
-	<!-- footer 부분 -->
-	<%@ include file="WEB-INF/inc/footer.jsp" %>
 	<!--   Core JS Files   -->
 	<script src="resources/assets/js/core/jquery.min.js" type="text/javascript"></script>
 	<script src="resources/assets/js/core/popper.min.js" type="text/javascript"></script>

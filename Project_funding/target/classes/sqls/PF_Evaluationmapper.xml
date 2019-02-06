@@ -5,10 +5,10 @@
 
 <mapper namespace="pf_evaluation">
 
-	<select id="selectEvaluation" parameterType="int" resultType="PF_EvaluationDto">
+	<select id="selectEvaluation" parameterType="String" resultType="PF_EvaluationDto">
 		SELECT EVALUATION_OBJECT, ROUND(AVG(EVALUATION_ITEM1),1) as ITEM1, ROUND(AVG(EVALUATION_ITEM2),1)as ITEM2, ROUND(AVG(EVALUATION_ITEM3),1) as ITEM3
 		FROM PF_EVALUATION
-		WHERE EVALUATION_OBJECT = #{user_no}
+		WHERE EVALUATION_OBJECT = #{user_id}
 		GROUP BY EVALUATION_OBJECT
 	</select>
 	
@@ -23,10 +23,10 @@
 		VALUES(PF_EVALUATION_SEQ.NEXTVAL, #{evaluation_writer}, #{evaluation_object}, #{evaluation_item1}, #{evaluation_item2}, #{evaluation_item3}, #{evaluation_content})
 	</insert>
 	
-	<select id="selectAll" parameterType="int" resultType="PF_EvaluationDto">
+	<select id="selectAll" parameterType="String" resultType="PF_EvaluationDto">
 		SELECT a.*, b.USER_ID
 		FROM PF_EVALUATION a JOIN PF_USER b ON (a.EVALUATION_WRITER = b.USER_NO)
-		WHERE EVALUATION_OBJECT = #{user_no}
+		WHERE EVALUATION_OBJECT = #{user_id}
 	</select>
 	
 </mapper>

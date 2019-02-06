@@ -22,13 +22,6 @@
 		<result column="user_no" 		property="user_no" />
 	</resultMap>
 	
-	<resultMap type="PF_ApplicantDto" id="PF_ApplicantDto">
-		<result column="applicant_no" 	property="applicant_no" />
-		<result column="board_no" 		property="board_no" />
-		<result column="user_no" 		property="user_no" />
-		<result column="applicant_state" property="applicant_state" />
-	</resultMap>
-	
  
 	<!-- 파트너스 - 지원내역 (내가 어느 프로젝트에 지원했는지 보여줌) -->	
 <!-- 	<select id="selectAll_partners" resultType="PF_ApplicantDto" parameterType="String"> -->
@@ -43,11 +36,24 @@
 
 	<!-- 지원하기 -->
 	<select id="applyProject" resultType="PF_ApplicantDto">
-		INSERT INTO PF_APPLICANT VALUES (PF_APPLICANT_SEQ.NEXTVAL, #{board_no}, #{user_no}, '지원함')
+		INSERT INTO PF_APPLICANT VALUES (PF_APPLICANT_SEQ.NEXTVAL, #{board_no}, #{user_no}, '지원신청')
 	</select>
 	
 	<select id="applyCount" resultType="int">
 		SELECT COUNT(*) AS APPLY_CNT FROM PF_APPLICANT A INNER JOIN PF_BOARD B ON A.BOARD_NO=B.BOARD_NO WHERE B.BOARD_NO=#{board_no}
 	</select>
+	
+	<select id="recruitmentList" parameterType="int" resultType="PF_ApplicantDto">
+		SELECT a.APPLICANT_NO, a.BOARD_NO, a.USER_NO, a.APPLICANT_STATE, b.USER_ID, b.USER_EMAIL, b.USER_TYPE 
+    	FROM PF_APPLICANT a LEFT OUTER JOIN PF_USER b ON (a.USER_NO = b.USER_NO)
+    	WHERE BOARD_NO = #{board_no}
+	</select>
 
+	<update id="selectionPartners" parameterType="int">
+		UPDATE PF_APPLICANT SET APPLICANT_STATE = '모집완료' WHERE APPLICANT_NO = #{applicant_no}
+	</update>
+	
+	<select id="recruitCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) AS APPLY_CNT FROM PF_APPLICANT WHERE BOARD_NO = #{board_no} AND APPLICANT_STATE = '모집완료'	
+	</select>
 </mapper>

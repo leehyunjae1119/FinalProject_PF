@@ -15,8 +15,8 @@ public class PF_EvaluationDaoImpl implements PF_EvaluationDao {
 	private SqlSessionTemplate sqlSession;
 	
 	@Override
-	public PF_EvaluationDto selectEcaluation(int user_no) {
-		return sqlSession.selectOne(pf_evaluationNamespace+"selectEvaluation", user_no);
+	public PF_EvaluationDto selectEcaluation(String user_id) {
+		return sqlSession.selectOne(pf_evaluationNamespace+"selectEvaluation", user_id);
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class PF_EvaluationDaoImpl implements PF_EvaluationDao {
 	}
 
 	@Override
-	public List<PF_EvaluationDto> selectAll(int user_no) {
-		return sqlSession.selectList(pf_evaluationNamespace+"selectAll", user_no);
+	public List<PF_EvaluationDto> selectAll(String user_id) {
+		return sqlSession.selectList(pf_evaluationNamespace+"selectAll", user_id);
 	}
 
 

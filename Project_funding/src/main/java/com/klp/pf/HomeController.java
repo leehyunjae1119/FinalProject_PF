@@ -645,7 +645,7 @@ public class HomeController {
 		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
 		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
 		List<PF_CertificateDto> certificatedtoList = pf_certificateBiz.selectCertificate(profiledto.getProfile_no());
-		PF_EvaluationDto evaluationdto = pf_evaluationBiz.selectEcaluation(userdto.getUser_no());
+		PF_EvaluationDto evaluationdto = pf_evaluationBiz.selectEcaluation(userdto.getUser_id());
 		int avg = 0;
 		try {
 			avg = (int)(evaluationdto.getItem1()+evaluationdto.getItem1()+evaluationdto.getItem1())/3;
@@ -682,7 +682,54 @@ public class HomeController {
 
 		return "Partner_Profile";
 	}
+	//파트너스 프로필 팝업
+	@RequestMapping(value = "partners_popup.do")
+	public String partners_popup(String user_id, Model model) {
+		PF_UserDto userdto = pf_userBiz.selectUser(user_id);
+		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
 
+
+		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
+		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
+		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
+		List<PF_CertificateDto> certificatedtoList = pf_certificateBiz.selectCertificate(profiledto.getProfile_no());
+		PF_EvaluationDto evaluationdto = pf_evaluationBiz.selectEcaluation(user_id);
+		int avg = 0;
+		try {
+			avg = (int)(evaluationdto.getItem1()+evaluationdto.getItem1()+evaluationdto.getItem1())/3;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		if(profiledto.getProfile_intro()!=null) {
+			profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+		}
+		model.addAttribute("partneruserdto", userdto);
+		model.addAttribute("profiledto", profiledto);
+		model.addAttribute("techdtoList", techdtoList);
+		model.addAttribute("careerdtoList", careerdtoList);
+		model.addAttribute("educationdtoList", educationdtoList);
+		model.addAttribute("certificatedtoList", certificatedtoList);
+		model.addAttribute("evaluationdto", evaluationdto);
+		model.addAttribute("avg", avg);
+
+		if (techdtoList.size() == 0) {
+			String techList = null;
+			model.addAttribute("techList", techList);
+		} else {
+			String techList = "techList";
+			model.addAttribute("techList", techList);
+		}
+		if (careerdtoList.size() == 0 && educationdtoList.size() == 0 && certificatedtoList.size() == 0) {
+			String careerList = null;
+			model.addAttribute("careerList", careerList);
+		} else {
+			String careerList = "careerList";
+			model.addAttribute("careerList", careerList);
+		}
+
+		return "Partner_PopUp";
+	}
 	// 유저 계정 유형
 	@RequestMapping(value = "user_typeUpdate.do")
 	public String user_typeUpdate(HttpSession session) {
@@ -1246,10 +1293,35 @@ public class HomeController {
 	
 	//평가 리스트 페이지로 이동
 	@RequestMapping(value="partner_evaluationlist.do")
-	public String partner_evaluationlist(int user_no, Model model) {
-		List<PF_EvaluationDto> evaluationlist = pf_evaluationBiz.selectAll(user_no);
+	public String partner_evaluationlist(String user_id, Model model) {
+		List<PF_EvaluationDto> evaluationlist = pf_evaluationBiz.selectAll(user_id);
 		model.addAttribute("evaluationlist", evaluationlist);
 		return "Partner_EvaluationList";
 	}
+	
+	//해당 프로젝트 지원자 리스트로 이동
+	@RequestMapping(value="recruitment_partnersList.do")
+	public String recruitment_partnersList(int board_no, Model model) {
+		List<PF_ApplicantDto> recruitmentlist = pf_applicantBiz.recruitmentList(board_no);
+
+		model.addAttribute("recruitmentlist", recruitmentlist);
+		model.addAttribute("board_no", board_no);
+		return "Project_RecruitmentPartnersList";
+	}
+	
+	//지원자 선택
+	@RequestMapping(value="selection_Partners.do")
+	public String selection_Partners(int board_no, int applicant_no, Model model) {
+		int applicantRes = pf_applicantBiz.selectionPartners(applicant_no);
+		PF_BoardDto boarddto = pf_boardBiz.selectOne(board_no);
+		int apply_cnt = pf_applicantBiz.recruitCount(board_no);
+		if(Integer.parseInt(boarddto.getRecruit_personnel()) == apply_cnt) {
+			int boardRes = pf_boardBiz.updateState(board_no);
+			return "redirect:project_ing.do?page=1&project_state='진행 중'";
+		}
+		return "redirect:recruitment_partnersList.do?board_no="+board_no;
+	}
+	
+	
 
 }

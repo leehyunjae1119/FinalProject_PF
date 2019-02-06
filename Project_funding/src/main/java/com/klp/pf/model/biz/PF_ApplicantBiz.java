@@ -11,4 +11,7 @@ public interface PF_ApplicantBiz {
 	public int insert(PF_ApplicantDto dto);
 	public int applyCount(int board_no);
 	
+	public List<PF_ApplicantDto> recruitmentList(int board_no);
+	public int selectionPartners(int applicant_no);
+	public int recruitCount(int board_no);
 }

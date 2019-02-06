@@ -8,7 +8,7 @@ public interface PF_EvaluationDao {
 	String pf_evaluationNamespace = "pf_evaluation.";
 
 	// 개인에 대한 평가 평균
-	public PF_EvaluationDto selectEcaluation(int user_no);
+	public PF_EvaluationDto selectEcaluation(String user_id);
 
 	// 평가 평균 전체리스트
 	public List<PF_EvaluationDto> selectEvaluationAll();
@@ -17,6 +17,6 @@ public interface PF_EvaluationDao {
 	public int insertEvaluation(PF_EvaluationDto dto);
 
 	// 개인에 대한 평가 리스트
-	public List<PF_EvaluationDto> selectAll(int user_no);
+	public List<PF_EvaluationDto> selectAll(String user_id);
 
 }
