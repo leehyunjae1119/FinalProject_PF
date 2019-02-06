@@ -212,10 +212,9 @@ public class HomeController {
 	@RequestMapping(value = "/project_inspectionList.do")
 	public String project_inspectionlist(Model model, HttpServletRequest request, String project_state,
 			HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 
-		int user_no = Integer.parseInt(request.getParameter("user_no"));
-
-		model.addAttribute("client_project", pf_boardBiz.client_inspectionList(project_state, user_no));
+		model.addAttribute("client_project", pf_boardBiz.client_inspectionList(project_state, userdto.getUser_no()));
 		return "Client_InspectionList";
 	}
 
