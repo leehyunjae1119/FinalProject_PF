@@ -122,7 +122,7 @@ public class PF_UserBizImpl implements PF_UserBiz {
 		return pf_dao.PartnersList_client(user_no);
 	}
 	
-	public List<PF_UserDto> partnerlist(String user_type) {
-		return pf_dao.partnerlist(user_type);
+	public List<PF_UserDto> partnerlist() {
+		return pf_dao.partnerlist();
 	}
 }
