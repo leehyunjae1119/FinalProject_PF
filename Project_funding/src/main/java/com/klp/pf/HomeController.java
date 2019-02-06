@@ -525,31 +525,33 @@ public class HomeController {
 		return "Question";
 	}
 
-	//지원하기
-	   @RequestMapping(value="/Apply_Project.do")
-	   public String Apply(HttpSession session, Model model, PF_ApplicantDto dto, HttpServletResponse response) throws IOException {
-	      
-	      PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-	      dto.setUser_no(userdto.getUser_no());
-	      
-	      model.addAttribute("dto", pf_applicantBiz.insert(dto));
-	      
-	      if(userdto.getUser_no() == dto.getUser_no()) {
-	         model.addAttribute("dto", pf_applicantBiz.insert(dto));
-	         
-	         System.out.println("세션 >> " + userdto.getUser_no());
-	         System.out.println("지원한 애 >> " + dto.getUser_no());
-	         PrintWriter writer = response.getWriter();
-	         writer.println("<script>alert('이미 지원하신 프로젝트입니다.');</script>");
-	      } 
-	      
-	      return "index";
-	   }
+	// 지원하기
+	@RequestMapping(value = "/Apply_Project.do")
+	public String Apply(HttpSession session, Model model, PF_ApplicantDto dto, HttpServletResponse response)
+			throws IOException {
+
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		dto.setUser_no(userdto.getUser_no());
+
+		model.addAttribute("dto", pf_applicantBiz.insert(dto));
+
+		if (userdto.getUser_no() == dto.getUser_no()) {
+			model.addAttribute("dto", pf_applicantBiz.insert(dto));
+
+			System.out.println("세션 >> " + userdto.getUser_no());
+			System.out.println("지원한 애 >> " + dto.getUser_no());
+			PrintWriter writer = response.getWriter();
+			writer.println("<script>alert('이미 지원하신 프로젝트입니다.');</script>");
+		}
+
+		return "index";
+	}
 
 	// 코인
 //////////////////////리스트 가져오기///////////////////////
 	@RequestMapping(value = "/user_coin.do")
-	public String coin(HttpServletRequest request, HttpSession session, Model model, int page, int user_no,String coin_state) {
+	public String coin(HttpServletRequest request, HttpSession session, Model model, int page, int user_no,
+			String coin_state) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 
 		// List<PF_CoinDto> list = pf_coinBiz.coin_selectAll(userdto.getUser_no(),page);
@@ -557,23 +559,20 @@ public class HomeController {
 		model.addAttribute("totalCount", pf_coinBiz.totalCount_coin(user_no));
 		model.addAttribute("page", page);
 		model.addAttribute("user_no", user_no);
-		model.addAttribute("coinSum",pf_coinBiz.coinSum(coin_state));
+		model.addAttribute("coinSum", pf_coinBiz.coinSum(coin_state));
 		System.out.println(user_no);
 		/*
-		int coin_charge = 0;
-		int coin_use = 0;
-		int coin_A = 0;
-		int coin_B = 0;
-
-		coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전");
-		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
-		coin_A = pf_coinBiz.coin(userdto.getUser_no(), "환불대기중");
-		coin_B = pf_coinBiz.coin(userdto.getUser_no(), "환불완료");
+		 * int coin_charge = 0; int coin_use = 0; int coin_A = 0; int coin_B = 0;
+		 * 
+		 * coin_charge = pf_coinBiz.coin(userdto.getUser_no(), "충전"); coin_use =
+		 * pf_coinBiz.coin(userdto.getUser_no(), "사용"); coin_A =
+		 * pf_coinBiz.coin(userdto.getUser_no(), "환불대기중"); coin_B =
+		 * pf_coinBiz.coin(userdto.getUser_no(), "환불완료");
 		 */
 //model.addAttribute("coinlist", list);
 
 // 현재 보유 포인트
-		//model.addAttribute("coin", coin_charge - coin_use + coin_A - coin_B);
+		// model.addAttribute("coin", coin_charge - coin_use + coin_A - coin_B);
 
 		return "User_Coin";
 	}
@@ -635,7 +634,8 @@ public class HomeController {
 		return "redirect:/user_coin.do";
 	}
 
-	//================================================ 관리자 코인 환불 =======================================================
+	// ================================================ 관리자 코인 환불
+	// =======================================================
 	// 투자자 코인 환불
 	// 환불 신청을 하면 값을 가지고 user_coin.do로 이동한다.
 	@RequestMapping(value = "/User_refund.do")
@@ -647,27 +647,27 @@ public class HomeController {
 		model.addAttribute("page", page);
 		return "redirect:/user_coin.do";
 	}
-	
+
 	// 관리자 코인 환불 리스트
-	@RequestMapping(value="/admin_coin.do")
-	public String admin_coin(Model model,String coin_state) {
-		
-		model.addAttribute("coin_list",pf_coinBiz.refundList(coin_state));
+	@RequestMapping(value = "/admin_coin.do")
+	public String admin_coin(Model model, String coin_state) {
+
+		model.addAttribute("coin_list", pf_coinBiz.refundList(coin_state));
 		return "Admin_Coin";
 	}
-	
+
 	// 관리자 코인 환불 승인
-	@RequestMapping(value="/admin_coinupdate.do")
-	public String admin_coinupdate(Model model, String coin_state,HttpServletRequest request) {
-		
+	@RequestMapping(value = "/admin_coinupdate.do")
+	public String admin_coinupdate(Model model, String coin_state, HttpServletRequest request) {
+
 		int coin_no = Integer.parseInt(request.getParameter("coin_no"));
 		System.out.println(coin_no);
-		
-		model.addAttribute("coin_update",pf_coinBiz.coinState(coin_state, coin_no));
-		model.addAttribute("coin_list",pf_coinBiz.refundList(coin_state));
+
+		model.addAttribute("coin_update", pf_coinBiz.coinState(coin_state, coin_no));
+		model.addAttribute("coin_list", pf_coinBiz.refundList(coin_state));
 		return "Admin_Coin";
 	}
-	
+
 	@RequestMapping(value = "/project_fundinglist.do")
 	public String projectfunding() {
 		return "Project_FundingList";
@@ -811,12 +811,12 @@ public class HomeController {
 
 		return "Partner_Profile";
 	}
-	//파트너스 프로필 팝업
+
+	// 파트너스 프로필 팝업
 	@RequestMapping(value = "partners_popup.do")
 	public String partners_popup(String user_id, Model model) {
 		PF_UserDto userdto = pf_userBiz.selectUser(user_id);
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
-
 
 		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
 		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
@@ -825,13 +825,14 @@ public class HomeController {
 		PF_EvaluationDto evaluationdto = pf_evaluationBiz.selectEcaluation(user_id);
 		int avg = 0;
 		try {
-			avg = (int)(evaluationdto.getItem1()+evaluationdto.getItem1()+evaluationdto.getItem1())/3;
+			avg = (int) (evaluationdto.getItem1() + evaluationdto.getItem1() + evaluationdto.getItem1()) / 3;
 		} catch (Exception e) {
 			System.out.println("평가항목이 없습니다.");
 		}
 
-		if(profiledto.getProfile_intro()!=null) {
-			profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
+		if (profiledto.getProfile_intro() != null) {
+			profiledto.setProfile_intro(profiledto.getProfile_intro().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;")
+					.replaceAll(">", "&gt;").replaceAll("\n", "<br>"));
 		}
 		model.addAttribute("partneruserdto", userdto);
 		model.addAttribute("profiledto", profiledto);
@@ -859,6 +860,7 @@ public class HomeController {
 
 		return "Partner_PopUp";
 	}
+
 	// 유저 계정 유형
 	@RequestMapping(value = "user_typeUpdate.do")
 	public String user_typeUpdate(HttpSession session, String select_type, Model model) {
@@ -893,7 +895,6 @@ public class HomeController {
 
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 
-
 		System.out.println("userDto >> " + userdto);
 
 		List<PF_BoardDto> list = pf_applicantBiz.selectAll_partners(userdto.getUser_no(), "지원함");
@@ -906,25 +907,38 @@ public class HomeController {
 
 	// 진행중인 프로젝트
 	@RequestMapping(value = "project_ing.do")
-	public String fundingProject_ing(Model model, int page, String project_state) {
-		model.addAttribute("ProjectList", pf_boardBiz.ing_list(page, project_state));
+	public String fundingProject_ing(Model model, int page, String project_state, int user_no) {
+		model.addAttribute("ProjectList", pf_boardBiz.ing_list(page, project_state, user_no));
 		model.addAttribute("page", page);
-		model.addAttribute("totalCount", pf_boardBiz.totalCount_ing(project_state));
+		model.addAttribute("totalCount", pf_boardBiz.totalCount_ing_user(project_state, user_no));
 		model.addAttribute("project_state", project_state);
-		System.out.println(page);
-		System.out.println(project_state);
 		return "Project_IngList";
 	}
 
 	// 완료한 프로젝트
 	@RequestMapping(value = "project_end.do")
-	public String fundingProject_end(Model model, int page, String project_state) {
-		model.addAttribute("ProjectList", pf_boardBiz.end_list(page, project_state));
+	public String fundingProject_end(Model model, int page, String project_state, int user_no) {
+		model.addAttribute("ProjectList", pf_boardBiz.end_list(page, project_state, user_no));
 		model.addAttribute("page", page);
-		model.addAttribute("totalCount", pf_boardBiz.totalCount_end(project_state));
+		model.addAttribute("totalCount", pf_boardBiz.totalCount_end(project_state, user_no));
 		model.addAttribute("project_state", project_state);
 		return "Project_EndList";
 	}
+	
+	// 프로젝트 완료시키기
+		@RequestMapping(value = "project_finish.do")
+		public String fundingProject_finish(HttpServletRequest request,int page, Model model, int board_no, int user_no) {
+
+			System.out.println("완료로 변경할 게시글 번호"+board_no);
+
+			int project_finish = pf_boardBiz.project_finish(board_no);
+
+			model.addAttribute("project_finish", project_finish);
+			model.addAttribute("page", page);
+			model.addAttribute("user_no", user_no);
+			
+			return "redirect:project_end.do";
+		}
 
 	// 기본정보 수정
 	@RequestMapping(value = "user_infoUpdate.do")
@@ -1429,16 +1443,16 @@ public class HomeController {
 		return "Project_Inspection_Check";
 	}
 
-	//평가 리스트 페이지로 이동
-	@RequestMapping(value="partner_evaluationlist.do")
+	// 평가 리스트 페이지로 이동
+	@RequestMapping(value = "partner_evaluationlist.do")
 	public String partner_evaluationlist(String user_id, Model model) {
 		List<PF_EvaluationDto> evaluationlist = pf_evaluationBiz.selectAll(user_id);
 		model.addAttribute("evaluationlist", evaluationlist);
 		return "Partner_EvaluationList";
 	}
-	
-	//해당 프로젝트 지원자 리스트로 이동
-	@RequestMapping(value="recruitment_partnersList.do")
+
+	// 해당 프로젝트 지원자 리스트로 이동
+	@RequestMapping(value = "recruitment_partnersList.do")
 	public String recruitment_partnersList(int board_no, Model model) {
 		List<PF_ApplicantDto> recruitmentlist = pf_applicantBiz.recruitmentList(board_no);
 
@@ -1446,20 +1460,20 @@ public class HomeController {
 		model.addAttribute("board_no", board_no);
 		return "Project_RecruitmentPartnersList";
 	}
-	
-	//지원자 선택
-	@RequestMapping(value="selection_Partners.do")
+
+	// 지원자 선택
+	@RequestMapping(value = "selection_Partners.do")
 	public String selection_Partners(int board_no, int applicant_no, Model model) {
 		int applicantRes = pf_applicantBiz.selectionPartners(applicant_no);
 		PF_BoardDto boarddto = pf_boardBiz.selectOne(board_no);
 		int apply_cnt = pf_applicantBiz.recruitCount(board_no);
-		if(Integer.parseInt(boarddto.getRecruit_personnel()) == apply_cnt) {
+		if (Integer.parseInt(boarddto.getRecruit_personnel()) == apply_cnt) {
 			int boardRes = pf_boardBiz.updateState(board_no);
 			return "redirect:project_ing.do?page=1&project_state='진행 중'";
 		}
-		return "redirect:recruitment_partnersList.do?board_no="+board_no;
+		return "redirect:recruitment_partnersList.do?board_no=" + board_no;
 	}
-	
+
 	// 회원유형변경
 	@RequestMapping(value = "admin_typeupdate.do")
 	public String admin_typeUpdate(Model model) {
@@ -1470,18 +1484,16 @@ public class HomeController {
 
 		return "Admin_typeUpdate";
 	}
-	
+
 	// 회원유형변경확인
-		@RequestMapping(value = "typeupdateOK.do")
-		public String typeUpdateOK(Model model, int userno) {
-						
-			System.out.println(userno);
-			int	user_no = userno;
-			System.out.println(user_no);
-			model.addAttribute("userupdate", pf_userBiz.typeupdateOK(user_no));	
-			return "redirect:admin_typeupdate.do";
-		}
-	
-	
+	@RequestMapping(value = "typeupdateOK.do")
+	public String typeUpdateOK(Model model, int userno) {
+
+		System.out.println(userno);
+		int user_no = userno;
+		System.out.println(user_no);
+		model.addAttribute("userupdate", pf_userBiz.typeupdateOK(user_no));
+		return "redirect:admin_typeupdate.do";
+	}
 
 }

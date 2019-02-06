@@ -41,14 +41,16 @@ public interface PF_BoardBiz {
 	public int totalCount_detail(String category1, String category2);
 
 	//진행중인 프로젝트 리스트 
-	public List<PF_BoardDto> ing_list(int page, String project_state);
+	public List<PF_BoardDto> ing_list(int page, String project_state,int user_no);
 
-	public int totalCount_ing(String project_state);
+	public int totalCount_ing_user(String project_state,int user_no); 
 
 	// 완료된 프로젝트 리스트
-	public List<PF_BoardDto> end_list(int page, String project_state);
+	public List<PF_BoardDto> end_list(int page, String project_state, int user_no);
 
-	public int totalCount_end(String project_state);
+	public int totalCount_end(String project_state, int user_no);
+	
+	public int project_finish(int board_no);
 
 	// 관심상태 변경
 	public int LikeUpdate(int board_no, int likeuser_no);
