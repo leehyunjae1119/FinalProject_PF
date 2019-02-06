@@ -514,7 +514,7 @@ public class HomeController {
 	/// 파트너 리스트 출력하기
 	@RequestMapping(value = "/partner_list.do")
 	public String partnerlist(Model model, HttpServletRequest request) {
-		List<PF_UserDto> PartnersList = pf_userBiz.partnerlist("파트너스");
+		List<PF_UserDto> PartnersList = pf_userBiz.partnerlist();
 
 		model.addAttribute("PartnersList", PartnersList);
 

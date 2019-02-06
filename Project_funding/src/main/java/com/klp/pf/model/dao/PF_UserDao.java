@@ -20,6 +20,6 @@ public interface PF_UserDao {
 	public PF_UserDto MessageUser(int user_no);
 	public List<PF_UserDto> PartnersList_client(int user_no);
 	
-	public List<PF_UserDto> partnerlist(String user_type);
+	public List<PF_UserDto> partnerlist();
 
 }
