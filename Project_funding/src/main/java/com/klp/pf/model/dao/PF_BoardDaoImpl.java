@@ -31,16 +31,18 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		return res;
 	}
 
-	// 진행중인 프로젝트
-	@Override
-	public List<PF_BoardDto> ing_list(int page, String project_state) {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("page", Integer.toString(page));
-		map.put("project_state", project_state);
-		System.out.println(map);
-		List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "ing_list", map);
-		return dto;
-	}
+	   // 진행중인 프로젝트
+	   @Override
+	   public List<PF_BoardDto> ing_list(int page, String project_state,int user_no) {
+	      Map<String, String> map = new HashMap<String, String>();
+	      map.put("page", Integer.toString(page));
+	      map.put("project_state", project_state);
+	      map.put("user_no", Integer.toString(user_no));
+
+	      System.out.println("진행중 리스트 "+map);
+	      List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "ing_list", map);
+	      return dto;
+	   }
 
 	// 프로젝트 등록
 	@Override
@@ -204,25 +206,40 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		return dto;
 	}
 
-	@Override
-	public int totalCount_ing(String project_state) {
-		int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_ing", project_state);
-		return res;
-	}
+	   @Override
+	   public int totalCount_ing_user(String project_state,int user_no) {
+	      Map<String, String> map = new HashMap<String, String>();
+	      map.put("user_no", Integer.toString(user_no));
+	      map.put("project_state", project_state);
+	      int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_ing", map);
+	      System.out.println("user_totalcount: " + res);
 
+	      return res;
+	   }
+	 
+	//완료한 프로젝트ㅡㅡㅡㅡㅡㅡ   
 	@Override
-	public List<PF_BoardDto> end_list(int page, String project_state) {
+	public List<PF_BoardDto> end_list(int page, String project_state, int user_no) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("page", Integer.toString(page));
 		map.put("project_state", project_state);
+		map.put("user_no", Integer.toString(user_no));
+		
 		System.out.println(project_state);
 		List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "end_list", map);
 		return dto;
 	}
 
 	@Override
-	public int totalCount_end(String project_state) {
-		int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_end", project_state);
+	public int totalCount_end(String project_state, int user_no) {
+		Map<String, String> map = new HashMap<String, String>();
+	    map.put("user_no", Integer.toString(user_no));
+	    map.put("project_state", project_state);
+	    
+		int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_end", map);
+		
+		System.out.println("user_totalcount: " + res);
+		
 		return res;
 	}
 
@@ -278,4 +295,13 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		}
 		return res;
 	}
+	
+	//완료된 프로젝트로 변경
+	@Override
+	public int project_finish(int board_no) {
+		// TODO Auto-generated method stub
+		int res = sqlSession.update(pf_boardNamespace + "Project_finish", board_no);
+		return res;
+	}
+
 }
