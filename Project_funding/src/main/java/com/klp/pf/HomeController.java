@@ -828,7 +828,7 @@ public class HomeController {
 		try {
 			avg = (int)(evaluationdto.getItem1()+evaluationdto.getItem1()+evaluationdto.getItem1())/3;
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println("평가항목이 없습니다.");
 		}
 
 		if(profiledto.getProfile_intro()!=null) {
