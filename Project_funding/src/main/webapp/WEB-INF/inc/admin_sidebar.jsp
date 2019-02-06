@@ -24,7 +24,7 @@
 		<div class="col-md-12">
 			<a class="btn btn-link2" href="admin_coin.do">환불 신청 내역 </a> 
 			<a class="btn btn-link2" href="admin_inspectionList.do">프로젝트 신청 내역</a><br /> 
-			<a class="btn btn-link2" href="#">계정 유형 변경 신청 내역</a>
+			<a class="btn btn-link2" href="admin_typeupdate.do">계정 유형 신청 내역</a>
 		</div>
 
 	</div>

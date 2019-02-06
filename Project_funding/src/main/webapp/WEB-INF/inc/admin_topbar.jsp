@@ -85,8 +85,8 @@
 						style="padding-top: 17px;">환불 신청 내역</a></li>
 					<li class="nav-item"><a href="admin_inspectionList.do" class="nav-link" id="ho"
 						style="padding-top: 17px;">프로젝트 신청 내역</a></li>
-					<li class="nav-item"><a href="#" class="nav-link" id="ho"
-						style="padding-top: 17px;">계정 유형 변경 신청 내역</a></li>
+					<li class="nav-item"><a href="admin_typeupdate.do" class="nav-link" id="ho"
+						style="padding-top: 17px;">계정 유형 신청</a></li>
 				</ul>
 			</div>
 			</div>

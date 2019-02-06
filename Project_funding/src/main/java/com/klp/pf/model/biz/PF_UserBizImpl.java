@@ -125,4 +125,15 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	public List<PF_UserDto> partnerlist() {
 		return pf_dao.partnerlist();
 	}
+	
+	@Override
+	   public List<PF_UserDto> typeUpdatelist() {
+	      // TODO Auto-generated method stub
+	      return pf_dao.typeUpdatelist();
+	   }
+	@Override
+	public int typeupdateOK(int user_no) {
+		// TODO Auto-generated method stub
+		return pf_dao.typeupdateOK(user_no);
+	}
 }

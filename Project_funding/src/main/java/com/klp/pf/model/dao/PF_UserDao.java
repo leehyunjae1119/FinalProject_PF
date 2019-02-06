@@ -21,5 +21,7 @@ public interface PF_UserDao {
 	public List<PF_UserDto> PartnersList_client(int user_no);
 	
 	public List<PF_UserDto> partnerlist();
+	public List<PF_UserDto> typeUpdatelist();
+	public int typeupdateOK(int user_no);
 
 }

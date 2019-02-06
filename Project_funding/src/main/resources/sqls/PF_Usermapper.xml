@@ -76,4 +76,16 @@
 				       FROM PF_EVALUATION GROUP BY EVALUATION_OBJECT) d
 			               ON (c.USER_ID = d.EVALUATION_OBJECT)]]>
 	</select>
+	
+	<!-- 회원유형변경리스트 -->
+	<select id="admin_typeUpdate" resultType="PF_UserDto">
+		<![CDATA[ SELECT * FROM PF_USER WHERE USER_UPTYPE <> USER_TYPE ]]>
+	</select>
+	
+	<!-- 회원유형변경승인 -->
+	<update id="typeupdateOK" parameterType="PF_UserDto">
+ 		<![CDATA[UPDATE PF_USER
+		SET USER_TYPE = USER_UPTYPE
+		WHERE USER_NO = #{user_no }]]>
+ 	</update>
 </mapper>
