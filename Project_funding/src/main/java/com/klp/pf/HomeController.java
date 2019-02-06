@@ -679,6 +679,21 @@ public class HomeController {
 		return "User_Login";
 	}
 
+	@RequestMapping(value = "/socialLogin.do")
+	public String socialLogin(String user_name, String user_email, String user_id, Model model, HttpSession session) {
+		PF_UserDto userdto = pf_userBiz.selectEmailToUser(user_email);
+		if(userdto != null) {
+			session.setAttribute("userdto", userdto);
+			return "index";
+		}
+		model.addAttribute("user_name", user_name);
+		model.addAttribute("user_email", user_email);
+		model.addAttribute("user_id", user_id);
+		boolean googlelogin = true;
+		model.addAttribute("googlelogin", googlelogin);
+		return "User_Join";
+	}
+	
 	@RequestMapping(value = "/loginCheck.do")
 	public String loginCheck(String user_id, String user_pw, HttpSession session) {
 
@@ -740,13 +755,15 @@ public class HomeController {
 
 	// 회원가입
 	@RequestMapping(value = "/join.do")
-	public String join() {
+	public String join(Model model) {
+		boolean googlelogin = false;
+		model.addAttribute("googlelogin", googlelogin);
 		return "User_Join";
 	}
 
 	@RequestMapping(value = "/joinCheck.do")
-	public String joinCheck(String user_id, String user_pw, String user_email, String user_type) {
-		PF_UserDto dto = new PF_UserDto(user_id, user_pw, user_email, user_type);
+	public String joinCheck(String user_id, String user_pw, String user_email, String user_type, String user_email_check) {
+		PF_UserDto dto = new PF_UserDto(user_id, user_pw, user_email, user_type, user_email_check);
 		// 유저 넘버를 반환받는다.
 		int res = pf_userBiz.insertUser(dto);
 		System.out.println(res);
@@ -758,7 +775,7 @@ public class HomeController {
 		}
 		// 회원가입 성공시 로그인 페이지로 이동
 		if (res > 0) {
-			return "User_Login";
+			return "redirect:loginCheck.do?user_id="+user_id+"&user_pw="+user_pw;
 		}
 		return "User_Join";
 	}

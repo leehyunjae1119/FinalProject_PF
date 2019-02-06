@@ -30,6 +30,10 @@
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<!-- 구글로그인api -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="194507075586-fqdh9s1af0jq81cq27hqe5m9fim0692t.apps.googleusercontent.com">
 </head>
 
 <body class="index-page sidebar-collapse">	
@@ -44,15 +48,30 @@
 					<div class="card-header card-header-primary text-center">
 						<h4 class="card-title">Login</h4>
 						<div class="social-line"> 
-							<a href="#" class="btn btn-just-icon btn-link">
-								<i class="fab fa-facebook-square"></i>
-							</a>
-							<a href="#" class="btn btn-just-icon btn-link">
-								<i class="fab fa-kickstarter"></i>
-							</a>
-							<a href="#" class="btn btn-just-icon btn-link">
-								<i class="fab fa-neos"></i>
-							</a>
+							<a data-onsuccess="onSignIn"  class="btn btn-link g-signin2"> </a> 
+							
+							<!-- google login -->
+							<script>
+								function onSignIn(googleUser) {
+									// Useful data for your client-side scripts:
+									var profile = googleUser.getBasicProfile();
+									console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+									console.log('Full Name: '
+											+ profile.getName());
+									console.log('Given Name: '
+											+ profile.getGivenName());
+									console.log('Family Name: '
+											+ profile.getFamilyName());
+									console.log("Image URL: "
+											+ profile.getImageUrl());
+									console.log("Email: " + profile.getEmail());
+
+									var id_token = googleUser.getAuthResponse().id_token;
+									console.log("ID Token: " + id_token);
+									
+									location.href="socialLogin.do?user_name="+profile.getName()+"&user_email="+profile.getEmail()+"&user_id="+profile.getId();
+								};
+							</script>
 						</div>
 					</div>
 					<p class="description text-center">	</p>

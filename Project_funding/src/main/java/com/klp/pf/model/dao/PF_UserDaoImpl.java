@@ -94,4 +94,9 @@ public class PF_UserDaoImpl implements PF_UserDao {
 	  public int typeupdateOK(int user_no) {   
 	     return sqlSession.update(pf_userNamespace+"typeupdateOK",user_no);
 	  }
+	
+	@Override
+	public PF_UserDto selectEmailToUser(String user_email) {
+		return sqlSession.selectOne(pf_userNamespace+"selectEmailToUser", user_email);
+	}
 }

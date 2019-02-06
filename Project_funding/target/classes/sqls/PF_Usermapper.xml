@@ -28,7 +28,7 @@
 		SELECT PF_USER_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블 -->
 	</selectKey>
 		INSERT INTO PF_USER
-		VALUES(#{user_no}, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', 'FALSE', NULL, NULL, NULL, NULL, NULL)
+		VALUES(#{user_no}, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', #{user_email_check}, NULL, NULL, NULL, NULL, NULL)
 	</insert>
 	
 	<select id="setEmail" parameterType="String">
@@ -90,4 +90,9 @@ WHERE e.USER_ID <> '%_del%']]>
 		SET USER_TYPE = USER_UPTYPE
 		WHERE USER_NO = #{user_no }]]>
  	</update>
+ 	
+ 	<select id="selectEmailToUser" parameterType="String" resultType="PF_UserDto">
+ 		SELECT * FROM PF_USER
+		WHERE USER_EMAIL = #{user_email}
+ 	</select>
 </mapper>

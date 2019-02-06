@@ -24,6 +24,14 @@ public class PF_UserDto {
 	private String user_uptype;
 	private String profile_intro;
 	
+	public PF_UserDto(String user_id, String user_pw, String user_email, String user_type, String user_email_check) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_email = user_email;
+		this.user_type = user_type;
+		this.user_email_check = user_email_check;
+	}
 	public PF_UserDto() {
 		super();
 	}
