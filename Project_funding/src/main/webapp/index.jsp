@@ -27,6 +27,10 @@
   <%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
   </c:if>
   
+   <c:if test="${userdto.getUser_type() eq '관리자' }">
+  <%@ include file="WEB-INF/inc/admin_topbar.jsp" %>
+  </c:if>
+  
 </head>
 <div class="page-header header-filter clear-filter gray-filter" data-parallax="true" style="background-image: url('resources/assets/img/bg1.jpg');">
     <div class="container">

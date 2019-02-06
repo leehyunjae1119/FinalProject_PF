@@ -32,8 +32,7 @@
 	<div class="col-md-1" id="col1">
 	</div>
 	<div class="col-md-10" id="col10">
-		<form action="insert.do" method="post">
-	
+		<form action="insert.do?user_no=${userdto.user_no }" method="post">
 		<input type='hidden' name="user_no" value="${userdto.getUser_no()}" />
 		<div class="container_title">
 		<h3><span class="tim-note"><b>프로젝트 등록</b></span></h3>

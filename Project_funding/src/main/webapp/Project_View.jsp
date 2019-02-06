@@ -25,6 +25,11 @@
    
  <c:if test="${userdto.getUser_type() eq '투자자' }">
   <%@ include file="WEB-INF/inc/investor_topbar.jsp" %></c:if>
+  
+   <c:if test="${userdto.getUser_type() eq '관리자' }">
+  <%@ include file="WEB-INF/inc/admin_topbar.jsp" %>
+  </c:if>
+  
 <link href="resources/assets/css/project_view.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -230,7 +235,7 @@
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
 </body>
-
+	 	<!-- ============================================= 쪽지 모달 시작! ========================================================== -->
 		<div class="container">
 			<!-- The Modal -->
 			<div class="modal" id="myModal">
@@ -247,7 +252,7 @@
 
 						<!-- Modal body -->
 						<!-- 값을 전송하는 부분 -->
-						<form action="message_insert.do?page=1" method="post">
+						<form action="message_insert.do?page=1&board_no=${dto.board_no }" method="post">
 						<input type="hidden" name="sender" value="${userdto.user_id }" >
 						<div class="modal-body">
 						
