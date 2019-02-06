@@ -7,7 +7,29 @@ public class PF_ApplicantDto {
 	private int user_no;
 	private String applicant_state;
 	private int apply_cnt;
+	private String user_id;
+	private String user_email;
+	private String user_type;
 	
+	
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getUser_email() {
+		return user_email;
+	}
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+	public String getUser_type() {
+		return user_type;
+	}
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
 	public int getApply_cnt() {
 		return apply_cnt;
 	}

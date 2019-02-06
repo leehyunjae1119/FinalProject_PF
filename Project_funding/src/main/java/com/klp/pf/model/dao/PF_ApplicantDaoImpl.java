@@ -28,6 +28,7 @@ public class PF_ApplicantDaoImpl implements PF_ApplicantDao {
 		List<PF_BoardDto> res = new ArrayList<PF_BoardDto>();
 		try {
 			res = sqlSession.selectList(pf_applicantNamespace + "selectAll_partners", param);
+			System.out.println("지원내역 > " + res);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,7 +60,18 @@ public class PF_ApplicantDaoImpl implements PF_ApplicantDao {
 		return res;
 	}
 	
-	
+	@Override
+	public List<PF_ApplicantDto> recruitmentList(int board_no) {
+		return sqlSession.selectList(pf_applicantNamespace + "recruitmentList", board_no);
+	}
+	@Override
+	public int selectionPartners(int applicant_no) {
+		return sqlSession.update(pf_applicantNamespace + "selectionPartners", applicant_no);
+	}
+	@Override
+	public int recruitCount(int board_no) {
+		return sqlSession.selectOne(pf_applicantNamespace + "recruitCount", board_no);
+	}
 	
 	
 }
