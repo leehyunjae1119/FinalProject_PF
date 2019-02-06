@@ -119,7 +119,7 @@
 
                <li class="nav-item" id="item1"></li>
                <li class="nav-item"><a href="partnersList_client.do" class="nav-link" id="ho" style="padding-top: 17px;">지원자 보기</a></li>
-               <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho" style="padding-top: 17px;">검수 중</a></li>
+               <li class="nav-item"><a href="project_inspectionList.do?user_no=${userdto.user_no }" class="nav-link" id="ho" style="padding-top: 17px;">검수 중</a></li>
                <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
                <li class="nav-item"><a href="project_ing.do?page=1" class="nav-link" id="ho"

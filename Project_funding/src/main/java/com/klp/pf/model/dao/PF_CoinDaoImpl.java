@@ -1,6 +1,5 @@
 package com.klp.pf.model.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,6 +68,32 @@ public class PF_CoinDaoImpl implements PF_CoinDao {
 	public int coin_update(int coin_no) {
 		int res = 0;
 		res=sqlSession.update(pf_coinNamespace+"refundMoney",coin_no);
+		return res;
+	}
+	
+	// 동민 추가 부분
+	// 관리자 코인 환불 리스트
+	@Override
+	public List<PF_CoinDto> refundList(String coin_state) {
+		List<PF_CoinDto> res = sqlSession.selectList(pf_coinNamespace+"refundList",coin_state);
+		return res;
+	}
+	
+	// 관리자 코인 환불 승인
+	@Override
+	public int coinState(String coin_state, int coin_no) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("coin_state", coin_state);
+		map.put("coin_no", Integer.toString(coin_no));
+		
+		int res = sqlSession.update(pf_coinNamespace+"coinState",map);
+		return res;
+	}
+	
+	// 투자자 보유 코인
+	@Override
+	public int coinSum(String coin_state) {
+		int res = sqlSession.selectOne(pf_coinNamespace+"coinSum",coin_state);
 		return res;
 	}
 

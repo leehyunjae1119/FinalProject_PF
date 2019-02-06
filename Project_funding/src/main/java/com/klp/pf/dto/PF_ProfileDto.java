@@ -15,6 +15,7 @@ public class PF_ProfileDto {
 		this.profile_activity = profile_activity;
 		this.profile_intro = profile_intro;
 	}
+	
 	public PF_ProfileDto(int profile_no, int user_no, String profile_job, String profile_activity,
 			String profile_intro) {
 		super();
@@ -24,6 +25,7 @@ public class PF_ProfileDto {
 		this.profile_activity = profile_activity;
 		this.profile_intro = profile_intro;
 	}
+	
 	public PF_ProfileDto() {
 		super();
 	}

@@ -17,4 +17,14 @@ public interface PF_CoinBiz {
 	public int coin_insert(int user_no, int coin_money, String coin_state);
 
 	public int coin_update(int coin_no);
+	
+	// 동민 추가
+	// 관리자 코인 환불 리스트
+	public List<PF_CoinDto> refundList(String coin_state);
+	
+	// 관리자 코인 환불 승인
+	public int coinState(String coin_state, int coin_no);
+	
+	// 투자자 보유 코인
+	public int coinSum(String coin_state);
 }

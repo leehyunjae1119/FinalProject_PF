@@ -48,36 +48,38 @@ $(function(){
 	
 	if(totalPage > 10){
 	if(startPage > 1){
-		$("#pasing").append("<li class='page-item'><a class='page-link' href='message_re.do?page=1&user_id="+user_id+"' aria-label='Previous' ><span aria-hidden='true'>&laquo;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='message_re.d" +
+				"o?page=1&user_id="+user_id+"' aria-label='Previous' ><span aria-hidden='true'>&laquo;</span></a></li>");
 	}else{
-		$("#pasing").append("<li class='disabled'><a class='page-link' href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
+		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
 	}
 	}
+	
 	if(page > 1){
-		$("#pasing").append("<li class='page-item'><a class='page-link' href='message_re.do?page="+(page - 1)+"&user_id="+user_id+"' aria-label='Previous'><span aria-hidden='true'>&lang;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='message_re.do?page="+(page - 1)+"&user_id="+user_id+"' aria-label='Previous'><span aria-hidden='true'>&lang;</span></a></li>");
 	}else{
-		$("#pasing").append("<li class='disabled'><a class='page-link' href='#' aria-label='Previous'><span aria-hidden='true'>&lang;</span></a></li>");
+		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&lang;</span></a></li>");
 	}
 	
 	for(var iCount = startPage; iCount <= endPage; iCount++) {
 		if (iCount == page) {
-	       $("#pasing").append("<li class='active'><a class='page-link' href='#'>"+iCount+"<span class='sr-only'></span></a></li>");
+	       $("#pasing").append("<li class='active'><a href='#'>"+iCount+"<span class='sr-only'></span></a></li>");
 	    } else {
-	    	$("#pasing").append("<li class='page-item'><a class='page-link' href='message_re.do?page="+iCount+"&user_id="+user_id+"' >" + iCount + "<span class='sr-only'></span></a></li>");
+	    	$("#pasing").append("<li class=''><a href='message_re.do?page="+iCount+"&user_id="+user_id+"' >" + iCount + "<span class='sr-only'></span></a></li>");
 	    }
 	}
 	
 	if(page < totalPage){
-		$("#pasing").append("<li class='page-item'><a class='page-link' href='message_re.do?page="+(Number(page)+1)+"&user_id="+user_id+"' aria-label='Next' ><span aria-hidden='true'>&rang;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='message_re.do?page="+(Number(page)+1)+"&user_id="+user_id+"' aria-label='Next' ><span aria-hidden='true'>&rang;</span></a></li>");
 	}else{
-		$("#pasing").append("<li class='disabled'><a class='page-link' href='#' aria-label='Next' ><span aria-hidden='true'>&rang;</span></a></li>");
+		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Next' ><span aria-hidden='true'>&rang;</span></a></li>");
 	}
 	
 	if(totalPage >10){
 	if(endPage < totalPage){
-		$("#pasing").append("<li class='page-item'><a class='page-link' href='message_re.do?page="+totalPage+"&user_id="+user_id+"' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='message_re.do?page="+totalPage+"&user_id="+user_id+"' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
 	}else{
-		$("#pasing").append("<li class='disabled'><a class='page-link' href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
 	}
 	}
 	/*

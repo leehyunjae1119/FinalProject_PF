@@ -21,7 +21,10 @@
  <c:if test="${userdto.getUser_type() eq '투자자' }">
   <%@ include file="WEB-INF/inc/investor_topbar.jsp" %>
   </c:if>
-
+  
+   <c:if test="${userdto.getUser_type() eq '관리자' }">
+  <%@ include file="WEB-INF/inc/admin_topbar.jsp" %>
+  </c:if>
 
   <meta charset="utf-8" />
   
@@ -50,6 +53,44 @@
   <link href="resources/assets/css/Project_RecruitmentList.css" rel="stylesheet">
 </head>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+
+	// 쪽지 유효성 검사
+	function note_content(){
+		var content = document.getElementById("content");
+		if(content.value == ""){
+			alert("쪽지 내용을 입력해 주세요.");
+			content.focus();
+			return false;
+			}
+		}
+
+	$(function(){
+		// 받은 쪽지 삭제 확인창 쿼리
+		$("#delete_bt").click(function(){
+			var result = confirm("쪽지를 삭제하시겠습니까?");
+			
+			if(result){
+				location.href='receive_delete.do?message_no=${MessageView.message_no}&page=1';
+			}else{
+				//취소를 누르면 변화없음
+			}
+		});
+		// 보낸 쪽지 삭제 확인창 쿼리
+		$("#delete_bt2").click(function(){
+			var result = confirm("쪽지를 삭제하시겠습니까?");
+			
+			if(result){
+				location.href='send_delete.do?message_no=${MessageView.message_no}&page=1';
+			}else{
+				//취소를 누르면 변화없음
+			}
+		});
+	});
+</script>
+
 <body class="index-page sidebar-collapse">
 	<div class="main main-raised">
 		<div class="section section-basic">
@@ -61,13 +102,13 @@
 				<div class="col col-md-15" id="apply">
 				
 				<c:if test="${MessageView.message_reader eq userdto.user_id }">
-					<input type="button" class="btn btn-default" value="삭제" onclick="location.href='receive_delete.do?message_no=${MessageView.message_no}&page=1'">
+					<input type="button" class="btn btn-default" id="delete_bt" value="삭제">
 					<input type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" value="답장">
 					<input type="button" class="btn btn-success" value="목록으로" onclick="location.href='re_list.do?page=1'"/>
 				</c:if>
 				
 				<c:if test="${MessageView.message_reader ne userdto.user_id }">
-					<input type="button" class="btn btn-default" value="삭제" onclick="location.href='send_delete.do?message_no=${MessageView.message_no}&page=1'">	
+					<input type="button" class="btn btn-default" id="delete_bt2" value="삭제">	
 					<input type="button" class="btn btn-success" value="목록으로" onclick="location.href='se_list.do?page=1'"/>
 				</c:if>
 				
@@ -75,12 +116,12 @@
 					<c:choose>
 					<c:when test="${MessageView.message_reader eq userdto.user_id }">
 					<h4><b>보낸사람 : ${MessageView.message_sender }</b></h4>
-					<h4><b>받은날짜 :&nbsp;<fmt:formatDate value="${MessageView.message_senddate }" pattern="yyyy-MM-dd hh:mm:ss" /></b></h4>
+					<h4><b>받은날짜 :&nbsp;<fmt:formatDate value="${MessageView.message_senddate }" pattern="yyyy-MM-dd" /></b></h4>
 					</c:when>
 					
 					<c:otherwise>
 					<h4><b>받는사람 : ${MessageView.message_reader }</b></h4>
-					<h4><b>보낸날짜 :&nbsp;<fmt:formatDate value="${MessageView.message_senddate }" pattern="yyyy-MM-dd hh:mm:ss" /></b></h4>
+					<h4><b>보낸날짜 :&nbsp;<fmt:formatDate value="${MessageView.message_senddate }" pattern="yyyy-MM-dd" /></b></h4>
 					</c:otherwise>
 					</c:choose>
 					<hr>
@@ -112,7 +153,7 @@
 
 						<!-- Modal body -->
 						<!-- 값을 전송하는 부분 -->
-						<form action="message_reply.do?page=1" method="post">
+						<form action="message_reply.do?page=1" method="post" onsubmit="return note_content();">
 						<input type="hidden" name="sender" value="${userdto.user_id }">
 						<div class="modal-body">
 						
@@ -124,7 +165,7 @@
 							<h4>
 								<b>내용&nbsp;</b>
 							</h4>
-							<textarea rows="10" cols="40" class="form-control" name="content"></textarea>
+							<textarea rows="10" cols="40" class="form-control" name="content" id="content"></textarea>
 						</div>
 						
 						<!-- Modal footer -->
