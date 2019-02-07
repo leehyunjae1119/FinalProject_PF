@@ -44,6 +44,7 @@
 				<h3><b>지원내역</b></h3>
                <p class="text-muted" style="margin-bottom: 30px;">회원님이 지원한 프로젝트 목록입니다.</p>
 				
+				
          <c:choose>
             <c:when test="${empty ApplicantList }">
                <h3 style="text-align: center;"> ----- 지원한 내역이 없습니다. -----</h3>
@@ -64,7 +65,8 @@
                       </div>
                       <div class="project_support">
                          <p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
-                         <b>${dto.board_regdate }</b></p>
+                         <b><fmt:parseDate value="${dto.board_regdate }" pattern="yyyy-MM-dd" var="regdate" />
+                         <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" /></b></p>
                       </div>
                    </div>
                <div class="c_detail">

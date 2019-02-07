@@ -47,7 +47,12 @@
 	</select>
 	
 	<select id="applyCount" resultType="int">
-		SELECT COUNT(*) AS APPLY_CNT FROM PF_APPLICANT A INNER JOIN PF_BOARD B ON A.BOARD_NO=B.BOARD_NO WHERE B.BOARD_NO=#{board_no}
+		SELECT COUNT(*) FROM PF_APPLICANT WHERE BOARD_NO=#{board_no}
 	</select>
+	
+	<select id="selectApply" resultType="PF_BoardDto" parameterType="int">
+		SELECT * FROM PF_APPLICANT WHERE BOARD_NO=#{board_no}
+	</select>
+	
 
 </mapper>

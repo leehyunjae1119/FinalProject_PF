@@ -36,6 +36,8 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	}
 	@Override
 	public int insertUser(PF_UserDto dto) {
+		dto.setUser_img("resources/assets/img/남자.png");
+		
 		return pf_dao.insertUser(dto);
 	}
 	@Override

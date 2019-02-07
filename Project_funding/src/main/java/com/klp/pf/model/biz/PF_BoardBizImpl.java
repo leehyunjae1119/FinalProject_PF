@@ -141,4 +141,5 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 
 		    return pf_boardDao.likeList(user_no);
 		}
+
 }

@@ -277,7 +277,8 @@
                       </div>
                       <div class="project_support">
                          <p class="text-muted"><b>등록 일자</b>&nbsp;&nbsp;&nbsp;
-                         <b>${dto.board_regdate }</b></p>
+                         <b><fmt:parseDate value="${dto.board_regdate }" pattern="yyyy-MM-dd" var="regdate" />
+                         <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" /></b>       
                       </div>
                    </div>
                <div class="c_detail">
@@ -293,13 +294,14 @@
                          
                          <fmt:parseDate value="${dto.recruit_date }" var="recruitDate" pattern="yyyy-MM-dd" />
                          <fmt:parseNumber value="${recruitDate.time / (1000*60*60*24 )}" integerOnly="true" var="recDate"></fmt:parseNumber>
-                         <fmt:parseDate value="${dto.board_regdate }" var="boardRegDate" pattern="yyyy-MM-dd" />
-                         <fmt:parseNumber value="${boardRegDate.time / (1000*60*60*24 )}" integerOnly="true" var="regDate"></fmt:parseNumber>
+                         
+						 <fmt:parseDate value="${dto.board_regdate }" pattern="yyyy-MM-dd" var="regdate" />
+                         <fmt:parseNumber value="${regdate.time / (1000*60*60*24 )}" integerOnly="true" var="regDate"></fmt:parseNumber>
                             
                          <p class="text-muted"><b>마감 ${recDate - regDate }일 전 </b></p>
                          <br />
                          <img src="resources/assets/img/support.png" />
-                         <p class="text-muted"><b>총 ${apply_cnt }명 지원</b></p>
+                         <p class="text-muted"><b>총 ${dto.apply_cnt }명 지원</b></p>
                       </div>
                    </div>
             </div>

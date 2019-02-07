@@ -135,7 +135,7 @@
 					success:function(msg){
 						if(msg.loginChk==true){
 							if(msg.emailCheck==true){
-								location.href="index.do";
+								location.href="main.do";
 							} else { 
 								location.href="sendEmail.jsp";
 							}

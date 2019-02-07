@@ -46,17 +46,17 @@
 					 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
   					 project_insert.do
   					 </c:if>
-					" class="nav-link"style="color:white">프로젝트 등록</a>
+					" class="nav-link" style="color:white">프로젝트 등록</a>
                   </li>
                   <li class="nav-item">
-                    <a href="project_list.do?page=1" class="nav-link">프로젝트 찾기</a>
+                    <a href="project_list.do?page=1" class="nav-link" style="color:white">프로젝트 찾기</a>
 
                   </li>
                   <li class="nav-item">
-                    <a href="partner_list.do" class="nav-link">파트너스 목록</a>
+                    <a href="partner_list.do" class="nav-link" style="color:white" >파트너스 목록</a>
                   </li>
                   <li class="nav-item">
-                    <a href="question.do" class="nav-link">이용 방법</a>
+                    <a href="question.do" class="nav-link" style="color:white">이용 방법</a>
                   </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -66,10 +66,10 @@
                        </a>
                     </li>
                     <li class="nav-item">
-                    <a href="login.do" class="nav-link">Login</a>
+                    <a href="login.do" class="nav-link" style="color:white">Login</a>
                   </li>
                   <li class="nav-item">
-                    <a href="join.do" class="nav-link">Join</a>
+                    <a href="join.do" class="nav-link" style="color:white">Join</a>
                   </li>
                </ul>
        </div>

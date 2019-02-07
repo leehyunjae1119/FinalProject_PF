@@ -16,7 +16,7 @@ public interface PF_BoardBiz {
 	public int delete(int board_no);
 	public List<PF_BoardDto> ingBoardList(String project_state);
 	public int updateState(int board_no);
-	
+
 	
 	   //keyword 검색
 	   public List<PF_BoardDto> search(int page,String board_title);

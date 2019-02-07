@@ -242,4 +242,5 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 			      return res;
 			}
 
+
 }

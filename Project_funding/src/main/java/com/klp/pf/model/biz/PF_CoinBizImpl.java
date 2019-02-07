@@ -39,5 +39,11 @@ public class PF_CoinBizImpl implements PF_CoinBiz {
 	public int coin_update(int coin_no) {
 		return pf_dao.coin_update(coin_no);
 	}
+
+	@Override
+	public int CountCoin() {
+		
+		return pf_dao.CountCoin();
+	}
 }
 

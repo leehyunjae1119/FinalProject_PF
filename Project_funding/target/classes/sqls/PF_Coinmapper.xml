@@ -28,8 +28,6 @@
       SELECT count(*) FROM PF_COIN WHERE USER_NO = #{user_no}
 </select>
 
-
-
 <select id="coinInsert" parameterType="map">
 	INSERT INTO PF_COIN
 	VALUES(PF_COIN_SEQ.NEXTVAL,#{user_no},SYSDATE,#{coin_money},#{coin_state})
@@ -38,6 +36,10 @@
 <select id="refundMoney">
 	UPDATE PF_COIN SET COIN_STATE='환불대기중' WHERE COIN_STATE='충전' AND
 	COIN_NO=#{coin_no}
+</select>
+
+<select id="CountCoin" resultType="int">
+	SELECT COUNT(*) FROM PF_COIN
 </select>
 
 

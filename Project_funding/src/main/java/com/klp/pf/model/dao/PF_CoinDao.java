@@ -19,5 +19,6 @@ public interface PF_CoinDao {
 	public int coin_insert(int user_no, int coin_money, String coin_state);
 
 	public int coin_update(int coin_no);
+	public int CountCoin();
 
 }

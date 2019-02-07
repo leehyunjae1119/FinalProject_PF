@@ -16,8 +16,11 @@
 		<hr>
 		<div class="user_info">
 			<c:choose>
-				<c:when test="${userdto.user_img eq null}">
-					<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid" />
+				<c:when test="${userdto.user_img eq null && userdto.user_sex eq '여자'}">
+					<img src="resources/assets/img/여자.png" class="user_img rounded-circle img-fluid" />
+				</c:when>
+				<c:when test="${userdto.user_img eq null && userdto.user_sex eq '남자'}">
+					<img src="resources/assets/img/남자.png" class="user_img rounded-circle img-fluid" />
 				</c:when>
 				<c:otherwise>
 					<img src="http://localhost:8787/pf/storage/${userdto.user_img }" class="user_img rounded-circle img-fluid" />

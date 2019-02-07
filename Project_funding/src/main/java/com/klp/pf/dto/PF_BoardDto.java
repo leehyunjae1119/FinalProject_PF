@@ -31,7 +31,7 @@ public class PF_BoardDto {
 
    public PF_BoardDto(int board_no, String board_title, String board_content, int project_money, int project_term,
          String project_start_day, String recruit_date, String recruit_personnel, String project_category,
-         String project_type, String board_file, String project_state, String board_regdate, int user_no,int likeuser_no ,String board_like) {
+         String project_type, String board_file, String project_state, String board_regdate, int user_no,int likeuser_no ,String board_like, int apply_cnt) {
          super();
          this.board_no = board_no;
          this.board_title = board_title;
@@ -49,6 +49,7 @@ public class PF_BoardDto {
          this.user_no = user_no;
          this.likeuser_no = likeuser_no;
          this.board_like = board_like;
+         this.apply_cnt = apply_cnt;
       }
 
       public int getBoard_no() {
@@ -216,13 +217,14 @@ public class PF_BoardDto {
 
    @Override
    public String toString() {
-      return "PF_BoardDto [board_no=" + board_no + ", board_title=" + board_title + ", board_content=" + board_content
-            + ", project_money=" + project_money + ", project_term=" + project_term + ", project_start_day="
-            + project_start_day + ", recruit_date=" + recruit_date + ", recruit_personnel=" + recruit_personnel
-            + ", project_category=" + project_category + ", project_type=" + project_type + ", board_file="
-            + board_file + ", project_state=" + project_state + ", board_regdate=" + board_regdate + ", user_no="
-            + user_no + ", recruit=" + recruit + ", likeuser_no=" + likeuser_no + ", board_like=" + board_like
-            + "]";
+	   return "PF_BoardDto [board_no=" + board_no + ", board_title=" + board_title + ", board_content=" + board_content
+			+ ", project_money=" + project_money + ", project_term=" + project_term + ", project_start_day="
+			+ project_start_day + ", recruit_date=" + recruit_date + ", recruit_personnel=" + recruit_personnel
+			+ ", project_category=" + project_category + ", project_type=" + project_type + ", board_file=" + board_file
+			+ ", project_state=" + project_state + ", board_regdate=" + board_regdate + ", user_no=" + user_no
+			+ ", recruit=" + recruit + ", applicant_no=" + applicant_no + ", applicant_state=" + applicant_state
+			+ ", apply_cnt=" + apply_cnt + ", likeuser_no=" + likeuser_no + ", board_like=" + board_like + "]";
    }
+ 
 
 }

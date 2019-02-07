@@ -59,8 +59,14 @@ public class PF_ApplicantDaoImpl implements PF_ApplicantDao {
 		
 		return res;
 	}
-	
-	
-	
+
+	@Override
+	public PF_BoardDto selectApply(int board_no) {
+		
+		PF_BoardDto dto = sqlSession.selectOne(pf_applicantNamespace + "selectApply", board_no);
+		System.out.println(dto);
+		return dto;
+
+	}	
 	
 }
