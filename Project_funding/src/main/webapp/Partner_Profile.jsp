@@ -75,7 +75,7 @@
                             		</c:if> 
 									<c:if test="${avg eq 1}">
                             			<i class="material-icons" style="color: orange;font-size: 55px;">star</i>
-                            			<i class="material-icons">star star star star</i>
+                            			<i class="material-icons" style="font-size: 55px;">star star star star</i>
                             		</c:if> 
                             		<c:if test="${avg eq 2}">
                             			<i class="material-icons" style="color: orange;font-size: 55px;">star star</i>
