@@ -586,8 +586,7 @@ public class HomeController {
 //model.addAttribute("coinlist", list);
 
 
-// 현재 보유 포인트
-		// model.addAttribute("coin", coin_charge - coin_use + coin_A - coin_B);
+		model.addAttribute("coin", coin_charge - coin_use + coin_A);
 
 		return "User_Coin";
 	}
