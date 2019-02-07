@@ -1243,11 +1243,14 @@ public class HomeController {
 
 		int likeuser_no = userDto.getUser_no();
 		List<PF_BoardDto> likelist = pf_boardBiz.likeList(likeuser_no);
+		List<PF_BoardDto> list = pf_applicantBiz.selectAll_partners(userDto.getUser_no(), "지원함");
 
 		model.addAttribute("userdto", userDto);
 		model.addAttribute("totalCount", pf_boardBiz.totalcount(project_state));
 		model.addAttribute("page", page);
 		model.addAttribute("likelist", likelist);
+		model.addAttribute("ingList", pf_boardBiz.ing_list(page, project_state, userDto.getUser_no()));
+		model.addAttribute("ApplicantList", list);
 
 		return "Partner_Mypage";
 	}
