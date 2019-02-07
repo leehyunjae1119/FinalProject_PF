@@ -24,6 +24,58 @@
   	<!-- CSS Just for demo purpose, don't include it in your project -->
   	<link href="resources/assets/demo/demo.css" rel="stylesheet" />
 
+<script type="text/javascript">
+function CheckForm(Join){
+	var project_category = document.register.project_category;		//카테고리
+	var board_title = document.register.board_title; 				//제목
+	var project_money= document.register.project_money;	//예상금액
+	var project_term = document.register.project_term;		//예상 기간
+	var board_content = document.register.board_content;		//프로젝트 내용
+	var project_start_day=document.register.project_start_day;	//프로젝트 예상시작일
+	var recruit_date = document.register.recruit_date;					//모집 마감일자
+	var project_type = document.register.project_type;					
+	
+	
+	if(project_category.value==""){
+
+		project_category.focus();
+		return false;
+	}
+	
+	if(board_title.value==""){
+		board_title.focus(); 
+		return false;
+	}
+	
+	if(project_money.value==""){
+		project_money.focus();
+		return false;
+	}
+	if(project_term.value==""){
+		project_term.focus();
+		return false;
+	}
+	if(board_content.value==""){
+		board_content.focus();
+		return false;
+	}
+	if(project_start_day.value==""){
+		project_start_day.focus();
+		return false;
+	}
+	if(recruit_date.value==""){
+		recruit_date.focus();
+		return false;
+	}
+	if(!project_type.checked){
+		project_type.focus();
+		return false;
+	}
+	
+}
+
+</script>
+
 </head>
 
 <body>
@@ -32,8 +84,7 @@
 	<div class="col-md-1" id="col1">
 	</div>
 	<div class="col-md-10" id="col10">
-		<form action="insert.do" method="post">
-	
+		<form action="insert.do?user_no=${userdto.user_no }" method="post" onclick="return CheckForm(this)" name="register">
 		<input type='hidden' name="user_no" value="${userdto.getUser_no()}" />
 		<div class="container_title">
 		<h3><span class="tim-note"><b>프로젝트 등록</b></span></h3>

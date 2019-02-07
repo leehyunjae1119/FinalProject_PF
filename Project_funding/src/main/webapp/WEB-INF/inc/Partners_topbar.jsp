@@ -11,8 +11,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+	<!-- 구글로그인api -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="194507075586-fqdh9s1af0jq81cq27hqe5m9fim0692t.apps.googleusercontent.com">
+	
 <style type="text/css">
 #ho:hover {
 	position: relative;
@@ -65,7 +69,7 @@
 					</a></li>
 					<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
 					<li class="nav-item"><a href="logOut.do" class="nav-link"
-						style="color: white">Log out</a></li>
+						style="color: white" onclick="signOut();">Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -93,11 +97,12 @@
 					<li class="nav-item"><a href="user_typeUpdate.do"
 						class="nav-link" id="ho" style="padding-top: 17px;">계정 유형 변경
 							신청</a></li>
-					<li class="nav-item"><a href="project_supportList.do"
+					<li class="nav-item"><a href="project_supportList.do?page=1&user_no=${userdto.user_no }"
 						class="nav-link" id="ho" style="padding-top: 17px;">지원 내역</a></li>
-					<li class="nav-item"><a href="project_ing.do?page=1"
+					<li class="nav-item"><a
+						href="project_ing.do?page=1&user_no=${userdto.user_no }"
 						class="nav-link" id="ho" style="padding-top: 17px;">진행중인 프로젝트</a></li>
-					<li class="nav-item"><a href="project_end.do?page=1"
+					<li class="nav-item"><a href="project_end.do?page=1&user_no=${userdto.user_no }"
 						class="nav-link" id="ho" style="padding-top: 17px;">완료한 프로젝트</a></li>
 				</ul>
 			</div>
@@ -107,5 +112,13 @@
 	<br>
 	<br>
 	<br>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 </body>
 </html>

@@ -15,9 +15,10 @@ $(function(){
 	//var totalCount = document.getElementById("totalCount").value;
 	var totalCount = $("#totalCount").val();
 	var page = $("#page").val();
+	var project_state = $("#project_state").val();
 	var listSize = 10; 
 	var totalPage = parseInt(totalCount / listSize); //총 페이지 수
-
+	
 	//총 게시글(totalCount)를 한페이지당 보여줄 게시글 수(listSize)로 나눴을때 나머지가 0보다크다는것은
 	//게시글이 최소 1개이상 더 있다는 뜻이므로, 전체페이지를 하나더 추가해줘야함.
 	if(totalCount % listSize > 0){
@@ -44,37 +45,39 @@ $(function(){
 	//현재 별 의미없이 공백이나 괄호들을 append해줬는데 일시적으로 눈에 잘 보이기위해 처리해준것임.
 	//부트스트랩이나, css를 만들어서 처리한다면 저런것들은 지우면됨.
 	//.append 해주는 코드 안에 <a>태그 말고 <li>로 해도됨 (원하는 형식대로 출력하게하면됨)
-
 	if(totalPage > 10){
 	if(startPage > 1){
-		$("#pasing").append("<li class=''><a href='project_list.do?page=1' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='project_list.do?page=1&project_state="+project_state+"' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
 	}else{
 		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>");
 	}
 	}
+
 	if(page > 1){
-		$("#pasing").append("<li class=''><a href='project_list.do?page="+(page - 1)+"' aria-label='Previous'><span aria-hidden='true'>&lang;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='project_list.do?page="+(page - 1)+"&project_state="+project_state+"' aria-label='Previous'><span aria-hidden='true'>&lang;</span></a></li>");
 	}else{
 		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Previous'><span aria-hidden='true'>&lang;</span></a></li>");
 	}
 	
+	//현재 페이지가 같으면 active 표시하고 눌러도 새로고침
+	//현재 페이지가 page수와 다르면 페이지 이동
 	for(var iCount = startPage; iCount <= endPage; iCount++) {
 		if (iCount == page) {
 	       $("#pasing").append("<li class='active'><a href='#'>"+iCount+"<span class='sr-only'></span></a></li>");
-	    } else {
-	    	$("#pasing").append("<li class=''><a href='project_list.do?page="+iCount+"'>" + iCount + "<span class='sr-only'></span></a></li>");
+	    }else{
+	    	$("#pasing").append("<li class=''><a href='project_list.do?page="+iCount+"&project_state="+project_state+"'>" + iCount + "<span class='sr-only'></span></a></li>");
 	    }
 	}
 	
 	if(page < totalPage){
-		$("#pasing").append("<li class=''><a href='project_list.do?page="+(Number(page)+1)+"' aria-label='Next'><span aria-hidden='true'>&rang;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='project_list.do?page="+(Number(page)+1)+"&project_state="+project_state+"' aria-label='Next'><span aria-hidden='true'>&rang;</span></a></li>");
 	}else{
 		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&rang;</span></a></li>");
 	}
 	
-	if(totalPage >10){
+	if(totalPage > 10){
 	if(endPage < totalPage){
-		$("#pasing").append("<li class=''><a href='project_list.do?page="+totalPage+"' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
+		$("#pasing").append("<li class=''><a href='project_list.do?page="+totalPage+"&project_state="+project_state+"' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
 	}else{
 		$("#pasing").append("<li class='disabled'><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>");
 	}
@@ -85,6 +88,6 @@ $(function(){
 						"게시판 총 페이지 : "+totalPage+" <br>" +
 						"시작페이지 : "+startPage+" <br>" +
 						"엔드페이지 : "+endPage+" <br>");
-						*/
+	*/
 	
 })

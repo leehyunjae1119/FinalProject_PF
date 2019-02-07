@@ -68,7 +68,7 @@
 							</div>
 							<br><br><br>
 							<div class="col-12"><input type="submit" class="btn btn-success float-right" value="등록 완료"></div>
-							<div class="col-12"><input type="button" class="btn btn-default float-right" value="취소"></div>
+							<div class="col-12"><input type="button" class="btn btn-default float-right" onclick="location.href='partners_profile.do'" value="취소"></div>
 						</form>
 						
 						<form  id="fileUploadForm" action="fileUpload.do" method="post" enctype="multipart/form-data">

@@ -15,8 +15,8 @@ public class PF_EvaluationBizImpl implements PF_EvaluationBiz {
 	private PF_EvaluationDao pf_dao;
 	
 	@Override
-	public PF_EvaluationDto selectEcaluation(int user_no) {
-		return pf_dao.selectEcaluation(user_no);
+	public PF_EvaluationDto selectEcaluation(String user_id) {
+		return pf_dao.selectEcaluation(user_id);
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class PF_EvaluationBizImpl implements PF_EvaluationBiz {
 	}
 
 	@Override
-	public List<PF_EvaluationDto> selectAll(int user_no) {
-		return pf_dao.selectAll(user_no);
+	public List<PF_EvaluationDto> selectAll(String user_id) {
+		return pf_dao.selectAll(user_id);
 	}
 
 }

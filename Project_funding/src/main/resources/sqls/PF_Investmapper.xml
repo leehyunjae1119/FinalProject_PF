@@ -24,6 +24,13 @@
   		FROM PF_INVEST
   		WHERE  BOARD_NO=#{board_no}
   	</select>
-  	
 
+	<!-- 투자중인 프로젝트에 투자한 투자자 목록 -->
+	<select id="investerList" parameterType="int" resultType="PF_InvestDto">
+		SELECT INVEST_NO,PF_INVEST.USER_NO,INVEST_MONEY,BOARD_NO, USER_ID,
+		USER_EMAIL
+		FROM PF_INVEST INNER JOIN PF_USER
+		ON PF_INVEST.USER_NO = PF_USER.USER_NO
+		WHERE BOARD_NO = #{board_no}
+	</select>
 </mapper>

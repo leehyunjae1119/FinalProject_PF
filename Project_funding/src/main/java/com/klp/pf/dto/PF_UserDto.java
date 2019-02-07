@@ -23,7 +23,36 @@ public class PF_UserDto {
 	private String user_birth;
 	private String user_uptype;
 	private String profile_intro;
+	private double item1;
+	private double item2;
+	private double item3;
 	
+	public double getItem1() {
+		return item1;
+	}
+	public void setItem1(double item1) {
+		this.item1 = item1;
+	}
+	public double getItem2() {
+		return item2;
+	}
+	public void setItem2(double item2) {
+		this.item2 = item2;
+	}
+	public double getItem3() {
+		return item3;
+	}
+	public void setItem3(double item3) {
+		this.item3 = item3;
+	}
+	public PF_UserDto(String user_id, String user_pw, String user_email, String user_type, String user_email_check) {
+		super();
+		this.user_id = user_id;
+		this.user_pw = user_pw;
+		this.user_email = user_email;
+		this.user_type = user_type;
+		this.user_email_check = user_email_check;
+	}
 	public PF_UserDto() {
 		super();
 	}

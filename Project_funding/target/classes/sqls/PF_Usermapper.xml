@@ -9,11 +9,19 @@
 		SELECT * FROM PF_USER
 		WHERE USER_ID = #{user_id}
 	</select>
+	
 	<select id="login" resultType="PF_UserDto" parameterType="map">
 		SELECT *
  		FROM PF_USER 
  		WHERE USER_ID=#{user_id} AND USER_PW=#{user_pw}
 	</select>
+	
+	<select id="IDcheck" resultType="String" parameterType="map">
+		SELECT USER_ID
+		FROM PF_USER
+		WHERE USER_ID=#{user_id} 
+	</select>
+	
 	
 	<!-- 프로젝트 뷰에서 글을 올린 유저의 아이디 값 가져오기 -->
 	<select id="MessageUser" resultType="PF_UserDto">
@@ -28,7 +36,7 @@
 		SELECT PF_USER_SEQ.NEXTVAL FROM DUAL<!-- anser : DUAL = 가상 테이블 -->
 	</selectKey>
 		INSERT INTO PF_USER
-		VALUES(#{user_no}, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', 'FALSE', NULL, NULL, NULL, NULL, NULL)
+		VALUES(#{user_no}, #{user_id}, #{user_pw}, #{user_email}, #{user_type}, NULL, 'FALSE', #{user_email_check}, NULL, NULL, NULL, NULL, NULL)
 	</insert>
 	
 	<select id="setEmail" parameterType="String">
@@ -65,4 +73,34 @@
 	<select id="PartnersList_client" resultType="PF_UserDto">
 		SELECT * FROM PF_USER U INNER JOIN PF_BOARD B ON U.USER_NO=B.USER_NO WHERE BOARD_NO IN (SELECT BOARD_NO FROM PF_BOARD WHERE USER_NO=#{user_no})
 	</select>
+	
+	<select id="partnerlist" resultType="PF_UserDto">
+	<![CDATA[ SELECT * FROM
+(SELECT c.RN, c.USER_NO, c.USER_ID, c.USER_TYPE, c.USER_IMG, c.PROFILE_NO, c.PROFILE_INTRO, d.ITEM1, d.ITEM2, d.ITEM3
+			     FROM (SELECT ROWNUM AS RN, a.USER_NO, a.USER_ID, a.USER_TYPE, a.USER_IMG, b.PROFILE_NO, b.PROFILE_INTRO 
+			           FROM PF_USER a JOIN PF_PROFILE b ON (a.USER_NO = b.USER_NO) 
+			           WHERE USER_TYPE='파트너스' ORDER BY a.USER_ID) c 
+			               LEFT OUTER JOIN
+			          (SELECT EVALUATION_OBJECT, ROUND(AVG(EVALUATION_ITEM1),1) as ITEM1, ROUND(AVG(EVALUATION_ITEM2),1)as ITEM2, ROUND(AVG(EVALUATION_ITEM3),1) as ITEM3
+				       FROM PF_EVALUATION GROUP BY EVALUATION_OBJECT) d
+			               ON (c.USER_ID = d.EVALUATION_OBJECT)) e
+WHERE e.USER_ID <> '%_del%']]>
+	</select>
+	
+	<!-- 회원유형변경리스트 -->
+	<select id="admin_typeUpdate" resultType="PF_UserDto">
+		<![CDATA[ SELECT * FROM PF_USER WHERE USER_UPTYPE <> USER_TYPE ]]>
+	</select>
+	
+	<!-- 회원유형변경승인 -->
+	<update id="typeupdateOK" parameterType="PF_UserDto">
+ 		<![CDATA[UPDATE PF_USER
+		SET USER_TYPE = USER_UPTYPE
+		WHERE USER_NO = #{user_no }]]>
+ 	</update>
+ 	
+ 	<select id="selectEmailToUser" parameterType="String" resultType="PF_UserDto">
+ 		SELECT * FROM PF_USER
+		WHERE USER_EMAIL = #{user_email}
+ 	</select>
 </mapper>

@@ -55,7 +55,7 @@ h3 {
 .project_content_form {
 	margin-bottom: 30px;
 	padding-left: 20px;
-	height: 220px;
+	height: 280px;
 	border-style: solid;
 	border-color: #bcbcbc;
 	border-width: 1px;
@@ -136,13 +136,6 @@ h3 {
 	color: #6c757d;
 	font-size: 13px;
 }
-
-#pagination {
-	margin-top: 100px;
-	margin-left: 23%;
-	margin-bottom: 100px;
-}
-
 #applyShow {
 	display: inline-block;
 	width: 200px; 

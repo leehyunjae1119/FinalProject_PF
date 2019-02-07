@@ -45,5 +45,24 @@ public class PF_CoinBizImpl implements PF_CoinBiz {
 		
 		return pf_dao.CountCoin();
 	}
+	
+	// 동민 추가 부분
+	// 관리자 코인 환불 리스트
+	@Override
+	public List<PF_CoinDto> refundList(String coin_state) {
+		return pf_dao.refundList(coin_state);
+	}
+
+	// 관리자 코인 환불 승인
+	@Override
+	public int coinState(String coin_state, int coin_no) {
+		return pf_dao.coinState(coin_state, coin_no);
+	}
+
+	// 투자자 보유 코인
+	@Override
+	public int coinSum(String coin_state) {
+		return pf_dao.coinSum(coin_state);
+	}
 }
 

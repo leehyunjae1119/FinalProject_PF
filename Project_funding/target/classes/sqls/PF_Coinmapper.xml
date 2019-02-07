@@ -2,31 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="pf_coin">
 
-<select id="selectAll" parameterType="int" resultType="PF_CoinDto">
-	SELECT *
-	FROM PF_COIN
-	WHERE USER_NO=#{user_no}
-	ORDER BY COIN_NO DESC
-</select>
+	<select id="selectAll" parameterType="int"
+		resultType="PF_CoinDto">
+		SELECT *
+		FROM PF_COIN
+		WHERE USER_NO=#{user_no}
+		ORDER BY COIN_NO DESC
+	</select>
 
 
-<select id="select" parameterType="map" resultType="int">
-	SELECT NVL(SUM(COIN_MONEY),0) as mysum 
-	FROM PF_COIN 
-	WHERE USER_NO=#{user_no} AND COIN_STATE=#{coin_state}
-</select>
-<!-- COIN  페이징 -->
-<select id="coin_paging" parameterType="int" resultType="PF_CoinDto">
+	<select id="select" parameterType="map" resultType="int">
+		SELECT NVL(SUM(COIN_MONEY),0) as mysum
+		FROM PF_COIN
+		WHERE USER_NO=#{user_no} AND COIN_STATE=#{coin_state}
+	</select>
+	<!-- COIN 페이징 -->
+	<select id="coin_paging" parameterType="int"
+		resultType="PF_CoinDto">
 <![CDATA[ SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE
   FROM(SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE, RN 
   FROM(SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE, ROWNUM AS RN 
   FROM(SELECT COIN_NO, USER_NO,COIN_REGDATE,COIN_MONEY ,COIN_STATE
   FROM PF_COIN WHERE USER_NO = #{user_no} ORDER BY COIN_NO DESC))WHERE RN <= #{page} * 10) WHERE RN >=(#{page} -1) * 10 +1]]>
-</select>   
-     
-<select id="totalCount_coin" parameterType="int"  resultType="int" >
-      SELECT count(*) FROM PF_COIN WHERE USER_NO = #{user_no}
-</select>
+	</select>
 
 <select id="coinInsert" parameterType="map">
 	INSERT INTO PF_COIN
@@ -42,5 +40,40 @@
 	SELECT COUNT(*) FROM PF_COIN
 </select>
 
+	<select id="totalCount_coin" parameterType="int"
+		resultType="int">
+		SELECT count(*) FROM PF_COIN WHERE USER_NO = #{user_no}
+	</select>
+
+	<select id="coinInsert" parameterType="map">
+		INSERT INTO PF_COIN
+		VALUES(PF_COIN_SEQ.NEXTVAL,#{user_no},SYSDATE,#{coin_money},#{coin_state})
+	</select>
+	
+	<select id="refundMoney">
+   		UPDATE PF_COIN SET COIN_STATE='환불대기중' 
+   		WHERE COIN_STATE='충전' AND COIN_NO=#{coin_no}
+	</select>
+
+	<!-- 동민 추가 부분 -->
+	<!-- 관리자 코인 환불 신청 리스트 -->
+	<select id="refundList" resultType="PF_CoinDto">
+		SELECT COIN_NO, PF_COIN.USER_NO, COIN_REGDATE, COIN_MONEY, COIN_STATE, USER_ID
+		FROM PF_COIN INNER JOIN PF_USER
+		ON PF_COIN.USER_NO = PF_USER.USER_NO
+		WHERE COIN_STATE = '환불대기중'
+		ORDER BY COIN_NO DESC
+	</select>
+	
+	<!-- 관리자 코인 환불 승인 -->
+	<update id="coinState" parameterType="map">
+		UPDATE PF_COIN SET COIN_STATE ='환불완료'
+		WHERE COIN_STATE = '환불대기중' AND COIN_NO = #{coin_no}
+	</update>
+	
+	<!-- 투자자 보유 금액 -->
+	<select id="coinSum" resultType="int">
+		SELECT NVL(SUM(COIN_MONEY),0) FROM PF_COIN WHERE COIN_STATE = '충전' OR COIN_STATE = '환불대기중'
+	</select>
 
 </mapper>

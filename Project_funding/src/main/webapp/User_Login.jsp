@@ -30,6 +30,10 @@
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <!-- fontawesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<!-- 구글로그인api -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="194507075586-fqdh9s1af0jq81cq27hqe5m9fim0692t.apps.googleusercontent.com">
 </head>
 
 <body class="index-page sidebar-collapse">	
@@ -43,17 +47,7 @@
 <!-- 					<form class="form" method="post" onsubmit="login();"> -->
 					<div class="card-header card-header-primary text-center">
 						<h4 class="card-title">Login</h4>
-						<div class="social-line"> 
-							<a href="#" class="btn btn-just-icon btn-link">
-								<i class="fab fa-facebook-square"></i>
-							</a>
-							<a href="#" class="btn btn-just-icon btn-link">
-								<i class="fab fa-kickstarter"></i>
-							</a>
-							<a href="#" class="btn btn-just-icon btn-link">
-								<i class="fab fa-neos"></i>
-							</a>
-						</div>
+						
 					</div>
 					<p class="description text-center">	</p>
 					
@@ -83,20 +77,48 @@
 					</div>
 					
 					<div class="input-group">
-							<div class="input-group-prepend">
-							<span class="input-group-text">
+							<div class="input-group-prepend" >
+							<span class="input-group-text" style="height: 20px;">
 								<i class="material-icons" style="font-size:13px;">비밀번호를 잊으셨나요?</i>
 								<a href="user_findPW.do" class="btn btn-primary btn-link btn-wd btn-lg" style="text-align:left;">비밀번호 찾기</a>
 								</span>	
 							</div>	
 							<div class="input-group-prepend">
-							<span class="input-group-text">
+							<span class="input-group-text" >
 								<i class="material-icons" style="font-size:13px;">아직 회원이 아니신가요?</i>
 								<a href="join.do" class="btn btn-primary btn-link btn-wd btn-lg">회원가입</a>
 							</span>					
 							</div>	
 						</div>
-			
+						<hr>
+			<div class="social-line"> 
+			<h4 class="title" style="margin-top: 0px;margin-bottom: 0px; min-height: 0px; color: black;">Social Login</h4>
+							<a data-onsuccess="onSignIn"  class="btn btn-link g-signin2"> </a> 
+							
+							<!-- google login -->
+							
+							<script>
+								function onSignIn(googleUser) {
+									// Useful data for your client-side scripts:
+									var profile = googleUser.getBasicProfile();
+									console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+									console.log('Full Name: '
+											+ profile.getName());
+									console.log('Given Name: '
+											+ profile.getGivenName());
+									console.log('Family Name: '
+											+ profile.getFamilyName());
+									console.log("Image URL: "
+											+ profile.getImageUrl());
+									console.log("Email: " + profile.getEmail());
+
+									var id_token = googleUser.getAuthResponse().id_token;
+									console.log("ID Token: " + id_token);
+									
+									location.href="socialLogin.do?user_name="+profile.getName()+"&user_email="+profile.getEmail()+"&user_id="+profile.getId();
+								};
+							</script>
+						</div>
 					</div>
 <!-- 					</form> -->
 				</div>

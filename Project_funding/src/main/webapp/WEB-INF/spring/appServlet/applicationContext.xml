@@ -38,5 +38,22 @@
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSession" />
-	</bean>		
+	</bean>
+
+	<!-- Google 소셜 로그인 연결 설정 -->
+	<bean id="googleConnectionFactory"
+		class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<constructor-arg value="194507075586-fqdh9s1af0jq81cq27hqe5m9fim0692t.apps.googleusercontent.com" />
+		<constructor-arg value="KHsoujThA9VeGBU25CGk1Em-" />
+	</bean>
+
+	<bean id="googleOAuth2Parameters"
+		class="org.springframework.social.oauth2.OAuth2Parameters">
+		<property name="scope"
+			value="https://www.googleapis.com/auth/userinfo.email"></property>
+		<property name="redirectUri"
+			value="http://localhost:8787/pf/googleSignInCallback" />
+
+	</bean>
+	
 </beans>

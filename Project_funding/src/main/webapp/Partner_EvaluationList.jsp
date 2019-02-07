@@ -136,7 +136,7 @@ strong{
 									<div class="tab-content">
 										<div class="tab-pane active" id="profile">
 											<br>
-											<p> <b>평가 클라이언트</b> : <strong>${evaluationdto.user_id}</strong> </p>
+											<p> <b>평가 클라이언트</b> : <strong>${evaluationdto.evaluation_writer}</strong> </p>
 											<p> <b> ${evaluationdto.evaluation_content} </b></p>
 										</div>
 									</div>

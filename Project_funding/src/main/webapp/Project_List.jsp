@@ -310,36 +310,9 @@
             </c:choose>
       
             <!-- 페이징 -->
-               <div id="pagination">
-               <ul class="pagination " id="pasing">
-               </ul>
-               
-               </div>
-            <!-- <div id="pagination">
-               <ul class="pagination pagination-info">
-                      <li class="page-item">
-                           <a href="javascript:void(0);" class="page-link"> prev</a>
-                      </li>
-                        <li class="active page-item">
-                           <a href="javascript:void(0);" class="page-link">1</a>
-                      </li>
-                         <li class="page-item">
-                           <a href="javascript:void(0);" class="page-link">2</a>
-                      </li>
-                      <li class="page-item">
-                           <a href="javascript:void(0);" class="page-link">3</a>
-                      </li>
-                      <li class="page-item">
-                           <a href="javascript:void(0);" class="page-link">4</a>
-                      </li>
-                      <li class="page-item">
-                           <a href="javascript:void(0);" class="page-link">5</a>
-                      </li>
-                      <li class="page-item">
-                           <a href="javascript:void(0);" class="page-link">next </a>
-                      </li>
-                    </ul>
-         </div>-->
+			<div id="pagination" style="text-align: center;">
+				<ul class="pagination " id="pasing"></ul>
+			</div>
       </div>
    </div>
 </div>

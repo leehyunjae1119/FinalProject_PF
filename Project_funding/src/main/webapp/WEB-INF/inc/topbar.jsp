@@ -38,10 +38,24 @@
   					 " class="nav-link" style="color:white">프로젝트 등록</a>
                   </li>
                   <li class="nav-item">
-                    <a href="project_list.do?page=1" class="nav-link">프로젝트 찾기</a>
+                    <a href="
+                    	<c:if test="${userdto eq null }"> 
+						 login.do
+						 </c:if>
+						 <c:if test="${userdto.getUser_type() eq '클라이언트' or '파트너스' or '투자자'}">
+							project_list.do?page=1
+	  					 </c:if>
+	  					 " class="nav-link">프로젝트 찾기</a>
                   </li>
                   <li class="nav-item">
-                    <a href="partner_list.do" class="nav-link">파트너스 목록</a>
+                    <a href="
+                    	<c:if test="${userdto eq null }"> 
+						 login.do
+						 </c:if>
+						 <c:if test="${userdto.getUser_type() eq '클라이언트' or '파트너스' or '투자자'}">
+							partner_list.do
+	  					 </c:if>
+	  					 " class="nav-link">파트너스 목록</a>
                   </li>
                   <li class="nav-item">
                     <a href="question.do" class="nav-link">이용 방법</a>

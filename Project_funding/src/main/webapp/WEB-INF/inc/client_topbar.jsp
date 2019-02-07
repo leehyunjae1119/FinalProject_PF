@@ -12,8 +12,12 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+	<!-- 구글로그인api -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="194507075586-fqdh9s1af0jq81cq27hqe5m9fim0692t.apps.googleusercontent.com">
+	
 <style type="text/css">
 #ho:hover {
 	position: relative;
@@ -30,29 +34,7 @@
 
 </head>
 <body>
-	<nav
-		class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
-		id="sectionsNav">
-		<div class="container">
-			<div class="navbar-translate">
-				<!-- 상단 메뉴바 -->
-				<a href="index.do"><img
-					src="resources/assets/img/main_Icon_white.png" id="main_logo"
-					style="width: 100px;" /></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a href="client_mypage.do"
-						class="nav-link">나의 푸딩</a></li>
-					<li class="nav-item"><a href="project_insert.do"
-						class="nav-link" style="color: white">프로젝트 등록</a></li>
+
    <nav
       class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
       id="sectionsNav">
@@ -78,7 +60,7 @@
 					<li class="nav-item"><a href="project_list.do?page=1"
 						class="nav-link" style="color: white">프로젝트 찾기</a></li>
 					<li class="nav-item"><a
-						href="partner_list.do?user_type='파트너스'" class="nav-link"
+						href="partner_list.do" class="nav-link"
 						style="color: white">파트너스 목록</a></li>
 					<li class="nav-item"><a href="question.do" class="nav-link"
 						style="color: white">이용 방법</a></li>
@@ -91,7 +73,8 @@
 					</li>
 					<li class="nav-item"><a href="#pablo" class="nav-link">${userdto.user_id }</a>
 					<li class="nav-item"><a href="logOut.do" class="nav-link"
-						style="color: white">Log out</a></li>
+						style="color: white" onclick="signOut();">Logout</a></li>
+						
 				</ul>
 			</div>
 		</div>
@@ -116,15 +99,13 @@
 
          <div class="collapse navbar-collapse">
             <ul class="navbar-nav" style="color:black;">
-
-               <li class="nav-item" id="item1"></li>
-               <li class="nav-item"><a href="partnersList_client.do" class="nav-link" id="ho" style="padding-top: 17px;">지원자 보기</a></li>
-               <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho" style="padding-top: 17px;">검수 중</a></li>
-               <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_inspectionList.do?user_no=${userdto.user_no }" 
+               class="nav-link" id="ho" style="padding-top: 17px;">검수중인 프로젝트</a></li>
+               <li class="nav-item"><a href="project_recruitmentList.do?user_no=${userdto.user_no }" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
-               <li class="nav-item"><a href="project_ing.do?page=1" class="nav-link" id="ho"
+                <li class="nav-item"><a href="project_ing.do?page=1&user_no=${userdto.user_no }" class="nav-link" id="ho"
                   style="padding-top: 17px;">진행중인 프로젝트</a></li>
-                  <li class="nav-item"><a href="project_end.do?page=1" class="nav-link" id="ho"
+                  <li class="nav-item"><a href="project_end.do?page=1&user_no=${userdto.user_no }" class="nav-link" id="ho"
                   style="padding-top: 17px;">완료한 프로젝트</a></li>
                   <li class="nav-item"><a href="user_typeUpdate.do" class="nav-link" id="ho"
                   style="padding-top: 17px;">계정 유형 변경 신청</a></li>
@@ -135,43 +116,14 @@
          
    </nav>
    <br><br><br>
-   
-   <!-- =================쪽지 부분입니다===================== -->
-   <!-- 쪽지 모달창 -->
-	<div>
-		<div class="container">
-			<div class="navbar-translate" style="width: 100px;">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					aria-expanded="false" aria-label="Toggle navigation">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span> <span
-						class="navbar-toggler-icon"></span>
-				</button>
-			</div>
 
-			<div class="collapse navbar-collapse">
-				<ul class="navbar-nav" style="color: black;">
-
-					<li class="nav-item"><a href="project_inspectionList.do"
-						class="nav-link" id="ho" style="padding-top: 17px;">검수 중</a></li>
-					<li class="nav-item"><a href="project_recruitmentList.do"
-						class="nav-link" id="ho" style="padding-top: 17px;">지원자 모집 중</a></li>
-					<li class="nav-item"><a href="project_ing.do" class="nav-link"
-						id="ho" style="padding-top: 17px;">진행중인 프로젝트</a></li>
-					<li class="nav-item"><a href="project_end.do" class="nav-link"
-						id="ho" style="padding-top: 17px;">완료한 프로젝트</a></li>
-					<li class="nav-item"><a href="user_typeUpdate.do"
-						class="nav-link" id="ho" style="padding-top: 17px;">계정 유형 변경
-							신청</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<br>
-	<br>
-	<br>
-
-
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
 </body>
 </html>

@@ -40,31 +40,46 @@
                   </li>
                   <li class="nav-item">
                     <a href="
-					 <c:if test="${userdto eq null }"> 
-					 login.do
+ 					<c:if test="${userdto eq null }"> 
+ 					JAVASCRIPT:alert('로그인을 해주세요!');
 					 </c:if>
+<<<<<<< HEAD
 					 <c:if test="${userdto.getUser_type() eq '클라이언트' }">
   					 project_insert.do
   					 </c:if>
 					" class="nav-link" style="color:white">프로젝트 등록</a>
+=======
+					" class="nav-link"style="color:white" id="login">프로젝트 등록</a>
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
                   </li>
                   <li class="nav-item">
+<<<<<<< HEAD
                     <a href="project_list.do?page=1" class="nav-link" style="color:white">프로젝트 찾기</a>
 
+=======
+                    <a href="
+                    <c:if test="${userdto eq null }"> 
+					JAVASCRIPT:alert('로그인을 해주세요!');
+					 </c:if>
+  					 " class="nav-link">프로젝트 찾기</a>
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
                   </li>
                   <li class="nav-item">
+<<<<<<< HEAD
                     <a href="partner_list.do" class="nav-link" style="color:white" >파트너스 목록</a>
+=======
+                    <a href="
+                    <c:if test="${userdto eq null }"> 
+					 JAVASCRIPT:alert('로그인을 해주세요!');
+					 </c:if>
+				" class="nav-link">파트너스 목록</a>
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
                   </li>
                   <li class="nav-item">
                     <a href="question.do" class="nav-link" style="color:white">이용 방법</a>
                   </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                   <li class="nav-item" style="float: right;">
-                       <a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-round" data-toggle="dropdown">
-                            <i class="material-icons">email</i>
-                       </a>
-                    </li>
                     <li class="nav-item">
                     <a href="login.do" class="nav-link" style="color:white">Login</a>
                   </li>

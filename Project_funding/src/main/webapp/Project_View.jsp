@@ -25,6 +25,11 @@
    
  <c:if test="${userdto.getUser_type() eq '투자자' }">
   <%@ include file="WEB-INF/inc/investor_topbar.jsp" %></c:if>
+  
+   <c:if test="${userdto.getUser_type() eq '관리자' }">
+  <%@ include file="WEB-INF/inc/admin_topbar.jsp" %>
+  </c:if>
+  
 <link href="resources/assets/css/project_view.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76" href="resources/assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="resources/assets/img/favicon.png">
@@ -157,7 +162,6 @@
          <div class="money">
             <p class="text-muted">${invest_totalMoney }원</p>
          </div>
-  
        			     <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">메세지 보내기</button>
 
 
@@ -199,6 +203,12 @@
 			<input type="button" id="partners" class="btn btn-rose btn-lg" value="지원하기 " style="display: inline-block; width: 150px;" onclick="location.href='Apply_Project.do?board_no=${dto.board_no}&user_no=${dto.user_no }'" />
    		</div>
     </c:if>
+    
+    <c:if test="${dto.getProject_state() eq '진행중' && userdto.user_no == dto.getUser_no() }">
+	    		<div class="partners_button">
+	        		<button id="partners" class="btn btn-rose btn-lg" style="display: inline-block; width: 150px;" onClick="location.href='project_finish.do?board_no=${dto.board_no}&user_no=${userdto.user_no }&page=1'">완료하기</button>
+	   			</div>	
+	</c:if>
 	
 	<hr />
 	<div class="comment_container">
@@ -229,7 +239,7 @@
 <%@ include file="WEB-INF/inc/footer.jsp" %>
 
 </body>
-
+	 	<!-- ============================================= 쪽지 모달 시작! ========================================================== -->
 		<div class="container">
 			<!-- The Modal -->
 			<div class="modal" id="myModal">
@@ -246,7 +256,7 @@
 
 						<!-- Modal body -->
 						<!-- 값을 전송하는 부분 -->
-						<form action="message_insert.do?page=1" method="post">
+						<form action="message_insert.do?page=1&board_no=${dto.board_no }" method="post">
 						<input type="hidden" name="sender" value="${userdto.user_id }" >
 						<div class="modal-body">
 						

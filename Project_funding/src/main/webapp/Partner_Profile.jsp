@@ -67,7 +67,7 @@
 								<div class="container">
 									<div class=row>
 										<p style="font-size: 20px">평균 평점 : <fmt:formatNumber value="${(evaluationdto.item1+evaluationdto.item2+evaluationdto.item3) / 3}" pattern=".0"/></p>
-										<a href="partner_evaluationlist.do?user_no=${userdto.user_no }"> &nbsp;&nbsp;평가리스트</a>
+										<a href="partner_evaluationlist.do?user_id=${userdto.user_id }"> &nbsp;&nbsp;평가리스트</a>
 									</div>
 									
 									<c:if test="${avg eq 0}">
@@ -75,7 +75,7 @@
                             		</c:if> 
 									<c:if test="${avg eq 1}">
                             			<i class="material-icons" style="color: orange;font-size: 55px;">star</i>
-                            			<i class="material-icons">star star star star</i>
+                            			<i class="material-icons" style="font-size: 55px;">star star star star</i>
                             		</c:if> 
                             		<c:if test="${avg eq 2}">
                             			<i class="material-icons" style="color: orange;font-size: 55px;">star star</i>
@@ -155,7 +155,7 @@
 							</div>
 							<br><br>
 							<c:choose>
-								<c:when test="${profiledto.profile_intro eq null }"> 
+								<c:when test="${empty portfoliodtoList }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
@@ -169,14 +169,18 @@
 											<th scope="col">제목</th>
 											<th scope="col">시작일</th>
 											<th scope="col">참여율</th>
+											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row"></th>
-											<td></td>
-											<td></td>
-										</tr>	
+										<c:forEach items="${portfoliodtoList}" var="portfoliodto">
+											<tr>
+												<td scope="row"><a id="portfoliotitle" href="PartnerReg_Portfolio_Detail.do?portfolio_no=${portfoliodto.portfolio_no }" style="color:black; font-weight:bold;">${portfoliodto.portfolio_title }</a></td>
+												<td>${portfoliodto.portfolio_start_day }</td>
+												<td>${portfoliodto.portfolio_participation }</td>
+												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_portfolioDelete.do?portfolio_no=${portfoliodto.portfolio_no }'">삭제</button></td>
+											</tr>	
+										</c:forEach>
 									</tbody>
 								</table>
 								</c:otherwise>
