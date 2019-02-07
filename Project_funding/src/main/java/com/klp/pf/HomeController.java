@@ -188,7 +188,9 @@ public class HomeController {
 	public String index(Model model) {
 		//model.addAttribute("totalCount", pf_boardBiz.totalcount());
 		model.addAttribute("CountCoin", pf_coinBiz.CountCoin());
-		
+		model.addAttribute("totalUser", pf_userBiz.totalUser());
+		System.out.println("totalUser >> " + pf_userBiz.totalUser());
+		model.addAttribute("totalCount_board", pf_boardBiz.totalCount_board());
 		return "main";
 	}
 

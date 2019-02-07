@@ -103,4 +103,11 @@ WHERE e.USER_ID <> '%_del%']]>
  		SELECT * FROM PF_USER
 		WHERE USER_EMAIL = #{user_email}
  	</select>
+ 	
+ 	<select id="totalUser" resultType="int">
+      SELECT COUNT(*)
+      FROM PF_USER
+   </select>
+   
+ 	
 </mapper>

@@ -76,4 +76,6 @@ public interface PF_BoardDao {
 	
 	//프로젝트 완료시키기
 	public int project_finish(int board_no);
+	
+	public int totalCount_board();
 }

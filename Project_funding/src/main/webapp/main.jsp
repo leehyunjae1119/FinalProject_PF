@@ -111,13 +111,13 @@ to {
 						<b>프로젝트 & 프리랜서</b>
 					</h3>
 					<h2>
-						<span class="counter">${totalCount}</span>
+						<span class="counter">${totalCount_board}</span>
 					</h2>
 					<h2>
 						<span class="counter">${CountCoin}</span>
 					</h2>
 					<h2>
-						<span class="counter">12345</span>
+						<span class="counter">${totalUser}</span>
 					</h2>
 				</div>
 

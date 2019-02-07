@@ -178,4 +178,9 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
       // TODO Auto-generated method stub
       return pf_boardDao.project_finish(board_no);
    }
+
+@Override
+public int totalCount_board() {
+	return pf_boardDao.totalCount_board();
+}
 }

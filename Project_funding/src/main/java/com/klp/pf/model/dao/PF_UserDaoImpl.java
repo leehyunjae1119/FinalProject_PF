@@ -113,4 +113,9 @@ public class PF_UserDaoImpl implements PF_UserDao {
 		
 		return User_Id;
 	}
+	@Override
+	public int totalUser() {
+		int res = sqlSession.selectOne(pf_userNamespace+"totalUser");
+	      return res;
+	}
 }

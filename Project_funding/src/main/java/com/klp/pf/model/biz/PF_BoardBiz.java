@@ -74,4 +74,6 @@ public interface PF_BoardBiz {
 
    // 관리자 검수 신청 온 프로젝트 폐기
    public int admin_deleteproject(int board_no, String project_state);
+   
+   public int totalCount_board();
 }

@@ -144,4 +144,9 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	public String IDcheck(String user_id) {
 		return pf_dao.IDcheck(user_id);
 	}
+	@Override
+	public int totalUser() {
+		return pf_dao.totalUser();
+	}
+	   
 }

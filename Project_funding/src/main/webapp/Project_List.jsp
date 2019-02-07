@@ -40,13 +40,11 @@
  <script type="text/javascript"src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <c:if test="${page ne null}">
-<script type="text/javascript" src="resources/paging/paging.js?ver=1"></script>
+<script type="text/javascript" src="resources/paging/list_paging.js?ver=1"></script>
 </c:if>
 <c:if test="${page1 ne null}">
 <script type="text/javascript" src="resources/paging/paging2.js?ver=1"></script>
 </c:if>
-
-
    
 </head>
 

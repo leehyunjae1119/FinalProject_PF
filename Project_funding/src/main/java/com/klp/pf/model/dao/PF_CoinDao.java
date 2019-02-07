@@ -29,4 +29,5 @@ public interface PF_CoinDao {
 	
 	// 투자자 보유 코인
 	public int coinSum(String coin_state);
+	
 }
