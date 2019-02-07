@@ -23,29 +23,34 @@ public class PF_BoardDto {
 	private int likeuser_no;
 	private String board_like;
 	private String user_id;
+	
+	public PF_BoardDto() {
+		
+	}
 
-   public PF_BoardDto(int board_no, String board_title, String board_content, int project_money, int project_term,
-         String project_start_day, String recruit_date, String recruit_personnel, String project_category,
-         String project_type, String board_file, String project_state, String board_regdate, int user_no,int likeuser_no ,String board_like, int apply_cnt) {
-         super();
-         this.board_no = board_no;
-         this.board_title = board_title;
-         this.board_content = board_content;
-         this.project_money = project_money;
-         this.project_term = project_term;
-         this.project_start_day = project_start_day;
-         this.recruit_date = recruit_date;
-         this.recruit_personnel = recruit_personnel;
-         this.project_category = project_category;
-         this.project_type = project_type;
-         this.board_file = board_file;
-         this.project_state = project_state;
-         this.board_regdate = board_regdate;
-         this.user_no = user_no;
-         this.likeuser_no = likeuser_no;
-         this.board_like = board_like;
-         this.apply_cnt = apply_cnt;
-      }
+	public PF_BoardDto(int board_no, String board_title, String board_content, int project_money, int project_term,
+	         String project_start_day, String recruit_date, String recruit_personnel, String project_category,
+	         String project_type, String board_file, String project_state, String board_regdate, int user_no,
+	         int likeuser_no, String board_like, String user_id) {
+	      super();
+	      this.board_no = board_no;
+	      this.board_title = board_title;
+	      this.board_content = board_content;
+	      this.project_money = project_money;
+	      this.project_term = project_term;
+	      this.project_start_day = project_start_day;
+	      this.recruit_date = recruit_date;
+	      this.recruit_personnel = recruit_personnel;
+	      this.project_category = project_category;
+	      this.project_type = project_type;
+	      this.board_file = board_file;
+	      this.project_state = project_state;
+	      this.board_regdate = board_regdate;
+	      this.user_no = user_no;
+	      this.likeuser_no = likeuser_no;
+	      this.board_like = board_like;
+	      this.user_id = user_id;
+	   }
 
 	public int getBoard_no() {
 		return board_no;
