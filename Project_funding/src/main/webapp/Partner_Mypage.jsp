@@ -114,14 +114,12 @@
                                     <c:otherwise>
                                        <br>
                                        <c:forEach var="dto" items="${likelist }">
-<%--                                           <c:if test="${dto.board_like eq '좋아'}"> --%>
                                           <tr>
                                              <td>${dto.board_title }</td>
                                              <td>${dto.project_money }원</td>
                                              <td>${dto.project_term }일</td>
                                              <td>${dto.recruit_date }</td>
                                           </tr>   
-<%--                                           </c:if>    --%>
                                        </c:forEach>
                                     </c:otherwise>      
                                  </c:choose>
@@ -143,14 +141,26 @@
                            </thead>
                            <tbody id="tbody">
                               <tr id="cloneTr">
-                                 <td>프로젝트 제목 어쩌구 저쩌구</td>
-                                 <td>1,000,000원</td>
-                                 <td>30일</td>
-                                 <td>3월 1일</td>
+                                 <c:choose>
+                                    <c:when test="${empty ApplicantList }">
+                                       <td colspan="4"><b>----- 지원한 프로젝트가 없습니다. -----</b></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                       <br>
+                                       <c:forEach var="dto" items="${ApplicantList }">
+                                          <tr>
+                                             <td>${dto.board_title }</td>
+                                             <td>${dto.project_money }원</td>
+                                             <td>${dto.project_term }일</td>
+                                             <td>${dto.recruit_date }</td>
+                                          </tr>   
+                                       </c:forEach>
+                                    </c:otherwise>      
+                                 </c:choose>
                               </tr>
                            </tbody>
                         </table>
-                        <a href="project_supportList.do" class="view">자세히 보기 >></a>
+                        <a href="project_supportList.do?user_no=${userdto.user_no}&page=1" class="view">자세히 보기 >></a>
                      </div>
 
                      <div class="like_project">
@@ -166,14 +176,26 @@
                            </thead>
                            <tbody id="tbody">
                               <tr id="cloneTr">
-                                 <td>프로젝트 제목 어쩌구 저쩌구</td>
-                                 <td>1,000,000원</td>
-                                 <td>30일</td>
-                                 <td>3월 1일</td>
+                                 <c:choose>
+                                    <c:when test="${empty ingList }">
+                                       <td colspan="4"><b>----- 진행중인 프로젝트가 없습니다. -----</b></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                       <br>
+                                       <c:forEach var="dto" items="${ingList }">
+                                          <tr>
+                                             <td>${dto.board_title }</td>
+                                             <td>${dto.project_money }원</td>
+                                             <td>${dto.project_term }일</td>
+                                             <td>${dto.recruit_date }</td>
+                                          </tr>   
+                                       </c:forEach>
+                                    </c:otherwise>      
+                                 </c:choose>
                               </tr>
                            </tbody>
                         </table>
-                        <a href="project_ing.do" class="view">자세히 보기 >></a>
+                        <a href="project_ing.do?page=1&user_no=${userdto.user_no }" class="view">자세히 보기 >></a>
                      </div>
 
                   </div>
