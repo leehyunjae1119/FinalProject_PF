@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,11 +52,10 @@
 					<%@include file="WEB-INF/inc/profile_sidebar.jsp" %>
 
 					<div class="col-12 col-md-9" style="margin-top: -30px;">
-						<h3>
+						<h2>
 							<b>${portfoliodto.portfolio_title }</b>
-						</h3>
+						</h2>
 						<hr>
-						<form action="partnerReg_portfolioInsert.do">
 							<div class="form-group bmd-form-group is-filled">
 								<label for="PortfolioFormStartday"
 									class="label-control bmd-label-static">참여시작일</label>
@@ -77,14 +78,15 @@
 							<br>
 							<br>
 							<br>
-						</form>
-
-						<c:if test="${dto.portfolio_file ne null }">
+						<c:if test="${portfoliodto.portfolio_file ne null }">
 							<iframe src="http://localhost:8787/pf/storage/${portfoliodto.portfolio_file }"
 								style="width: 100%; height: 500px;" frameborder="0"></iframe>
 							<%--          <h1>${dto.board_file }</h1> --%>
 						</c:if>
 						<hr />
+						<div class="button_position" style="float: right;">
+							<button onclick="location.href='partners_profile.do'" class="btn btn-warning">뒤로가기</button>
+						</div>				
 					</div>
 				</div>
 

@@ -11,8 +11,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 	<!-- 구글로그인api -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-scope" content="profile email">
@@ -98,7 +97,7 @@
 					<li class="nav-item"><a href="user_typeUpdate.do"
 						class="nav-link" id="ho" style="padding-top: 17px;">계정 유형 변경
 							신청</a></li>
-					<li class="nav-item"><a href="project_supportList.do"
+					<li class="nav-item"><a href="project_supportList.do?page=1&user_no=${userdto.user_no }"
 						class="nav-link" id="ho" style="padding-top: 17px;">지원 내역</a></li>
 					<li class="nav-item"><a
 						href="project_ing.do?page=1&user_no=${userdto.user_no }"

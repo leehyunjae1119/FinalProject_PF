@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.klp.pf.dto.PF_ApplicantDto;
 import com.klp.pf.dto.PF_InvestDto;
 
 @Repository
@@ -67,6 +68,12 @@ public class PF_InvestDaoImpl implements PF_InvestDao {
 		
 		return res;
 	}
+	
+	// 프로젝트에 투자한 투자자 리스트
+		@Override
+		public List<PF_InvestDto> investerList(int board_no) {
+			return sqlSession.selectList(pf_investNamespace+"investerList",board_no);
+		}
 	
 	
 

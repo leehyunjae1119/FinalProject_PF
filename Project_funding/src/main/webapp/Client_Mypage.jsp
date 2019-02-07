@@ -87,7 +87,7 @@
 						</thead>
 						<tbody id="tbody">
 							<tr id="cloneTr">
-      							<td>우측의[프로젝트 등록] 버튼을 눌러주세요!</td>
+      							<td>프로젝트 등록 버튼을 눌러주세요!</td>
 							</tr>
 						</tbody>
 					</table>

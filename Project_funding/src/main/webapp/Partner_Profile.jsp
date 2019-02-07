@@ -155,7 +155,7 @@
 							</div>
 							<br><br>
 							<c:choose>
-								<c:when test="${profiledto.profile_intro eq null }"> 
+								<c:when test="${empty portfoliodtoList }"> 
 									<div style="text-align: center;">
 										<img src="resources/assets/img/document_icon.png" style="height: 150px; width: 150px;">
 										<p></p>
@@ -169,14 +169,18 @@
 											<th scope="col">제목</th>
 											<th scope="col">시작일</th>
 											<th scope="col">참여율</th>
+											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row"></th>
-											<td></td>
-											<td></td>
-										</tr>	
+										<c:forEach items="${portfoliodtoList}" var="portfoliodto">
+											<tr>
+												<td scope="row"><a id="portfoliotitle" href="PartnerReg_Portfolio_Detail.do?portfolio_no=${portfoliodto.portfolio_no }" style="color:black; font-weight:bold;">${portfoliodto.portfolio_title }</a></td>
+												<td>${portfoliodto.portfolio_start_day }</td>
+												<td>${portfoliodto.portfolio_participation }</td>
+												<td><button class="btn btn-danger btn-sm"onclick="location.href='partnerReg_portfolioDelete.do?portfolio_no=${portfoliodto.portfolio_no }'">삭제</button></td>
+											</tr>	
+										</c:forEach>
 									</tbody>
 								</table>
 								</c:otherwise>

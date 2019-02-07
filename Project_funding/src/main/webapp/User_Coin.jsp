@@ -84,7 +84,7 @@ function CheckForm(Join){
 						<h5>회원님의 코인을 조회하고 충전할 수 있습니다.</h5>
 						<hr>
 						<b style="color: gray;">코인 조회<br></b> <br> <b>보유 코인
-							&nbsp : &nbsp<a id="coinSum">${coinSum}</a>
+							&nbsp : &nbsp<a id="coinSum">${coin}</a>
 						</b>
 						<hr>
 						<b style="color: gray;">코인 사용 내역<br></b>
@@ -123,15 +123,16 @@ function CheckForm(Join){
 															<%chk=false;
 															%>
 												</c:if>
-												<c:if test="${dto.coin_state eq '충전' }">		
-														<form action="User_refund.do">
-															<input type="hidden" value="${page }" name="page" /> 
-															<input type="hidden" value="${dto.user_no }" name="user_no" />
-															<input type="hidden" value="${dto.coin_no }" name="coin_no" /> 
-															<input type="submit" value="환불신청">
-														</form>
-														
-												</c:if>	
+												<c:if test="${dto.coin_state eq '충전' }">
+												   <%if(chk==true){ %>                                       
+                                          <form action="User_refund.do">
+                                             <input type="hidden" value="${page }" name="page" /> 
+                                             <input type="hidden" value="${dto.user_no }" name="user_no" />
+                                             <input type="hidden" value="${dto.coin_no }" name="coin_no" /> 
+                                             <input type="submit"  value="환불신청">
+                                          </form>
+                                          <%} %>
+                                    </c:if>   
 													</td>
 											</tr>
 										</c:forEach>

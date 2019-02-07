@@ -45,4 +45,6 @@ public class PF_ApplicantBizImpl implements PF_ApplicantBiz {
 	public int recruitCount(int board_no) {
 		return pf_appliDao.recruitCount(board_no);
 	}
+
+	
 }

@@ -158,7 +158,6 @@
          <div class="money">
             <p class="text-muted">${invest_totalMoney }원</p>
          </div>
-  
        			     <button id="y" class="btn btn-primary btn-round" data-toggle="modal" data-target="#myModal">메세지 보내기</button>
 
 
