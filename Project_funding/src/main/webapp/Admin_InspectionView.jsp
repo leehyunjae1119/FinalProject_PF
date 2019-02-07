@@ -177,7 +177,7 @@
 						</p>
 					</div>
 					<div class="money">
-						<p class="text-muted">100,000원</p>
+						<p class="text-muted">0원</p>
 					</div>
 				</div>
 			</div>
@@ -206,7 +206,7 @@
 				</div>
 			</c:if>
 
-			<hr />
+		
 		</div>
 		
 		 <c:if test="${userdto.getUser_type() eq '관리자' }">

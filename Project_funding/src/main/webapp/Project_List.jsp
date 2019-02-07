@@ -103,7 +103,7 @@
 								href="project_list_date.do?page=1">마감 등록 순</a><br />
 						</div>
 
-						<form action="detail_search.do?page=1" method="post">
+						<form action="detail_search.do?page=1&project_state=${project_state }" method="post">
 							<div class="project_category">
 								<div class="project_cate_title">
 									<p class="text-muted" style="font-size: 15px;">
@@ -241,7 +241,7 @@
 								</div>
 
 								<div class="search_button">
-									<button class="btn" style="width: 200px; height: 40px;">검색</button>
+									<input type="submit" class="btn btn-default" value="검색" style="width: 200px; height: 40px;">
 								</div>
 								<!-- 미팅 지역 끝! -->
 
@@ -291,9 +291,8 @@
 											<p class="text-muted">
 											
 												<b>등록 일자</b>&nbsp;&nbsp;&nbsp; <b>
-														<fmt:parseDate value="${dto.board_regdate }" var="regdate" pattern="yyyy-mm-dd"/>
-												
-												<fmt:formatDate value="${regdate }" pattern="yyyy-mm-dd"/>
+													<fmt:parseDate value="${dto.board_regdate }" var="regdate" pattern="yyyy-mm-dd"/>
+													<fmt:formatDate value="${regdate }" pattern="yyyy-mm-dd"/>
 												</b>
 											</p>
 										</div>

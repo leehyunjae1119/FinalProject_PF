@@ -110,7 +110,7 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		}
 		return res;
 	}
-	
+
 	// 전체 프로젝트 개수(승인 중인 프로젝트만 센다)
 	@Override
 	public int totalCount(String project_state) {
@@ -120,31 +120,37 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 
 	// 키워드 검색
 	@Override
-	public List<PF_BoardDto> search(int page, String board_title) {
+	public List<PF_BoardDto> search(int page, String board_title, String project_state) {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("page", Integer.toString(page));
 		map.put("board_title", board_title);
-
+		map.put("project_state", project_state);
+		System.out.println("컨트롤러 : " + page + board_title + project_state);
 		List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "search", map);
+		System.out.println(dto);
+
 		return dto;
 	}
-	
-	@Override
-	public int totalCount_title(String board_title) {
 
-		int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_title", board_title);
+	@Override
+	public int totalCount_title(String board_title, String project_state) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("board_title", board_title);
+		map.put("project_state", project_state);
+		int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_title", map);
 		return res;
 
 	}
 
 	// 카테고리 검색
 	@Override
-	public List<PF_BoardDto> detail_search1(int page, String category1, String category2) {
+	public List<PF_BoardDto> detail_search1(int page, String category1, String category2, String project_state) {
 		Map<String, String> map = new HashMap<String, String>();
 
 		map.put("page", Integer.toString(page));
 		map.put("category1", category1);
 		map.put("category2", category2);
+		map.put("project_state", project_state);
 		List<PF_BoardDto> dto = sqlSession.selectList(pf_boardNamespace + "detail_category1", map);
 		System.out.println("daoimple" + category1);
 		System.out.println(map);
@@ -152,28 +158,46 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	}
 
 	@Override
-	public int totalCount_detail(String category1, String category2) {
+	public int totalCount_detail(String category1, String category2, String project_state) {
 		Map<String, String> map = new HashMap<String, String>();
 
 		map.put("category1", category1);
 		map.put("category2", category2);
+		map.put("project_state", project_state);
 		int res = sqlSession.selectOne(pf_boardNamespace + "totalCount_detail", map);
 		System.out.println("total:" + res);
 		return res;
 	}
 
+	// 지원자 모집 중인 프로젝트
 	@Override
-	public List<PF_BoardDto> ingBoardList(String project_state) {
-
+	public List<PF_BoardDto> ingBoardList(String project_state, int user_no) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("project_state", project_state);
+		map.put("user_no", Integer.toString(user_no));
 		List<PF_BoardDto> list = new ArrayList<PF_BoardDto>();
 		try {
-
-			list = sqlSession.selectList(pf_boardNamespace + "ingBoardList", project_state);
+			list = sqlSession.selectList(pf_boardNamespace + "ingBoardList", map);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return list;
+	}
 
+	// 투자중인 프로젝트 리스트
+	@Override
+	public List<PF_BoardDto> investList(String project_state, int user_no) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("project_state", project_state);
+		map.put("user_no", Integer.toString(user_no));
+		List<PF_BoardDto> list = new ArrayList<PF_BoardDto>();
+		try {
+			list = sqlSession.selectList(pf_boardNamespace + "investList", map);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 
@@ -267,13 +291,13 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 	// 관리가 검수 신청 온 프로젝트 폐기
 	@Override
 	public int admin_deleteproject(int board_no, String project_state) {
-		Map<String,String> map = new HashMap<String,String>();
+		Map<String, String> map = new HashMap<String, String>();
 		map.put("board_no", Integer.toString(board_no));
 		map.put("project_state", project_state);
 		int res = 0;
 		try {
-			res = sqlSession.delete(pf_boardNamespace+"admin_deleteproject",map);
-		}catch(Exception e) {
+			res = sqlSession.delete(pf_boardNamespace + "admin_deleteproject", map);
+		} catch (Exception e) {
 			System.out.println("삭제 실패!");
 		}
 		return res;

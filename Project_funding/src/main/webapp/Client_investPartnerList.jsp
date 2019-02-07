@@ -55,15 +55,15 @@
 					<div class="col" style="margin-top: -30px;">
 						<div class="col col-md-15" id="apply">
 							<h3>
-								<b>지원자 리스트</b>
+								<b>투자자 리스트</b>
 							</h3>
-							<p class="text-muted">회원님이 등록한 프로젝트에 지원한 지원자 목록입니다.</p>
+							<p class="text-muted">회원님이 등록한 프로젝트에 투자한 투자자 목록입니다.</p>
 						</div>
 						<br>
 						<div class="col col-md-15"  style="display: inline-block;">
 							<c:choose>
-								<c:when test="${recruitmentlist eq null }">
-									<h3 style="text-align: center;">----- 지원자가 없습니다. -----</h3>
+								<c:when test="${investerlist eq null }">
+									<h3 style="text-align: center;">----- 투자자가 없습니다. -----</h3>
 								</c:when>
 
 								<c:otherwise>
@@ -72,41 +72,32 @@
 										<tr>
 											<th scope="col">아이디</th>
 											<th scope="col">이메일</th>
-											<th scope="col">지원상태</th>
+											<th scope="col">투자금액</th>
 											<th scope="col">상세보기</th>
-											<th scope="col">도구</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach var="recruitmentlist" items="${recruitmentlist }">
+										<c:forEach var="dto" items="${investerlist }">
 										<tr>
-											<td>${recruitmentlist.user_id }</td>
-											<td>${recruitmentlist.user_email }</td>
-											<td>${recruitmentlist.applicant_state }</td>
-											<td><button class="btn btn-primary btn-sm" onclick="window.open('partners_popup.do?user_id=${recruitmentlist.user_id }','Parters Profile','width=1040,height=540,location=no,status=no,scrollbars=yes');">보기</button></td>
-											<c:choose>
-												<c:when test="${recruitmentlist.applicant_state eq '지원신청'}">
-													<td><button class="btn btn-success btn-sm"onclick="location.href='selection_Partners.do?applicant_no=${recruitmentlist.applicant_no }&board_no=${board_no }'">선택</button></td>
-												</c:when>
-												<c:otherwise>
-													<td><b>선택됨</b></td>
-												</c:otherwise>
-											</c:choose>
+											<td><b>${dto.user_id }</b></td>
+											<td><b>${dto.user_email }</b></td>
+											<td><b>${dto.invest_money }</b></td>
+											<td><button class="btn btn-primary btn-sm" onclick="window.open('partners_popup.do?user_id=${dto.user_id }','Parters Profile','width=1040,height=540,location=no,status=no,scrollbars=yes');">보기</button></td>
+											
 										</tr>
 										</c:forEach>
 									</tbody>
 								</table>
-									
 								</c:otherwise>
 							</c:choose>
 
 						</div>
 					</div>
-			
 				</div>
+			
 			</div>
 		</div>
 	</div>
-</body>
 		<%@ include file="WEB-INF/inc/footer.jsp"%>
+</body>
 </html>

@@ -79,7 +79,7 @@
 												pattern="yyyy-mm-dd"/>
 												<fmt:formatDate value="${regdate }" pattern="yyyy-mm-dd"/>
 												</td>
-												<c:if test="${dto.project_state eq '검수 중' }">
+												<c:if test="${dto.project_state eq '검수중' }">
 													<td>승인 대기</td>
 												</c:if>
 												<c:if test="${dto.project_state eq '승인' }">

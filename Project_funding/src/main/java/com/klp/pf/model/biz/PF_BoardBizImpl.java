@@ -53,27 +53,27 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 
 	// 키워드 검색
 	@Override
-	public List<PF_BoardDto> search(int page, String board_title) {
+	public List<PF_BoardDto> search(int page, String board_title, String project_state) {
 		// TODO Auto-generated method stub
-		return pf_boardDao.search(page, board_title);
+		return pf_boardDao.search(page, board_title, project_state);
 	}
 
 	@Override
-	public int totalCount_title(String board_title) {
-		return pf_boardDao.totalCount_title(board_title);
+	public int totalCount_title(String board_title, String project_state) {
+		return pf_boardDao.totalCount_title(board_title, project_state);
 	}
 
 	// 카테고리 검색
 	@Override
-	public List<PF_BoardDto> detail_search1(int page, String category1, String category2) {
+	public List<PF_BoardDto> detail_search1(int page, String category1, String category2, String project_state) {
 		// TODO Auto-generated method stub
-		return pf_boardDao.detail_search1(page, category1, category2);
+		return pf_boardDao.detail_search1(page, category1, category2, project_state);
 	}
 
 	@Override
-	public int totalCount_detail(String category1, String category2) {
+	public int totalCount_detail(String category1, String category2, String project_state) {
 		// TODO Auto-generated method stub
-		return pf_boardDao.totalCount_detail(category1, category2);
+		return pf_boardDao.totalCount_detail(category1, category2, project_state);
 	}
 
 	// 높은 금액순
@@ -90,10 +90,17 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 		return pf_boardDao.selectDateList(page);
 	}
 
+	// 지원자 모집 중인 프로젝트
 	@Override
-	public List<PF_BoardDto> ingBoardList(String project_state) {
+	public List<PF_BoardDto> ingBoardList(String project_state, int user_no) {
 
-		return pf_boardDao.ingBoardList(project_state);
+		return pf_boardDao.ingBoardList(project_state, user_no);
+	}
+
+	// 투자중인 프로젝트 리스트
+	@Override
+	public List<PF_BoardDto> investList(String project_state, int user_no) {
+		return pf_boardDao.investList(project_state, user_no);
 	}
 
 	@Override
@@ -164,4 +171,5 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	public int admin_deleteproject(int board_no, String project_state) {
 		return pf_boardDao.admin_deleteproject(board_no, project_state);
 	}
+
 }

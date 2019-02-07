@@ -20,14 +20,18 @@ public interface PF_BoardBiz {
 
 	public int delete(int board_no);
 
-	public List<PF_BoardDto> ingBoardList(String project_state);
+	// 지원자 모집 중인 프로젝트
+	public List<PF_BoardDto> ingBoardList(String project_state, int user_no);
+
+	// 투자중인 프로젝트 리스트
+	public List<PF_BoardDto> investList(String project_state, int user_no);
 
 	public int updateState(int board_no);
 
 	// keyword 검색
-	public List<PF_BoardDto> search(int page, String board_title);
+	public List<PF_BoardDto> search(int page, String board_title, String project_state);
 
-	public int totalCount_title(String board_title);
+	public int totalCount_title(String board_title, String project_state);
 
 	// 금액순 리스트
 	public List<PF_BoardDto> selectMoneyList(int page);
@@ -36,11 +40,11 @@ public interface PF_BoardBiz {
 	public List<PF_BoardDto> selectDateList(int page);
 
 	// 카테고리 검색
-	public List<PF_BoardDto> detail_search1(int page, String category1, String category2);
+	public List<PF_BoardDto> detail_search1(int page, String category1, String category2, String project_state);
 
-	public int totalCount_detail(String category1, String category2);
+	public int totalCount_detail(String category1, String category2, String project_state);
 
-	//진행중인 프로젝트 리스트 
+	// 진행중인 프로젝트 리스트
 	public List<PF_BoardDto> ing_list(int page, String project_state);
 
 	public int totalCount_ing(String project_state);
@@ -64,7 +68,7 @@ public interface PF_BoardBiz {
 
 	// 관리자 검수 신청 온 프로젝트 승인
 	public int admin_changeProject(int board_no);
-	
+
 	// 관리자 검수 신청 온 프로젝트 폐기
 	public int admin_deleteproject(int board_no, String project_state);
 }

@@ -56,9 +56,10 @@
 
 </head>
 <body>
-	<input type="hidden" id="totalCount1" value='${totalCount }'>
+	<input type="hidden" id="totalCount" value='${totalCount }'>
 	<input type="hidden" id="page" value='${page }'>
 	<input type="hidden" id="board_title" value='${board_title }'>
+	<input type="hidden" id="project_state" value='${project_state }'>
 
 
 	<div class="main main-raised">
@@ -72,7 +73,6 @@
 						<div class="project_list">
 							<form class="form-inline ml-auto" action="search.do?page=1"
 								method="post">
-								<input type="hidden" id="page" value="1">
 								<div class="form-group has-white">
 									<input type="text" class="form-control" placeholder="Search"
 										name="board_title" style="color: black;">
@@ -81,13 +81,18 @@
 									class="btn btn-white btn-raised btn-fab btn-round">
 									<i class="material-icons" style="background-color: black;">search</i>
 								</button>
-
 							</form>
 						</div>
 
 
-
-						<p class="text-muted">${totalCount }개의 프로젝트가 있습니다.</p>
+						<c:if test="${totalCount ne null }">
+							<p class="text-muted">${totalCount }개의 프로젝트가 있습니다.</p>
+						</c:if>
+						
+						<c:if test="${totalCount_detail ne null }">
+							<p class="text-muted">${totalCount_detail }개의 프로젝트가 있습니다.</p>
+						</c:if>
+						
 					</div>
 				</div>
 
@@ -249,28 +254,8 @@
 								<div class="meeting_title">
 									<div class="meeting_area_title">
 										<p class="text-muted" style="font-size: 13px;">
-											<b>미팅 진행지역</b>
+											
 										</p>
-									</div>
-									<div class="select_area">
-										<select name="category" style="font-size: 13px;">
-											<option value="" selected>전체 지역</option>
-											<option value="web">서울특별시</option>
-											<option value="app">경기도</option>
-											<option value="software">인천 광역시</option>
-											<option value="game">부산 광역시</option>
-											<option value="embedded">부산 광역시</option>
-											<option value="publishing">대구 광역시</option>
-											<option value="other">광주 광역시</option>
-											<option value="other">대전 광역시</option>
-											<option value="other">울산 광역시</option>
-											<option value="other">세종 특별자치시</option>
-											<option value="other">강원도</option>
-											<option value="other">충청도</option>
-											<option value="other">전라도</option>
-											<option value="other">경상도</option>
-											<option value="other">제주 특별자치도</option>
-										</select>
 									</div>
 									<div class="search_button">
 										<button class="btn" style="width: 200px; height: 40px;">검색</button>
@@ -283,8 +268,13 @@
 					</div>
 				</div>
 
-				<input type="hidden" id="totalCount" value='${totalCount }'>
+
+
+				<input type="hidden" id="totalCount_detail" value='${totalCount_detail }'>
 				<input type="hidden" id="page" value='${page }'>
+				<input type="hidden" id="project_category" value='${project_category }'>
+				<input type="hidden" id="project_money" value='${project_money }'>
+				
 				<!-- 카테고리 별 검색 끝! -->
 				<!-- col-md-2 끝! -->
 				<div class="col-md-8" id="col8">

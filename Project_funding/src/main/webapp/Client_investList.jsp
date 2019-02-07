@@ -55,21 +55,21 @@
 					<div class="col" style="margin-top: -30px;">
 						<div class="col col-md-15" id="apply">
 							<h3>
-								<b>지원자 모집 중</b>
+								<b>투자중인 프로젝트</b>
 							</h3>
-							<p class="text-muted">회원님이 등록한 프로젝트 목록입니다.</p>
+							<p class="text-muted">투자중인 프로젝트 목록입니다.</p>
 						</div>
 						<br>
 
 
 						<div class="col col-md-15"  style="display: inline-block;">
 							<c:choose>
-								<c:when test="${empty RecruitmentList }">
+								<c:when test="${empty investList }">
 									<h3 style="text-align: center;">----- 등록된 프로젝트가 없습니다. -----</h3>
 								</c:when>
 
 								<c:otherwise>
-									<c:forEach var="dto" items="${RecruitmentList }">
+									<c:forEach var="dto" items="${investList }">
 									<div class="col">
 										<div class="project_content_form">
 											<input type="hidden" name="board_no" value="${dto.board_no }" />
@@ -78,7 +78,7 @@
 											</h5>
 											<div class="project_title2">
 												<div class="project_money">
-													<img src="resources/assets/img/money.png" />
+													<img sc="resources/assets/img/money.png" />
 													<p class="text-muted">
 														<b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b>${dto.project_money }원</b>
 													</p>
@@ -91,7 +91,11 @@
 												</div>
 												<div class="project_support">
 													<p class="text-muted">
-														<b>등록 일자</b>&nbsp;&nbsp;&nbsp; <b>${dto.board_regdate }</b>
+														<b>등록 일자</b>&nbsp;&nbsp;&nbsp; <b>
+														<fmt:parseDate value="${dto.board_regdate }" var="regdate" pattern="yyyy-mm-dd"/>
+														<fmt:formatDate value="${regdate }" pattern="yyyy-mm-dd"/>
+														</b>
+														
 													</p>
 												</div>
 											</div>
@@ -113,8 +117,7 @@
 													<p class="text-muted"> <b>총 ${apply_cnt }명 지원</b> </p>
 												</div>
 											</div>
-											<input type="button" value="지원자 현황 보기" class="btn btn-info btn-lg" id="applyShow" onclick="location.href='recruitment_partnersList.do?board_no=${dto.board_no }'"/>
-											<input type="button" value="투자자 현황 보기" class="btn btn-success btn-lg" id="applyShow" onclick="location.href='investPartnerlist.do?board_no=${dto.board_no }'"/>
+											<input type="button" value="투자자 현황 보기" class="btn btn-info btn-lg" id="applyShow" onclick="location.href='investPartnerlist.do?board_no=${dto.board_no }'"/>
 										</div>
 									</div>
 									</c:forEach>

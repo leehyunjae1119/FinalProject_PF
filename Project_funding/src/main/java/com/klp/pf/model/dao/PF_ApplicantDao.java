@@ -17,6 +17,8 @@ public interface PF_ApplicantDao {
 	//클라이언트 (내가 등록한 프로젝트에 지원한 사람들을 보여줌)
 	public List<PF_ApplicantDto> recruitmentList(int board_no);
 	
+
+	
 	public int selectionPartners(int applicant_no);
 	public int recruitCount(int board_no); 
 

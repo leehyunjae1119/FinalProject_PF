@@ -94,8 +94,9 @@
 
          <div class="collapse navbar-collapse">
             <ul class="navbar-nav" style="color:black;">
-               <li class="nav-item"><a href="project_inspectionList.do" class="nav-link" id="ho" style="padding-top: 17px;">검수 중</a></li>
-               <li class="nav-item"><a href="project_recruitmentList.do" class="nav-link" id="ho"
+               <li class="nav-item"><a href="project_inspectionList.do?user_no=${userdto.user_no }" 
+               class="nav-link" id="ho" style="padding-top: 17px;">검수중인 프로젝트</a></li>
+               <li class="nav-item"><a href="project_recruitmentList.do?user_no=${userdto.user_no }" class="nav-link" id="ho"
                   style="padding-top: 17px;">지원자 모집 중</a></li>
                <li class="nav-item"><a href="project_ing.do?page=1" class="nav-link" id="ho"
                   style="padding-top: 17px;">진행중인 프로젝트</a></li>

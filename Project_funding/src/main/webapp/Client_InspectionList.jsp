@@ -42,7 +42,7 @@
 				<!-- 왼쪽 사이드 바 div -->
 				<div class="col" style="margin-top: -30px;">
 				<div class="col col-md-15" id="apply">
-					<h3><b>검수 중</b></h3>
+					<h3><b>검수중인 프로젝트</b></h3>
 					<p class="text-muted">검수 중인 프로젝트 목록입니다.</p>
 				</div>
 				<br>
@@ -55,7 +55,6 @@
 								<th>프로젝트 제목</th>
 								<th>신청자</th>
 								<th>신청날짜</th>
-								<th>구분</th>
 								
 							</tr>
 							<thead class="thead-dark">
@@ -80,12 +79,7 @@
 												pattern="yyyy-mm-dd"/>
 												<fmt:formatDate value="${regdate }" pattern="yyyy-mm-dd"/>
 												</td>
-												<c:if test="${dto.project_state eq '검수 중' }">
-													<td>승인 대기</td>
-												</c:if>
-												<c:if test="${dto.project_state eq '승인' }">
-													<td>승인 완료</td>
-												</c:if>
+												
 												
 											</tr>
 										</c:if>	

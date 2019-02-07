@@ -41,6 +41,7 @@ import com.klp.pf.dto.PF_CertificateDto;
 import com.klp.pf.dto.PF_CommentDto;
 import com.klp.pf.dto.PF_EducationDto;
 import com.klp.pf.dto.PF_EvaluationDto;
+import com.klp.pf.dto.PF_InvestDto;
 import com.klp.pf.dto.PF_MessageDto;
 import com.klp.pf.dto.PF_PortfolioDto;
 import com.klp.pf.dto.PF_ProfileDto;
@@ -208,7 +209,7 @@ public class HomeController {
 	// =============================================================================================================
 	// 관리자 페이지 기능
 	// 1. 프로젝트 검수
-	// 클라이언트 검수 프로젝트 리스트
+	// 클라이언트 검수중인 프로젝트 리스트
 	@RequestMapping(value = "/project_inspectionList.do")
 	public String project_inspectionlist(Model model, HttpServletRequest request, String project_state,
 			HttpSession session) {
@@ -219,7 +220,7 @@ public class HomeController {
 		return "Client_InspectionList";
 	}
 
-	// 클라이언트 검수 페이지 뷰
+	// 클라이언트 검수중인 프로젝트 뷰
 	@RequestMapping(value = "/project_inspectionview.do")
 	public String project_inspectionview(int board_no, Model model) {
 		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
@@ -294,7 +295,7 @@ public class HomeController {
 // ========================= 관리자 페이지 컨트롤러 끝 ==========================
 // ===========================================================================================================================	
 
-	// 프로젝트 리스트 - 페이징
+	// 프로젝트 리스트 - 페이징(투자중, 지원 모집 중 인 프로젝트만 출력)
 	@RequestMapping(value = "/project_list.do")
 	public String ProjectList(Model model, int page, String project_state) {
 		model.addAttribute("ProjectList", pf_boardBiz.selectBoardList(page, project_state));
@@ -329,50 +330,52 @@ public class HomeController {
 		return "Project_List";
 	}
 
-	// 검색,페이징
-	@RequestMapping(value = "/search.do")
-	public String search(Model model, String board_title, int page) {
+	   // 검색,페이징
+	   @RequestMapping(value = "/search.do")
+	   public String search(Model model, String board_title, int page,String project_state) {
 
-		model.addAttribute("ProjectList", pf_boardBiz.search(page, board_title));
-		model.addAttribute("page", page);
-		model.addAttribute("totalCount", pf_boardBiz.totalCount_title(board_title));
-		model.addAttribute("board_title", board_title);
-		return "Project_Search";
+	      model.addAttribute("ProjectList", pf_boardBiz.search(page, board_title,project_state));
+	      model.addAttribute("page", page);
+	      model.addAttribute("totalCount", pf_boardBiz.totalCount_title(board_title,project_state));
+	      model.addAttribute("board_title", board_title);
+	      model.addAttribute("project_state",project_state);
+	      return "Project_Search";
 
-	}
+	   }
 
 	// 필터링 검색
-	@RequestMapping(value = "/detail_search.do")
-	public String detail_search(Model model, String category1, String category2, HttpServletRequest request, int page) {
-		String[] category_chk = request.getParameterValues("category1");
-		String[] category_chk2 = request.getParameterValues("category2");
+	   @RequestMapping(value = "/detail_search.do")
+	   public String detail_search(Model model, String category1, String category2, HttpServletRequest request, int page,String project_state) {
+	      String[] category_chk = request.getParameterValues("category1");
+	      String[] category_chk2 = request.getParameterValues("category2");
 
-		String mCategory1;
-		String mCategory2;
+	      String mCategory1;
+	      String mCategory2;
 
-		// 카테고리1이 체크 되었는지 확인하는 구문
-		if (category_chk != null) { // 체크 된 경우
-			mCategory1 = category1.replaceAll(",", "|");
-		} else { // 체크 안한 경우
-			mCategory1 = "웹|어플리케이션|일반 소프트웨어|게임|임베디드|퍼블리싱|기타";
-		}
+	      // 카테고리1이 체크 되었는지 확인하는 구문
+	      if (category_chk != null) { // 체크 된 경우
+	         mCategory1 = category1.replaceAll(",", "|");
+	      } else { // 체크 안한 경우
+	         mCategory1 = "웹|어플리케이션|일반 소프트웨어|게임|임베디드|퍼블리싱|기타";
+	      }
 
-		// 카테고리2(돈)이 체크 되었는지 확인하는 구문
-		if (category_chk2 != null) {
-			mCategory2 = category2;
-		} else { // 체크 안한 경우
+	      // 카테고리2(돈)이 체크 되었는지 확인하는 구문
+	      if (category_chk2 != null) {
+	         mCategory2 = category2;
+	      } else { // 체크 안한 경우
 
-			mCategory2 = "1000000000";
-		}
+	         mCategory2 = "1000000000";
+	      }
 
-		model.addAttribute("ProjectList", pf_boardBiz.detail_search1(page, mCategory1, mCategory2));
-		model.addAttribute("page", page);
-		model.addAttribute("project_category", category1);
-		model.addAttribute("project_money", category2);
-		model.addAttribute("totalCount_dtail", pf_boardBiz.totalCount_detail(mCategory1, mCategory2));
-		return "Project_Search";
+	      model.addAttribute("ProjectList", pf_boardBiz.detail_search1(page, mCategory1, mCategory2,project_state));
+	      model.addAttribute("page", page);
+	      model.addAttribute("project_category", category1);
+	      model.addAttribute("project_money", category2);
+	      model.addAttribute("totalCount_detail", pf_boardBiz.totalCount_detail(mCategory1, mCategory2,project_state));
+	      model.addAttribute("project_state",project_state);
+	      return "Project_Search";
 
-	}
+	   }
 
 	@RequestMapping(value = "/project_update.do")
 	public String ProjectUpdate(int board_no, Model model) {
@@ -532,9 +535,7 @@ public class HomeController {
 	      
 	      PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 	      dto.setUser_no(userdto.getUser_no());
-	      
-	      model.addAttribute("dto", pf_applicantBiz.insert(dto));
-	      
+	      	      
 	      if(userdto.getUser_no() == dto.getUser_no()) {
 	         model.addAttribute("dto", pf_applicantBiz.insert(dto));
 	         
@@ -560,7 +561,7 @@ public class HomeController {
 		model.addAttribute("user_no", user_no);
 		model.addAttribute("coinSum",pf_coinBiz.coinSum(coin_state));
 		System.out.println(user_no);
-		/*
+		
 		int coin_charge = 0;
 		int coin_use = 0;
 		int coin_A = 0;
@@ -570,11 +571,11 @@ public class HomeController {
 		coin_use = pf_coinBiz.coin(userdto.getUser_no(), "사용");
 		coin_A = pf_coinBiz.coin(userdto.getUser_no(), "환불대기중");
 		coin_B = pf_coinBiz.coin(userdto.getUser_no(), "환불완료");
-		 */
+		
 //model.addAttribute("coinlist", list);
 
-// 현재 보유 포인트
-		//model.addAttribute("coin", coin_charge - coin_use + coin_A - coin_B);
+ //현재 보유 포인트
+		model.addAttribute("coin", coin_charge - coin_use + coin_A);
 
 		return "User_Coin";
 	}
@@ -1180,13 +1181,32 @@ public class HomeController {
 		return "User_FindPW";
 	}
 
-	// 지원자 모집중
+	// 클라이언트 지원자 모집 중인 프로젝트 리스트
 	@RequestMapping(value = "project_recruitmentList.do")
-	public String project_recruitmentList(Model model, String project_state) {
+	public String project_recruitmentList(Model model, String project_state,int user_no) {
 
-		model.addAttribute("RecruitmentList", pf_boardBiz.ingBoardList("지원자 모집 중"));
+		model.addAttribute("RecruitmentList", pf_boardBiz.ingBoardList(project_state, user_no));
 
 		return "Project_RecruitmentList";
+	}
+	
+	// 클라이언트 투자중인 프로젝트 리스트
+		@RequestMapping(value="/project_investlist.do")
+		public String project_investlist(Model model, String project_state, int user_no) {
+			
+			model.addAttribute("investList",pf_boardBiz.investList(project_state, user_no));
+			
+			return "Client_investList";
+		}
+		
+	// 해당 프로젝트 투자자 리스트로 이동
+	@RequestMapping(value = "investPartnerlist.do")
+	public String invest_partnersList(int board_no, Model model) {
+		List<PF_InvestDto> investerlist = pf_investBiz.investerList(board_no);
+
+		model.addAttribute("investerlist", investerlist);
+		model.addAttribute("board_no", board_no);
+		return "Client_investPartnerList";
 	}
 
 	@RequestMapping(value = "partnersList_client.do")

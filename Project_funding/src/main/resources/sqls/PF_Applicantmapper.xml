@@ -43,6 +43,7 @@
 		SELECT COUNT(*) AS APPLY_CNT FROM PF_APPLICANT A INNER JOIN PF_BOARD B ON A.BOARD_NO=B.BOARD_NO WHERE B.BOARD_NO=#{board_no}
 	</select>
 	
+	<!-- 지원자 모집 중에 지원한 파트너스 목록 -->
 	<select id="recruitmentList" parameterType="int" resultType="PF_ApplicantDto">
 		SELECT a.APPLICANT_NO, a.BOARD_NO, a.USER_NO, a.APPLICANT_STATE, b.USER_ID, b.USER_EMAIL, b.USER_TYPE 
     	FROM PF_APPLICANT a LEFT OUTER JOIN PF_USER b ON (a.USER_NO = b.USER_NO)
