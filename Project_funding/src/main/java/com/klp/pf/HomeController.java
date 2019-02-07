@@ -785,7 +785,8 @@ public class HomeController {
 	public String partners_profile(HttpSession session, Model model) {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
-
+		
+		List<PF_PortfolioDto> portfoliodtoList = pf_portfolioBiz.portfolioList(profiledto.getProfile_no());
 		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
 		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
 		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
@@ -804,6 +805,7 @@ public class HomeController {
 		}
 
 		model.addAttribute("profiledto", profiledto);
+		model.addAttribute("portfoliodtoList", portfoliodtoList);
 		model.addAttribute("techdtoList", techdtoList);
 		model.addAttribute("careerdtoList", careerdtoList);
 		model.addAttribute("educationdtoList", educationdtoList);
@@ -825,6 +827,14 @@ public class HomeController {
 			String careerList = "careerList";
 			model.addAttribute("careerList", careerList);
 		}
+		if (portfoliodtoList.size() == 0) {
+			String portfolioList = null;
+			model.addAttribute("portfolioList", portfolioList);
+		}else {
+			System.out.println(portfoliodtoList.size());
+			String portfolioList = "portfolioList";
+			model.addAttribute("portfolioList", portfolioList);
+		}
 
 		return "Partner_Profile";
 	}
@@ -835,6 +845,7 @@ public class HomeController {
 		PF_UserDto userdto = pf_userBiz.selectUser(user_id);
 		PF_ProfileDto profiledto = pf_profileBiz.selectProfile(userdto.getUser_no());
 
+		List<PF_PortfolioDto> portfoliodtoList = pf_portfolioBiz.portfolioList(profiledto.getProfile_no());
 		List<PF_TechnologyDto> techdtoList = pf_technologyBiz.selectTech(profiledto.getProfile_no());
 		List<PF_CareerDto> careerdtoList = pf_careerBiz.selectCareer(profiledto.getProfile_no());
 		List<PF_EducationDto> educationdtoList = pf_educationBiz.selectEducation(profiledto.getProfile_no());
@@ -853,6 +864,7 @@ public class HomeController {
 		}
 		model.addAttribute("partneruserdto", userdto);
 		model.addAttribute("profiledto", profiledto);
+		model.addAttribute("portfoliodtoList", portfoliodtoList);
 		model.addAttribute("techdtoList", techdtoList);
 		model.addAttribute("careerdtoList", careerdtoList);
 		model.addAttribute("educationdtoList", educationdtoList);
@@ -873,6 +885,14 @@ public class HomeController {
 		} else {
 			String careerList = "careerList";
 			model.addAttribute("careerList", careerList);
+		}
+		if (portfoliodtoList.size() == 0) {
+			String portfolioList = null;
+			model.addAttribute("portfolioList", portfolioList);
+		}else {
+			System.out.println(portfoliodtoList.size());
+			String portfolioList = "portfolioList";
+			model.addAttribute("portfolioList", portfolioList);
 		}
 
 		return "Partner_PopUp";
@@ -1064,6 +1084,17 @@ public class HomeController {
 	public String partnerReg_portfolio() {
 		return "PartnerReg_Portfolio";
 	}
+	
+	
+	// 포트폴리오 자세히 보기
+	@RequestMapping(value = "PartnerReg_Portfolio_Detail.do")
+	public String partnerReg_portfolio_Detail(Model model, int portfolio_no) {
+		
+		PF_PortfolioDto portfoliodto = pf_portfolioBiz.selectOne(portfolio_no);
+		
+		model.addAttribute("portfoliodto", portfoliodto);	
+		return "PartnerReg_Portfolio_Detail";
+	}
 
 	// 포트폴리오 삽입
 	@RequestMapping(value = "partnerReg_portfolioInsert.do")
@@ -1080,6 +1111,13 @@ public class HomeController {
 			return "redirect:partners_profile.do";
 		}
 		return "PartnerReg_Portfolio";
+	}
+	
+	// 포트폴리오 삭제
+	@RequestMapping(value = "partnerReg_portfolioDelete.do")
+	public String partnerReg_portfolioDelete(int portfolio_no) {
+		pf_portfolioBiz.deletePortfolio(portfolio_no);
+		return "redirect:partners_profile.do";
 	}
 
 	// 보유 기술
