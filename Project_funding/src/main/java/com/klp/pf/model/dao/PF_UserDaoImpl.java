@@ -99,4 +99,18 @@ public class PF_UserDaoImpl implements PF_UserDao {
 	public PF_UserDto selectEmailToUser(String user_email) {
 		return sqlSession.selectOne(pf_userNamespace+"selectEmailToUser", user_email);
 	}
+	
+	@Override
+	public String IDcheck(String user_id) {
+		String User_Id = null;
+		Map<String, String> map  = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		try {
+			User_Id = sqlSession.selectOne(pf_userNamespace+"IDcheck",map);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return User_Id;
+	}
 }

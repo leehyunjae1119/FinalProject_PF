@@ -138,4 +138,8 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	public PF_UserDto selectEmailToUser(String user_email) {
 		return pf_dao.selectEmailToUser(user_email);
 	}
+	@Override
+	public String IDcheck(String user_id) {
+		return pf_dao.IDcheck(user_id);
+	}
 }

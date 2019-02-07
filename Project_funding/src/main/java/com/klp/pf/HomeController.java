@@ -587,8 +587,8 @@ public class HomeController {
 
 
 // 현재 보유 포인트
-		// model.addAttribute("coin", coin_charge - coin_use + coin_A - coin_B);
-
+		 model.addAttribute("coin", coin_charge - coin_use + coin_A);
+		 
 		return "User_Coin";
 	}
 
@@ -794,6 +794,27 @@ public class HomeController {
 		}
 		return "User_Join";
 	}
+	
+	
+	@RequestMapping(value="/IDCheck.do",method= {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public int IDCheck(HttpServletRequest request) {
+		System.out.println("IDCheck");
+		if(request.getParameter("userId") == null) {
+			System.out.println("null!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+		}
+		String userID = request.getParameter("userId");
+			
+			String IDCheck = pf_userBiz.IDcheck(userID);
+			System.out.println(userID);
+			int result=0;
+			
+			if(IDCheck!=null) {
+				result=1;
+			}
+			return result;
+	}
+	
 
 	// 파트너 프로필
 	@RequestMapping(value = "partners_profile.do")

@@ -48,7 +48,7 @@
 
 <script type="text/javascript">
 	function showModal(data) {
-		$("#myModal .modal-title").val(data)
+		$("#myModal .modal-title").val(data);
 		$("#myModal").modal();
 	}
 </script>

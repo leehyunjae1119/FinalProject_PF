@@ -9,11 +9,19 @@
 		SELECT * FROM PF_USER
 		WHERE USER_ID = #{user_id}
 	</select>
+	
 	<select id="login" resultType="PF_UserDto" parameterType="map">
 		SELECT *
  		FROM PF_USER 
  		WHERE USER_ID=#{user_id} AND USER_PW=#{user_pw}
 	</select>
+	
+	<select id="IDcheck" resultType="String" parameterType="map">
+		SELECT USER_ID
+		FROM PF_USER
+		WHERE USER_ID=#{user_id} 
+	</select>
+	
 	
 	<!-- 프로젝트 뷰에서 글을 올린 유저의 아이디 값 가져오기 -->
 	<select id="MessageUser" resultType="PF_UserDto">
