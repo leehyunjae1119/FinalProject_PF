@@ -71,6 +71,12 @@ public class PF_CoinDaoImpl implements PF_CoinDao {
 		return res;
 	}
 	
+	@Override
+	public int CountCoin() {
+		int res = sqlSession.selectOne(pf_coinNamespace + "CountCoin");
+		return res;
+	}
+	
 	// 동민 추가 부분
 	// 관리자 코인 환불 리스트
 	@Override

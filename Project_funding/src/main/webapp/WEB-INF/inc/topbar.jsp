@@ -14,7 +14,7 @@
 <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" id="sectionsNav">
     <div class="container">
       <div class="navbar-translate">
-        <a href="index.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
+        <a href="main.do"><img src="resources/assets/img/main_Icon_white.png" id="main_logo" style="width:100px;"/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation" data-target="#index_topbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -38,10 +38,24 @@
   					 " class="nav-link" style="color:white">프로젝트 등록</a>
                   </li>
                   <li class="nav-item">
-                    <a href="project_list.do?page=1" class="nav-link">프로젝트 찾기</a>
+                    <a href="
+                    	<c:if test="${userdto eq null }"> 
+						 login.do
+						 </c:if>
+						 <c:if test="${userdto.getUser_type() eq '클라이언트' or '파트너스' or '투자자'}">
+							project_list.do?page=1
+	  					 </c:if>
+	  					 " class="nav-link">프로젝트 찾기</a>
                   </li>
                   <li class="nav-item">
-                    <a href="partner_list.do" class="nav-link">파트너스 목록</a>
+                    <a href="
+                    	<c:if test="${userdto eq null }"> 
+						 login.do
+						 </c:if>
+						 <c:if test="${userdto.getUser_type() eq '클라이언트' or '파트너스' or '투자자'}">
+							partner_list.do
+	  					 </c:if>
+	  					 " class="nav-link">파트너스 목록</a>
                   </li>
                   <li class="nav-item">
                     <a href="question.do" class="nav-link">이용 방법</a>

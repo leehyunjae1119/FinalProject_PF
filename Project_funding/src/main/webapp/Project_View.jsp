@@ -65,30 +65,14 @@
 
             <p class="text-muted" id="support">총 ${apply_cnt }명 지원</p>           
             
-            <%
-               
-               String a = dto.getBoard_regdate();
-               System.out.println(a);
-               Date Ato = new SimpleDateFormat("yyyy-MM-dd").parse(a);
-               System.out.println(Ato);
-               
-               String b = dto.getRecruit_date();
-               System.out.println(b);
-               Date Bto = new SimpleDateFormat("yyyy-MM-dd").parse(b);
-               System.out.println(Bto);
-               
-                long diffSec = Bto.getTime() - Ato.getTime();
-               long diffDays = diffSec / (24 * 60 * 60 * 1000);
-               System.out.println(diffDays);
-            
-               dto.setRecruit(diffDays);
-            
-            %>
+            <fmt:parseDate value="${dto.recruit_date }" var="recruitDate" pattern="yyyy-MM-dd" />
+                         <fmt:parseNumber value="${recruitDate.time / (1000*60*60*24 )}" integerOnly="true" var="recDate"></fmt:parseNumber>
+                         
+						 <fmt:parseDate value="${dto.board_regdate }" pattern="yyyy-MM-dd" var="regdate" />
+                         <fmt:parseNumber value="${regdate.time / (1000*60*60*24 )}" integerOnly="true" var="regDate"></fmt:parseNumber>
             
             
-            <span class="badge badge-pill badge-success">마감 <%=dto.getRecruit() %>일 전</span>
-            
-
+            <span class="badge badge-pill badge-success">마감 ${recDate - regDate }일 전</span>
             
          </div>
          
@@ -98,7 +82,8 @@
                       <img src="resources/assets/img/money.png" />&nbsp;&nbsp;
                       <p class="text-muted"><b>예상 금액</b>&nbsp;&nbsp;&nbsp;<b><jsp:getProperty property="project_money" name="dto" />원</b></p><br />
                       <p class="text-muted"><b>등록일</b>&nbsp;&nbsp;&nbsp;<b>
-                      ${dto.board_regdate }
+                      <fmt:parseDate value="${dto.board_regdate }" pattern="yyyy-MM-dd" var="regdate" />
+                         <fmt:formatDate value="${regdate }" pattern="yyyy-MM-dd" />
                       </b></p>
                    </div>
                    
@@ -119,7 +104,6 @@
          
          <div class="project_content">
             <p class="text-muted" id="detail">
-<%--                    <jsp:getProperty property="board_content" name="dto" /> --%>
                
                <%
                   dto.setBoard_content(dto.getBoard_content().replace("\r\n", "<br>"));
@@ -138,8 +122,28 @@
             <p class="text-muted"><b>클라이언트</b></p>
          </div>
          <div class="client_img">
-            <img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
-            <p class="text-muted">클라이언트에 대한 소개 어쩌구 저쩌구 어쩌구 저쩌구!!! </p>
+         
+         	<c:choose>
+				<c:when test="${client.user_img eq null && client.user_sex eq '여자'}">
+					<img src="resources/assets/img/여자.png" class="user_img rounded-circle img-fluid" />
+				</c:when>
+				<c:when test="${client.user_img eq null && client.user_sex eq '남자'}">
+					<img src="resources/assets/img/남자.png" class="user_img rounded-circle img-fluid" />
+				</c:when>
+				<c:otherwise>
+					<img src="http://localhost:8787/pf/storage/${client.user_img }" class="user_img rounded-circle img-fluid" />
+				</c:otherwise>
+			</c:choose>
+
+            <c:choose>
+            	<c:when test="${profile.profile_intro eq null }">
+            		<p class="text-muted">등록한 자기소개가 없습니다.</p>
+            	</c:when>
+            	<c:otherwise>
+            		<p class="text-muted">${profile.profile_intro } </p>
+            	</c:otherwise>
+            </c:choose>    
+            
          </div>
          <div class="star">
             <p class="text-muted">별점 공간</p>
@@ -220,7 +224,7 @@
 			<input type="hidden" name="board_no" value="${dto.board_no }" />
 	
 			<div class="free_img">
-				<img src="resources/assets/img/examples/studio-5.jpg" class="rounded-circle img-fluid" />
+				<img src="http://localhost:8787/pf/storage/${userdto.user_img }" class="user_img rounded-circle img-fluid" />
 			</div>
 			<textarea rows="4" cols="90" name="comment_content" id="comment_content" style="margin-left: 30px; vertical-align: middle; margin-right: 20px;"></textarea>
 			<button class="btn btn-success">등록하기</button>
@@ -229,12 +233,7 @@
 	</div>
    </div>
    <hr />
-       
-      <div id="comment_container2">
-         <div id="comment_list">
-               
-         </div>
-      </div>
+
    </div>
 
 <%@ include file="WEB-INF/inc/footer.jsp" %>
@@ -264,7 +263,7 @@
 						<!-- 쪽지 내용 작성하는 부분 -->
 								<h4>
 									<b id="min">받는사람&nbsp;</b>
-									<input type="text" name="reader" value="${messageuser.user_id }" style="border: none; " readonly="readonly"/>
+									<input type="text" name="reader" value="${messageuser.user_id }" style="border: none;" readonly="readonly"/>
 								</h4>
 							<h4>
 								<b>내용&nbsp;</b>
@@ -301,6 +300,7 @@ function CheckForm(Join){
 
 
 	var board_no = '${dto.board_no}';
+	var user_img = '${userdto.user_img}';
 
 
    $(function() {
@@ -350,7 +350,7 @@ function CheckForm(Join){
 
                   html += "<div class='card' style='min-height: 150px;'>";
                   html += "<div class='card-body' style='display: inline-block;'>";
-                  html += "<img src='resources/assets/img/examples/studio-3.jpg' class='rounded-circle img-fluid' style='width: 100px; height: 100px; display: inline-block; float: left;'>";
+                  html += "<img src='http://localhost:8787/pf/storage/"+user_img+"' class='user_img rounded-circle img-fluid' style='width: 100px; height: 100px; display: inline-block; float: left;'>";
                   html += "<div id='comment_"+data[i].comment_no+"' style='display: inline-block; margin-left: 30px; width: 87%; vertican-align: center;'>";
                   html += "<h4 class='card-title' style='display: inline-block;'>"+data[i].user_id+"</h4>";
                   html += "<a onclick=\"comment_Delete('"+data[i].comment_no+"');\" style='float: right; margin-left: 10px;'>";

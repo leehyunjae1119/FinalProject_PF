@@ -40,6 +40,12 @@ public class PF_CoinBizImpl implements PF_CoinBiz {
 		return pf_dao.coin_update(coin_no);
 	}
 
+	@Override
+	public int CountCoin() {
+		
+		return pf_dao.CountCoin();
+	}
+	
 	// 동민 추가 부분
 	// 관리자 코인 환불 리스트
 	@Override

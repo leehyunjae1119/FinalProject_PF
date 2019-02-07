@@ -19,7 +19,7 @@ $(function() {
 		IMP.init('imp87209214'); // 아임포트 관리자 페이지의 "시스템 설정" > "내 정보" 에서 확인 가능
 		
 		IMP.request_pay({
-		    pg : 'kakaopay', // version 1.1.0부터 지원.
+		    pg : 'inicis', // version 1.1.0부터 지원.
 		    pay_method : 'card',
 		    merchant_uid : 'merchant_' + new Date().getTime(),
 		    name : 'PUDING 결제', //String

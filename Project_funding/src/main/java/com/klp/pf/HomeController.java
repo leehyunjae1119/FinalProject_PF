@@ -74,8 +74,9 @@ public class HomeController {
 	 * -- Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		return "index";
+	public String home() {
+		
+		return "home";
 	}
 
 	// -------------------------------------------------------
@@ -183,9 +184,14 @@ public class HomeController {
 	}
 
 	// 인덱스로 이동
-	@RequestMapping(value = "/index.do")
-	public String index() {
-		return "index";
+	@RequestMapping(value = "/main.do")
+	public String index(Model model) {
+		//model.addAttribute("totalCount", pf_boardBiz.totalcount());
+		model.addAttribute("CountCoin", pf_coinBiz.CountCoin());
+		model.addAttribute("totalUser", pf_userBiz.totalUser());
+		System.out.println("totalUser >> " + pf_userBiz.totalUser());
+		model.addAttribute("totalCount_board", pf_boardBiz.totalCount_board());
+		return "main";
 	}
 
 	// 프로젝트 등록 페이지
@@ -206,6 +212,7 @@ public class HomeController {
 		return "Client_InspectionList";
 	}
 
+	
 	// =============================================================================================================
 	// 관리자 페이지 기능
 	// 1. 프로젝트 검수
@@ -274,7 +281,7 @@ public class HomeController {
 			model.addAttribute("ProjectList", pf_boardBiz.selectBoardList_inspection(project_state));
 			return "Admin_InspectionList";
 		}
-		return "index";
+		return "main";
 	}
 
 	// 관리자 검수 신청 온 프로젝트 폐기
@@ -288,7 +295,7 @@ public class HomeController {
 			model.addAttribute("ProjectList", pf_boardBiz.selectBoardList_inspection(project_state));
 			return "Admin_InspectionList";
 		}
-		return "index";
+		return "main";
 	}
 
 // ========================= 관리자 페이지 컨트롤러 끝 ==========================
@@ -422,11 +429,19 @@ public class HomeController {
 
 		int invest_totalMoney = pf_investBiz.select_projectinvest(board_no);
 		int apply_cnt = pf_applicantBiz.applyCount(board_no);
+		PF_BoardDto dto = pf_boardBiz.selectOne(board_no);
+		int user_no2 = dto.getUser_no();
+		System.out.println("user_no2 >> " + user_no2);
+		
+		PF_UserDto client = pf_userBiz.cast(dto.getUser_no());
+		System.out.println("client >> " + client.getUser_id());
+		
+		model.addAttribute("client", client);
 
 		model.addAttribute("apply_cnt", apply_cnt);
 		model.addAttribute("invest_totalMoney", invest_totalMoney);
 		model.addAttribute("messageuser", pf_userBiz.MessageUser(user_no));
-		model.addAttribute("dto", pf_boardBiz.selectOne(board_no));
+		model.addAttribute("dto", dto);
 		model.addAttribute("coin", coin_charge - coin_use);
 
 		return "Project_View";
@@ -527,15 +542,50 @@ public class HomeController {
 	public String question() {
 		return "Question";
 	}
- 
-	// 지원하기
-	@RequestMapping(value = "/Apply_Project.do")
-	public String Apply(HttpSession session, Model model, PF_ApplicantDto dto, HttpServletResponse response)
-			throws IOException {
+	
+	//지원하기
+	@RequestMapping(value="/Apply_Project.do")
+	public String Apply(HttpSession session, Model model, PF_ApplicantDto dto, HttpServletResponse response) throws IOException {
 
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		dto.setUser_no(userdto.getUser_no());
+		System.out.println("지원한 애 >> " + dto.getUser_no());
 
+		
+			
+//		PF_BoardDto boardDto = pf_applicantBiz.selectApply(dto.getBoard_no());
+//		System.out.println("boardDto >> " + boardDto);
+//		
+//		if(boardDto.getApplicant_state().equals("지원함")) {
+//			response.setCharacterEncoding("EUC-KR");
+//			PrintWriter writer = response.getWriter();
+//			writer.println("<script>");
+//			writer.println("alert('이미 지원하신 프로젝트입니다.');");
+//			writer.println("location.reload();");
+//			writer.println("</script>");
+//			writer.flush();
+//		}
+		
+		
+//		List<PF_BoardDto> appliList = pf_applicantBiz.selectAll_partners(userdto.getUser_no(), "지원함");
+//		System.out.println("appliList" + appliList);
+		
+		
+		
+//		if(appliList.size() > 0) {
+//			for(int i = 0; i < appliList.size(); i++) {
+//				if(appliList.get(i).getBoard_no() == dto.getBoard_no()) {
+//					response.setCharacterEncoding("EUC-KR");
+//					PrintWriter writer = response.getWriter();
+//					writer.println("<script>");
+//					writer.println("alert('이미 지원하신 프로젝트입니다.');");
+//					writer.println("location.reload();");
+//					writer.println("</script>");
+//					writer.flush();
+//				}
+//			}
+//		}
+		
 
 		if (userdto.getUser_no() == dto.getUser_no()) {
 			model.addAttribute("dto", pf_applicantBiz.insert(dto));
@@ -546,7 +596,7 @@ public class HomeController {
 			writer.println("<script>alert('이미 지원하신 프로젝트입니다.');</script>");
 		}
 
-		return "index";
+		return "redirect:project_supportList.do";
 	}
 
 	// 코인
@@ -585,8 +635,10 @@ public class HomeController {
 //model.addAttribute("coinlist", list);
 
 
+
 		model.addAttribute("coin", coin_charge - coin_use + coin_A);
 
+		
 		return "User_Coin";
 	}
 
@@ -697,7 +749,7 @@ public class HomeController {
 		PF_UserDto userdto = pf_userBiz.selectEmailToUser(user_email);
 		if(userdto != null) {
 			session.setAttribute("userdto", userdto);
-			return "index";
+			return "main";
 		}
 		model.addAttribute("user_name", user_name);
 		model.addAttribute("user_email", user_email);
@@ -715,7 +767,7 @@ public class HomeController {
 			session.setAttribute("userdto", dto);
 
 			if (dto.getUser_email_check().equals("TRUE")) {
-				return "index";
+				return "main";
 			} else {
 				return "sendEmail";
 			}
@@ -746,7 +798,7 @@ public class HomeController {
 			session.invalidate();
 			session = null;
 		}
-		return "index";
+		return "main";
 	}
 
 	@RequestMapping(value = "/sendEmail.do")
@@ -763,7 +815,7 @@ public class HomeController {
 		if (!pf_userBiz.user_setEmailCheck(user_email, code)) {
 			return "error";
 		}
-		return "index";
+		return "main";
 	}
 
 	// 회원가입
@@ -792,6 +844,27 @@ public class HomeController {
 		}
 		return "User_Join";
 	}
+	
+	
+	@RequestMapping(value="/IDCheck.do",method= {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public int IDCheck(HttpServletRequest request) {
+		System.out.println("IDCheck");
+		if(request.getParameter("userId") == null) {
+			System.out.println("null!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1");
+		}
+		String userID = request.getParameter("userId");
+			
+			String IDCheck = pf_userBiz.IDcheck(userID);
+			System.out.println(userID);
+			int result=0;
+			
+			if(IDCheck!=null) {
+				result=1;
+			}
+			return result;
+	}
+	
 
 	// 파트너 프로필
 	@RequestMapping(value = "partners_profile.do")
@@ -944,7 +1017,8 @@ public class HomeController {
 	public String project_supportList(HttpSession session, Model model, String applicant_state) {
 
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
-
+		model.addAttribute("ApplicantList", pf_applicantBiz.selectAll_partners(userdto.getUser_no(), "지원함"));
+	   
 		System.out.println("userDto >> " + userdto);
 
 		List<PF_BoardDto> list = pf_applicantBiz.selectAll_partners(userdto.getUser_no(), "지원함");
@@ -1382,7 +1456,7 @@ public class HomeController {
 
 			return "Project_View";
 		}
-		return "index";
+		return "main";
 	}
 
 	// 쪽지 답장 보내기
@@ -1407,7 +1481,7 @@ public class HomeController {
 
 			return "User_NoteReceive_View";
 		} else {
-			return "index";
+			return "main";
 		}
 
 	}
@@ -1452,7 +1526,7 @@ public class HomeController {
 
 		} catch (Exception e) {
 			System.out.println("쪽지 삭제 에러");
-			return "index";
+			return "main";
 		}
 	}
 
@@ -1480,7 +1554,7 @@ public class HomeController {
 
 		} catch (Exception e) {
 			System.out.println("쪽지 삭제 에러");
-			return "index";
+			return "main";
 		}
 	}
 

@@ -19,12 +19,34 @@
 <link href="resources/assets/demo/demo.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 
 
 <title>Puding</title>
 
 </head>
+<script type="text/javascript">
+	$(function(){
+		$("#IDCheck").click(function(){
+			var query ={userId :  $("#user_id").val()};
+			$.ajax({
+				url: "IDCheck.do",
+				type:"post",
+				data:query,
+				success : function(data){
+					if(data==1){
+						$(".result .msg").text("사용 불가");
+						$(".result .msg").attr("style","color:#f00");
+					}else{
+						$(".result .msg").text("사용 가능");
+						$(".result .msg").attr("style","color:#00f");
+					}
+				}
+			});
+			});			
+	})
 
+</script>
 <body class="index-page sidebar-collapse">
 	<div class="section section-signup page-header"
 		style="background-image: url('resources/assets/img/city.jpg');">
@@ -32,7 +54,7 @@
 			<div class="row" style="margin-top: 100px;">
 				<div class="col-lg-4 col-md-6 ml-auto mr-auto">
 					<div class="card card-login" style="width: 428px;">
-						<form class="form" method="post" action="joinCheck.do" onsubmit="return PwSameCheck(this)">
+						<form class="form"  method="post" action="joinCheck.do" onsubmit="return CheckForm(this)" name=join>
 							<div class="card-header card-header-primary text-center">
 								<h4 class="card-title">Sign Up</h4>
 
@@ -48,7 +70,11 @@
                                  <i class="material-icons" style="font-size: 13px;">아이디</i>
                               </span>
                            </div>
-                           <input type="text" class="form-control" name="user_id" placeholder="ID...">
+                            <input type="text" class="form-control" id="user_id" name="user_id" placeholder="ID...">
+                           <input type="button" id="IDCheck" class="btn btn-primary btn-sm" value="중복체크">
+                         <p class="result">	
+                            	<span class="msg">사용여부</span>
+                        	</p>
                         </div>
 
                         <div class="input-group">
@@ -81,16 +107,19 @@
                      </c:when>
                      
                      <c:otherwise>
-                     	<div class="input-group">
-                           <div class="input-group-prepend">
-                              <span class="input-group-text"> 
-                                 <i class="material-icons" style="font-size: 13px;">아이디</i>
-                              </span>
-                           </div>
-                           <input type="text" class="form-control" name="user_id" placeholder="ID...">
-                        </div>
-
-                        <div class="input-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"> 
+										<i class="material-icons" style="font-size: 13px;">아이디</i>
+										</span>
+									</div>
+									<input type="text" class="form-control" id="user_id"	name="user_id" placeholder="ID...">
+									<input type="button" id="IDCheck" class="btn btn-primary btn-sm" value="중복체크">
+										<p class="result">
+											<span class="msg">사용여부</span>
+										</p>
+								</div>
+						<div class="input-group">
                            <div class="input-group-prepend">
                               <span class="input-group-text"> 
                                  <i class="material-icons" style="font-size: 13px;">비밀번호</i>
@@ -164,6 +193,45 @@
 function UserTypeSelect(val) {
    var usertype = val.getAttribute("value");
    document.getElementById("user_type").setAttribute("value", usertype);
+}
+
+
+function CheckForm(Join){
+	var user_id = document.join.user_id;							//id
+	var user_pw = document.join.user_pw;						//pw
+	var user_pwCheck = document.join.user_pwCheck;		//비밀번호 확인
+	var user_email = document.join.user_email;				//이메일
+	
+	
+	
+	if(user_id.value==""){
+		alert("아이디를 입력해주세요");
+		user_id.focus();
+		return false;
+	}
+	if(user_pw.value==""){
+		alert("비밀번호를 입력해주세요.");
+		user_pw.focus();
+		return false;
+	}
+	if(user_pwCheck.value==""){
+		alert("비밀번호를 다시한번 입력해주세요.");
+		user_pwCheck.focus();
+		return false;
+	}
+	if(user_pw.value!=user_pwCheck.value){
+		alert("비밀번호가 다릅니다. 다시 확인해주세요.");
+		user_pwCheck.value="";
+		user_pwCheck.focus();
+		return false;
+	}
+	if(user_email.value==""){
+		alert("이메일을 입력해주세요");
+		user_email.focus();
+		return false;
+	}	
+
+	
 }
 </script>
 

@@ -24,23 +24,21 @@
 	
  
 	<!-- 파트너스 - 지원내역 (내가 어느 프로젝트에 지원했는지 보여줌) -->	
-<!-- 	<select id="selectAll_partners" resultType="PF_ApplicantDto" parameterType="String"> -->
 	<select id="selectAll_partners" resultMap="PF_BoardDto">
-<!-- 		SELECT BOARD_TITLE, BOARD_CONTENT, PROJECT_MONEY, PROJECT_TERM, BOARD_REGDATE, RECRUIT_DATE,  FROM PF_BOARD B INNER JOIN PF_APPLICANT A ON B.BOARD_NO=A.BOARD_NO WHERE B.USER_NO=#{user_no} -->
-<!-- 		SELECT B.BOARD_NO, B.BOARD_TITLE, B.BOARD_CONTENT, B.USER_NO, B.PROJECT_MONEY, B.PROJECT_TERM, B.BOARD_REGDATE, B.RECRUIT_DATE, (SELECT COUNT(*) FROM PF_APPLICANT WHERE BOARD_NO=#{board_no} AND USER_NO=#{user_no}) APPLY_CNT FROM PF_BOARD B INNER JOIN PF_APPLICANT A ON B.BOARD_NO=A.BOARD_NO WHERE B.BOARD_NO=#{board_no}; -->
 		SELECT * FROM PF_BOARD B INNER JOIN PF_APPLICANT A ON B.BOARD_NO = A.BOARD_NO WHERE APPLICANT_STATE='지원함' AND A.USER_NO=#{user_no} 
 	</select>
 	
-	<!-- 클라이언트 (내가 등록한 프로젝트에 지원한 사람들을 보여줌) -->
-<!-- 	SELECT * FROM PF_USER U INNER JOIN PF_BOARD B ON U.USER_NO=B.USER_NO WHERE BOARD_NO IN (SELECT BOARD_NO FROM PF_BOARD WHERE USER_NO=#{user_no}) -->
-
 	<!-- 지원하기 -->
 	<select id="applyProject" resultType="PF_ApplicantDto">
 		INSERT INTO PF_APPLICANT VALUES (PF_APPLICANT_SEQ.NEXTVAL, #{board_no}, #{user_no}, '지원신청')
 	</select>
 	
 	<select id="applyCount" resultType="int">
-		SELECT COUNT(*) AS APPLY_CNT FROM PF_APPLICANT A INNER JOIN PF_BOARD B ON A.BOARD_NO=B.BOARD_NO WHERE B.BOARD_NO=#{board_no}
+		SELECT COUNT(*) FROM PF_APPLICANT WHERE BOARD_NO=#{board_no}
+	</select>
+	
+	<select id="selectApply" resultType="PF_BoardDto" parameterType="int">
+		SELECT * FROM PF_APPLICANT WHERE BOARD_NO=#{board_no}
 	</select>
 	
 	<!-- 지원자 모집 중에 지원한 파트너스 목록 -->

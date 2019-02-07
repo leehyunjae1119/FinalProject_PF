@@ -19,6 +19,7 @@ public interface PF_CoinDao {
 	public int coin_insert(int user_no, int coin_money, String coin_state);
 
 	public int coin_update(int coin_no);
+	public int CountCoin();
 
 	// 관리자 코인 환불 리스트
 	public List<PF_CoinDto> refundList(String coin_state);
@@ -28,4 +29,5 @@ public interface PF_CoinDao {
 	
 	// 투자자 보유 코인
 	public int coinSum(String coin_state);
+	
 }

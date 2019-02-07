@@ -32,6 +32,12 @@ public class PF_ApplicantBizImpl implements PF_ApplicantBiz {
 		
 		return pf_appliDao.applyCount(board_no);
 	}
+
+	@Override
+	public PF_BoardDto selectApply(int board_no) {
+		
+		return pf_appliDao.selectApply(board_no);
+	}
 	
 	@Override
 	public List<PF_ApplicantDto> recruitmentList(int board_no) {

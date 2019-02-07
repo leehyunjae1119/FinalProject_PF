@@ -26,15 +26,22 @@
   FROM PF_COIN WHERE USER_NO = #{user_no} ORDER BY COIN_NO DESC))WHERE RN <= #{page} * 10) WHERE RN >=(#{page} -1) * 10 +1]]>
 	</select>
 
-	<select id="totalCount_coin" parameterType="int"
-		resultType="int">
-		SELECT count(*) FROM PF_COIN WHERE USER_NO = #{user_no}
-	</select>
+<select id="coinInsert" parameterType="map">
+	INSERT INTO PF_COIN
+	VALUES(PF_COIN_SEQ.NEXTVAL,#{user_no},SYSDATE,#{coin_money},#{coin_state})
+</select>
 
-	<select id="coinInsert" parameterType="map">
-		INSERT INTO PF_COIN
-		VALUES(PF_COIN_SEQ.NEXTVAL,#{user_no},SYSDATE,#{coin_money},#{coin_state})
-	</select>
+
+<select id="CountCoin" resultType="int">
+   SELECT NVL(SUM(COIN_MONEY),0) FROM PF_COIN WHERE COIN_STATE='사용'
+
+</select>
+
+
+<!-- 	<select id="coinInsert" parameterType="map"> -->
+<!-- 		INSERT INTO PF_COIN -->
+<!-- 		VALUES(PF_COIN_SEQ.NEXTVAL,#{user_no},SYSDATE,#{coin_money},#{coin_state}) -->
+<!-- 	</select> -->
 	
 	<select id="refundMoney">
    		UPDATE PF_COIN SET COIN_STATE='환불대기중' 
@@ -61,5 +68,9 @@
 	<select id="coinSum" resultType="int">
 		SELECT NVL(SUM(COIN_MONEY),0) FROM PF_COIN WHERE COIN_STATE = '충전' OR COIN_STATE = '환불대기중'
 	</select>
+	
+	<select id="totalCount_coin" parameterType="int" resultType="int">
+      SELECT count(*) FROM PF_COIN WHERE USER_NO = #{user_no}
+   </select>
 
 </mapper>

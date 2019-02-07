@@ -10,6 +10,7 @@ public interface PF_ApplicantBiz {
 	public List<PF_BoardDto> selectAll_partners(int user_no, String applicant_state);
 	public int insert(PF_ApplicantDto dto);
 	public int applyCount(int board_no);
+	public PF_BoardDto selectApply(int board_no);
 	
 	public List<PF_ApplicantDto> recruitmentList(int board_no);
 

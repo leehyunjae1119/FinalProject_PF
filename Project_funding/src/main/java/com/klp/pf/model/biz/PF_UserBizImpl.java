@@ -36,6 +36,8 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	}
 	@Override
 	public int insertUser(PF_UserDto dto) {
+		dto.setUser_img("resources/assets/img/남자.png");
+		
 		return pf_dao.insertUser(dto);
 	}
 	@Override
@@ -138,4 +140,13 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	public PF_UserDto selectEmailToUser(String user_email) {
 		return pf_dao.selectEmailToUser(user_email);
 	}
+	@Override
+	public String IDcheck(String user_id) {
+		return pf_dao.IDcheck(user_id);
+	}
+	@Override
+	public int totalUser() {
+		return pf_dao.totalUser();
+	}
+	   
 }

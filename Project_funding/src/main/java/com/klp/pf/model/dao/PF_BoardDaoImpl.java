@@ -328,4 +328,11 @@ public class PF_BoardDaoImpl implements PF_BoardDao {
 		return res;
 	}
 
+	@Override
+	public int totalCount_board() {
+		 int res = sqlSession.selectOne(pf_boardNamespace+"totalCount_board");
+	      return res;
+	}
+
+
 }

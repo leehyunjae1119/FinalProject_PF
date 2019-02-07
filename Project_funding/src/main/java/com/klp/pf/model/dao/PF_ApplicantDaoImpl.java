@@ -59,6 +59,15 @@ public class PF_ApplicantDaoImpl implements PF_ApplicantDao {
 		
 		return res;
 	}
+
+	@Override
+	public PF_BoardDto selectApply(int board_no) {
+		
+		PF_BoardDto dto = sqlSession.selectOne(pf_applicantNamespace + "selectApply", board_no);
+		System.out.println(dto);
+		return dto;
+
+	}	
 	
 	@Override
 	public List<PF_ApplicantDto> recruitmentList(int board_no) {
@@ -80,7 +89,5 @@ public class PF_ApplicantDaoImpl implements PF_ApplicantDao {
 	public List<PF_ApplicantDto> applicantUserList(int board_no) {
 		return sqlSession.selectList(pf_applicantNamespace + "applicantUserList", board_no);
 	}
-	
-	
 	
 }
