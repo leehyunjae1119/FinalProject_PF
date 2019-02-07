@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -118,7 +119,29 @@
 
 											</div>
 											<div class="col-sm-3" style="float: right; padding-top: 30px;">
-												<img src="resources/assets/img/fuck.PNG" style="height: 120px; width: 230px;" id="img5">
+												<p style="font-size: 20px">평균 평점 : <fmt:formatNumber value="${(dto.item1+dto.item2+dto.item3) / 3}" pattern=".0"/></p>
+												<c:if test="${((dto.item1+dto.item2+dto.item3)/3 >= 0) && ((dto.item1+dto.item2+dto.item3)/3 < 1) }">
+                            						<i class="material-icons" style="font-size: 20px;">star star star star star</i>
+                            					</c:if> 	
+												<c:if test="${((dto.item1+dto.item2+dto.item3)/3 >= 1) && ((dto.item1+dto.item2+dto.item3)/3 < 2) }">
+                            						<i class="material-icons" style="color: orange;font-size: 20px;">star</i>
+                            						<i class="material-icons" style="font-size: 20px;">star star star star</i>
+                           				 		</c:if> 
+                           				 		<c:if test="${((dto.item1+dto.item2+dto.item3)/3 >= 2) && ((dto.item1+dto.item2+dto.item3)/3 < 3) }">
+                            						<i class="material-icons" style="color: orange;font-size: 20px;">star star</i>
+                            						<i class="material-icons" style="font-size: 20px;">star star star</i>
+                            					</c:if>
+                            					<c:if test="${((dto.item1+dto.item2+dto.item3)/3 >= 3) && ((dto.item1+dto.item2+dto.item3)/3 < 4) }">		
+                            						<i class="material-icons" style="color: orange;font-size: 20px;">star star star</i>
+                            						<i class="material-icons" style="font-size: 20px;">star star</i>
+                            					</c:if>
+                            					<c:if test="${((dto.item1+dto.item2+dto.item3)/3 >= 4) && ((dto.item1+dto.item2+dto.item3)/3 < 5) }">
+                            						<i class="material-icons" style="color: orange;font-size: 20px;">star star star star</i>
+                            						<i class="material-icons" style="font-size: 20px;">star</i>
+                      							</c:if>
+                  								<c:if test="${((dto.item1+dto.item2+dto.item3)/3 >= 5) && ((dto.item1+dto.item2+dto.item3)/3 < 6) }">
+                        							<i class="material-icons" style="color: orange;font-size: 20px;">star star star star star</i>
+                          						</c:if>
 											</div>
 										</div>
 									</div>

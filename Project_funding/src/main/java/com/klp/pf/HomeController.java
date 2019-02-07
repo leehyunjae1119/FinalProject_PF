@@ -514,7 +514,7 @@ public class HomeController {
 	@RequestMapping(value = "/partner_list.do")
 	public String partnerlist(Model model, HttpServletRequest request) {
 		List<PF_UserDto> PartnersList = pf_userBiz.partnerlist();
-
+		
 		model.addAttribute("PartnersList", PartnersList);
 
 		return "User_PartnerList";
@@ -1466,6 +1466,14 @@ public class HomeController {
 		List<PF_EvaluationDto> evaluationlist = pf_evaluationBiz.selectAll(user_id);
 		model.addAttribute("evaluationlist", evaluationlist);
 		return "Partner_EvaluationList";
+	}
+
+	// 평가 리스트 페이지로 이동
+	@RequestMapping(value = "partner_popuplist.do")
+	public String partner_popuplist(String user_id, Model model) {
+		List<PF_EvaluationDto> evaluationlist = pf_evaluationBiz.selectAll(user_id);
+		model.addAttribute("evaluationlist", evaluationlist);
+		return "Partner_PopUpList";
 	}
 
 	// 해당 프로젝트 지원자 리스트로 이동

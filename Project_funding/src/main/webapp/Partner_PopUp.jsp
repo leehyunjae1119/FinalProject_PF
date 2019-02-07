@@ -65,7 +65,7 @@
 								<div class="container">
 									<div class=row>
 										<p style="font-size: 20px">평균 평점 : <fmt:formatNumber value="${(evaluationdto.item1+evaluationdto.item2+evaluationdto.item3) / 3}" pattern=".0"/></p>
-										<a href="partner_evaluationlist.do?user_no=${userdto.user_no }"> &nbsp;&nbsp;평가리스트</a>
+										<a href="partner_popuplist.do?user_id=${partneruserdto.user_id }"> &nbsp;&nbsp;평가리스트</a>
 									</div>
 									
 									<c:if test="${avg eq 0}">
@@ -73,7 +73,7 @@
                             		</c:if> 
 									<c:if test="${avg eq 1}">
                             			<i class="material-icons" style="color: orange;font-size: 55px;">star</i>
-                            			<i class="material-icons">star star star star</i>
+                            			<i class="material-icons" style="font-size: 55px;">star star star star</i>
                             		</c:if> 
                             		<c:if test="${avg eq 2}">
                             			<i class="material-icons" style="color: orange;font-size: 55px;">star star</i>
