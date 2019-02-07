@@ -279,7 +279,7 @@ public class HomeController {
 			model.addAttribute("ProjectList", pf_boardBiz.selectBoardList_inspection(project_state));
 			return "Admin_InspectionList";
 		}
-		return "index";
+		return "main";
 	}
 
 	// 관리자 검수 신청 온 프로젝트 폐기
@@ -293,7 +293,7 @@ public class HomeController {
 			model.addAttribute("ProjectList", pf_boardBiz.selectBoardList_inspection(project_state));
 			return "Admin_InspectionList";
 		}
-		return "index";
+		return "main";
 	}
 
 // ========================= 관리자 페이지 컨트롤러 끝 ==========================
@@ -748,7 +748,7 @@ public class HomeController {
 		PF_UserDto userdto = pf_userBiz.selectEmailToUser(user_email);
 		if(userdto != null) {
 			session.setAttribute("userdto", userdto);
-			return "index";
+			return "main";
 		}
 		model.addAttribute("user_name", user_name);
 		model.addAttribute("user_email", user_email);

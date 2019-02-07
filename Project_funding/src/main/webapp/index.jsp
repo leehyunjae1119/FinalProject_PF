@@ -7,8 +7,8 @@
 
 </head>
 <body class="index-page sidebar-collapse">
-	<c:redirect url="/main.do" />
-
+<%-- 	<c:redirect value="${pageContext.request.contextPath}/main.do" /> --%>
+<c:redirect url="/main.do" />
 </body>
 
 </html>
