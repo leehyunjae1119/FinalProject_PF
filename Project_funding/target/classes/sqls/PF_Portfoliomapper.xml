@@ -9,5 +9,20 @@
 		INSERT INTO PF_PORTFOLIO
 		VALUES(PF_PORTFOLIO_SEQ.NEXTVAL, #{profile_no}, #{portfolio_title}, #{portfolio_start_day}, #{portfolio_end_day}, #{portfolio_participation}, #{portfolio_content}, #{portfolio_file})
 	</insert>
+	
+	<select id="portfolioList" resultType="PF_PortfolioDto" parameterType="int">
+		SELECT * FROM PF_PORTFOLIO 
+		WHERE PROFILE_NO = #{profile_no}
+	</select>
+	
+	<select id="portfolioView" resultType="PF_PortfolioDto" parameterType="int">
+		SELECT * FROM PF_PORTFOLIO 
+		WHERE PORTFOLIO_NO = #{portfolio_no}
+	</select>
+	
+	<delete id="deleteportfolio"  parameterType="int">
+		DELETE FROM PF_PORTFOLIO
+		WHERE PORTFOLIO_NO = #{portfolio_no}
+	</delete>
  
 </mapper>

@@ -40,8 +40,48 @@
                      <p class="description text-center"></p>
 
                      <div class="card-body">
+                     <c:choose>
+                     <c:when test="${googlelogin eq true}">
+                     	<div class="input-group">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"> 
+                                 <i class="material-icons" style="font-size: 13px;">아이디</i>
+                              </span>
+                           </div>
+                           <input type="text" class="form-control" name="user_id" placeholder="ID...">
+                        </div>
 
                         <div class="input-group">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"> 
+                                 <i class="material-icons" style="font-size: 13px;">비밀번호</i>
+                              </span>
+                           </div>
+                           <input type="password" class="form-control" id="user_pw" name="user_pw" placeholder="Password...">
+                        </div>
+
+                        <div class="input-group">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"> 
+                                 <i class="material-icons" style="font-size: 13px;">비밀번호 확인</i>
+                              </span>
+                           </div>
+                           <input type="password" class="form-control" id="user_pwCheck" placeholder="Password...">
+                        </div>
+
+                        <div class="input-group">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"> 
+                                 <i class="material-icons" style="font-size: 13px;">이메일</i>
+                              </span>
+                           </div>
+                           <input type="email" class="form-control" name="user_email" value="${user_email }" readonly="readonly">
+                        </div>
+                        <input type="hidden" name="user_email_check" value="TRUE">
+                     </c:when>
+                     
+                     <c:otherwise>
+                     	<div class="input-group">
                            <div class="input-group-prepend">
                               <span class="input-group-text"> 
                                  <i class="material-icons" style="font-size: 13px;">아이디</i>
@@ -76,6 +116,9 @@
                            </div>
                            <input type="email" class="form-control" name="user_email" placeholder="Email...">
                         </div>
+                        <input type="hidden" name="user_email_check" value="FALSE">
+                     </c:otherwise>
+                     </c:choose>
 
                         <div class="input-group">
                            <div class="input-group-prepend">

@@ -111,14 +111,6 @@
 									</p>
 								</div>
 								<div class="project_cate">
-									<div class="form-check">
-										<label class="form-check-label"> <input
-											class="form-check-input" type="checkbox" id="checkAll"
-											value="check all"> 개발 <span class="form-check-sign">
-												<span class="check"></span>
-										</span>
-										</label>
-									</div>
 									<div class="project_cate2">
 										<div class="form-check">
 											<label class="form-check-label"> <input
@@ -180,13 +172,6 @@
 
 								</div>
 								<div class="project_cate">
-									<div class="form-check">
-										<label class="form-check-label"> <input
-											class="form-check-input" type="checkbox" value="금액">
-											금액 <span class="form-check-sign"> <span class="check"></span>
-										</span>
-										</label>
-									</div>
 									<div class="project_cate2">
 										<div class="form-check">
 											<label class="form-check-label"> <input

@@ -104,8 +104,8 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	}
 
 	@Override
-	public List<PF_BoardDto> end_list(int page, String project_state) {
-		return pf_boardDao.end_list(page, project_state);
+	public List<PF_BoardDto> end_list(int page, String project_state, int user_no) {
+		return pf_boardDao.end_list(page, project_state, user_no);
 	}
 
 	@Override
@@ -115,19 +115,19 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 	}
 
 	@Override
-	public int totalCount_end(String project_state) {
-		return pf_boardDao.totalCount_end(project_state);
+	public int totalCount_end(String project_state,int user_no) {
+		return pf_boardDao.totalCount_end(project_state, user_no);
 	}
 
 	@Override
-	public List<PF_BoardDto> ing_list(int page, String project_state) {
-		return pf_boardDao.ing_list(page, project_state);
-	}
+	   public List<PF_BoardDto> ing_list(int page, String project_state,int user_no) {
+	      return pf_boardDao.ing_list(page, project_state,user_no);
+	   }
 
 	@Override
-	public int totalCount_ing(String project_state) {
-		return pf_boardDao.totalCount_ing(project_state);
-	}
+	   public int totalCount_ing_user(String project_state,int user_no) {
+	      return pf_boardDao.totalCount_ing_user(project_state, user_no);
+	   }
 
 	// 관심 상태 변경
 	@Override
@@ -172,4 +172,10 @@ public class PF_BoardBizImpl implements PF_BoardBiz {
 		return pf_boardDao.admin_deleteproject(board_no, project_state);
 	}
 
+	//완료로 변경경시키기
+	@Override
+	public int project_finish(int board_no) {
+		// TODO Auto-generated method stub
+		return pf_boardDao.project_finish(board_no);
+	}
 }

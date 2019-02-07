@@ -21,6 +21,9 @@ public interface PF_UserBiz {
 	public PF_UserDto MessageUser(int user_no);
 	public List<PF_UserDto> PartnersList_client(int user_no);
 	public List<PF_UserDto> partnerlist();
+	public List<PF_UserDto> typeUpdatelist(); //admin_typeupdate
+	public int typeupdateOK(int user_no);
+	public PF_UserDto selectEmailToUser(String user_email);
 	
 }
 	

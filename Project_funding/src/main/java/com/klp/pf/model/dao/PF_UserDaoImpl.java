@@ -84,4 +84,19 @@ public class PF_UserDaoImpl implements PF_UserDao {
 		List<PF_UserDto> partnerlist = sqlSession.selectList(pf_userNamespace+"partnerlist");
 		return partnerlist;
 	}
+	
+	@Override
+	   public List<PF_UserDto> typeUpdatelist() {   
+	      List<PF_UserDto> typeuplist = sqlSession.selectList(pf_userNamespace+"admin_typeUpdate");
+	      return typeuplist;
+	   }
+	@Override
+	  public int typeupdateOK(int user_no) {   
+	     return sqlSession.update(pf_userNamespace+"typeupdateOK",user_no);
+	  }
+	
+	@Override
+	public PF_UserDto selectEmailToUser(String user_email) {
+		return sqlSession.selectOne(pf_userNamespace+"selectEmailToUser", user_email);
+	}
 }

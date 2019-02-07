@@ -23,6 +23,10 @@
 	<%@ include file="WEB-INF/inc/investor_topbar.jsp"%>
 </c:if>
 
+<c:if test="${userdto.getUser_type() eq '관리자' }">
+	<%@ include file="WEB-INF/inc/admin_topbar.jsp"%>
+</c:if>
+
 <link href="resources/assets/css/project_list.css" rel="stylesheet" />
 <link rel="apple-touch-icon" sizes="76x76"
 	href="resources/assets/img/apple-icon.png">
@@ -86,13 +90,13 @@
 
 
 						<c:if test="${totalCount ne null }">
-							<p class="text-muted">${totalCount }개의 프로젝트가 있습니다.</p>
+							<p class="text-muted">${totalCount }개의프로젝트가 있습니다.</p>
 						</c:if>
-						
+
 						<c:if test="${totalCount_detail ne null }">
-							<p class="text-muted">${totalCount_detail }개의 프로젝트가 있습니다.</p>
+							<p class="text-muted">${totalCount_detail }개의프로젝트가 있습니다.</p>
 						</c:if>
-						
+
 					</div>
 				</div>
 
@@ -253,28 +257,24 @@
 
 								<div class="meeting_title">
 									<div class="meeting_area_title">
-										<p class="text-muted" style="font-size: 13px;">
-											
-										</p>
+										<p class="text-muted" style="font-size: 13px;"></p>
 									</div>
 									<div class="search_button">
 										<button class="btn" style="width: 200px; height: 40px;">검색</button>
 									</div>
 								</div>
 								<!-- 미팅 지역 끝! -->
-
 							</div>
 						</form>
 					</div>
 				</div>
 
+				<input type="hidden" id="totalCount_detail"
+					value='${totalCount_detail }'> <input type="hidden"
+					id="page" value='${page }'> <input type="hidden"
+					id="project_category" value='${project_category }'> <input
+					type="hidden" id="project_money" value='${project_money }'>
 
-
-				<input type="hidden" id="totalCount_detail" value='${totalCount_detail }'>
-				<input type="hidden" id="page" value='${page }'>
-				<input type="hidden" id="project_category" value='${project_category }'>
-				<input type="hidden" id="project_money" value='${project_money }'>
-				
 				<!-- 카테고리 별 검색 끝! -->
 				<!-- col-md-2 끝! -->
 				<div class="col-md-8" id="col8">

@@ -13,7 +13,7 @@ public interface PF_BoardDao {
 	public List<PF_BoardDto> selectBoardList(int page, String project_state);
 
 	// 진행중인 프로젝트 리스트
-	public List<PF_BoardDto> ing_list(int page, String project_state);
+    public List<PF_BoardDto> ing_list(int page, String project_state,int user_no);
 
 	public int insert(PF_BoardDto dto);
 
@@ -54,12 +54,12 @@ public interface PF_BoardDao {
 
 	public List<PF_BoardDto> likeList(int user_no);
 
-	public int totalCount_ing(String project_state);
+	public int totalCount_ing_user(String project_state,int user_no);
 
 	// 완료된 프로젝트 리스트
-	public List<PF_BoardDto> end_list(int page, String project_state);
+	public List<PF_BoardDto> end_list(int page, String project_state, int user_no );
 
-	public int totalCount_end(String project_state);
+	public int totalCount_end(String project_state,int user_no);
 
 	// 동민 추가 부분
 	// 관리자 검수 신청 온 프로젝트 리스트
@@ -73,4 +73,7 @@ public interface PF_BoardDao {
 
 	// 관리자 검수 신청 온 프로젝트 폐기하기
 	public int admin_deleteproject(int board_no, String project_state);
+	
+	//프로젝트 완료시키기
+	public int project_finish(int board_no);
 }

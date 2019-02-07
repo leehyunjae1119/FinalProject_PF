@@ -125,4 +125,17 @@ public class PF_UserBizImpl implements PF_UserBiz {
 	public List<PF_UserDto> partnerlist() {
 		return pf_dao.partnerlist();
 	}
+	
+	@Override
+	   public List<PF_UserDto> typeUpdatelist() {
+	      return pf_dao.typeUpdatelist();
+	   }
+	@Override
+	public int typeupdateOK(int user_no) {
+		return pf_dao.typeupdateOK(user_no);
+	}
+	@Override
+	public PF_UserDto selectEmailToUser(String user_email) {
+		return pf_dao.selectEmailToUser(user_email);
+	}
 }

@@ -199,6 +199,12 @@
 			<input type="button" id="partners" class="btn btn-rose btn-lg" value="지원하기 " style="display: inline-block; width: 150px;" onclick="location.href='Apply_Project.do?board_no=${dto.board_no}&user_no=${dto.user_no }'" />
    		</div>
     </c:if>
+    
+    <c:if test="${dto.getProject_state() eq '진행중' && userdto.user_no == dto.getUser_no() }">
+	    		<div class="partners_button">
+	        		<button id="partners" class="btn btn-rose btn-lg" style="display: inline-block; width: 150px;" onClick="location.href='project_finish.do?board_no=${dto.board_no}&user_no=${userdto.user_no }&page=1'">완료하기</button>
+	   			</div>	
+	</c:if>
 	
 	<hr />
 	<div class="comment_container">
