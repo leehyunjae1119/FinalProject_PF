@@ -57,4 +57,9 @@
 	<select id="recruitCount" parameterType="int" resultType="int">
 		SELECT COUNT(*) AS APPLY_CNT FROM PF_APPLICANT WHERE BOARD_NO = #{board_no} AND APPLICANT_STATE = '모집완료'	
 	</select>
+	
+	<select id="applicantUserList" parameterType="int" resultType="PF_ApplicantDto">
+		SELECT a.*, b.USER_ID FROM PF_APPLICANT a JOIN PF_USER b ON (a.USER_NO = b.USER_NO)
+		WHERE BOARD_NO = #{board_no} AND APPLICANT_STATE = '모집완료'
+	</select>
 </mapper>

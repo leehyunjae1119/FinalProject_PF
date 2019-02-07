@@ -137,7 +137,7 @@
 	</select>
 	
 	<select id="updateState">
-		UPDATE PF_BOARD SET PROJECT_STATE='진행 중' WHERE BOARD_NO=#{board_no}
+		UPDATE PF_BOARD SET PROJECT_STATE='진행중' WHERE BOARD_NO=#{board_no}
 	</select>
 	
       <!-- 관심프로젝트 표시 -->

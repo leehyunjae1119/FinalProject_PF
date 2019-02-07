@@ -957,10 +957,11 @@ public class HomeController {
 
 	// 진행중인 프로젝트
 	@RequestMapping(value = "project_ing.do")
-	public String fundingProject_ing(Model model, int page, String project_state, int user_no) {
-		model.addAttribute("ProjectList", pf_boardBiz.ing_list(page, project_state, user_no));
+	public String fundingProject_ing(Model model, int page, String project_state, HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		model.addAttribute("ProjectList", pf_boardBiz.ing_list(page, project_state, userdto.getUser_no()));
 		model.addAttribute("page", page);
-		model.addAttribute("totalCount", pf_boardBiz.totalCount_ing_user(project_state, user_no));
+		model.addAttribute("totalCount", pf_boardBiz.totalCount_ing_user(project_state, userdto.getUser_no()));
 		model.addAttribute("project_state", project_state);
 		return "Project_IngList";
 	}
@@ -982,6 +983,11 @@ public class HomeController {
 			System.out.println("완료로 변경할 게시글 번호"+board_no);
 
 			int project_finish = pf_boardBiz.project_finish(board_no);
+			if(pf_applicantBiz.applicantUserList(board_no) != null) {
+				model.addAttribute("applicantUserList", pf_applicantBiz.applicantUserList(board_no));
+				
+				return "Client_PartnersEvaluation";
+			}
 
 			model.addAttribute("project_finish", project_finish);
 			model.addAttribute("page", page);
@@ -1548,6 +1554,22 @@ public class HomeController {
 		model.addAttribute("evaluationlist", evaluationlist);
 		return "Partner_PopUpList";
 	}
+	
+	@RequestMapping(value = "/insertEvaluationAjax.do", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Boolean> insertEvaluationAjax(String evaluation_object, int evaluation_item1, int evaluation_item2, int evaluation_item3, String evaluation_content, HttpSession session) {
+		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
+		PF_EvaluationDto dto = new PF_EvaluationDto(userdto.getUser_id(), evaluation_object, evaluation_item1, evaluation_item2, evaluation_item3, evaluation_content);
+		int res = pf_evaluationBiz.insertEvaluation(dto);
+		boolean Chk = false;
+		if (res > 0) {
+			Chk = true;
+		}
+		Map<String, Boolean> map = new HashMap<String, Boolean>();
+		map.put("Chk", Chk);
+		return map;
+
+	}
 
 	// 해당 프로젝트 지원자 리스트로 이동
 	@RequestMapping(value = "recruitment_partnersList.do")
@@ -1567,7 +1589,7 @@ public class HomeController {
 		int apply_cnt = pf_applicantBiz.recruitCount(board_no);
 		if (Integer.parseInt(boarddto.getRecruit_personnel()) == apply_cnt) {
 			int boardRes = pf_boardBiz.updateState(board_no);
-			return "redirect:project_ing.do?page=1&project_state='진행 중'";
+			return "redirect:project_ing.do?page=1&project_state='진행중'";
 		}
 		return "redirect:recruitment_partnersList.do?board_no=" + board_no;
 	}

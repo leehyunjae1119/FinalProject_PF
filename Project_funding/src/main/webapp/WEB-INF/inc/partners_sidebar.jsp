@@ -37,6 +37,7 @@
 			<a class="btn btn-link2 active" href="partnerReg_portfolio.do">포트폴리오</a>
 			<a class="btn btn-link2 active" href="partnerReg_technology.do">보유 기술</a>
 			<a class="btn btn-link2 active" href="partnerReg_career.do">경력/학력/자격증</a>
+			<a class="btn btn-link2 active" href="user_delete.do">회원탈퇴</a>
 		</div>
 
 	</div>

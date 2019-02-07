@@ -22,4 +22,5 @@ public interface PF_ApplicantDao {
 	public int selectionPartners(int applicant_no);
 	public int recruitCount(int board_no); 
 
+	public List<PF_ApplicantDto> applicantUserList(int board_no);
 }

@@ -76,6 +76,10 @@ public class PF_ApplicantDaoImpl implements PF_ApplicantDao {
 		return sqlSession.selectOne(pf_applicantNamespace + "recruitCount", board_no);
 	}
 
+	@Override
+	public List<PF_ApplicantDto> applicantUserList(int board_no) {
+		return sqlSession.selectList(pf_applicantNamespace + "applicantUserList", board_no);
+	}
 	
 	
 	
