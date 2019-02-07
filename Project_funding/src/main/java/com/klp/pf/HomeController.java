@@ -536,7 +536,6 @@ public class HomeController {
 		PF_UserDto userdto = (PF_UserDto) session.getAttribute("userdto");
 		dto.setUser_no(userdto.getUser_no());
 
-		model.addAttribute("dto", pf_applicantBiz.insert(dto));
 
 		if (userdto.getUser_no() == dto.getUser_no()) {
 			model.addAttribute("dto", pf_applicantBiz.insert(dto));
@@ -586,9 +585,10 @@ public class HomeController {
 //model.addAttribute("coinlist", list);
 
 
-// 현재 보유 포인트
-		 model.addAttribute("coin", coin_charge - coin_use + coin_A);
-		 
+
+		model.addAttribute("coin", coin_charge - coin_use + coin_A);
+
+		
 		return "User_Coin";
 	}
 

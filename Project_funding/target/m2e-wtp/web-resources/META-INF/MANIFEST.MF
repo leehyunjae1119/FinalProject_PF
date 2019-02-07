@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: ￪ﾹﾀ￬ﾚﾩ￪ﾱﾴ
 Build-Jdk: 1.8.0_121
+=======
+Built-By: kdm
+Build-Jdk: 1.8.0_181
+>>>>>>> branch 'master' of https://github.com/leehyunjae1119/FinalProject_PF.git
 Created-By: Maven Integration for Eclipse
 
