@@ -35,37 +35,38 @@
 		<div class="section section-basic">
 			<div class="container">
 			<div class="row">
-				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp;
-					<a href="user_infoUpdate.do" style="font-size: 12px;
-	color: #A6A6A6; float:right;"><b>기본정보 수정하기</b></a>
-					<hr>
-					<div class="user_info">
-						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/>
-						<div class="user_info">
-							<p>${userdto.user_id }</p>
-							<p>${userdto.user_email }</p>
-						</div>
-					</div>
-					<hr>
-					<div class="col-md-12" id="col12">
-						 <div class="apply_project">
-						 	<p class="text-muted">등록한 프로젝트</p>
-						 	<p class="text-muted" id="apply">12건</p>
-						 </div>
-						 <div class="ing_project">
-						 	<p class="text-muted">진행한 프로젝트</p>
-						 	<p class="text-muted" id="ing">12건</p>
-						 </div>
-						 <div class="project">
-						 	<p class="text-muted">완료한 프로젝트</p>
-						 	<p class="text-muted" id="ok">12건</p>
-						 </div>
-						 <!-- 프로젝트 등록으로 이동(Project_Insert.jsp) -->
-						 <a href="project_insert.do"><button class="btn" style="width: 230px;">프로젝트 등록하기</button></a>
-					</div>
+				<%@ include file="WEB-INF/inc/client_sidebar.jsp"%>
+<!-- 				<div class="col-md-3" id="sidebar"><b>클라이언트</b>&nbsp;&nbsp; -->
+<!-- 					<a href="user_infoUpdate.do" style="font-size: 12px; -->
+<!-- 	color: #A6A6A6; float:right;"><b>기본정보 수정하기</b></a> -->
+<!-- 					<hr> -->
+<!-- 					<div class="user_info"> -->
+<!-- 						<img src="resources/assets/img/Teemo.png" class="user_img rounded-circle img-fluid"/> -->
+<!-- 						<div class="user_info"> -->
+<%-- 							<p>${userdto.user_id }</p> --%>
+<%-- 							<p>${userdto.user_email }</p> --%>
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<hr> -->
+<!-- 					<div class="col-md-12" id="col12"> -->
+<!-- 						 <div class="apply_project"> -->
+<!-- 						 	<p class="text-muted">등록한 프로젝트</p> -->
+<!-- 						 	<p class="text-muted" id="apply">12건</p> -->
+<!-- 						 </div> -->
+<!-- 						 <div class="ing_project"> -->
+<!-- 						 	<p class="text-muted">진행한 프로젝트</p> -->
+<!-- 						 	<p class="text-muted" id="ing">12건</p> -->
+<!-- 						 </div> -->
+<!-- 						 <div class="project"> -->
+<!-- 						 	<p class="text-muted">완료한 프로젝트</p> -->
+<!-- 						 	<p class="text-muted" id="ok">12건</p> -->
+<!-- 						 </div> -->
+<!-- 						 프로젝트 등록으로 이동(Project_Insert.jsp) -->
+<!-- 						 <a href="project_insert.do"><button class="btn" style="width: 230px;">프로젝트 등록하기</button></a> -->
+<!-- 					</div> -->
 					
 
-				</div>
+<!-- 				</div> -->
 				<div class="col">
 				<div class="col col-md-15">
 					<div class="container">

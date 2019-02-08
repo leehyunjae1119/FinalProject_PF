@@ -36,7 +36,7 @@
 			<div class="container">
 				<div class="row row-offcanvas row-offcanvas-right">
 					<c:if test="${userdto.getUser_type() eq '파트너스' }">
-  						<%@include file="WEB-INF/inc/profile_sidebar.jsp" %></c:if>	
+  						<%@ include file="WEB-INF/inc/partners_sidebar.jsp" %></c:if>	
    
 					<c:if test="${userdto.getUser_type() eq '클라이언트' }">
 						<%@ include file="WEB-INF/inc/client_sidebar.jsp" %></c:if>

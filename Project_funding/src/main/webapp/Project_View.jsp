@@ -124,14 +124,11 @@
          <div class="client_img">
          
          	<c:choose>
-				<c:when test="${client.user_img eq null && client.user_sex eq '여자'}">
-					<img src="resources/assets/img/여자.png" class="user_img rounded-circle img-fluid" />
-				</c:when>
-				<c:when test="${client.user_img eq null && client.user_sex eq '남자'}">
+				<c:when test="${userdto.user_img eq null}">
 					<img src="resources/assets/img/남자.png" class="user_img rounded-circle img-fluid" />
 				</c:when>
 				<c:otherwise>
-					<img src="http://localhost:8787/pf/storage/${client.user_img }" class="user_img rounded-circle img-fluid" />
+					<img src="http://localhost:8787/pf/storage/${userdto.user_img }" class="user_img rounded-circle img-fluid" />
 				</c:otherwise>
 			</c:choose>
 
@@ -144,9 +141,6 @@
             	</c:otherwise>
             </c:choose>    
             
-         </div>
-         <div class="star">
-            <p class="text-muted">별점 공간</p>
          </div>
          <div class="project_area">
             <p class="text-muted"><b>프로젝트 등록</b></p>
